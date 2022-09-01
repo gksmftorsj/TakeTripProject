@@ -2,7 +2,7 @@ var naverLogin = new naver.LoginWithNaverId({
   //내 애플리케이션 정보에 cliendId를 입력해줍니다.
   clientId: "wcyad8RUU4UMX2VrzXe2",
   // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-  callbackUrl: "https://gksmftorsj.github.io/project0901/",
+  callbackUrl: "https://gksmftorsj.github.io/project0901/html/login-signup.html",
   isPopup: false, // 팝업을 통한 연동처리 여부 
   callbackHandle: true // callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback 처리를 해줄 수 있도록 설정합니다.02
 }
@@ -58,6 +58,12 @@ function naverLogout() {
   localStorage.removeItem(NAVER_USERNAME_KEY);
   localStorage.removeItem(NAVER_EMAIL_KEY);
   // 만약 KEY 값이 null 즉 삭제되었다면 로그아웃
+  console.log(savedNaverUsername);
+  console.log(savedNaverUsername);
+  console.log(savedNaverUsername);
+  console.log(savedNaverUsername);
+  console.log(savedNaverUsername);
+  console.log(savedNaverUsername);
   console.log(savedNaverUsername);
   if (savedNaverUsername === null && savedNaverEmail === null) {
     openPopUp(); // 로그아웃 창 open
