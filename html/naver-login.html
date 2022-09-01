@@ -33,7 +33,7 @@
           //내 애플리케이션 정보에 cliendId를 입력해줍니다.
           clientId: "QtdQf_0ibS14JF4wxGRu",
           // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-          callbackUrl: "https://gksmftorsj.github.io/project0901/html/naver-login.html",//"https://gksmftorsj.github.io/project0901/index.html",
+          callbackUrl: "https://gksmftorsj.github.io/project0901/html/naver-login.html",
           isPopup: false, // 팝업을 통한 연동처리 여부 
           callbackHandle: true // callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback 처리를 해줄 수 있도록 설정합니다.02
         }
@@ -49,14 +49,16 @@
             // (5) 필수적으로 받아야 하는 프로필 정보가 있다면 callback처리 시점에 체크
             var username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
             console.log(username);
-            localStorage.setItem("naver_username", username); // localStorage에 이름 값 저장
+            // const NAVER_USERNAME = "naver_username";
+            localStorage.setItem(NAVER_USERNAME, username); // localStorage에 이름 값 저장
             if (username == undefined || username == null) {
               alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
               naverLogin.reprompt(); // 필수정보인 이름 값이 없다면 다시 한 번 동의창 띄우기
               return;
             }
             var email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
-            localStorage.setItem("naver_email", email); // localStorage에 이메일 값 저장
+            // const NAVER_EMAIL = "naver_email";
+            localStorage.setItem(NAVER_EMAIL, email); // localStorage에 이메일 값 저장
             console.log(email);
             if (email == undefined || email == null) {
               alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
