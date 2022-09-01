@@ -13,7 +13,7 @@
       <li>
         <!-- 아래와같이 아이디를 꼭 써준다. -->
         <a id="naverIdLogin_loginButton" href="javascript:void(0)">
-          <span>네이버 로그인</span>
+          <img src="../img/naver_login.png">
         </a>
       </li>
       <li onclick="naverLogout(); return false;">
@@ -22,32 +22,43 @@
         </a>
       </li>
     </ul>
-    <!-- 네이버 스크립트 -->
+
+    <!-- (1) LoginWithNaverId Javascript SDK -->
     <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 
+    <!-- (2) LoginWithNaverId Javascript 설정 정보 및 초기화 -->
     <script>
-
       var naverLogin = new naver.LoginWithNaverId(
         {
-          clientId: "QtdQf_0ibS14JF4wxGRu", //내 애플리케이션 정보에 cliendId를 입력해줍니다.
-          callbackUrl: "https://gksmftorsj.github.io/project0901/index.html", // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-          isPopup: false,
-          callbackHandle: true
+          //내 애플리케이션 정보에 cliendId를 입력해줍니다.
+          clientId: "QtdQf_0ibS14JF4wxGRu",
+          // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
+          callbackUrl: "https://gksmftorsj.github.io/project0901/index.html",
+          isPopup: false, // 팝업을 통한 연동처리 여부 
+          callbackHandle: true // callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback 처리를 해줄 수 있도록 설정합니다.02
         }
       );
 
+      // (3) 네이버아이디 로그인 정보를 초기화하기 위하여 init을 호출
       naverLogin.init();
 
+      // (4) Callback의 처리, 정상적으로 Callback 처리가 완료될 경우 main page로 redirect(또는 Popup close) / 페이지가 정상적으로 로드 되었을 때 함수 실행
       window.addEventListener('load', function () {
         naverLogin.getLoginStatus(function (status) {
-          if (status) {
-            var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다.
-
-            console.log(naverLogin.user);
-
+          if (status) { // 정상적으로 로그인 되면 status = true
+            // (5) 필수적으로 받아야 하는 프로필 정보가 있다면 callback처리 시점에 체크
+            var username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
+            localStorage.setItem("naver_username", username); // localStorage에 이름 값 저장
+            if (username == undefined || username == null) {
+              alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
+              naverLogin.reprompt(); // 필수정보인 이름 값이 없다면 다시 한 번 동의창 띄우기
+              return;
+            }
+            var email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
+            localStorage.setItem("naver_email", email); // localStorage에 이메일 값 저장
             if (email == undefined || email == null) {
               alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
-              naverLogin.reprompt();
+              naverLogin.reprompt(); // 필수정보인 이메일 값이 없다면 다시 한 번 동의창 띄우기
               return;
             }
           } else {
@@ -56,7 +67,6 @@
         });
       });
 
-
       var testPopUp;
       function openPopUp() {
         testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
@@ -64,6 +74,8 @@
       function closePopUp() {
         testPopUp.close();
       }
+
+
 
       function naverLogout() {
         openPopUp();
@@ -74,7 +86,6 @@
 
       }
     </script>
-    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
   </body>
 
 </html>
