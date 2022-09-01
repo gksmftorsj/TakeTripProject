@@ -36,7 +36,11 @@
           <div class="account-check">계정이 없으십니까?<span class="signupBtn">회원가입</span>하기</div>
           <div class="anotherLoginMethod">
             <span class="or">or</span>
-            <img class="login-btn kakao" src="../img/kakao_login.png" alt="카카오계정 로그인">
+            <div class="kakao_naver_btn">
+              <img class="login-btn kakao" src="../img/kakao_login.png">
+              <img class="login-btn naver" src="../img/naver_login.png" id="naverIdLogin_loginButton">
+              <span onclick="naverLogout()" style="display: none;"></span>
+            </div>
           </div>
         </form>
       </div>
@@ -84,11 +88,15 @@
       </div>
     </div>
 
-
     <script src="../js/login-info.js"></script>
+
     <!-- 카카오 로그인  -->
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="../js/kakao-login.js"></script>
+
+    <!-- 네이버 로그인 -->
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+    <script src="../js/naver-login.js"></script>
 
   </body>
 
