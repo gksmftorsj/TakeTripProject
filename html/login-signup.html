@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>로그인 및 회원가입</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/login.css">
+  <link rel="stylesheet" href="../css/signup.css">
+</head>
+
+<body>
+  <!-- 로그인 화면 -->
+  <div class="login login-absolute">
+    <div class="login-screen">
+      <form id="login-form">
+        <label class="로그인">로그인</label>
+        <div class="login-field email">
+          <label for="login-email">
+            <img class="emailImg" src="../img/email.png">
+          </label>
+          <input type="email" id="login-email" placeholder="이메일"
+            pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" title="이메일 양식 ex)example.com" required>
+        </div>
+        <div class="login-field pw">
+          <label for="login-pw">
+            <img class="pwImg" src="../img/password.png">
+          </label>
+          <input type="password" id="login-pw" placeholder="비밀번호"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
+            title="올바른 비밀번호를 입력하시오.">
+        </div>
+        <input type="submit" class="login-btn normal" value="로그인">
+        <div class="account-check">계정이 없으십니까?<span class="signupBtn">회원가입</span>하기</div>
+        <div class="anotherLoginMethod">
+          <span class="or">or</span>
+          <div class="kakao_naver_btn">
+            <img class="login-btn kakao" src="../img/kakao_login.png">
+            <img class="login-btn naver" src="../img/naver_login.png" id="naverIdLogin_loginButton">
+            <span onclick="naverLogout()" style="display: none;"></span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <img src="../img/loginbg.jpg" class="login-bg">
+  </div>
+
+  <!-- 회원가입 화면 -->
+  <div class="signup hidden-signup">
+    <img src="../img/signupbg.jpg" class="signup-bg">
+    <div class="signup-screen">
+      <form id="signup-form">
+        <div class="회원가입">회원가입</div>
+        <div class="signup-field username">
+          <label for="signup-username">
+            <img class="userImg" src="../img/user.png">
+          </label>
+          <input type="text" id="signup-username" placeholder="사용자 이름" maxlength="12" required>
+        </div>
+        <div class="signup-field email">
+          <label for="signup-email">
+            <img class="emailImg" src="../img/email.png">
+          </label>
+          <input type="email" id="signup-email" placeholder="이메일"
+            pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" title="이메일 양식 ex)example.com" required>
+        </div>
+        <div class="signup-field pw">
+          <label for="signup-pw">
+            <img class="pwImg" src="../img/password.png">
+          </label>
+          <input type="password" id="signup-pw" placeholder="비밀번호"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
+            title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
+        </div>
+        <div class="signup-field pw">
+          <label for="signup-pwChk">
+            <img class="pwImg" src="../img/password.png">
+          </label>
+          <input type="password" id="signup-pwChk" placeholder="비밀번호 확인"
+            pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
+            title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
+        </div>
+        <input type="submit" class="signup-btn" value="회원가입">
+        <div class="account-check">계정이 없으십니까?<span class="loginBtn">로그인</span>하기</div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/login-info.js"></script>
+
+  <!-- 카카오 로그인  -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="../js/kakao-login.js"></script>
+
+  <!-- 네이버 로그인 -->
+  <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+  <script src="../js/naver-login.js"></script>
+
+</body>
+
+</html>
