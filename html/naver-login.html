@@ -73,7 +73,7 @@
 
       var testPopUp;
       function openPopUp() {
-        testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=200,height=200");
+        testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
       }
       function closePopUp() {
         testPopUp.close();
@@ -83,6 +83,7 @@
         localStorage.removeItem(NAVER_USERNAME_KEY);
         localStorage.removeItem(NAVER_EMAIL_KEY);
         if (savedNaverUsername === "" && savedNaverEmail === "") {
+          console.log("값이 삭제되었습니다.");
           openPopUp();
           setTimeout(function () {
             closePopUp();
