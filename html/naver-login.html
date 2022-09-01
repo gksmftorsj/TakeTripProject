@@ -84,6 +84,8 @@
       function naverLogout() {
         localStorage.removeItem(NAVER_USERNAME_KEY);
         localStorage.removeItem(NAVER_EMAIL_KEY);
+        console.log(savedNaverUsername);
+        console.log(savedNaverEmail);
         if (savedNaverUsername === "" && savedNaverEmail === "") {
           console.log("값이 삭제되었습니다.");
           openPopUp();
