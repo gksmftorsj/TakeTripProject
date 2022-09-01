@@ -69,9 +69,12 @@
         });
       });
 
+
+
+
       var testPopUp;
       function openPopUp() {
-        testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
+        testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=200,height=200");
       }
       function closePopUp() {
         testPopUp.close();
@@ -83,7 +86,7 @@
         openPopUp();
         setTimeout(function () {
           closePopUp();
-        }, 1000);
+        }, 10000);
 
 
       }
