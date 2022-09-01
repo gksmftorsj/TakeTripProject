@@ -5,17 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id"
       content="119946729965-cmanr8crrcqcmd5aomm8jda76v2s7m3p.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <title>Document</title>
   </head>
 
   <body>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-    <a href="#" onclick="signOut();">Sign out</a>
-
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 
     <script>
       function onSignIn(googleUser) {
@@ -24,15 +22,10 @@
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-      }
 
-      function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () {
-          console.log('User signed out.');
-        });
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
       }
-
     </script>
 
   </body>
