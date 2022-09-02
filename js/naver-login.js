@@ -24,7 +24,7 @@ window.addEventListener('load', function () {
       var email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
       localStorage.setItem(NAVER_EMAIL_KEY, email); // localStorage에 이메일 값 저장
       console.log("로그인 성공");
-      window.location.href = "../index.html";
+      window.location.href;
       if (username == undefined || username == null) {
         alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
         naverLogin.reprompt(); // 필수정보인 이름 값이 없다면 다시 한 번 동의창 띄우기
