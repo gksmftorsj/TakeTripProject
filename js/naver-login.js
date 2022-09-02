@@ -2,7 +2,7 @@ var naverLogin = new naver.LoginWithNaverId({
   //내 애플리케이션 정보에 cliendId를 입력해줍니다.
   clientId: "wcyad8RUU4UMX2VrzXe2",
   // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-  callbackUrl: "https://gksmftorsj.github.io/project0901/",
+  callbackUrl: "https://gksmftorsj.github.io/project0901/html/login-signup.html",
   isPopup: false, // 팝업을 통한 연동처리 여부
   callbackHandle: true, // callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback 처리를 해줄 수 있도록 설정합니다.
 });
@@ -24,7 +24,9 @@ window.addEventListener("load", function () {
       var email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
       localStorage.setItem(NAVER_EMAIL_KEY, email); // localStorage에 이메일 값 저장
       console.log("로그인 성공");
-      // window.location.href;
+      if (window.location == "https://gksmftorsj.github.io/project0901/html/login-signup.html") {
+        window.location.href = "https://gksmftorsj.github.io/project0901/";
+      }
       if (username == undefined || username == null) {
         alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
         naverLogin.reprompt(); // 필수정보인 이름 값이 없다면 다시 한 번 동의창 띄우기
@@ -48,11 +50,7 @@ var testPopUp;
 function openPopUp() {
   // 로그아웃 창 open
   console.log("hi");
-  testPopUp = window.open(
-    "https://nid.naver.com/nidlogin.logout",
-    "_blank",
-    "toolbar=yes,scrollbars=yes,resizable=no,width=1,height=1"
-  );
+  testPopUp = window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=no,width=1,height=1");
   window.location.href;
 }
 function closePopUp() {
@@ -65,20 +63,13 @@ function naverLogout() {
   localStorage.removeItem(NAVER_USERNAME_KEY);
   localStorage.removeItem(NAVER_EMAIL_KEY);
   // 만약 KEY 값이 null 즉 삭제되었다면 로그아웃
-  console.log(savedNaverUsername);
-  console.log(savedNaverUsername);
-  console.log(savedNaverUsername);
-  console.log(savedNaverUsername);
-  console.log(savedNaverUsername);
-  console.log(savedNaverUsername);
-  console.log(savedNaverUsername);
   if (savedNaverUsername === null && savedNaverEmail === null) {
     openPopUp(); // 로그아웃 창 open
     closePopUp();
     setTimeout(function () {
-      // 0.1초 뒤에 로그아웃 창 close
+      // 열리자마자 로그아웃 창 close
       closePopUp();
     }, 0);
-    // alert("로그아웃 되었습니다.") // 로그아웃 성공
+    alert("로그아웃 되었습니다.") // 로그아웃 성공
   }
 }
