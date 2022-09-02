@@ -82,10 +82,10 @@ const $loginEmail = document.querySelector("#login-email"); // 로그인 이메�
 const $loginPw = document.querySelector("#login-pw"); // 로그인 비밀번호
 
 // localStorage KEY 이름
-const USERNAME_KEY = "username";
-const EMAIL_KEY = "email";
-const PW_KEY = "pw";
-const PWCHK_KEY = "pwChk";
+const GENERAL_USERNAME_KEY = "general_username";
+const GENERAL_EMAIL_KEY = "general_email";
+const GENERAL_PW_KEY = "general_pw";
+const GENERAL_PWCHK_KEY = "general_pwChk";
 
 // 회원가입 완료 시 팝업창
 function signUpCompletePopup() {
@@ -94,25 +94,25 @@ function signUpCompletePopup() {
   let left = Math.ceil((window.screen.width - width) / 2); // ceil=올림
   let top = Math.ceil((window.screen.height - height) / 2);
   window.open(
-    "signup_complete.html",
+    "../html/signup-complete.html",
     "회원가입완료 팝업",
-    `width=${width}, height=${height}, left=${left}, top=${top}`
+    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
   ); // 팝업창 가운데 정렬
 }
 
 function handleSignupBtn(event) {
   event.preventDefault();
-  const username = $signupUsername.value; // 회원가입 사용자 이름 입력 값 username에 저장
-  localStorage.setItem(USERNAME_KEY, username); // localStorage의 USERNAME_KEY에 저장했던 username 값 저장
-  const email = $signupEmail.value; // 회원가입 이메일 입력 값 email에 저장
-  localStorage.setItem(EMAIL_KEY, email); // localStorage의 EMAIL_KEY에 저장했던 email 값 저장
-  const pw = $signupPw.value; // 회원가입 비밀번호 입력 값 pw에 저장
-  localStorage.setItem(PW_KEY, pw); // localStorage의 PW_KEY에 저장했던 pw 값 저장
-  const pwChk = $signupPwChk.value; // 회원가입 비밀번호 확인 입력 값 pwChk에 저장
-  localStorage.setItem(PWCHK_KEY, pwChk); // localStorage의 PWCHK_KEY에 저장했던 pwChk 값 저장
-  if (username === "" || email === "" || pw === "" || pwChk === "") {
+  const general_username = $signupUsername.value; // 회원가입 사용자 이름 입력 값 username에 저장
+  localStorage.setItem(GENERAL_USERNAME_KEY, general_username); // localStorage의 USERNAME_KEY에 저장했던 username 값 저장
+  const general_email = $signupEmail.value; // 회원가입 이메일 입력 값 email에 저장
+  localStorage.setItem(GENERAL_EMAIL_KEY, general_email); // localStorage의 EMAIL_KEY에 저장했던 email 값 저장
+  const general_pw = $signupPw.value; // 회원가입 비밀번호 입력 값 pw에 저장
+  localStorage.setItem(GENERAL_PW_KEY, general_pw); // localStorage의 PW_KEY에 저장했던 pw 값 저장
+  const general_pwChk = $signupPwChk.value; // 회원가입 비밀번호 확인 입력 값 pwChk에 저장
+  localStorage.setItem(GENERAL_PWCHK_KEY, general_pwChk); // localStorage의 PWCHK_KEY에 저장했던 pwChk 값 저장
+  if (general_username === "" || general_email === "" || general_pw === "" || general_pwChk === "") {
     alert("값을 입력해주세요."); // 빈칸이 있으면 경고창
-  } else if (pw !== pwChk) {
+  } else if (general_pw !== general_pwChk) {
     alert("비밀번호를 확인해주세요."); // 비밀번호와 비밀번호 확인이 다르면 경고창
   } else {
     signupToLogin(); // 빈칸도 없고 비밀번호도 맞으면 로그인 창으로 넘어가기
@@ -129,25 +129,25 @@ $signupForm.addEventListener("submit", handleSignupBtn); // 회원가입 버튼 
 
 function handleLoginBtn(event) {
   event.preventDefault();
-  const savedEmail = localStorage.getItem(EMAIL_KEY); // localStorage에 저장된 email 값 가져와 저장
-  const savedPw = localStorage.getItem(PW_KEY); // localStorage에 저장된 pw 값 가져와 저장
-  const email = $loginEmail.value; // 로그인 이메일 입력 값 email에 저장
-  const pw = $loginPw.value; // 로그인 비밀번호 입력 값 pw에 저장
-  if (email === "" || pw === "") {
+  const general_savedEmail = localStorage.getItem(GENERAL_EMAIL_KEY); // localStorage에 저장된 email 값 가져와 저장
+  const general_savedPw = localStorage.getItem(GENERAL_PW_KEY); // localStorage에 저장된 pw 값 가져와 저장
+  const general_email = $loginEmail.value; // 로그인 이메일 입력 값 email에 저장
+  const general_pw = $loginPw.value; // 로그인 비밀번호 입력 값 pw에 저장
+  if (general_email === "" || general_pw === "") {
     // 빈칸이 있으면 경고창
     alert("값을 입력해주세요.");
-  } else if (email !== savedEmail && pw !== savedPw) {
+  } else if (general_email !== general_savedEmail && general_pw !== general_savedPw) {
     // 이메일 비밀번호 둘 다 다르면 경고창
     alert("이메일과 비밀번호를 다시 입력해주세요.");
-  } else if (email !== savedEmail && pw === savedPw) {
+  } else if (general_email !== general_savedEmail && general_pw === general_savedPw) {
     // 이메일만 다르면 경고창
     alert("이메일을 다시 입력해주세요.");
-  } else if (email === savedEmail && pw !== savedPw) {
+  } else if (general_email === general_savedEmail && general_pw !== general_savedPw) {
     // 비밀번호만 다르면 경고창
     alert("비밀번호를 다시 입력해주세요.");
-  } else if (email === savedEmail && pw === savedPw) {
+  } else if (general_email === general_savedEmail && general_pw === general_savedPw) {
     // 이메일 비밀번호 둘 다 같으면 메인페이지로 넘어가기
-    location.href = "mainpage.html";
+    location.href = "nav.html";
     $loginEmail.value = ""; // 로그인 완료 후 입력창 빈 값으로 초기화
     $loginPw.value = "";
   }

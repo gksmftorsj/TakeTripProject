@@ -2,7 +2,7 @@ var naverLogin = new naver.LoginWithNaverId({
   //내 애플리케이션 정보에 cliendId를 입력해줍니다.
   clientId: "wcyad8RUU4UMX2VrzXe2",
   // 내 애플리케이션 API설정의 Callback URL 을 입력해줍니다.
-  callbackUrl: "https://gksmftorsj.github.io/project0901/html/login-signup.html",
+  callbackUrl: "https://gksmftorsj.github.io/project0901/",
   isPopup: false, // 팝업을 통한 연동처리 여부
   callbackHandle: true, // callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback 처리를 해줄 수 있도록 설정합니다.
 });
@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
       localStorage.setItem(NAVER_EMAIL_KEY, email); // localStorage에 이메일 값 저장
       console.log("로그인 성공");
       window.location.href = "https://gksmftorsj.github.io/project0901/";
-      //만약 로그인 페이지로 들어오면 메인페이지로 이동
+      //만약 로그인 페이지로 들어오면 바로 메인페이지로 이동
       if (username == undefined || username == null) {
         alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
         naverLogin.reprompt(); // 필수정보인 이름 값이 없다면 다시 한 번 동의창 띄우기

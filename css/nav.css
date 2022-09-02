@@ -1,0 +1,85 @@
+.navBox{
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.logoBox{
+  margin-left: 30px;
+}
+
+.btnBox{
+  display: flex;
+  align-items: center;
+}
+
+/* input type button은 cursor 값이 default 이기 때문에 hover할 때가 아닌 그냥 cursor pointer를 줘야 한다. */
+.loginBtn{
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.myInfo{
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+}
+
+.myInfo:hover{
+  cursor: pointer;
+}
+
+.navbar_switch{
+  margin-right: 20px;
+}
+
+.navbar_switch_box{ /* 둥근 박스 생성 */
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  width: 3rem;
+  background-color: rgb(49, 138, 202);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.navbar_switch_boxBtn{ /* 버튼 생성 후 translateX*/
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.3s ease-in-out 0s;
+  transform: translateX(1.5rem);
+  border: 1px solid rgb(49, 138, 202);
+}
+
+
+.showMyInfo{
+  width: 220px;
+  height: 110px;
+  background-color: aquamarine;
+  position: absolute;
+  right: 80px;
+  top: 46px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  visibility: hidden;
+  /* visibility는 문서의 레이아웃을 변경하지 않고 요소를 보이거나 숨깁니다. */
+}
+
+.showMyInfo:first{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hidden{
+visibility: visible;
+}
