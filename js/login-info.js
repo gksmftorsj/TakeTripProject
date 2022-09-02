@@ -96,7 +96,7 @@ function signUpCompletePopup() {
   window.open(
     "signup_complete.html",
     "회원가입완료 팝업",
-    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
+    `width=${width}, height=${height}, left=${left}, top=${top}`
   ); // 팝업창 가운데 정렬
 }
 
