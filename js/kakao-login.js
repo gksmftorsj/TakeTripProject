@@ -30,7 +30,7 @@ function kakaoLogin() {
           localStorage.setItem(KAKAO_USERNAME_KEY, kakaoUsername);
           localStorage.setItem(KAKAO_EMAIL_KEY, kakaoEmail);
           console.log("로그인 성공");
-          window.location.href = "../index.html";
+          window.location.href = "http://127.0.0.1:5500/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/html/nav.html";
         },
       });
     },
