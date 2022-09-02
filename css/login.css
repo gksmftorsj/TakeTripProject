@@ -1,26 +1,26 @@
 body {
-  background-color: #f7f7f7;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background-color: #f7f7f7;
 }
 
 .login {
-  background-color: rgb(196, 214, 208);
-  width: 1200px;
-  height: 600px;
+  width: 60%;
+  height: 64%;
   display: flex;
   align-items: center;
   border-radius: 20px;
+  background-color: rgb(196, 214, 208);
 }
 
+/* 로그인 전체화면 absolute */
 .login-absolute {
   position: absolute;
-  /* z-index: 1; */
-  /* opacity 1을 제거를 해줬기 때문에 z-index는 필요가 없다. */
 }
 
+/* 로그인 전제화면 투명도 주기 */
 .show-login {
   animation: loginShow 1.5s forwards;
 }
@@ -40,15 +40,19 @@ body {
 .login-screen {
   width: 50%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* 로그인 스크린 나타나기 */
 .show-login-form {
   animation: loginFormShow 1.5s forwards;
 }
 
 @keyframes loginFormShow {
   0% {
-    transform: translateX(600px);
+    transform: translateX(100%);
     opacity: 0;
   }
   50% {
@@ -59,6 +63,7 @@ body {
   }
 }
 
+/* 로그인 스크린 숨기기 */
 .hidden-login-form {
   animation: loginFormHidden 1.5s forwards;
 }
@@ -71,67 +76,71 @@ body {
     opacity: 0.5;
   }
   100% {
-    transform: translateX(600px);
+    transform: translateX(100%);
     opacity: 0.001;
     visibility: hidden;
   }
 }
 
 #login-form {
+  position: relative;
   width: 100%;
-  height: 100%;
-  color: #eee;
+  height: 104%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #eee;
 }
 
-.로그인 {
+.login-header {
+  width: 58%;
+  text-align: center;
+  margin: 20px 0px 10px 0px;
   font-size: 2rem;
-  margin-bottom: 20px;
 }
 
 .login-field {
-  width: 300px;
-  margin: 10px;
+  width: 64%;
+  height: 15%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .login-field label {
-  background-color: #363a40;
-  border: 1px solid black;
-  border-right: none;
-  border-radius: 5px;
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
+  width: 15%;
+  height: 65%;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 54px;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-right: none;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  background-color: #363a40;
 }
 
 .login-field input {
+  width: 75%;
+  height: 63%;
+  padding: 0;
   border: 1px solid black;
   border-radius: 5px;
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
-  width: 230px;
-  height: 50px;
   background-color: #3a4048;
 }
 
-.emailImg {
-  width: 35px;
-  height: 35px;
+.email-img {
+  width: 95%;
+  height: 95%;
 }
 
-.pwImg{
-  width: 25px;
-  height: 25px;
+.pw-img {
+  width: 60%;
+  height: 60%;
 }
 
 .login-field input[type="email"]:focus,
@@ -141,61 +150,65 @@ body {
   background-color: #45505d;
 }
 
-.account-check {
-  width: 300px;
-  margin-top: 5px;
-  margin-bottom: 30px;
+.accountChk {
+  width: 58%;
+  margin-top: 10px;
+  margin-bottom: 20px;
   text-align: center;
-}
-
-.signupBtn {
-  color: black;
-  margin: 0px 5px 0px 15px;
-}
-
-.signupBtn:hover {
-  cursor: pointer;
+  font-size: 20px;
 }
 
 .login-btn {
-  width: 276px;
-  height: 50px;
+  width: 58%;
+  height: 10%;
   margin: 10px;
   border: none;
   border-radius: 5px;
 }
 
-.login-btn:hover {
+.login-btn.general:hover {
   cursor: pointer;
   background-color: antiquewhite;
 }
 
-.anotherLoginMethod {
+.signup-screen-btn {
+  margin: 0px 5px 0px 15px;
+  cursor: pointer;
+  color: black;
+}
+
+.another-btn {
   position: relative;
+  width: 58%;
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid black;
 }
 
-.or {
-  position: absolute;
-  left: 140px;
-  top: -14px;
-  color: black;
-  background-color: rgb(196, 214, 208);
-  padding: 5px;
-}
-
-.kakao_naver_btn{
+.kakao-naver-btn {
+  width: 100%;
+  height: 60%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.kakao-naver-btn:hover {
+  cursor: pointer;
 }
 
 .login-btn.kakao {
-  height: 55px;
-  margin-top: 30px;
+  width: 100%;
+  height: 63px;
 }
 
-.login-btn.naver{
-  height: 55px;
+.login-btn.naver {
+  width: 109%;
+  height: 72px;
 }
 
 .login-bg {
@@ -206,13 +219,14 @@ body {
   border-bottom-left-radius: 0px;
 }
 
+/* 로그인 배경화면 나타나기 */
 .show-login-bg {
   animation: loginBgShow 1.5s forwards;
 }
 
 @keyframes loginBgShow {
   0% {
-    transform: translateX(-600px);
+    transform: translateX(-100%);
     opacity: 0;
   }
   50% {
@@ -226,6 +240,7 @@ body {
   }
 }
 
+/* 로그인 배경화면 숨기기 */
 .hidden-login-bg {
   animation: loginBgHidden 1.5s forwards;
 }
@@ -241,7 +256,7 @@ body {
     border-radius: 20px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    transform: translateX(-600px);
+    transform: translateX(-100%);
     opacity: 0.001;
     visibility: hidden;
   }

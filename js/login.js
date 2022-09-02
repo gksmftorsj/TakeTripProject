@@ -1,29 +1,29 @@
-// 회원가입 로그인 css 설정
-const $login = document.querySelector(".login"); // 로그인 컨테이너
+// 로그인 회원가입 css 설정
+const $login = document.querySelector(".login"); // 로그인 전체화면
 const $loginScreen = document.querySelector(".login-screen"); // 로그인 스크린
 const $loginBg = document.querySelector(".login-bg"); // 로그인 배경화면
-const $login_signupBtn = document.querySelector(".signupBtn"); // 로그인 창에서 회원가입 버튼
+const $login_signupBtn = document.querySelector(".signup-screen-btn"); // 로그인 창에서 회원가입 버튼
 
-const $signup = document.querySelector(".signup"); // 회원가입 컨테이너
+const $signup = document.querySelector(".signup"); // 회원가입 전체화면
 const $signupScreen = document.querySelector(".signup-screen"); // 회원가입 스크린
 const $signupBg = document.querySelector(".signup-bg"); // 회원가입 배경화면
 const $signup_signupBtn = document.querySelector(".signup-btn"); // 회원가입에서 회원가입 버튼
-const $signup_loginBtn = document.querySelector(".loginBtn"); // 회원가입에서 로그인 버튼
+const $signup_loginBtn = document.querySelector(".login-screen-btn"); // 회원가입에서 로그인 버튼
 
 const HIDDEN_LOGINFORM = "hidden-login-form"; // 로그인 스크린 숨기기
 const HIDDEN_LOGINBG = "hidden-login-bg"; // 로그인 배경화면 숨기기
 const SHOW_LOGINFORM = "show-login-form"; // 로그인 스크린 나타나기
 const SHOW_LOGINBG = "show-login-bg"; // 로그인 배경화면 나타나기
-const SHOW_LOGIN = "show-login"; // 로그인 컨테이너 opacity 주기
-const LOGIN_ABSOLUTTE = "login-absolute"; // 로그인 컨테이너 absolute class
+const SHOW_LOGIN = "show-login"; // 로그인 전체화면 투명도 주기
+const LOGIN_ABSOLUTTE = "login-absolute"; // 로그인 전체화면 absolute class
 
 const HIDDEN_SIGNUPFORM = "hidden-signup-form"; // 회원가입 스크린 숨기기
 const HIDDEN_SIGNUPBG = "hidden-signup-bg"; // 회원가입 배경화면 숨기기
 const SHOW_SIGNUPFORM = "show-signup-form"; // 회원가입 스크린 나타나기
 const SHOW_SIGNUPBG = "show-signup-bg"; // 회원가입 배경화면 나타나기
-const HIDDEN_SIGNUP = "hidden-signup"; // 회원가입 컨테이너 display none 주기
-const SHOW_SIGNUP = "show-signup"; // 회원가입 컨테이너 opacity 주기
-const SIGNUP_ABSOLUTE = "signup-absolute"; // 회원가입 컨테이너 absolute 주기
+const HIDDEN_SIGNUP = "hidden-signup"; // 회원가입 전체화면 display none 주기
+const SHOW_SIGNUP = "show-signup"; // 회원가입 전체화면 투명도 주기
+const SIGNUP_ABSOLUTE = "signup-absolute"; // 회원가입 전체화면 absolute 주기
 
 function loginToSignup() {
   // 로그인 창에서 회원가입으로 넘어가는 css
@@ -31,16 +31,16 @@ function loginToSignup() {
   $loginBg.classList.add(HIDDEN_LOGINBG); // (로그인 배경화면 숨기기) 추가
   $signupScreen.classList.remove(HIDDEN_SIGNUPFORM); // (회원가입 스크린 숨기기) 제거
   $signupBg.classList.remove(HIDDEN_SIGNUPBG); // (회원가입 배경화면 숨기기) 제거
-  $login.classList.remove(LOGIN_ABSOLUTTE); // 로그인 컨테이너 classList에서 absolute 제거
-  $signup.classList.add(SIGNUP_ABSOLUTE); // (회원가입 컨테이너 abosolute 주기) 추가
-  $signup.classList.remove(HIDDEN_SIGNUP); // (회원가입 컨테이너 display none 주기) 제거
-  $signup.classList.add(SHOW_SIGNUP); // (회원가입 컨테이너 opacity 주기) 추가
+  $login.classList.remove(LOGIN_ABSOLUTTE); // 로그인 전체화면 classList에서 absolute 제거
+  $signup.classList.add(SIGNUP_ABSOLUTE); // (회원가입 전체화면 abosolute 주기) 추가
+  $signup.classList.remove(HIDDEN_SIGNUP); // (회원가입 전체화면 display none 주기) 제거
+  $signup.classList.add(SHOW_SIGNUP); // (회원가입 전체화면 투명도 주기) 추가
   $signupScreen.classList.add(SHOW_SIGNUPFORM); // (회원가입 스크린 나타나기) 추가
   $signupBg.classList.add(SHOW_SIGNUPBG); // (회원가입 배경화면 나타나기) 추가
   $loginScreen.classList.remove(SHOW_LOGINFORM); // (로그인 스크린 나타나기) 제거
   $loginBg.classList.remove(SHOW_LOGINBG); // (로그인 배경화면 나타나기) 제거
-  $login.classList.remove(SHOW_LOGIN); // (로그인 컨테이너 opacity 주기) 제거
-  // => 제거를 하지 않으면 opacity가 1이기 떄문에 signup => login 넘어올 때 회원가입 컨테이너가 보이지 않음
+  $login.classList.remove(SHOW_LOGIN); // (로그인 전체화면 투명도 주기) 제거
+  // => 제거를 하지 않으면 투명도가 1이기 떄문에 signup => login 넘어올 때 회원가입 전체화면가 보이지 않음
   $loginEmail.value = ""; // 로그인 창에서 회원가입 창으로 넘어갈 시 빈 값으로 초기화
   $loginPw.value = "";
 }
@@ -53,15 +53,15 @@ function signupToLogin() {
   $signupBg.classList.add(HIDDEN_SIGNUPBG); // (회원가입 배경화면 숨기기) 추가
   $loginScreen.classList.remove(HIDDEN_LOGINFORM); // (로그인 스크린 숨기기) 제거
   $loginBg.classList.remove(HIDDEN_LOGINBG); // (로그인 배경화면 숨기기) 제거
-  $login.classList.add(LOGIN_ABSOLUTTE); // 로그인 컨테이너 classList에서 absolute 추가
-  $signup.classList.remove(SIGNUP_ABSOLUTE); // (회원가입 컨테이너 absolute 주기) 제거
-  $login.classList.add(SHOW_LOGIN); // (로그인 컨테이너 opacity 주기) 추가
+  $login.classList.add(LOGIN_ABSOLUTTE); // 로그인 전체화면 classList에서 absolute 추가
+  $signup.classList.remove(SIGNUP_ABSOLUTE); // (회원가입 전체화면 absolute 주기) 제거
+  $login.classList.add(SHOW_LOGIN); // (로그인 전체화면 투명도 주기) 추가
   $loginScreen.classList.add(SHOW_LOGINFORM); // (로그인 스크린 나타나기) 추가
   $loginBg.classList.add(SHOW_LOGINBG); // (로그인 배경화면 나타나기) 추가
   $signupScreen.classList.remove(SHOW_SIGNUPFORM); // (회원가입 스크린 나타나기) 제거
   $signupBg.classList.remove(SHOW_SIGNUPBG); // (회원가입 배경화면 나타나기) 제거
-  $signup.classList.remove(SHOW_SIGNUP); // (회원가입 컨테이너 opacity 주기) 제거
-  // => 제거를 하지 않으면 opacity가 1이기 떄문에 login => signup 넘어올 때 로그인 컨테이너가 보이지 않음
+  $signup.classList.remove(SHOW_SIGNUP); // (회원가입 전체화면 투명도 주기) 제거
+  // => 제거를 하지 않으면 투명도가 1이기 떄문에 login => signup 넘어올 때 로그인 전체화면이 보이지 않음
   $signupUsername.value = ""; // 회원가입 창에서 로그인 창으로 넘어갈 시 빈 값으로 초기화
   $signupEmail.value = "";
   $signupPw.value = "";
