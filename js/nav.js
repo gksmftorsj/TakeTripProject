@@ -62,17 +62,6 @@ function closePopUp() {
   testPopUp.close();
 }
 
-function delCookie(_name) {
-  var expireDate = new Date();
-  expireDate.setDate(expireDate.getDate() - 1);
-  document.cookie =
-    _name +
-    "= " +
-    "; expires=" +
-    expireDate.toGMTString() +
-    "; domain=.kakao.com; path=/";
-}
-
 // 로그아웃 버튼 구현
 function handleLogoutBtn(event) {
   event.preventDefault();
@@ -80,7 +69,26 @@ function handleLogoutBtn(event) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
-    delCookie("_kawlt");
+    (function () {
+      var cookies = document.cookie.split("; ");
+      for (var c = 0; c < cookies.length; c++) {
+        var d = window.location.hostname.split(".");
+        while (d.length > 0) {
+          var cookieBase =
+            encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) +
+            "=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=" +
+            d.join(".") +
+            " ;path=";
+          var p = location.pathname.split("/");
+          document.cookie = cookieBase + "/";
+          while (p.length > 0) {
+            document.cookie = cookieBase + p.join("/");
+            p.pop();
+          }
+          d.shift();
+        }
+      }
+    })();
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
