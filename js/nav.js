@@ -62,35 +62,37 @@ function closePopUp() {
   testPopUp.close();
 }
 
+// // 어플리케이션 연동 JavaScript key
+// window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
+
+// //sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+// window.Kakao.Auth.setAccessToken(
+//   JSON.parse(sessionStorage.getItem("AccessKEY"))
+// );
+
+// 회원탈퇴
+function secession() {
+  console.log("hello");
+  Kakao.API.request({
+    url: "/v1/user/unlink",
+    success: function () {
+      alert("탈퇴가 완료되었습니다.");
+      window.location.href; // 현재 페이지의 href(URL) 반환
+      // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
+    },
+    fail: function () {
+      alert("로그인이 되어있지 않습니다. 로그인 후 다시 시도해주세요.");
+    },
+  });
+}
+
 // 로그아웃 버튼 구현
-function handleLogoutBtn(event) {
-  event.preventDefault();
+function handleLogoutBtn() {
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     // 카카오 값 있으면 모두 지우고 로그아웃
-    console.log("hello");
-    // localStorage.removeItem("kakao_username");
-    // localStorage.removeItem("kakao_email");
-    console.log("hello");
-    (function () {
-      var cookies = document.cookie.split("; ");
-      for (var c = 0; c < cookies.length; c++) {
-        var d = window.location.hostname.split(".");
-        while (d.length > 0) {
-          var cookieBase =
-            encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) +
-            "=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=" +
-            d.join(".") +
-            " ;path=";
-          var p = location.pathname.split("/");
-          document.cookie = cookieBase + "/";
-          while (p.length > 0) {
-            document.cookie = cookieBase + p.join("/");
-            p.pop();
-          }
-          d.shift();
-        }
-      }
-    })();
+    localStorage.removeItem("kakao_username");
+    localStorage.removeItem("kakao_email");
+    secession();
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
