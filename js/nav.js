@@ -79,16 +79,15 @@ window.Kakao.Auth.setAccessToken(
   JSON.parse(sessionStorage.getItem("AccessKEY"))
 );
 
-// 회원탈퇴
-function secession() {
-  Kakao.API.request({
-    url: "/v1/user/unlink",
-    success: function () {
-      window.location.href; // 현재 페이지의 href(URL) 반환
-    },
-    fail: function () {
-      alert("로그인이 되어있지 않습니다. 로그인 후 다시 시도해주세요.");
-    },
+// 로그아웃
+function kakaoLogout() {
+  if (!Kakao.Auth.getAccessToken()) {
+    alert("로그인이 되어있지 않습니다.");
+    return; // 로그아웃 완료창 안뜨게 return 사용하여 강제종료
+  }
+  Kakao.Auth.logout(function () {
+    alert("로그아웃이 완료되었습니다.");
+    window.location.href; // 현재 페이지의 href(URL) 반환
   });
 }
 // 카카오톡 로그아웃
@@ -99,7 +98,8 @@ function handleLogoutBtn() {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
-    secession(); // 로그아웃 하면 자동로그인 되기 때문에 계정변경이라도 해서 재로그인 하도록 함 REST API 어떻게 하는지 모르겠음
+    kakaoLogout();
+    // Kakao.Auth.logout 함수는 로그인 시 발급받은 토큰을 만료시키는 함수다. 그래서 카카오계정의 로그아웃이나 서비스의 로그아웃에 영향을 주지 않기 때문에 서비스의 로그아웃은 직접 구현해야 하는데 난 못해...
     // _kawlt 쿠키 값 삭제하면 로그아웃 됨 다른 도메인이라 안지워지나?
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
