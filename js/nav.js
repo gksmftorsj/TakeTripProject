@@ -66,7 +66,11 @@ function delCookie(_name) {
   var expireDate = new Date();
   expireDate.setDate(expireDate.getDate() - 1);
   document.cookie =
-    _name + "= " + "; expires=" + expireDate.toGMTString() + "; path=/";
+    _name +
+    "= " +
+    "; expires=" +
+    expireDate.toGMTString() +
+    "; domain=.kakao.com; path=/";
 }
 
 // 로그아웃 버튼 구현

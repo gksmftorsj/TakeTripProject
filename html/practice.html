@@ -17,11 +17,12 @@
     function delCookie(_name) {
       var expireDate = new Date();
       expireDate.setDate(expireDate.getDate() - 1);
-      document.cookie = _name + "= " + "; expires=" + expireDate.toGMTString() + "; path=/html";
+      document.cookie =
+        _name + "= " + "; expires=" + expireDate.toGMTString() + "; domain=.kakao.com; path=/html";
     }
 
     document.getElementById('delcookie').addEventListener('click', function () {
-      delCookie("CookieName");
+      delCookie("_kawlt");
       alert('쿠키삭제됨');
     })
 
