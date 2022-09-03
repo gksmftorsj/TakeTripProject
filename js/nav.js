@@ -2,7 +2,7 @@ const $nav_btn = document.querySelector(".nav-btn");
 const $login_btn = document.querySelector(".login-btn");
 const $myInfo = document.createElement("img"); // nav_btn에 myInfo Element 추가 기능 저장
 $myInfo.classList.add("myInfo"); // class="myInfo"
-$myInfo.setAttribute("src", "../img/user.png"); // myInfo 속성 값으로 src 추가
+$myInfo.setAttribute("src", "img/user.png"); // myInfo 속성 값으로 src 추가
 
 // 로그인 후 내 정보 생성
 
@@ -78,10 +78,10 @@ const $theme_name = document.querySelector(".theme-name");
 
 function handleThemeBtn() {
   if ($theme_name.textContent === "Light Mode") {
-    $theme_img.setAttribute("src", "../img/moon.png");
+    $theme_img.setAttribute("src", "img/moon.png");
     $theme_name.textContent = "Dark Mode";
   } else if ($theme_name.textContent === "Dark Mode") {
-    $theme_img.setAttribute("src", "../img/sun.png");
+    $theme_img.setAttribute("src", "img/sun.png");
     $theme_name.textContent = "Light Mode";
   }
 }

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>메인페이지</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/nav.css">
 </head>
@@ -14,18 +14,21 @@
   <!-- 네비게이션 바 -->
   <nav>
     <div class="navbar">
+      <!-- 네이게이션 로고 -->
       <div class="nav-logo">
         <i class="fa-brands fa-atlassian"></i>
         <span class="logo-name">로고 이름</span> <!-- 나중에 클릭 시 본인 url 기능 구현하기-->
       </div>
+      <!-- 네비게이션 버튼 -->
       <div class="nav-btn">
-        <button class="login-btn" onclick="location.href=`login.html`">로그인</button>
+        <button class="login-btn" onclick="location.href=`html/login.html`">로그인</button>
         <button class="theme-btn">
           <img class="theme-img" src="img/sun.png">
           <span class="theme-name">Light Mode</span>
         </button>
       </div>
     </div>
+    <!-- 내 정보 -->
     <div class="showMyInfo">
       <div class="username"></div>
       <div class="email"></div>
@@ -35,7 +38,6 @@
       <div class="historySave">기록저장</div>
     </div>
   </nav>
-
 
 
   <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
