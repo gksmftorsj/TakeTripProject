@@ -69,6 +69,7 @@ function handleLogoutBtn(event) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
+    console.log("hello");
     (function () {
       var cookies = document.cookie.split("; ");
       for (var c = 0; c < cookies.length; c++) {
