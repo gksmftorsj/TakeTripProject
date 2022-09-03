@@ -88,16 +88,20 @@ const GENERAL_PW_KEY = "general_pw";
 const GENERAL_PWCHK_KEY = "general_pwChk";
 
 // 회원가입 완료 시 팝업창
-function signUpCompletePopup() {
+let signup_completePopup;
+function openPopup() {
   let width = "500";
   let height = "500";
   let left = Math.ceil((window.screen.width - width) / 2); // ceil=올림
   let top = Math.ceil((window.screen.height - height) / 2);
-  window.open(
+  signup_completePopup = window.open(
     "../html/signup-complete.html",
     "회원가입완료 팝업",
     `width=${width}, height=${height}, left=${left}, top=${top}`
   ); // 팝업창 가운데 정렬
+}
+function closePopup() {
+  signup_completePopup.close();
 }
 
 function handleSignupBtn(event) {
@@ -121,7 +125,10 @@ function handleSignupBtn(event) {
     alert("비밀번호를 확인해주세요."); // 비밀번호와 비밀번호 확인이 다르면 경고창
   } else {
     signupToLogin(); // 빈칸도 없고 비밀번호도 맞으면 로그인 창으로 넘어가기
-    signUpCompletePopup(); // 회원가입 완료 팝업창 띄우기
+    openPopup(); // 회원가입 완료 팝업창 띄우기
+    setTimeout(function () {
+      closePopup();
+    }, 2000);
     $signupUsername.value = ""; // 회원가입 완료 후 입력창 빈 값으로 초기화
     $signupEmail.value = "";
     $signupPw.value = "";
