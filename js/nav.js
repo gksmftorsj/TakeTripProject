@@ -46,7 +46,7 @@ function showMyInfo() {
 
 $myInfo.addEventListener("click", showMyInfo);
 
-const $logoutBtn = document.querySelector(".logoutBtn");
+const $logout_btn = document.querySelector(".logout-btn");
 
 let testPopup;
 function openPopUp() {
@@ -98,7 +98,7 @@ function handleLogoutBtn() {
   }
 }
 
-$logoutBtn.addEventListener("submit", handleLogoutBtn);
+$logout_btn.addEventListener("submit", handleLogoutBtn);
 
 const $theme_btn = document.querySelector(".theme-btn");
 const $theme_img = document.querySelector(".theme-img");
