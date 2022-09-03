@@ -81,10 +81,10 @@ function handleLogoutBtn() {
     localStorage.removeItem("com.naver.nid.oauth.state_token");
     console.log("들어옴 2");
     openPopUp(); // 로그아웃 창 open
-    // setTimeout(function () {
-    //   // 열리자마자 로그아웃 창 close
-    //   closePopUp();
-    // }, 0);
+    setTimeout(function () {
+      // 열리자마자 로그아웃 창 close
+      closePopUp();
+    }, 100);
     alert("로그아웃 되었습니다."); // 로그아웃 성공
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
