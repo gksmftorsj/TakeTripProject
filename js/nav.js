@@ -62,28 +62,38 @@ function closePopUp() {
   testPopUp.close();
 }
 
-// 어플리케이션 연동 JavaScript key
-window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
+// // 어플리케이션 연동 JavaScript key
+// window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
 
-//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
-window.Kakao.Auth.setAccessToken(
-  JSON.parse(sessionStorage.getItem("AccessKEY"))
-);
-// 왜 안나오지
-// 회원탈퇴
-function secession() {
-  console.log("hello");
-  Kakao.API.request({
-    url: "/v1/user/unlink",
-    success: function () {
-      alert("탈퇴가 완료되었습니다.");
-      window.location.href; // 현재 페이지의 href(URL) 반환
-      // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
-    },
-    fail: function () {
-      alert("로그인이 되어있지 않습니다. 로그인 후 다시 시도해주세요.");
-    },
-  });
+// //sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+// window.Kakao.Auth.setAccessToken(
+//   JSON.parse(sessionStorage.getItem("AccessKEY"))
+// );
+// // 왜 안나오지
+// // 회원탈퇴
+// function secession() {
+//   console.log("hello");
+//   Kakao.API.request({
+//     url: "/v1/user/unlink",
+//     success: function () {
+//       alert("탈퇴가 완료되었습니다.");
+//       window.location.href; // 현재 페이지의 href(URL) 반환
+//       // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
+//     },
+//     fail: function () {
+//       alert("로그인이 되어있지 않습니다. 로그인 후 다시 시도해주세요.");
+//     },
+//   });
+// }
+
+function deleteAllCookies() {
+  const cookies = document.cookie.split(";");
+  for (let i = 0; i < cookies.length; i++) {
+    const cookie = cookies[i];
+    const eqPos = cookie.indexOf("=");
+    const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;max-age=0";
+  }
 }
 
 // 로그아웃 버튼 구현
@@ -93,7 +103,8 @@ function handleLogoutBtn(event) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
-    secession();
+    // secession();
+    deleteAllCookies();
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
