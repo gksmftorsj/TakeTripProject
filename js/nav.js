@@ -62,24 +62,18 @@ function closePopUp() {
   testPopUp.close();
 }
 
-// 어플리케이션 연동 JavaScript key
-window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
-
-//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
-window.Kakao.Auth.setAccessToken(
-  JSON.parse(sessionStorage.getItem("AccessKEY"))
-);
-
-// 로그아웃
-function kakaoLogout() {
-  if (!Kakao.Auth.getAccessToken()) {
-    alert("로그인이 되어있지 않습니다.");
-    return; // 로그아웃 완료창 안뜨게 return 사용하여 강제종료
-  }
-  Kakao.Auth.logout(function () {
-    alert("로그아웃이 완료되었습니다.");
-    window.location.href; // 현재 페이지의 href(URL) 반환
-    // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
+// 회원탈퇴
+function secession() {
+  Kakao.API.request({
+    url: "/v1/user/unlink",
+    success: function () {
+      alert("탈퇴가 완료되었습니다.");
+      window.location.href; // 현재 페이지의 href(URL) 반환
+      // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
+    },
+    fail: function () {
+      alert("로그인이 되어있지 않습니다. 로그인 후 다시 시도해주세요.");
+    },
   });
 }
 
@@ -90,7 +84,7 @@ function handleLogoutBtn() {
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
     localStorage.removeItem("kakao_a73dc0bc8795922f63e374e2b8c687fa");
-    kakaoLogout();
+    secession();
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
