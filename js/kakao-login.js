@@ -5,7 +5,7 @@ function saveToDos(token) {
 }
 
 // 어플리케이션 연동 JavaScript key
-window.Kakao.init("	91873d8a1b7b2681cd331773b09e19db");
+window.Kakao.init("91873d8a1b7b2681cd331773b09e19db");
 
 // 로그인
 function kakaoLogin() {
