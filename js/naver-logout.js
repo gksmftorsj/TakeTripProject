@@ -1,5 +1,6 @@
 const savedNaverUsername = localStorage.getItem("naver_username");
 const savedNaverEmail = localStorage.getItem("naver_email");
+const $logout_btn = document.querySelector(".logout-btn");
 
 var testPopUp;
 function openPopUp() {
@@ -32,3 +33,5 @@ function naverLogout() {
     alert("로그아웃 되었습니다."); // 로그아웃 성공
   }
 }
+
+$logout_btn.addEventListener("submit", naverLogout);
