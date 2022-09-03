@@ -64,7 +64,6 @@ function closePopUp() {
 
 // 로그아웃 버튼 구현
 function handleLogoutBtn() {
-  console.log("hello");
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
@@ -79,11 +78,7 @@ function handleLogoutBtn() {
     localStorage.removeItem("com.naver.nid.access_token");
     localStorage.removeItem("com.naver.nid.oauth.state_token");
     openPopUp(); // 로그아웃 창 open
-    setTimeout(function () {
-      // 열리자마자 로그아웃 창 close
-      console.log("안녕하세요");
-      closePopUp();
-    }, 100);
+    closePopUp();
     alert("로그아웃 되었습니다."); // 로그아웃 성공
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
