@@ -69,7 +69,7 @@ window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
 window.Kakao.Auth.setAccessToken(
   JSON.parse(sessionStorage.getItem("AccessKEY"))
 );
-
+// 왜 안나오지
 // 회원탈퇴
 function secession() {
   console.log("hello");
