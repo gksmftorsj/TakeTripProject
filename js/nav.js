@@ -62,8 +62,8 @@ function closePopUp() {
   testPopUp.close();
 }
 
-// 어플리케이션 연동 JavaScript key
-window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
+// // 어플리케이션 연동 JavaScript key
+// window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
 
 //sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
 window.Kakao.Auth.setAccessToken(
