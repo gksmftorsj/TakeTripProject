@@ -48,20 +48,19 @@ $myInfo.addEventListener("click", showMyInfo);
 
 const $logout_btn = document.querySelector(".logout-btn");
 
-// let testPopup;
-// function openPopUp() {
-//   // 로그아웃 창 open
-//   testPopUp = window.open(
-//     "https://nid.naver.com/nidlogin.logout",
-//     "_blank",
-//     "toolbar=yes,scrollbars=yes,resizable=no,width=1,height=1"
-//   );
-//   window.location.href;
-// }
-// function closePopUp() {
-//   // 로그아웃 창 close
-//   testPopUp.close();
-// }
+let testPopup;
+function openPopUp() {
+  // 로그아웃 창 open
+  testPopUp = window.open(
+    "https://nid.naver.com/nidlogin.logout",
+    "_blank",
+    "toolbar=yes,scrollbars=yes,resizable=no,width=1,height=1"
+  );
+}
+function closePopUp() {
+  // 로그아웃 창 close
+  testPopUp.close();
+}
 
 // 로그아웃 버튼 구현
 function handleLogoutBtn() {
@@ -77,16 +76,13 @@ function handleLogoutBtn() {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
     localStorage.removeItem("naver_email");
-    window.open(
-      "https://nid.naver.com/nidlogin.logout",
-      "_blank",
-      "toolbar=yes,scrollbars=yes,resizable=no,width=1,height=1"
-    );
-    // openPopUp(); // 로그아웃 창 open
-    // setTimeout(function () {
-    // 열리자마자 로그아웃 창 close
-    // closePopUp();
-    // }, 0);
+    localStorage.removeItem("com.naver.nid.access_token");
+    localStorage.removeItem("com.naver.nid.oauth.state_token");
+    openPopUp(); // 로그아웃 창 open
+    setTimeout(function () {
+      // 열리자마자 로그아웃 창 close
+      closePopUp();
+    }, 0);
     alert("로그아웃 되었습니다."); // 로그아웃 성공
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
