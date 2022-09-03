@@ -67,6 +67,7 @@ function handleLogoutBtn(event) {
   event.preventDefault();
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     // 카카오 값 있으면 모두 지우고 로그아웃
+    console.log("hello");
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
     console.log("hello");
