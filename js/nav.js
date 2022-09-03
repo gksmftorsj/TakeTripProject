@@ -60,7 +60,6 @@ function openPopUp() {
 function closePopUp() {
   // 로그아웃 창 close
   testPopUp.close();
-  alert("로그아웃 되었습니다.");
 }
 
 // 로그아웃 버튼 구현
