@@ -128,7 +128,7 @@ function handleSignupBtn(event) {
     openPopup(); // 회원가입 완료 팝업창 띄우기
     setTimeout(function () {
       closePopup();
-    }, 2000);
+    }, 1300);
     $signupUsername.value = ""; // 회원가입 완료 후 입력창 빈 값으로 초기화
     $signupEmail.value = "";
     $signupPw.value = "";
