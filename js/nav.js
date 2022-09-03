@@ -60,6 +60,7 @@ function openPopUp() {
 function closePopUp() {
   // 로그아웃 창 close
   testPopUp.close();
+  alert("로그아웃 되었습니다.");
 }
 
 // 로그아웃 버튼 구현
@@ -79,7 +80,6 @@ function handleLogoutBtn() {
     localStorage.removeItem("com.naver.nid.oauth.state_token");
     openPopUp(); // 로그아웃 창 open
     closePopUp(); // 로그아웃 창 close
-    alert("로그아웃 되었습니다.");
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("logout_general_username");
