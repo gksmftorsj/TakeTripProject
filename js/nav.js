@@ -66,7 +66,7 @@ function closePopUp() {
 function naverLogout() {
   // localStorage에서 KEY 값 삭제
   // 만약 KEY 값이 null 즉 삭제되었다면 로그아웃
-  if (savedNaverUsername === null && savedNaverEmail === null) {
+  if (NAVER_USERNAME === null && NAVER_EMAIL === null) {
     openPopUp(); // 로그아웃 창 open
     setTimeout(function () {
       // 열리자마자 로그아웃 창 close
