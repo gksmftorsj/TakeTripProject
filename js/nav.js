@@ -81,11 +81,9 @@ window.Kakao.Auth.setAccessToken(
 
 // 회원탈퇴
 function secession() {
-  console.log("hello");
   Kakao.API.request({
     url: "/v1/user/unlink",
     success: function () {
-      alert("탈퇴가 완료되었습니다.");
       window.location.href; // 현재 페이지의 href(URL) 반환
     },
     fail: function () {
@@ -100,7 +98,6 @@ function handleLogoutBtn(event) {
   event.preventDefault();
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     // 카카오 값 있으면 모두 지우고 로그아웃
-    console.log("hello");
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
     secession(); // 로그아웃 하면 자동로그인 되기 때문에 계정변경이라도 해서 재로그인 하도록 함 REST API 어떻게 하는지 모르겠음
