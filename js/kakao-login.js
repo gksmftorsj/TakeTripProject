@@ -30,8 +30,8 @@ function kakaoLogin() {
           localStorage.setItem(KAKAO_USERNAME_KEY, kakaoUsername);
           localStorage.setItem(KAKAO_EMAIL_KEY, kakaoEmail);
           console.log("로그인 성공");
-          window.location.href =
-            "https://gksmftorsj.github.io/project0901/html/nav.html";
+          // window.location.href =
+          //   "https://gksmftorsj.github.io/project0901/html/nav.html";
         },
       });
     },
