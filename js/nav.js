@@ -66,6 +66,7 @@ function closePopUp() {
 // 로그아웃 버튼 구현
 function handleLogoutBtn(event) {
   event.preventDefault();
+  console.log("hello");
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
