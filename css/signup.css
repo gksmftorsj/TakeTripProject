@@ -81,7 +81,7 @@
 
 #signup-form {
   width: 100%;
-  height: 121%;
+  height: 120%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,7 +98,7 @@
 
 .signup-field {
   width: 64%;
-  height: 13%;
+  height: 14%;
   display: flex;
   align-items: center;
   justify-content: center;
