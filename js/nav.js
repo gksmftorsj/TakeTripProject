@@ -62,8 +62,8 @@ function closePopUp() {
   testPopUp.close();
 }
 
-const delCookie = (_kawlt) => {
-  setCookie(_kawlt, "", 0);
+var deleteCookie = function (_kawlt) {
+  document.cookie = _kawlt + "=; expires=Thu, 01 Jan 1999 00:00:10 GMT;";
 };
 
 // 로그아웃 버튼 구현
@@ -73,7 +73,7 @@ function handleLogoutBtn(event) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
-    delCookie();
+    deleteCookie("_kawlt");
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
