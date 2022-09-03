@@ -48,6 +48,34 @@ $myInfo.addEventListener("click", showMyInfo);
 
 const $logoutBtn = document.querySelector(".logoutBtn");
 
+let testPopup;
+function openPopUp() {
+  // 로그아웃 창 open
+  testPopUp = window.open(
+    "https://nid.naver.com/nidlogin.logout",
+    "_blank",
+    "toolbar=yes,scrollbars=yes,resizable=no,width=1,height=1"
+  );
+  window.location.href;
+}
+function closePopUp() {
+  // 로그아웃 창 close
+  testPopUp.close();
+}
+
+function naverLogout() {
+  // localStorage에서 KEY 값 삭제
+  // 만약 KEY 값이 null 즉 삭제되었다면 로그아웃
+  if (savedNaverUsername === null && savedNaverEmail === null) {
+    openPopUp(); // 로그아웃 창 open
+    setTimeout(function () {
+      // 열리자마자 로그아웃 창 close
+      closePopUp();
+    }, 0);
+    alert("로그아웃 되었습니다."); // 로그아웃 성공
+  }
+}
+
 // 로그아웃 버튼 구현
 function handleLogoutBtn() {
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
@@ -61,7 +89,7 @@ function handleLogoutBtn() {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
     localStorage.removeItem("naver_email");
-    alert("로그아웃 되었습니다.");
+    naverLogout();
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("logout_general_username");

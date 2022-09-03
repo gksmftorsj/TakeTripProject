@@ -33,5 +33,3 @@ function naverLogout() {
     alert("로그아웃 되었습니다."); // 로그아웃 성공
   }
 }
-
-$logout_btn.addEventListener("submit", naverLogout);
