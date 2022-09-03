@@ -72,10 +72,12 @@ function handleLogoutBtn(event) {
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
     localStorage.removeItem("kakao_a73dc0bc8795922f63e374e2b8c687fa");
-    sessionStorage.removeItem("AccessKEY");
+    sessionStorage.removeItem("AccessKEY");\
+    console.log("들어옴1")
     alert("로그아웃 되었습니다.");
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
+    console.log("들어옴 2");
     localStorage.removeItem("naver_username");
     localStorage.removeItem("naver_email");
     console.log("네이버 로그아웃 들어옴");
@@ -89,6 +91,7 @@ function handleLogoutBtn(event) {
     // 일반 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("logout_general_username");
     localStorage.removeItem("logout_general_email");
+    console.log("들어옴3")
     alert("로그아웃 되었습니다.");
   }
 }
