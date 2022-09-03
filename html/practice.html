@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿠키삭제</title>
+</head>
+
+<body>
+
+  <button id="delcookie">쿠키삭제</button>
+
+  <script>
+
+    function delCookie(_name) {
+      var expireDate = new Date();
+      expireDate.setDate(expireDate.getDate() - 1);
+      document.cookie = _name + "= " + "; expires=" + expireDate.toGMTString() + "; path=/html";
+    }
+
+    document.getElementById('delcookie').addEventListener('click', function () {
+      delCookie("CookieName");
+      alert('쿠키삭제됨');
+    })
+
+
+  </script>
+</body>
+
+</html>
