@@ -64,6 +64,7 @@ function closePopUp() {
 
 // 회원탈퇴
 function secession() {
+  console.log("hello");
   Kakao.API.request({
     url: "/v1/user/unlink",
     success: function () {
@@ -83,7 +84,6 @@ function handleLogoutBtn() {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
-    localStorage.removeItem("kakao_a73dc0bc8795922f63e374e2b8c687fa");
     secession();
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
