@@ -81,6 +81,7 @@ function handleLogoutBtn() {
     openPopUp(); // 로그아웃 창 open
     setTimeout(function () {
       // 열리자마자 로그아웃 창 close
+      console.log("안녕하세요");
       closePopUp();
     }, 100);
     alert("로그아웃 되었습니다."); // 로그아웃 성공
