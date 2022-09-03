@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+  </head>
+
+  <body>
+    <div class="logo_box">
+      <i class="fa-brands fa-atlassian"></i>
+      <span class="logo_name">로고 이름</span>
+    </div>
+    <div class="login_form">
+      <a href="html/login-signup.html">로그인 버튼</a>
+      <!-- 로그인 안 되어있거나 로그아웃 클릭 시 로그인 버튼 생기게 -->
+      <!-- 로그인이 되어있으면 내 정보와 로그아웃 버튼 생기게 -->
+      <button id="logout-btn">로그아웃 버튼</button>
+    </div>
+    <div role="button" class="navbar_switch" tabindex="-1">
+      <!-- 흑백 테마 변경 버튼 / tabindex=-1은 탭 포커스 잃게 함-->
+      <div class="navbar_switch_box">
+        <div class="navbar_switch_boxBtn">
+        </div>
+      </div>
+    </div>
+
+    <div id="date_picker">
+      <div id="dateType">
+        <input type="date" id="dateFrom" name="from">
+        ~ <input type="date" id="dateTo" name="to">
+      </div>
+      <div>
+        <button class="btn btn-sm btn-black" name="btnSearch" id="btnSearch">검색</button>
+      </div>
+    </div>
+
+    <div id="select_city">
+      <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
+      <select id="state" onchange="categoryChange(this)">
+        <option>시/도 선택</option>
+        <option value="area01">서울특별시</option>
+        <option value="area02">인천광역시</option>
+        <option value="area03">대전광역시</option>
+        <option value="area04">광주광역시</option>
+        <option value="area05">대구광역시</option>
+        <option value="area06">울산광역시</option>
+        <option value="area07">부산광역시</option>
+        <option value="area08">경기도</option>
+        <option value="area09">강원도</option>
+        <option value="area10">충청북도</option>
+        <option value="area11">충청남도</option>
+        <option value="area12">전라북도</option>
+        <option value="area13">전라남도</option>
+        <option value="area14">경상북도</option>
+        <option value="area15">경상남도</option>
+        <option value="area16">제주도</option>
+      </select>
+
+      <select id="city">
+        <option>군/구 선택</option>
+      </select>
+    </div>
+
+    <input type="text" placeholder="몇명인지? 입력버튼" readonly>
+
+    <div></div>
+
+    <button>저장 버튼</button>
+    <a href="html/myinfo.html">내 정보</a>
+
+    <input type="file">
+    <script src="js/citySelect.js"></script>
+    <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
+    <!-- 카카오 로그인 and 로그아웃 -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="js/kakao-logout.js"></script>
+  </body>
+
+</html>

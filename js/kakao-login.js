@@ -5,7 +5,7 @@ function saveToDos(token) {
 }
 
 // 어플리케이션 연동 JavaScript key
-window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
+window.Kakao.init("	91873d8a1b7b2681cd331773b09e19db");
 
 // 로그인
 function kakaoLogin() {
@@ -30,8 +30,8 @@ function kakaoLogin() {
           localStorage.setItem(KAKAO_USERNAME_KEY, kakaoUsername);
           localStorage.setItem(KAKAO_EMAIL_KEY, kakaoEmail);
           console.log("로그인 성공");
-          // window.location.href =
-          //   "https://gksmftorsj.github.io/project0901/html/nav.html";
+          window.location.href =
+            "https://gksmftorsj.github.io/project0901/html/nav.html";
         },
       });
     },
