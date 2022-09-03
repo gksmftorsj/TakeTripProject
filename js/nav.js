@@ -87,7 +87,6 @@ function secession() {
     success: function () {
       alert("탈퇴가 완료되었습니다.");
       window.location.href; // 현재 페이지의 href(URL) 반환
-      // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
     },
     fail: function () {
       alert("로그인이 되어있지 않습니다. 로그인 후 다시 시도해주세요.");
@@ -97,9 +96,11 @@ function secession() {
 // 카카오톡 로그아웃
 
 // 로그아웃 버튼 구현
-function handleLogoutBtn() {
+function handleLogoutBtn(event) {
+  event.prevetDefault();
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     // 카카오 값 있으면 모두 지우고 로그아웃
+    console.log("hello");
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
     secession(); // 로그아웃 하면 자동로그인 되기 때문에 계정변경이라도 해서 재로그인 하도록 함 REST API 어떻게 하는지 모르겠음
