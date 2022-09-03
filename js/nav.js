@@ -60,7 +60,6 @@ function openPopUp() {
 function closePopUp() {
   // 로그아웃 창 close
   testPopUp.close();
-  alert("로그아웃 되었습니다.");
 }
 
 // 로그아웃 버튼 구현
@@ -71,7 +70,6 @@ function handleLogoutBtn() {
     localStorage.removeItem("kakao_email");
     localStorage.removeItem("kakao_a73dc0bc8795922f63e374e2b8c687fa");
     sessionStorage.removeItem("AccessKEY");
-    alert("로그아웃 되었습니다.");
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
@@ -84,7 +82,6 @@ function handleLogoutBtn() {
     // 일반 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("logout_general_username");
     localStorage.removeItem("logout_general_email");
-    alert("로그아웃 되었습니다.");
   }
 }
 
