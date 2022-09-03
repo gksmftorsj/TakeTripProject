@@ -48,13 +48,17 @@ $myInfo.addEventListener("click", showMyInfo);
 
 const $logout_btn = document.querySelector(".logout-btn");
 
-function naverLogout() {
-  // 로그아웃 창 open and close
-  const testPopUp = window.open(
+let testPopUp;
+function openPopUp() {
+  // 로그아웃 창 open
+  testPopUp = window.open(
     "https://nid.naver.com/nidlogin.logout",
     "_blank",
     "toolbar=yes,scrollbars=yes,resizable=no,width=1,height=1"
   );
+}
+function closePopUp() {
+  // 로그아웃 창 close
   testPopUp.close();
 }
 
@@ -73,7 +77,9 @@ function handleLogoutBtn() {
     localStorage.removeItem("naver_email");
     localStorage.removeItem("com.naver.nid.access_token");
     localStorage.removeItem("com.naver.nid.oauth.state_token");
-    naverLogout();
+    openPopUp(); // 로그아웃 창 open
+    closePopUp();
+    closePopUp();
     alert("로그아웃 되었습니다."); // 로그아웃 성공
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
