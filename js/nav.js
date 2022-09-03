@@ -62,8 +62,8 @@ function closePopUp() {
   testPopUp.close();
 }
 
-// // 어플리케이션 연동 JavaScript key
-// window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
+// 어플리케이션 연동 JavaScript key
+window.Kakao.init("22934f3c77bfd987ae251a6176031c41");
 
 // //sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
 // window.Kakao.Auth.setAccessToken(
@@ -93,6 +93,7 @@ function handleLogoutBtn() {
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
     secession();
+    // _kawlt 쿠키 값 삭제하면 로그아웃 됨 다른 도메인이라 안지워지나?
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
