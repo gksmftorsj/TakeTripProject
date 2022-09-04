@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>네이버지도 스틱코드</title>
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz"></script>
+  <script type="text/javascript"
+    src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz&submodules=geocoder"></script>
+
+
+</head>
+
+<body>
+  <div id="map" style="width:100%; height:800px;"></div>
+
+  <script>
+
+    var map = new naver.maps.Map('map', {
+      center: new naver.maps.LatLng(37.5112, 127.0981), // 잠실 롯데월드를 중심으로 하는 지도
+      scaleControl: true,
+      mapTypeControl: true,
+      mapTypeControl: true,
+      mapTypeControlOptions: {
+        style: naver.maps.MapTypeControlStyle.BUTTON,
+        position: naver.maps.Position.TOP_LEFT
+      },
+      zoomControl: true,
+      zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.SMALL,
+        position: naver.maps.Position.TOP_RIGHT
+      },
+      zoom: 15
+    });
+
+    var marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(37.5112, 127.0981),
+      map: map
+    });
+
+    naver.maps.Service.geocode({ address: '모르는 주소' }, function (status, response) {
+      if (status === naver.maps.Service.Status.ERROR) {
+        return alert('Something wrong!');
+      }
+
+      // 성공 시의 response 처리
+      return alert('Good job!');
+    });
+
+  </script>
+</body>
+
+</html>
