@@ -172,7 +172,7 @@ function handleLoginBtn(event) {
     general_pw === general_savedPw
   ) {
     // 이메일 비밀번호 둘 다 같으면 로그인 성공 => 메인페이지로 넘어가기
-    window.location.href = "https://gksmftorsj.github.io/project0901/";
+    window.location.href = "../index.html";
     $loginEmail.value = ""; // 로그인 완료 후 입력창 빈 값으로 초기화
     $loginPw.value = "";
     localStorage.setItem("logout_general_username", general_savedUsername); // 로그인 성공시 LOGOUT 위한 KEY 저장

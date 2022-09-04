@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/main.css">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz"></script>
 </head>
 
 <body>
@@ -23,7 +24,6 @@
       <!-- 네비게이션 버튼 -->
       <div class="nav-btn">
         <button class="login-btn" onclick="location.href=`html/login.html`">로그인</button>
-        <a href="../project0901-master/index.html"></a>
         <button class="theme-btn">
           <img class="theme-img" src="img/sun.png">
           <span class="theme-name">Light Mode</span>
@@ -77,22 +77,17 @@
           </select>
         </div>
 
-        <button type="submit">저장</button>
+        <input type="submit" value="저장"></input>
       </form>
     </div>
   </header>
 
   <main>
     <div class="main">
-      <div>
-        <span class="showDateFrom"></span>
-        <span class="showDateTo"></span>
-      </div>
-      <div>
-        <span class="showState"></span>
-        <span class="showCity"></span>
-      </div>
+      <div id="map"></div>
+      <ul id="todo-list">
 
+      </ul>
     </div>
   </main>
 
@@ -103,6 +98,7 @@
   <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <script src="js/navbar.js"></script>
+  <!-- <script src="js/map.js"></script> -->
 
 </body>
 
