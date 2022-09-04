@@ -1,4 +1,5 @@
 function categoryChange(area) {
+  const $state = document.getElementById("state");
   const $city = document.getElementById("city");
 
   const seoul = [
@@ -196,7 +197,7 @@ function categoryChange(area) {
     "해남군",
     "화순군",
   ];
-  const gyeongsangbuk = [
+  const gyeongbuk = [
     "경산시",
     "경주시",
     "구미시",
@@ -221,7 +222,7 @@ function categoryChange(area) {
     "청송군",
     "칠곡군",
   ];
-  const gyeongsangnam = [
+  const gyeongnam = [
     "거제시",
     "김해시",
     "마산시",
@@ -248,37 +249,37 @@ function categoryChange(area) {
   let add;
 
   // 만약 categoryChange의 값이 area??라면 add에 지역[] 저장
-  if (area.value == "area01") {
+  if (area.value == "서울특별시") {
     add = seoul;
-  } else if (area.value == "area02") {
+  } else if (area.value == "인천광역시") {
     add = incheon;
-  } else if (area.value == "area03") {
+  } else if (area.value == "대전광역시") {
     add = daejeon;
-  } else if (area.value == "area04") {
+  } else if (area.value == "광주광역시") {
     add = gwangju;
-  } else if (area.value == "area05") {
+  } else if (area.value == "대구광역시") {
     add = daegu;
-  } else if (area.value == "area06") {
+  } else if (area.value == "울산광역시") {
     add = ulsan;
-  } else if (area.value == "area07") {
+  } else if (area.value == "부산광역시") {
     add = busan;
-  } else if (area.value == "area08") {
+  } else if (area.value == "경기도") {
     add = gyeonggi;
-  } else if (area.value == "area09") {
+  } else if (area.value == "강원도") {
     add = gangwon;
-  } else if (area.value == "area10") {
+  } else if (area.value == "충청북도") {
     add = chungbuk;
-  } else if (area.value == "area11") {
+  } else if (area.value == "충청남도") {
     add = chungnam;
-  } else if (area.value == "area12") {
+  } else if (area.value == "전라북도") {
     add = jeonbuk;
-  } else if (area.value == "area13") {
+  } else if (area.value == "전라남도") {
     add = jeonnam;
-  } else if (area.value == "area14") {
-    add = chungbuk;
-  } else if (area.value == "area15") {
-    add = chungnam;
-  } else if (area.value == "area16") {
+  } else if (area.value == "경상북도") {
+    add = gyeongbuk;
+  } else if (area.value == "경상남도") {
+    add = gyeongnam;
+  } else if (area.value == "제주도") {
     add = jeju;
   }
 
@@ -295,4 +296,49 @@ function categoryChange(area) {
     $cityOption.innerHTML = add[areas]; // 반환 값 새로 생성한 option Element innerHTML에 저장 / ex) <option value="강릉시">강릉시</option>
     $city.appendChild($cityOption); // HTML에서 #city(부모 노드)의 자식 노드 리스트 중 마지막 자식으로 저장한 값($cityOption)들을 붙임
   }
+
+  $city.addEventListener("change", (event) => {
+    localStorage.setItem("state", $state.value);
+    localStorage.setItem("city", event.target.value);
+  });
 }
+
+const $dateForm = document.getElementById("dateFrom");
+const $dateTo = document.getElementById("dateTo");
+
+function dateSelect() {
+  const savedDateFrom = $dateForm.value;
+  const savedDateTo = $dateTo.value;
+  if (savedDateFrom <= savedDateTo) {
+    localStorage.setItem("dateForm", savedDateFrom);
+    localStorage.setItem("dateTo", savedDateTo);
+  } else {
+    alert("날짜를 다시 선택해주세요.");
+    $dateForm.value = "";
+    $dateTo.value = "";
+  }
+}
+
+$dateTo.addEventListener("change", dateSelect);
+
+const $save_btn = document.getElementById("save-btn");
+const $state = document.getElementById("state");
+const $city = document.getElementById("city");
+const $showDateFrom = document.querySelector(".showDateFrom");
+const $showDateTo = document.querySelector(".showDateTo");
+const $showState = document.querySelector(".showState");
+const $showCity = document.querySelector(".showCity");
+
+function saveBtn(event) {
+  event.preventDefault();
+  $showDateFrom.textContent = localStorage.getItem("state");
+  $showDateTo.textContent = localStorage.getItem("city");
+  $showState.textContent = localStorage.getItem("dateForm");
+  $showCity.textContent = localStorage.getItem("dateTo");
+  $state.value = "시/도 선택";
+  $city.value = "군/구 선택";
+  $dateForm.value = "";
+  $dateTo.value = "";
+}
+
+$save_btn.addEventListener("submit", saveBtn);

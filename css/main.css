@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  height: 80vh;
+  background-color: aquamarine;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+}
+
+.main {
+  width: 100%;
+  height: 80vh;
+}
