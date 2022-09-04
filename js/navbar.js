@@ -86,7 +86,6 @@ function kakaoLogout() {
     return; // 로그아웃 완료창 안뜨게 return 사용하여 강제종료
   }
   Kakao.Auth.logout(function () {
-    alert("로그아웃이 완료되었습니다.");
     window.location.href; // 현재 페이지의 href(URL) 반환
   });
 }
