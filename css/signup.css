@@ -1,0 +1,232 @@
+/* 회원가입 전체화면 숨기기 */
+.hidden-signup {
+  display: none;
+}
+
+.signup {
+  width: 72%;
+  height: 64%;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(196, 214, 208);
+}
+
+/* 회원가입 전체화면 absolute */
+.signup-absolute {
+  position: absolute;
+}
+
+/* 회원가입 투명도 주기 */
+.show-signup {
+  animation: signupShow 1.5s forwards;
+}
+
+@keyframes signupShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.signup-screen {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 회원가입 스크린 나타나기 */
+.show-signup-form {
+  animation: signupFormShow 1.5s forwards;
+}
+
+@keyframes signupFormShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+}
+
+/* 회원가입 스크린 숨기기 */
+.hidden-signup-form {
+  animation: signupFormHidden 1.5s forwards;
+}
+
+@keyframes signupFormHidden {
+  0% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.001;
+    visibility: hidden;
+  }
+}
+
+#signup-form {
+  width: 100%;
+  height: 102%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+}
+
+.signup-header {
+  width: 58%;
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+  font-size: 2rem;
+}
+
+.signup-field {
+  width: 64%;
+  height: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-field label {
+  width: 15%;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-right: none;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  background-color: #363a40;
+}
+
+.signup-field input {
+  width: 75%;
+  height: 63%;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  background-color: #3a4048;
+}
+
+.user-img {
+  width: 75%;
+  height: 75%;
+}
+
+.email-img {
+  width: 95%;
+  height: 95%;
+}
+
+.pw-img {
+  width: 60%;
+  height: 60%;
+}
+
+.signup-field input[type="text"]:focus,
+.signup-field input[type="text"]:hover,
+.signup-field input[type="email"]:focus,
+.signup-field input[type="email"]:hover,
+.signup-field input[type="password"]:hover,
+.signup-field input[type="password"]:focus {
+  background-color: #45505d;
+}
+
+.signup-btn {
+  width: 58%;
+  height: 9%;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.signup-btn:hover {
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+.accountChk {
+  width: 58%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.login-screen-btn {
+  margin: 0px 5px 0px 15px;
+  cursor: pointer;
+  color: black;
+}
+
+.signup-bg {
+  width: 50%;
+  height: 100%;
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+/* 회원가입 배경화면 숨기기 */
+.show-signup-bg {
+  animation: signupBgShow 1.5s forwards;
+}
+
+@keyframes signupBgShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+
+/* 회원가입 배경화면 나타나기 */
+.hidden-signup-bg {
+  animation: signupBgHidden 1.5s forwards;
+}
+
+@keyframes signupBgHidden {
+  0% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    opacity: 0.001;
+    visibility: hidden;
+  }
+}
