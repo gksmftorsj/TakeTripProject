@@ -28,6 +28,7 @@ function paintSaveToDo(saveTodo) {
   $form.appendChild($submit);
   const $file = document.createElement("input");
   $file.setAttribute("type", "file");
+  $file.setAttribute("multiple", "");
   $form.appendChild($file);
 }
 
@@ -39,14 +40,48 @@ if (savedToDos !== null) {
   pasredToDos.forEach(paintSaveToDo);
 }
 
-// const $form = document.querySelector("form");
-// const $input = document.querySelector("input");
+const file = document.querySelector("input[type=file]");
 
-// function saveStory(event) {
-//   preventDefault();
-//   const $p = document.createElement("p");
-//   $saveToDoList.appendChild($p);
-//   $p.value = $input.value;
+file.classList.add("file");
+
+file.addEventListener("change", () => {
+
+  const value = `../img/${ file.files[0].name }`
+  localStorage.setItem("img", value);
+  // const img = document.createElement("img");
+  // img.setAttribute("src", value);
+  // const $li = document.querySelector("li");
+  // $li.appendChild(img);
+
+})
+
+
+// const file = document.querySelector("input[type=file]");
+
+// file.classList.add("hi");
+
+// file.addEventListener("change", () => {
+//   console.log(file.value);
+// })
+
+
+// $file.classList.add("fileClass");
+
+// const output = document.querySelector('.output');
+// const myFiles = document.querySelector("#myfiles");
+// const body = document.querySelector('body');
+
+// function logFilenames() {
+//   const fileInput = document.querySelector("#myfiles");
+//   const files = fileInput.files;
+//   // const fileListLength = files.length;
+//   // for (let i = 0; i < fileListLength; i++) {
+//   //   output.innerText = `${ output.innerText }\n${ files.item(i).name }`;
+//   // }
+//   const file = `../img/${ files[0].name }`;
+//   const img = document.createElement("img");
+//   img.setAttribute("src", file);
+//   body.appendChild(img);
 // }
 
-// $input.addEventListener("submit", saveStory);
+// myFiles.addEventListener("change", logFilenames);
