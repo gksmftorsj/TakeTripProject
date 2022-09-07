@@ -4,7 +4,11 @@
 }
 
 .signup {
+<<<<<<< HEAD
   width: 60%;
+=======
+  width: 72%;
+>>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   height: 64%;
   display: flex;
   align-items: center;
@@ -81,7 +85,11 @@
 
 #signup-form {
   width: 100%;
+<<<<<<< HEAD
   height: 100%;
+=======
+  height: 102%;
+>>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -230,6 +238,7 @@
     visibility: hidden;
   }
 }
+<<<<<<< HEAD
 
 @media screen and (max-width: 1279px) {
   /* 회원가입 전체화면 숨기기 */
@@ -465,3 +474,5 @@
     }
   }
 }
+=======
+>>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
