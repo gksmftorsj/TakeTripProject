@@ -4,7 +4,6 @@ const TODOS_KEY = "todos";
 
 let toDos = [];
 
-<<<<<<< HEAD
 // function deleteToDo(event) {
 //   const div = event.target.parentElement;
 //   console.log(event);
@@ -15,13 +14,6 @@ function paintSaveToDo(saveTodo) {
   $saveToDoList.appendChild($div);
   $div.id = saveTodo.id;
   const $li = document.createElement("li");
-=======
-function paintSaveToDo(saveTodo) {
-  const $div = document.createElement("div");
-  $saveToDoList.appendChild($div);
-  const $li = document.createElement("li");
-  $li.id = saveTodo.id;
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   const $span = document.createElement("span");
   $span.innerText = saveTodo.text;
   const $button = document.createElement("button");
@@ -50,10 +42,7 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 if (savedToDos !== null) {
   const pasredToDos = JSON.parse(savedToDos);
   toDos = pasredToDos;
-<<<<<<< HEAD
   // paresdToDos의 값을 paintSaveToDo에 입력하면 parsedToDos에서 text만 가져와 사용
-=======
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   pasredToDos.forEach(paintSaveToDo);
 }
 
@@ -61,7 +50,6 @@ const file = document.querySelector("input[type=file]");
 
 file.classList.add("file");
 
-<<<<<<< HEAD
 let toDosImg = [];
 
 function saveToDosImg() {
@@ -77,46 +65,3 @@ file.addEventListener("change", () => {
   toDosImg.push(newTodoObj);
   saveToDosImg();
 });
-=======
-file.addEventListener("change", () => {
-
-  const value = `../img/${ file.files[0].name }`
-  localStorage.setItem("img", value);
-  // const img = document.createElement("img");
-  // img.setAttribute("src", value);
-  // const $li = document.querySelector("li");
-  // $li.appendChild(img);
-
-})
-
-
-// const file = document.querySelector("input[type=file]");
-
-// file.classList.add("hi");
-
-// file.addEventListener("change", () => {
-//   console.log(file.value);
-// })
-
-
-// $file.classList.add("fileClass");
-
-// const output = document.querySelector('.output');
-// const myFiles = document.querySelector("#myfiles");
-// const body = document.querySelector('body');
-
-// function logFilenames() {
-//   const fileInput = document.querySelector("#myfiles");
-//   const files = fileInput.files;
-//   // const fileListLength = files.length;
-//   // for (let i = 0; i < fileListLength; i++) {
-//   //   output.innerText = `${ output.innerText }\n${ files.item(i).name }`;
-//   // }
-//   const file = `../img/${ files[0].name }`;
-//   const img = document.createElement("img");
-//   img.setAttribute("src", file);
-//   body.appendChild(img);
-// }
-
-// myFiles.addEventListener("change", logFilenames);
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9

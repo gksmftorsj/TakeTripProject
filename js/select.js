@@ -1131,10 +1131,6 @@ function saveToDos() {
 
 function deleteToDo(event) {
   const li = event.target.parentElement;
-<<<<<<< HEAD
-  console.log(event);
-=======
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   li.remove();
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   saveToDos();
@@ -1155,11 +1151,7 @@ function paintToDo(newTodo) {
 
 function handleToDoSubmit(event) {
   event.preventDefault();
-<<<<<<< HEAD
   const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
-=======
-  const newTodo = `${ $dateFrom.value }~${ $dateTo.value }/${ $state.value } ${ $city.value }`;
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   $state.value = "시/도 선택";
   $city.value = "군/구 선택";
   $dateFrom.value = "";
@@ -1171,10 +1163,6 @@ function handleToDoSubmit(event) {
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
   saveToDos();
-<<<<<<< HEAD
-=======
-  console.log(newTodo);
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
 }
 
 $toDoForm.addEventListener("submit", handleToDoSubmit);

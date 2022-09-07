@@ -7,18 +7,13 @@
   align-items: center;
 }
 
-<<<<<<< HEAD
 #select_date {
-=======
-#select_date{
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   width: 33%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-<<<<<<< HEAD
 #dateFrom {
   border: none;
   border-radius: 19px;
@@ -36,36 +31,13 @@
 }
 
 #select_city {
-=======
-#dateFrom{
-  border: none;
-    border-radius: 19px;
-    width: 95px;
-    height: 50px;
-    background: bisque;
-}
-
-#dateTo{
-  border: none;
-    border-radius: 19px;
-    width: 95px;
-    height: 50px;
-    background: bisque;
-}
-
-#select_city{
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   width: 33%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-<<<<<<< HEAD
 #state {
-=======
-#state{
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   border: none;
   border-radius: 19px;
   width: 95px;
@@ -73,7 +45,6 @@
   background: bisque;
 }
 
-<<<<<<< HEAD
 #city {
   border: none;
   border-radius: 19px;
@@ -83,17 +54,6 @@
 }
 
 #save {
-=======
-#city{
-  border: none;
-    border-radius: 19px;
-    width: 95px;
-    height: 50px;
-    background: bisque;
-}
-
-#save{
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   width: 10%;
 }
 
@@ -117,17 +77,12 @@
   margin-left: 10px;
 }
 
-<<<<<<< HEAD
 #boxbox {
-=======
-#boxbox{
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   width: 50%;
   height: 100%;
   background-color: cornflowerblue;
 }
 
-<<<<<<< HEAD
 ul {
   width: 50%;
 }
@@ -141,22 +96,10 @@ li {
 }
 
 footer {
-=======
-li{
-  display: flex;
-  border: 1px solid black;
-}
-
-footer{
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
   background-color: black;
   width: 100%;
   height: 100%;
   color: white;
   font-size: 100px;
   text-align: center;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 9ec0f26fe86663d82d56108eb6b2ee12ba494fe9
