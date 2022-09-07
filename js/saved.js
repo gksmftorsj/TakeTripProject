@@ -75,8 +75,9 @@ const savedText = localStorage.getItem(TEXT_KEY);
 function handleSubmitBtn(event) {
   event.preventDefault();
   const text = event.target.previousSibling.value;
-  event.target.previousSibling.value = "";
+  event.target.previousSibling.value = ""; // 같은 레벨의 노드 중, 이전 노드를 리턴한다.
   const img = `../img/${event.target.nextSibling.files[0].name}`;
+  event.target.nextSibling.value = ""; // 같은 레벨의 노드 중, 다음 노드를 리턴한다.
   console.log(img);
   const textObj = {
     text: text,
@@ -94,33 +95,3 @@ const submit = document.querySelectorAll("input[type=submit]");
 for (let i = 0; i < submit.length; i++) {
   submit[i].addEventListener("click", handleSubmitBtn);
 }
-
-// -----------------------------------------------------------
-// function handleSubmitBtn(event) {
-//   console.log(event);
-//   // const text =
-// }
-
-// $btn.addEventListener("click", handleSubmitBtn);
-
-// function handleSubmitBtn() {}
-
-// const file = document.querySelector("input[type=file]");
-
-// file.classList.add("file");
-
-// let toDosImg = [];
-
-// function saveToDosImg() {
-//   localStorage.setItem("img", JSON.stringify(toDosImg));
-// }
-
-// file.addEventListener("change", () => {
-//   const toDoImg = `../img/${file.files[0].name}`;
-//   const newTodoObj = {
-//     text: toDoImg,
-//     id: Date.now(),
-//   };
-//   toDosImg.push(newTodoObj);
-//   saveToDosImg();
-// });
