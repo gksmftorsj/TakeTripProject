@@ -76,7 +76,7 @@ function handleSubmitBtn(event) {
   event.preventDefault();
   const text = event.target.previousSibling.value;
   event.target.previousSibling.value = ""; // 같은 레벨의 노드 중, 이전 노드를 리턴한다.
-  const img = `../img/${event.target.nextSibling.files[0].name}`;
+  const img = `../uploadimg/${ event.target.nextSibling.files[0].name }`;
   event.target.nextSibling.value = ""; // 같은 레벨의 노드 중, 다음 노드를 리턴한다.
   console.log(img);
   const textObj = {

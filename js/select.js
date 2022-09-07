@@ -1133,6 +1133,7 @@ function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  // id 값이 같지 않은 것만 다시 return해서 배열에 저장 toDo=toDos의 배열들
   saveToDos();
 }
 
@@ -1151,7 +1152,7 @@ function paintToDo(newTodo) {
 
 function handleToDoSubmit(event) {
   event.preventDefault();
-  const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
+  const newTodo = `${ $dateFrom.value }~${ $dateTo.value }/${ $state.value } ${ $city.value }`;
   $state.value = "시/도 선택";
   $city.value = "군/구 선택";
   $dateFrom.value = "";
