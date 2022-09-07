@@ -1,0 +1,98 @@
+.navbar {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 10px 0px black;
+}
+
+.nav-logo {
+  width: 100%;
+  height: 35%;
+  display: flex;
+  align-items: baseline;
+  margin-left: 30px;
+}
+
+.nav-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* input type button은 cursor 값이 default 이기 때문에 hover할 때가 아닌 그냥 cursor pointer를 줘야 한다. */
+.login-btn {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.myInfo {
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+}
+
+.myInfo:hover {
+  cursor: pointer;
+}
+
+.theme-btn {
+  width: 20%;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-img {
+  width: 30px;
+  height: 30px;
+}
+
+.theme-name {
+  width: 100%;
+}
+
+.showMyInfo {
+  width: 220px;
+  height: 110px;
+  background-color: aquamarine;
+  position: absolute;
+  right: 80px;
+  top: 46px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  /* visibility는 문서의 레이아웃을 변경하지 않고 요소를 보이거나 숨깁니다. */
+}
+
+.showMyInfo:first {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hidden {
+  visibility: visible;
+}
+.features-navbar {
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  background-color: darksalmon;
+}
+
+.작성하러 {
+  background-color: burlywood;
+}
+
+.보러 {
+  background-color: slategray;
+}
