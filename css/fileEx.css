@@ -12,8 +12,14 @@ img{
   height: 100px;
 }
 
+ul{
+  width: 100%;
+}
+
 li{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  border: 1px solid black;
+  width: 100%;
 }
