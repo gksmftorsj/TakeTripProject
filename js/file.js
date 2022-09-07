@@ -6,11 +6,11 @@ function paintShowToDo(showToDo) {
   const $li = document.createElement("li");
   const $img = document.createElement("img");
   const $p = document.createElement("p");
-  $p.innerText = showToDo.text;
-  $li.appendChild($p);
   $li.appendChild($img);
   const imgFile = showToDo.img;
   $img.setAttribute("src", imgFile);
+  $p.innerText = showToDo.text;
+  $li.appendChild($p);
   $showToDoList.appendChild($li);
 }
 
