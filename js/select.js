@@ -1131,6 +1131,7 @@ function saveToDos() {
 
 function deleteToDo(event) {
   const li = event.target.parentElement;
+  console.log(event);
   li.remove();
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
   saveToDos();
@@ -1163,7 +1164,6 @@ function handleToDoSubmit(event) {
   toDos.push(newTodoObj);
   paintToDo(newTodoObj);
   saveToDos();
-  console.log(newTodo);
 }
 
 $toDoForm.addEventListener("submit", handleToDoSubmit);

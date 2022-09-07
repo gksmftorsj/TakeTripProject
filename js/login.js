@@ -100,9 +100,9 @@ function openPopup() {
     `width=${width}, height=${height}, left=${left}, top=${top}`
   ); // 팝업창 가운데 정렬
 }
-function closePopup() {
-  signup_completePopup.close();
-}
+// function closePopup() {
+//   signup_completePopup.close();
+// }
 
 function handleSignupBtn(event) {
   event.preventDefault();
@@ -126,9 +126,9 @@ function handleSignupBtn(event) {
   } else {
     signupToLogin(); // 빈칸도 없고 비밀번호도 맞으면 로그인 창으로 넘어가기
     openPopup(); // 회원가입 완료 팝업창 띄우기
-    setTimeout(function () {
-      closePopup();
-    }, 1300);
+    // setTimeout(function () {
+    //   closePopup();
+    // }, 1100);
     $signupUsername.value = ""; // 회원가입 완료 후 입력창 빈 값으로 초기화
     $signupEmail.value = "";
     $signupPw.value = "";

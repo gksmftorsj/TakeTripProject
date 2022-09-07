@@ -4,7 +4,13 @@ const $login_btn = document.querySelector(".login-btn");
 // 로그인 후 내 정보 생성 => <img src="img/user.png" class="myInfo"> 생성
 const $myInfo = document.createElement("img"); // nav_btn에 myInfo Element 추가 기능 저장
 $myInfo.classList.add("myInfo"); // class="myInfo"
-$myInfo.setAttribute("src", "../img/user.png"); // myInfo 속성 값으로 src 추가
+
+// 나중에 github 주소로 변경
+if (location.href == "http://127.0.0.1:5500/project0901-master/index.html") {
+  $myInfo.setAttribute("src", "img/user.png"); // myInfo 속성 값으로 src 추가
+} else {
+  $myInfo.setAttribute("src", "../img/user.png");
+}
 
 // localStorage에서 값 가져오기
 const KAKAO_USERNAME = localStorage.getItem("kakao_username");

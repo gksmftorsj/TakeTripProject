@@ -14,7 +14,7 @@
 
 <body>
   <!-- 네비게이션 바 -->
-  <nav>
+  <div class="info-navbar">
     <div class="navbar">
       <!-- 네이게이션 로고 -->
       <div class="nav-logo">
@@ -39,17 +39,19 @@
       </form>
       <div class="historySave">기록저장</div>
     </div>
-  </nav>
+  </div>
+  <div class="features-navbar">
+    <a href="html/save-page.html" class="작성하러">작성하러 가기</a>
+    <a href="html/fileEx.html" class="보러">작성된 것 보러 가기</a>
+  </div>
 
   <header>
     <div class="header">
-
       <form id="todo-form">
         <!-- 날짜 선택 -->
         <div id="select_date">
           <input type="date" id="dateFrom" required> ~ <input type="date" id="dateTo" required>
         </div>
-
         <!-- 도시 선택 -->
         <div id="select_city">
           <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
@@ -76,29 +78,28 @@
             <option>군/구 선택</option>
           </select>
         </div>
-
-        <input type="submit" value="저장"></input>
+        <input type="submit" id="save" value="저장"></input>
       </form>
-      <ul id="todo-list">
-
-      </ul>
     </div>
   </header>
 
   <main>
     <div class="main">
       <div id="map"></div>
+      <ul id="todo-list">
+      </ul>
+      </a>
     </div>
   </main>
 
-
-
+  <footer>
+    <span>hello</span>
+  </footer>
 
   <script src="js/select.js"></script>
   <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script src="js/navbar.js"></script>
-  <!-- <script src="js/map.js"></script> -->
+  <script src="js/index-navbar.js"></script>
 
 </body>
 

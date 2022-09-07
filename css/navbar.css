@@ -82,3 +82,18 @@
 .hidden {
   visibility: visible;
 }
+
+.features-navbar {
+  width: 100%;
+  position: fixed;
+  top: 50px;
+  background-color: darksalmon;
+}
+
+.작성하러 {
+  background-color: burlywood;
+}
+
+.보러 {
+  background-color: slategray;
+}
