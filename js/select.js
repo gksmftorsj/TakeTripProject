@@ -1133,6 +1133,7 @@ function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
   toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  // id 값이 같지 않은 것만 다시 return해서 배열에 저장 toDo=toDos의 배열들
   saveToDos();
 }
 

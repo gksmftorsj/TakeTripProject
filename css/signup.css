@@ -5,7 +5,7 @@
 
 .signup {
   width: 60%;
-  height: 63%;
+  height: 65%;
   display: flex;
   align-items: center;
   border-radius: 20px;
@@ -36,7 +36,7 @@
 
 .signup-screen {
   width: 50%;
-  height: 100%;
+  height: 103%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,7 +81,7 @@
 
 #signup-form {
   width: 100%;
-  height: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,13 +92,13 @@
 .signup-header {
   width: 58%;
   text-align: center;
-  margin: 20px 0px 0px 0px;
-  font-size: 2rem;
+  margin: 20px 0px 26px 0px;
+  font-size: 3rem;
 }
 
 .signup-field {
   width: 64%;
-  height: 18%;
+  height: 21%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,6 +127,7 @@
   border-bottom-left-radius: 0px;
   border-top-left-radius: 0px;
   background-color: #3a4048;
+  font-size: 1.4rem;
 }
 
 .user-img {
@@ -159,6 +160,7 @@
   margin: 10px;
   border: none;
   border-radius: 5px;
+  font-size: 1.6rem;
 }
 
 .signup-btn:hover {
@@ -168,10 +170,10 @@
 
 .accountChk {
   width: 58%;
-  margin-top: 10px;
+  margin-top: 16px;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 .login-screen-btn {
@@ -231,10 +233,41 @@
   }
 }
 
+@media screen and (max-width: 1919px) {
+  .signup {
+    width: 68%;
+  }
+
+  .signup-screen {
+    height: 100%;
+  }
+
+  #signup-form {
+    height: 95%;
+  }
+
+  .signup-field {
+    height: 16%;
+  }
+
+  .user-img {
+    width: 80%;
+    height: 60%;
+  }
+
+  .email-img {
+    height: 80%;
+  }
+
+  .pw-img {
+    height: 50%;
+  }
+}
+
 @media screen and (max-width: 1279px) {
   .signup {
-    width: 72%;
-    height: 64%;
+    width: 66%;
+    height: 63%;
     display: flex;
     align-items: center;
     border-radius: 20px;
