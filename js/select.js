@@ -299,8 +299,8 @@ function categoryChange(area) {
   }
 
   $city.addEventListener("change", (event) => {
-    localStorage.setItem("state", $state.value);
-    localStorage.setItem("city", event.target.value);
+    localStorage.setItem("state", $state.value); // state 값 변경 시 값을 localStorage에 저장
+    localStorage.setItem("city", event.target.value); // city 값 변경 시 값을 localStorage에 저장
   });
 }
 
@@ -309,6 +309,7 @@ function categoryChange(area) {
 const savedState = localStorage.getItem("state");
 const savedCity = localStorage.getItem("city");
 
+// if localStorage에 city와 state 값이 있으면 localStorage에 위도와 경도 저장
 function chk() {
   // 서울
   if (savedCity === "강남구") {
@@ -1046,6 +1047,7 @@ function chk() {
   }
 }
 
+// if localStorage에 위도와 경도 값이 없으면 위도 37도 경도 127.5도로 기본 값 설정
 if (
   localStorage.getItem("lat") === null ||
   localStorage.getItem("lng") === null
@@ -1053,14 +1055,7 @@ if (
   const savedLat = "37";
   const savedLng = "127.5";
   var map = new naver.maps.Map("map", {
-    center: new naver.maps.LatLng(savedLat, savedLng), // localStorage에 저장된 값 넣기
-    scaleControl: true,
-    mapTypeControl: true,
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      style: naver.maps.MapTypeControlStyle.BUTTON,
-      position: naver.maps.Position.TOP_LEFT,
-    },
+    center: new naver.maps.LatLng(savedLat, savedLng), // 설정한 기본 값 넣기
     zoomControl: true,
     zoomControlOptions: {
       style: naver.maps.ZoomControlStyle.SMALL,
@@ -1068,18 +1063,11 @@ if (
     },
     zoom: 8,
   });
-} else {
+} else { // if localStorage에 위도와 경도 값이 있으면 저장된 위도와 경도 값 가져오기
   const savedLat = localStorage.getItem("lat");
   const savedLng = localStorage.getItem("lng");
   var map = new naver.maps.Map("map", {
-    center: new naver.maps.LatLng(savedLat, savedLng), // localStorage에 저장된 값 넣기
-    scaleControl: true,
-    mapTypeControl: true,
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      style: naver.maps.MapTypeControlStyle.BUTTON,
-      position: naver.maps.Position.TOP_LEFT,
-    },
+    center: new naver.maps.LatLng(savedLat, savedLng), // localStorage에 가져온 값 넣기
     zoomControl: true,
     zoomControlOptions: {
       style: naver.maps.ZoomControlStyle.SMALL,
@@ -1088,18 +1076,18 @@ if (
     zoom: 15,
   });
 
-  var marker = new naver.maps.Marker({
+  var marker = new naver.maps.Marker({ // 가져온 위도 경도에 마크 표시
     position: new naver.maps.LatLng(savedLat, savedLng),
     map: map,
   });
 }
 
-// ---------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 const $dateFrom = document.getElementById("dateFrom");
 const $dateTo = document.getElementById("dateTo");
 
-function dateSelect() {
+function dateSelect() { // From 값과 To 값 저장한 뒤에 비교해서 To 값이 더 적으면 날짜를 다시 선택
   const savedDateFrom = $dateFrom.value;
   const savedDateTo = $dateTo.value;
   if (savedDateFrom <= savedDateTo) {
@@ -1114,7 +1102,7 @@ function dateSelect() {
 
 $dateTo.addEventListener("change", dateSelect);
 
-// ---------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 const $toDoForm = document.getElementById("todo-form");
 const $toDoList = document.getElementById("todo-list");
@@ -1123,55 +1111,69 @@ const $city = document.getElementById("city");
 
 const TODOS_KEY = "todos";
 
-let toDos = [];
+let toDos = []; // newTodo가 그려질 때마다 새로고침하면 값이 삭제되기 때문에 todo-list 값을 localStorage에 저장하기 위한 배열 toDos를 생성
 
-function saveToDos() {
+function saveToDos() { // localStorage에 toDos 배열 값을 저장
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  // JSON.stringify를 사용하여 단순 text가 아닌 String으로 저장
 }
 
 function deleteToDo(event) {
-  const li = event.target.parentElement;
-  li.remove();
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
-  // id 값이 같지 않은 것만 다시 return해서 배열에 저장 toDo=toDos의 배열들
+  // 우리가 어떤 버튼을 클릭했는지 모르기 때문에 클릭한 버튼이 어떤 버튼인지 찾기 위한 event를 실행시킨다.
+  const $li = event.target.parentElement; // 선택한 target의 parentElement인 li를 찾아서 li 변수에 저장
+  $li.remove(); // 클릭한 button의 li를 document에서 제거 
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt($li.id));
+  // toDos에 새롭게 배열 값 저장
+  // filter는 배열들이 차례대로 실행됨 true값만 저장하고 false값은 버린다.
+  // 원래 localStorage에 저장된 toDos의 id와 클릭한 button의 id가 같지 않은 애들은 true이기 때문에 다시 저장되고 같은 애들은 false이기 때문에 버려진다.
+  // li.id는 Document에서의 값이기 때문에 string 타입이고 toDo.id는 Date.now의 값이기 때문에 number 타입이라 무조건 true로 나와서 클릭한 li.id를 제외시키지 못한다.그래서 같은 타입으로 만들어줘야 한다.
   saveToDos();
+  // 다시 toDos 배열에 저장된 값을 localStorage의 todos에 덮어쓰기
 }
 
+// ul > li > span & button Element 생성
+// newTodo에 parsedToDos or newTodoObj의 값이 들어온다.
 function paintToDo(newTodo) {
-  const li = document.createElement("li");
-  li.id = newTodo.id;
-  const span = document.createElement("span");
-  span.innerText = newTodo.text;
-  const button = document.createElement("button");
-  button.innerText = "❌";
-  button.addEventListener("click", deleteToDo);
-  li.appendChild(span);
-  li.appendChild(button);
-  $toDoList.appendChild(li);
+  const $li = document.createElement("li");
+  $li.id = newTodo.id; // newTodo의 id 저장
+  const $span = document.createElement("span");
+  $span.innerText = newTodo.text; // newTodo의 text 저장
+  const $button = document.createElement("button");
+  $button.innerText = "❌";
+  $button.addEventListener("click", deleteToDo);
+  $li.appendChild($span);
+  $li.appendChild($button);
+  $toDoList.appendChild($li);
 }
 
+// 새로운 값을 입력하면 화면에 그리고 저장하는 부분
 function handleToDoSubmit(event) {
   event.preventDefault();
-  const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
+  const newTodo = `${ $dateFrom.value }~${ $dateTo.value }/${ $state.value } ${ $city.value }`;
   $state.value = "시/도 선택";
   $city.value = "군/구 선택";
   $dateFrom.value = "";
   $dateTo.value = "";
-  const newTodoObj = {
-    text: newTodo,
-    id: Date.now(),
+  const newTodoObj = { // submit 할 때 value 값들을 newTodo에 저장하고 저장한 값들을 객체 값으로 다시 저장
+    text: newTodo,  // text에 newTodo 값 저장 
+    id: Date.now(), // id에 Date.now 현재시간 값 저장
   };
-  toDos.push(newTodoObj);
-  paintToDo(newTodoObj);
-  saveToDos();
+  paintToDo(newTodoObj); // paintTodo에 새롭게 선택된 값들을 넣기
+  toDos.push(newTodoObj); // submit 할 때 새롭게 선택된 값들을 toDos 배열에 push 
+  saveToDos(); // toDos 배열에 push한 값들을 local에 저장
 }
 
 $toDoForm.addEventListener("submit", handleToDoSubmit);
 
+// savedToDos에 local에 저장된 toDos 값 가져오기
 const savedToDos = localStorage.getItem(TODOS_KEY);
 
+// 기본적으로 값이 있으면 보여지는 부분
 if (savedToDos !== null) {
+  // if loca에 toDos 값이 있으면 string 값으로 저장한 toDos를 parse를 사용하여 array로 변경한 뒤 저장
   const parsedToDos = JSON.parse(savedToDos);
+  // 다시 toDos에 저장한 값 저장
   toDos = parsedToDos;
+  // parsedToDos의 각 요소들을 paintToDo해준다.
   parsedToDos.forEach(paintToDo);
 }
