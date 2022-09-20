@@ -17,8 +17,8 @@ const KAKAO_USERNAME = localStorage.getItem("kakao_username");
 const KAKAO_EMAIL = localStorage.getItem("kakao_email");
 const NAVER_USERNAME = localStorage.getItem("naver_username");
 const NAVER_EMAIL = localStorage.getItem("naver_email");
-const GENERAL_USERNAME = localStorage.getItem("general_username");
-const GENERAL_EMAIL = localStorage.getItem("general_email");
+const GENERAL_USERNAME = localStorage.getItem("info_username");
+const GENERAL_EMAIL = localStorage.getItem("info_email");
 
 const LOGOUT_GENERAL_USERNAME = localStorage.getItem("logout_general_username");
 const LOGOUT_GENERAL_EMAIL = localStorage.getItem("logout_general_email");
