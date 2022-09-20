@@ -1156,19 +1156,23 @@ function paintToDo(newTodo) {
 // 새로운 값을 입력하면 화면에 그리고 저장하는 부분
 function handleToDoSubmit(event) {
   event.preventDefault();
-  const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
-  $state.value = "시/도 선택";
-  $city.value = "군/구 선택";
-  $dateFrom.value = "";
-  $dateTo.value = "";
-  const newTodoObj = {
-    // submit 할 때 value 값들을 newTodo에 저장하고 저장한 값들을 객체 값으로 다시 저장
-    text: newTodo, // text에 newTodo 값 저장
-    id: Date.now(), // id에 Date.now 현재시간 값 저장
-  };
-  paintToDo(newTodoObj); // paintTodo에 새롭게 선택된 값들을 넣기
-  toDos.push(newTodoObj); // submit 할 때 새롭게 선택된 값들을 toDos 배열에 push
-  saveToDos(); // toDos 배열에 push한 값들을 local에 저장
+  if (localStorage.getItem("info_username") === null) {
+    alert("로그인 후 이용 가능합니다.");
+  } else {
+    const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
+    $state.value = "시/도 선택";
+    $city.value = "군/구 선택";
+    $dateFrom.value = "";
+    $dateTo.value = "";
+    const newTodoObj = {
+      // submit 할 때 value 값들을 newTodo에 저장하고 저장한 값들을 객체 값으로 다시 저장
+      text: newTodo, // text에 newTodo 값 저장
+      id: Date.now(), // id에 Date.now 현재시간 값 저장
+    };
+    paintToDo(newTodoObj); // paintTodo에 새롭게 선택된 값들을 넣기
+    toDos.push(newTodoObj); // submit 할 때 새롭게 선택된 값들을 toDos 배열에 push
+    saveToDos(); // toDos 배열에 push한 값들을 local에 저장
+  }
 }
 
 $toDoForm.addEventListener("submit", handleToDoSubmit);
