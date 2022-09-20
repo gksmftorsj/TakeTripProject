@@ -233,7 +233,7 @@
   }
 }
 
-@media screen and (max-width: 1919px) {
+@media screen and (max-width: 1920px) {
   .signup {
     width: 68%;
   }
@@ -264,13 +264,36 @@
   }
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1280px) {
   .signup {
     width: 66%;
     height: 63%;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    background-color: rgb(196, 214, 208);
-  }
 }
+
+  #signup-form{
+    height: 101%;
+}
+
+
+  .signup-header {
+    margin: 36px 0px 22px 0px;
+    font-size: 2rem;
+}
+
+.signup-field {
+  height: 16%;
+}
+
+  .signup-field input {
+    font-size: 1rem;
+}
+
+  .signup-btn {
+    font-size: 1rem;
+}
+
+  .accountChk {
+    font-size: 1.1rem;
+}
+}
+
