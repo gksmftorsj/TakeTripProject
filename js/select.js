@@ -1063,12 +1063,8 @@ if (
     },
     zoom: 8,
   });
-<<<<<<< HEAD
 } else {
   // if localStorage에 위도와 경도 값이 있으면 저장된 위도와 경도 값 가져오기
-=======
-} else { // if localStorage에 위도와 경도 값이 있으면 저장된 위도와 경도 값 가져오기
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   const savedLat = localStorage.getItem("lat");
   const savedLng = localStorage.getItem("lng");
   var map = new naver.maps.Map("map", {
@@ -1081,12 +1077,8 @@ if (
     zoom: 15,
   });
 
-<<<<<<< HEAD
   var marker = new naver.maps.Marker({
     // 가져온 위도 경도에 마크 표시
-=======
-  var marker = new naver.maps.Marker({ // 가져온 위도 경도에 마크 표시
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
     position: new naver.maps.LatLng(savedLat, savedLng),
     map: map,
   });
@@ -1097,12 +1089,8 @@ if (
 const $dateFrom = document.getElementById("dateFrom");
 const $dateTo = document.getElementById("dateTo");
 
-<<<<<<< HEAD
 function dateSelect() {
   // From 값과 To 값 저장한 뒤에 비교해서 To 값이 더 적으면 날짜를 다시 선택
-=======
-function dateSelect() { // From 값과 To 값 저장한 뒤에 비교해서 To 값이 더 적으면 날짜를 다시 선택
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   const savedDateFrom = $dateFrom.value;
   const savedDateTo = $dateTo.value;
   if (savedDateFrom <= savedDateTo) {
@@ -1126,20 +1114,12 @@ const $city = document.getElementById("city");
 
 const id = localStorage.getItem("info_username");
 
-<<<<<<< HEAD
 const TODOS_KEY = `${id}'s todos`;
 
 let toDos = []; // newTodo가 그려질 때마다 새로고침하면 값이 삭제되기 때문에 todo-list 값을 localStorage에 저장하기 위한 배열 toDos를 생성
 
 function saveToDos() {
   // localStorage에 toDos 배열 값을 저장
-=======
-const TODOS_KEY = `${ id }'s todos`;
-
-let toDos = []; // newTodo가 그려질 때마다 새로고침하면 값이 삭제되기 때문에 todo-list 값을 localStorage에 저장하기 위한 배열 toDos를 생성
-
-function saveToDos() { // localStorage에 toDos 배열 값을 저장
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
   // JSON.stringify를 사용하여 단순 text가 아닌 String으로 저장
 }
@@ -1147,11 +1127,7 @@ function saveToDos() { // localStorage에 toDos 배열 값을 저장
 function deleteToDo(event) {
   // 우리가 어떤 버튼을 클릭했는지 모르기 때문에 클릭한 버튼이 어떤 버튼인지 찾기 위한 event를 실행시킨다.
   const $li = event.target.parentElement; // 선택한 target의 parentElement인 li를 찾아서 li 변수에 저장
-<<<<<<< HEAD
   $li.remove(); // 클릭한 button의 li를 document에서 제거
-=======
-  $li.remove(); // 클릭한 button의 li를 document에서 제거 
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   toDos = toDos.filter((toDo) => toDo.id !== parseInt($li.id));
   // toDos에 새롭게 배열 값 저장
   // filter는 배열들이 차례대로 실행됨 true값만 저장하고 false값은 버린다.
@@ -1170,10 +1146,7 @@ function paintToDo(newTodo) {
   $span.innerText = newTodo.text; // newTodo의 text 저장
   const $button = document.createElement("button");
   $button.innerText = "❌";
-<<<<<<< HEAD
   $button.classList.add("deleteBtn");
-=======
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   $button.addEventListener("click", deleteToDo);
   $li.appendChild($span);
   $li.appendChild($button);
@@ -1183,16 +1156,11 @@ function paintToDo(newTodo) {
 // 새로운 값을 입력하면 화면에 그리고 저장하는 부분
 function handleToDoSubmit(event) {
   event.preventDefault();
-<<<<<<< HEAD
   const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
-=======
-  const newTodo = `${ $dateFrom.value }~${ $dateTo.value }/${ $state.value } ${ $city.value }`;
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   $state.value = "시/도 선택";
   $city.value = "군/구 선택";
   $dateFrom.value = "";
   $dateTo.value = "";
-<<<<<<< HEAD
   const newTodoObj = {
     // submit 할 때 value 값들을 newTodo에 저장하고 저장한 값들을 객체 값으로 다시 저장
     text: newTodo, // text에 newTodo 값 저장
@@ -1200,14 +1168,6 @@ function handleToDoSubmit(event) {
   };
   paintToDo(newTodoObj); // paintTodo에 새롭게 선택된 값들을 넣기
   toDos.push(newTodoObj); // submit 할 때 새롭게 선택된 값들을 toDos 배열에 push
-=======
-  const newTodoObj = { // submit 할 때 value 값들을 newTodo에 저장하고 저장한 값들을 객체 값으로 다시 저장
-    text: newTodo,  // text에 newTodo 값 저장 
-    id: Date.now(), // id에 Date.now 현재시간 값 저장
-  };
-  paintToDo(newTodoObj); // paintTodo에 새롭게 선택된 값들을 넣기
-  toDos.push(newTodoObj); // submit 할 때 새롭게 선택된 값들을 toDos 배열에 push 
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   saveToDos(); // toDos 배열에 push한 값들을 local에 저장
 }
 
@@ -1224,7 +1184,6 @@ if (savedToDos !== null) {
   toDos = parsedToDos;
   // parsedToDos의 각 요소들을 paintToDo해준다.
   parsedToDos.forEach(paintToDo);
-<<<<<<< HEAD
 }
 
 function fromInRorate() {
@@ -1254,6 +1213,3 @@ function toOutRorate() {
 $city.addEventListener("focusin", toInRorate);
 
 $city.addEventListener("change", toOutRorate);
-=======
-}
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631

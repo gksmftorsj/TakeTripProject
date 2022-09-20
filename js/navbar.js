@@ -11,19 +11,11 @@ const KAKAO_USERNAME = localStorage.getItem("kakao_username");
 const KAKAO_EMAIL = localStorage.getItem("kakao_email");
 const NAVER_USERNAME = localStorage.getItem("naver_username");
 const NAVER_EMAIL = localStorage.getItem("naver_email");
-<<<<<<< HEAD
 const GENERAL_USERNAME = localStorage.getItem("info_username");
 const GENERAL_EMAIL = localStorage.getItem("info_email");
 
 const LOGOUT_GENERAL_USERNAME = localStorage.getItem("info_username");
 const LOGOUT_GENERAL_EMAIL = localStorage.getItem("info_email");
-=======
-const GENERAL_USERNAME = localStorage.getItem("general_username");
-const GENERAL_EMAIL = localStorage.getItem("general_email");
-
-const LOGOUT_GENERAL_USERNAME = localStorage.getItem("logout_general_username");
-const LOGOUT_GENERAL_EMAIL = localStorage.getItem("logout_general_email");
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 
 if (
   // 만약 localStorage에 값이 있다면 로그인 버튼 없애고 내 정보로 변경
@@ -44,7 +36,6 @@ const $email = document.querySelector(".email");
 function showMyInfo() {
   $showMyInfo.classList.toggle("hidden");
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
-<<<<<<< HEAD
     $username.innerText = `이름: ${KAKAO_USERNAME}`;
     $email.innerText = `이메일: ${KAKAO_EMAIL}`;
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
@@ -53,16 +44,6 @@ function showMyInfo() {
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     $username.innerText = `이름: ${GENERAL_USERNAME}`;
     $email.innerText = `이메일: ${GENERAL_EMAIL}`;
-=======
-    $username.innerText = `이름: ${ KAKAO_USERNAME }`;
-    $email.innerText = `이메일: ${ KAKAO_EMAIL }`;
-  } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
-    $username.innerText = `이름: ${ NAVER_USERNAME }`;
-    $email.innerText = `이메일: ${ NAVER_EMAIL }`;
-  } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
-    $username.innerText = `이름: ${ GENERAL_USERNAME }`;
-    $email.innerText = `이메일: ${ GENERAL_EMAIL }`;
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   }
 }
 
@@ -129,13 +110,8 @@ function handleLogoutBtn() {
     closePopUp(); // 로그아웃 창 close
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
-<<<<<<< HEAD
     localStorage.removeItem("info_username");
     localStorage.removeItem("info_email");
-=======
-    localStorage.removeItem("logout_general_username");
-    localStorage.removeItem("logout_general_email");
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   }
 }
 
@@ -148,7 +124,6 @@ const $theme_img = document.querySelector(".theme-img");
 const $theme_name = document.querySelector(".theme-name");
 
 function handleThemeBtn() {
-<<<<<<< HEAD
   if (window.location.href.includes("index")) {
     if ($theme_name.textContent === "Light Mode") {
       $theme_img.setAttribute("src", "img/moon.png");
@@ -165,14 +140,6 @@ function handleThemeBtn() {
       $theme_img.setAttribute("src", "../img/sun.png");
       $theme_name.textContent = "Light Mode";
     }
-=======
-  if ($theme_name.textContent === "Light Mode") {
-    $theme_img.setAttribute("src", "img/moon.png");
-    $theme_name.textContent = "Dark Mode";
-  } else if ($theme_name.textContent === "Dark Mode") {
-    $theme_img.setAttribute("src", "img/sun.png");
-    $theme_name.textContent = "Light Mode";
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   }
 }
 

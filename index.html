@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<<<<<< HEAD
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,38 +18,16 @@
     <div class="navbar">
       <!-- 네이게이션 로고 -->
       <div class="nav-left">
-=======
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인페이지</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript"
-      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz"></script>
-  </head>
-
-  <body>
-    <!-- 네비게이션 바 -->
-    <div class="info-navbar">
-      <div class="navbar">
-        <!-- 네이게이션 로고 -->
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
         <div class="nav-logo">
           <i class="fa-brands fa-atlassian"></i>
           <span class="logo-name" onclick="location.href=`index.html`">로고 이름</span> <!-- index.html = 본인 url -->
         </div>
-<<<<<<< HEAD
       </div>
       <div class="nav-right">
         <div class="features-navbar">
           <a href="html/save-page.html" class="작성하러">작성하러 가기</a>
           <a href="html/fileEx.html" class="보러">작성된 것 보러 가기</a>
         </div>
-=======
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
         <!-- 네비게이션 버튼 -->
         <div class="nav-btn">
           <button class="login-btn" onclick="location.href=`html/login.html`">로그인</button>
@@ -60,7 +37,6 @@
           </button>
         </div>
       </div>
-<<<<<<< HEAD
     </div>
     <!-- 내 정보 -->
     <div class="showMyInfo">
@@ -86,33 +62,6 @@
         <div id="select_city">
           <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
           <div id="stateBox">
-=======
-      <!-- 내 정보 -->
-      <div class="showMyInfo">
-        <div class="username"></div>
-        <div class="email"></div>
-        <form class="logout-btn">
-          <button type="submit">로그아웃 버튼</button>
-        </form>
-        <div class="historySave">기록저장</div>
-      </div>
-    </div>
-    <div class="features-navbar">
-      <a href="html/save-page.html" class="작성하러">작성하러 가기</a>
-      <a href="html/fileEx.html" class="보러">작성된 것 보러 가기</a>
-    </div>
-
-    <header>
-      <div class="header">
-        <form id="todo-form">
-          <!-- 날짜 선택 -->
-          <div id="select_date">
-            <input type="date" id="dateFrom" required> ~ <input type="date" id="dateTo" required>
-          </div>
-          <!-- 도시 선택 -->
-          <div id="select_city">
-            <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
             <select id="state" onchange="categoryChange(this)" required>
               <option>시/도 선택</option>
               <option value="서울특별시">서울특별시</option>
@@ -132,7 +81,6 @@
               <option value="경상남도">경상남도</option>
               <option value="제주도">제주도</option>
             </select>
-<<<<<<< HEAD
             <span class="iconArrow">
               <i class="fa-solid fa-angle-down fromIcon"></i>
             </span>
@@ -170,35 +118,5 @@
   <script src="js/index-navbar.js"></script>
 
 </body>
-=======
-            <select id="city" required>
-              <option>군/구 선택</option>
-            </select>
-          </div>
-          <input type="submit" id="save" value="저장"></input>
-        </form>
-      </div>
-    </header>
-
-    <main>
-      <div class="main">
-        <div id="map"></div>
-        <ul id="todo-list">
-        </ul>
-        </a>
-      </div>
-    </main>
-
-    <footer>
-      <span>hello</span>
-    </footer>
-
-    <script src="js/select.js"></script>
-    <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script src="js/index-navbar.js"></script>
-
-  </body>
->>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 
 </html>
