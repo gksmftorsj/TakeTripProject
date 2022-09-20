@@ -1109,7 +1109,9 @@ const $toDoList = document.getElementById("todo-list");
 const $state = document.getElementById("state");
 const $city = document.getElementById("city");
 
-const TODOS_KEY = "todos";
+const id = localStorage.getItem("info_username");
+
+const TODOS_KEY = `${ id }'s todos`;
 
 let toDos = []; // newTodo가 그려질 때마다 새로고침하면 값이 삭제되기 때문에 todo-list 값을 localStorage에 저장하기 위한 배열 toDos를 생성
 

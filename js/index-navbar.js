@@ -20,8 +20,8 @@ const NAVER_EMAIL = localStorage.getItem("naver_email");
 const GENERAL_USERNAME = localStorage.getItem("info_username");
 const GENERAL_EMAIL = localStorage.getItem("info_email");
 
-const LOGOUT_GENERAL_USERNAME = localStorage.getItem("logout_general_username");
-const LOGOUT_GENERAL_EMAIL = localStorage.getItem("logout_general_email");
+const LOGOUT_GENERAL_USERNAME = localStorage.getItem("info_username");
+const LOGOUT_GENERAL_EMAIL = localStorage.getItem("info_email");
 
 if (
   // 만약 localStorage에 값이 있다면 로그인 버튼 없애고 내 정보로 변경
@@ -116,8 +116,8 @@ function handleLogoutBtn() {
     closePopUp(); // 로그아웃 창 close
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
-    localStorage.removeItem("logout_general_username");
-    localStorage.removeItem("logout_general_email");
+    localStorage.removeItem("info_username");
+    localStorage.removeItem("info_email");
   }
 }
 

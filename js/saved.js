@@ -1,6 +1,8 @@
 const $saveToDoList = document.getElementById("savetodo-list");
 
-const TODOS_KEY = "todos"; // 여기서 삭제되면 index에서도 삭제 되어야 하기 때문에 같은 keyName 사용
+const id = localStorage.getItem("info_username");
+
+const TODOS_KEY = `${ id }'s todos`; // 여기서 삭제되면 index에서도 삭제 되어야 하기 때문에 같은 keyName 사용
 
 let toDos = [];
 
