@@ -1,0 +1,23 @@
+.navbar_switch{
+  margin-right: 20px;
+}
+
+.navbar_switch_box{ /* 둥근 박스 생성 */
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  width: 3rem;
+  background-color: rgb(49, 138, 202);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.navbar_switch_boxBtn{ /* 버튼 생성 후 translateX*/
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background-color: white;
+  transition: transform 0.3s ease-in-out 0s;
+  transform: translateX(1.5rem);
+  border: 1px solid rgb(49, 138, 202);
+}

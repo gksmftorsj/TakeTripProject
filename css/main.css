@@ -1,7 +1,11 @@
 .header {
   width: 100%;
   height: 40vh;
+<<<<<<< HEAD
   background-color: #bbdefb;
+=======
+  background-color: yellowgreen;
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,9 +18,26 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 #tilde {
   font-size: 4rem;
   text-align: center;
+=======
+#dateFrom {
+  border: none;
+  border-radius: 19px;
+  width: 95px;
+  height: 50px;
+  background: bisque;
+}
+
+#dateTo {
+  border: none;
+  border-radius: 19px;
+  width: 95px;
+  height: 50px;
+  background: bisque;
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 }
 
 #select_city {
@@ -26,6 +47,7 @@
   align-items: center;
 }
 
+<<<<<<< HEAD
 input[type="date"] {
   background-color: #0080ff;
   color: #ffffff;
@@ -195,10 +217,27 @@ input[type="date"] {
   100% {
     transform: rotateZ(0deg);
   }
+=======
+#state {
+  border: none;
+  border-radius: 19px;
+  width: 95px;
+  height: 50px;
+  background: bisque;
+}
+
+#city {
+  border: none;
+  border-radius: 19px;
+  width: 95px;
+  height: 50px;
+  background: bisque;
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 }
 
 #save {
   width: 10%;
+<<<<<<< HEAD
   height: 10%;
   border: none;
   border-radius: 5px;
@@ -206,14 +245,21 @@ input[type="date"] {
 
 #save:hover {
   cursor: pointer;
+=======
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 }
 
 #todo-form {
   width: 75%;
+<<<<<<< HEAD
   height: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+=======
+  display: flex;
+  justify-content: space-around;
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 }
 
 .main {
@@ -248,10 +294,13 @@ li {
   font-size: 1.5rem;
 }
 
+<<<<<<< HEAD
 .deleteBtn:hover {
   cursor: pointer;
 }
 
+=======
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 footer {
   background-color: black;
   width: 100%;

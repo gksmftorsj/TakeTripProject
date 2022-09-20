@@ -2,7 +2,11 @@ const $saveToDoList = document.getElementById("savetodo-list");
 
 const id = localStorage.getItem("info_username");
 
+<<<<<<< HEAD
 const TODOS_KEY = `${id}'s todos`; // 여기서 삭제되면 index에서도 삭제 되어야 하기 때문에 같은 keyName 사용
+=======
+const TODOS_KEY = `${ id }'s todos`; // 여기서 삭제되면 index에서도 삭제 되어야 하기 때문에 같은 keyName 사용
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
 
 let toDos = [];
 
@@ -73,6 +77,7 @@ function saveText() {
 
 const savedText = localStorage.getItem(TEXT_KEY);
 
+<<<<<<< HEAD
 const submit = document.querySelectorAll("input[type=submit]");
 const file = document.querySelectorAll("input[type=file]");
 
@@ -95,5 +100,28 @@ for (let i = 0; i < submit.length; i++) {
     const hello = file[i].value;
     console.log(hello);
   }
+=======
+function handleSubmitBtn(event) {
+  event.preventDefault();
+  const text = event.target.previousSibling.value;
+  event.target.previousSibling.value = ""; // 같은 레벨의 노드 중, 이전 노드를 리턴한다.
+  const img = `../uploadimg/${ event.target.nextSibling.files[0].name }`;
+  event.target.nextSibling.value = ""; // 같은 레벨의 노드 중, 다음 노드를 리턴한다.
+  const textObj = {
+    text: text,
+    img: img,
+    id: Date.now(),
+  };
+  texts.push(textObj);
+  saveText();
+  console.log('hello');
+  // const parsedText = JSON.parse(savedText);
+  // texts = parsedText;
+}
+
+const submit = document.querySelectorAll("input[type=submit]");
+
+for (let i = 0; i < submit.length; i++) {
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   submit[i].addEventListener("click", handleSubmitBtn);
 }

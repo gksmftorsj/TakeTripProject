@@ -1,5 +1,9 @@
 main {
+<<<<<<< HEAD
   background-color: #bbdefb;
+=======
+  background-color: coral;
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   width: 100%;
   height: 120vh;
   display: flex;
@@ -20,7 +24,11 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   background-color: #eeffff;
+=======
+  background-color: aquamarine;
+>>>>>>> 4e3e30d641396c5ba6eca0d91c541f8754e0c631
   margin-bottom: 30px;
 }
 
