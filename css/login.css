@@ -1,0 +1,322 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+}
+
+.login {
+  width: 60%;
+  height: 65%;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background-color: rgb(196, 214, 208);
+}
+
+/* 로그인 전체화면 absolute */
+.login-absolute {
+  position: absolute;
+}
+
+/* 로그인 전제화면 투명도 주기 */
+.show-login {
+  animation: loginShow 1.5s forwards;
+}
+
+@keyframes loginShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.login-screen {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 로그인 스크린 나타나기 */
+.show-login-form {
+  animation: loginFormShow 1.5s forwards;
+}
+
+@keyframes loginFormShow {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* 로그인 스크린 숨기기 */
+.hidden-login-form {
+  animation: loginFormHidden 1.5s forwards;
+}
+
+@keyframes loginFormHidden {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0.001;
+    visibility: hidden;
+  }
+}
+
+#login-form {
+  position: relative;
+  width: 100%;
+  height: 101%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+}
+
+.login-header {
+  width: 58%;
+  text-align: center;
+  margin: 30px 0px 10px 0px;
+  font-size: 3rem;
+}
+
+.login-field {
+  width: 64%;
+  height: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-field label {
+  width: 15%;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-right: none;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  background-color: #363a40;
+}
+
+.login-field input {
+  width: 75%;
+  height: 63%;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  background-color: #3a4048;
+  font-size: 1.4rem;
+}
+
+.email-img {
+  width: 95%;
+  height: 95%;
+}
+
+.pw-img {
+  width: 60%;
+  height: 60%;
+}
+
+.login-field input[type="email"]:focus,
+.login-field input[type="email"]:hover,
+.login-field input[type="password"]:hover,
+.login-field input[type="password"]:focus {
+  background-color: #45505d;
+}
+
+.accountChk {
+  width: 58%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.login-btn {
+  width: 58%;
+  height: 10%;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+
+.login-btn.general:hover {
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+.signup-screen-btn {
+  margin: 0px 5px 0px 15px;
+  cursor: pointer;
+  color: black;
+}
+
+.another-btn {
+  position: relative;
+  width: 58%;
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+}
+
+.kakao-naver-btn {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.kakao-naver-btn:hover {
+  cursor: pointer;
+}
+
+.login-btn.kakao {
+  width: 100%;
+  height: 80px;
+}
+
+.login-btn.naver {
+  width: 109%;
+  height: 98px;
+}
+
+.login-bg {
+  width: 50%;
+  height: 100%;
+  border-radius: 20px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* 로그인 배경화면 나타나기 */
+.show-login-bg {
+  animation: loginBgShow 1.5s forwards;
+}
+
+@keyframes loginBgShow {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    opacity: 1;
+  }
+}
+
+/* 로그인 배경화면 숨기기 */
+.hidden-login-bg {
+  animation: loginBgHidden 1.5s forwards;
+}
+
+@keyframes loginBgHidden {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    border-radius: 20px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    transform: translateX(-100%);
+    opacity: 0.001;
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 1920px) {
+  .login {
+    width: 68%;
+  }
+
+  #login-form {
+    height: 100%;
+  }
+
+  .another-btn {
+    height: 30%;
+  }
+
+  .login-btn.kakao {
+    height: 74px;
+  }
+
+  .login-btn.naver {
+    height: 82px;
+  }
+
+  .email-img {
+    height: 80%;
+  }
+
+  .pw-img {
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .login {
+    width: 66%;
+    height: 63%;
+  }
+
+  .login-header {
+    font-size: 2rem;
+}
+
+  .login-field {
+    height: 22%;
+  }
+
+  .login-field input {
+    font-size: 1rem;
+}
+
+  .login-btn {
+  font-size: 1rem;
+}
+
+  .accountChk {
+  font-size: 1.1rem;
+}
+}

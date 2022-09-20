@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>텍스트이미지저장페이지</title>
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/fileEx.css">
+</head>
+
+<body>
+  <!-- 네비게이션 바 -->
+  <nav>
+    <div class="navbar">
+      <!-- 네이게이션 로고 -->
+      <div class="nav-left">
+        <div class="nav-logo">
+          <i class="fa-brands fa-atlassian"></i>
+          <span class="logo-name" onclick="location.href=`../index.html`">로고 이름</span> <!-- index.html = 본인 url -->
+        </div>
+      </div>
+      <div class="nav-right">
+        <!-- 작성하러 가기 보러 가기 -->
+        <div class="features-navbar">
+          <a href="../html/save-page.html" class="작성하러">작성하러 가기</a>
+          <a href="../html/fileEx.html" class="보러">작성된 것 보러 가기</a>
+        </div>
+        <!-- 네비게이션 버튼 -->
+        <div class="nav-btn">
+          <button class="login-btn" onclick="location.href=`../html/login.html`">로그인</button>
+          <button class="theme-btn">
+            <img class="theme-img" src="../img/sun.png">
+            <span class="theme-name">Light Mode</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- 내 정보 -->
+    <div class="showMyInfo">
+      <div class="username"></div>
+      <div class="email"></div>
+      <form class="logout-btn">
+        <button type="submit">로그아웃 버튼</button>
+      </form>
+      <div class="historySave">기록저장</div>
+    </div>
+  </nav>
+  <div class="features-navbar">
+    <a href="../html/save-page.html" class="작성하러">작성하러 가기</a>
+    <a href="../html/fileEx.html" class="보러">작성된 것 보러 가기</a>
+  </div>
+  <main>
+    <ul id="showtodo-list">
+
+    </ul>
+  </main>
+
+  <script src="../js/file.js"></script>
+  <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="../js/navbar.js"></script>
+</body>
+
+</html>
