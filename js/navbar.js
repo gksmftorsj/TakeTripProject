@@ -5,7 +5,10 @@ const $login_btn = document.querySelector(".login-btn");
 const $myInfo = document.createElement("img"); // nav_btn에 myInfo Element 추가 기능 저장
 $myInfo.classList.add("myInfo");
 
-if (window.location.href.includes("index") || window.location.href === "https://gksmftorsj.github.io/project0901/") {
+if (
+  window.location.href.includes("index") ||
+  window.location.href === "https://gksmftorsj.github.io/project0901/"
+) {
   $myInfo.setAttribute("src", "img/user.png"); // myInfo 속성 값으로 src 추가
 } else {
   $myInfo.setAttribute("src", "../img/user.png");
@@ -41,14 +44,14 @@ const $email = document.querySelector(".email");
 function showMyInfo() {
   $showMyInfo.classList.toggle("hidden");
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
-    $username.innerText = `이름: ${ KAKAO_USERNAME }`;
-    $email.innerText = `이메일: ${ KAKAO_EMAIL }`;
+    $username.innerText = `이름: ${KAKAO_USERNAME}`;
+    $email.innerText = `이메일: ${KAKAO_EMAIL}`;
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
-    $username.innerText = `이름: ${ NAVER_USERNAME }`;
-    $email.innerText = `이메일: ${ NAVER_EMAIL }`;
+    $username.innerText = `이름: ${NAVER_USERNAME}`;
+    $email.innerText = `이메일: ${NAVER_EMAIL}`;
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
-    $username.innerText = `이름: ${ GENERAL_USERNAME }`;
-    $email.innerText = `이메일: ${ GENERAL_EMAIL }`;
+    $username.innerText = `이름: ${GENERAL_USERNAME}`;
+    $email.innerText = `이메일: ${GENERAL_EMAIL}`;
   }
 }
 

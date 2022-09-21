@@ -20,10 +20,11 @@ window.addEventListener("load", function () {
       // 정상적으로 로그인 되면 status = true
       // (5) 필수적으로 받아야 하는 프로필 정보가 있다면 callback처리 시점에 체크
       var username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
-      localStorage.setItem(NAVER_USERNAME_KEY, username); // localStorage에 이름 값 저장
+      // localStorage.setItem(NAVER_USERNAME_KEY, username); // localStorage에 이름 값 저장
       var email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
-      localStorage.setItem(NAVER_EMAIL_KEY, email); // localStorage에 이메일 값 저장
+      // localStorage.setItem(NAVER_EMAIL_KEY, email); // localStorage에 이메일 값 저장
       localStorage.setItem("info_username", username);
+      localStorage.setItem("info_email", email);
       window.location.href =
         "https://gksmftorsj.github.io/project0901/index.html";
       //만약 로그인 페이지로 들어오면 바로 메인페이지로 이동
