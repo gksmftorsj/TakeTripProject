@@ -3,8 +3,13 @@ const $login_btn = document.querySelector(".login-btn");
 
 // 로그인 후 내 정보 생성 => <img src="img/user.png" class="myInfo"> 생성
 const $myInfo = document.createElement("img"); // nav_btn에 myInfo Element 추가 기능 저장
-$myInfo.classList.add("myInfo"); // class="myInfo"
-$myInfo.setAttribute("src", "../img/user.png"); // myInfo 속성 값으로 src 추가
+$myInfo.classList.add("myInfo");
+
+if (window.location.href.includes("index")) {
+  $myInfo.setAttribute("src", "img/user.png"); // myInfo 속성 값으로 src 추가
+} else {
+  $myInfo.setAttribute("src", "../img/user.png");
+}
 
 // localStorage에서 값 가져오기
 const KAKAO_USERNAME = localStorage.getItem("kakao_username");
@@ -36,14 +41,14 @@ const $email = document.querySelector(".email");
 function showMyInfo() {
   $showMyInfo.classList.toggle("hidden");
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
-    $username.innerText = `이름: ${KAKAO_USERNAME}`;
-    $email.innerText = `이메일: ${KAKAO_EMAIL}`;
+    $username.innerText = `이름: ${ KAKAO_USERNAME }`;
+    $email.innerText = `이메일: ${ KAKAO_EMAIL }`;
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
-    $username.innerText = `이름: ${NAVER_USERNAME}`;
-    $email.innerText = `이메일: ${NAVER_EMAIL}`;
+    $username.innerText = `이름: ${ NAVER_USERNAME }`;
+    $email.innerText = `이메일: ${ NAVER_EMAIL }`;
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
-    $username.innerText = `이름: ${GENERAL_USERNAME}`;
-    $email.innerText = `이메일: ${GENERAL_EMAIL}`;
+    $username.innerText = `이름: ${ GENERAL_USERNAME }`;
+    $email.innerText = `이메일: ${ GENERAL_EMAIL }`;
   }
 }
 

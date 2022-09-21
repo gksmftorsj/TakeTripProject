@@ -29,6 +29,7 @@ function kakaoLogin() {
           // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
           localStorage.setItem(KAKAO_USERNAME_KEY, kakaoUsername);
           localStorage.setItem(KAKAO_EMAIL_KEY, kakaoEmail);
+          localStorage.setItem("info_username", kakaoUsername);
           console.log("로그인 성공");
           window.location.href = "https://gksmftorsj.github.io/project0901/";
         },

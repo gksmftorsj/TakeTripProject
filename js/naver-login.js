@@ -23,7 +23,7 @@ window.addEventListener("load", function () {
       localStorage.setItem(NAVER_USERNAME_KEY, username); // localStorage에 이름 값 저장
       var email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
       localStorage.setItem(NAVER_EMAIL_KEY, email); // localStorage에 이메일 값 저장
-      console.log("로그인 성공");
+      localStorage.setItem("info_username", username);
       window.location.href =
         "https://gksmftorsj.github.io/project0901/index.html";
       //만약 로그인 페이지로 들어오면 바로 메인페이지로 이동

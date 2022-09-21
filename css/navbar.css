@@ -12,18 +12,21 @@
 
 .nav-left {
   display: flex;
+  align-items: center;
   flex: 1;
+  height: 100%;
 }
 
 .nav-right {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   flex: 1;
+  height: 100%;
 }
 
 .nav-logo {
   display: flex;
-  align-items: baseline;
   margin-left: 30px;
   font-size: 1.25rem;
 }
@@ -38,8 +41,7 @@
 
 .features-navbar {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  font-size: 1.25rem;
 }
 
 .작성하러 {
@@ -60,9 +62,9 @@
 }
 
 .myInfo {
-  width: 35px;
-  height: 35px;
-  margin-right: 20px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 .myInfo:hover {
@@ -89,7 +91,7 @@
 .showMyInfo {
   width: 220px;
   height: 110px;
-  background-color: aquamarine;
+  background-color: #6ec6ff;
   position: fixed;
   z-index: 200;
   right: 80px;

@@ -174,10 +174,12 @@ $signupForm.addEventListener("submit", handleSignupBtn); // 회원가입 버튼 
 
 function handleLoginBtn(event) {
   event.preventDefault();
-  const email_validation = JSON.parse(savedEmail);
-  const pw_validation = JSON.parse(savedPw);
-  const username_validation = JSON.parse(savedUsername);
-  for (let i = 0; i <= email_validation.length; i++) {
+  // local 불러오는 시점 확인 해야 합니다.
+  const email_validation = JSON.parse(localStorage.getItem("email"));
+  console.log(email_validation);
+  const pw_validation = JSON.parse(localStorage.getItem("pw"));
+  const username_validation = JSON.parse(localStorage.getItem("username"));
+  for (let i = 0; i < email_validation.length; i++) {
     if (
       email_validation[i].general_email === $loginEmail.value &&
       pw_validation[i].general_pw === $loginPw.value

@@ -2,7 +2,7 @@ const $saveToDoList = document.getElementById("savetodo-list");
 
 const id = localStorage.getItem("info_username");
 
-const TODOS_KEY = `${id}'s todos`; // 여기서 삭제되면 index에서도 삭제 되어야 하기 때문에 같은 keyName 사용
+const TODOS_KEY = `${ id }'s todos`; // 여기서 삭제되면 index에서도 삭제 되어야 하기 때문에 같은 keyName 사용
 
 let toDos = [];
 
@@ -63,7 +63,7 @@ function paintSaveToDo(saveTodo) {
 
 // --------------------------------------------------------------
 
-const TEXT_KEY = "text";
+const TEXT_KEY = `text`;
 
 let texts = [];
 
@@ -80,20 +80,28 @@ for (let i = 0; i < submit.length; i++) {
   function handleSubmitBtn(event) {
     event.preventDefault();
     const text = event.target.previousSibling.value;
+    if (file[i].value === "" && event.target.previousSibling.value !== "") {
+      const textObj = {
+        text: text,
+        img: "",
+        id: Date.now(),
+      };
+      texts.push(textObj);
+      saveText();
+    } else if (file[i].value === "" && event.target.previousSibling.value === "") {
+      alert("값을 입력해주세요")
+    } else {
+      const img = `../uploadimg/${ event.target.nextSibling.files[0].name }`;
+      const textObj = {
+        text: text,
+        img: img,
+        id: Date.now(),
+      };
+      texts.push(textObj);
+      saveText();
+    }
     event.target.previousSibling.value = ""; // 같은 레벨의 노드 중, 이전 노드를 리턴한다.
-    // const img = `../uploadimg/${event.target.nextSibling.files[0].name}`;
     event.target.nextSibling.value = ""; // 같은 레벨의 노드 중, 다음 노드를 리턴한다.
-    const textObj = {
-      text: text,
-      // img: img,
-      id: Date.now(),
-    };
-    texts.push(textObj);
-    saveText();
-    // const parsedText = JSON.parse(savedText);
-    // texts = parsedText;
-    const hello = file[i].value;
-    console.log(hello);
   }
   submit[i].addEventListener("click", handleSubmitBtn);
 }
