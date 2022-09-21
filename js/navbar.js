@@ -5,7 +5,7 @@ const $login_btn = document.querySelector(".login-btn");
 const $myInfo = document.createElement("img"); // nav_btn에 myInfo Element 추가 기능 저장
 $myInfo.classList.add("myInfo");
 
-if (window.location.href.includes("index")) {
+if (window.location.href.includes("index") || window.location.href === "https://gksmftorsj.github.io/project0901/index.html") {
   $myInfo.setAttribute("src", "img/user.png"); // myInfo 속성 값으로 src 추가
 } else {
   $myInfo.setAttribute("src", "../img/user.png");
