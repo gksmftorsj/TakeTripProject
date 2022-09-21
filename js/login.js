@@ -170,7 +170,6 @@ if (savedUsername !== null) {
   pwChk = parsedPwChk;
 }
 
-// form Element에 submit 해야 돼!!!!!!!! input type="submit" Element에 submit 하지 말고!!!!!!!!
 $signupForm.addEventListener("submit", handleSignupBtn); // 회원가입 버튼 클릭
 
 function handleLoginBtn(event) {
@@ -178,15 +177,14 @@ function handleLoginBtn(event) {
   const email_validation = JSON.parse(savedEmail);
   const pw_validation = JSON.parse(savedPw);
   const username_validation = JSON.parse(savedUsername);
-  for (let i = 0; i < email_validation.length; i++) {
+  for (let i = 0; i <= email_validation.length; i++) {
     if (
       email_validation[i].general_email === $loginEmail.value &&
       pw_validation[i].general_pw === $loginPw.value
     ) {
-      // 이메일 비밀번호 둘 다 같으면 로그인 성공 => 메인페이지로 넘어가기
       localStorage.setItem("index", i);
       window.location.href = "../index.html";
-      $loginEmail.value = ""; // 로그인 완료 후 입력창 빈 값으로 초기화
+      $loginEmail.value = "";
       $loginPw.value = "";
       localStorage.setItem(
         "info_username",
