@@ -97,7 +97,7 @@ function openPopup() {
   signup_completePopup = window.open(
     "../html/signup-complete.html",
     "회원가입완료 팝업",
-    `width=${width}, height=${height}, left=${left}, top=${top}`
+    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
   ); // 팝업창 가운데 정렬
 }
 
@@ -159,16 +159,16 @@ const savedEmail = localStorage.getItem("email");
 const savedPw = localStorage.getItem("pw");
 const savedPwChk = localStorage.getItem("pwChk");
 
-if (savedUsername !== null) {
-  const parsedUsername = JSON.parse(savedUsername);
-  username = parsedUsername;
-  const parsedEmail = JSON.parse(savedEmail);
-  email = parsedEmail;
-  const parsedPw = JSON.parse(savedPw);
-  pw = parsedPw;
-  const parsedPwChk = JSON.parse(savedPwChk);
-  pwChk = parsedPwChk;
-}
+// if (savedUsername !== null) {
+//   const parsedUsername = JSON.parse(savedUsername);
+//   username = parsedUsername;
+//   const parsedEmail = JSON.parse(savedEmail);
+//   email = parsedEmail;
+//   const parsedPw = JSON.parse(savedPw);
+//   pw = parsedPw;
+//   const parsedPwChk = JSON.parse(savedPwChk);
+//   pwChk = parsedPwChk;
+// }
 
 // form Element에 submit 해야 돼!!!!!!!! input type="submit" Element에 submit 하지 말고!!!!!!!!
 $signupForm.addEventListener("submit", handleSignupBtn); // 회원가입 버튼 클릭

@@ -30,7 +30,7 @@ input[type="date"] {
   background-color: #0080ff;
   color: #ffffff;
   padding: 15px;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: bold;
   border: none;
   border-radius: 20px;
@@ -259,4 +259,35 @@ footer {
   color: white;
   font-size: 8rem;
   text-align: center;
+}
+
+@media screen and (max-width: 1280px){
+  #todo-form {
+    width: 100%;
+}
+
+  input[type="date"] {
+    width: 150px;
+    height: 35px;
+}
+
+  #tilde {
+    font-size: 3rem;
+}
+
+  #stateBox {
+    height: 65px;
+}
+
+  #cityBox {
+    height: 65px;
+}
+
+  #state{
+    font-size: 1.3rem;
+  }
+
+  #city{
+    font-size: 1.3rem;
+  }
 }
