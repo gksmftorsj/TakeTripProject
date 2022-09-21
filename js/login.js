@@ -97,7 +97,7 @@ function openPopup() {
   signup_completePopup = window.open(
     "../html/signup-complete.html",
     "회원가입완료 팝업",
-    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
+    `width=${width}, height=${height}, left=${left}, top=${top}`
   ); // 팝업창 가운데 정렬
 }
 
@@ -176,7 +176,6 @@ function handleLoginBtn(event) {
   event.preventDefault();
   // local 불러오는 시점 확인 해야 합니다.
   const email_validation = JSON.parse(localStorage.getItem("email"));
-  console.log(email_validation);
   const pw_validation = JSON.parse(localStorage.getItem("pw"));
   const username_validation = JSON.parse(localStorage.getItem("username"));
   for (let i = 0; i < email_validation.length; i++) {
