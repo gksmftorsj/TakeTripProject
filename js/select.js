@@ -1159,7 +1159,7 @@ function paintToDo(newTodo) {
   const $a = document.createElement("a");
   $a.appendChild($span);
   $span.addEventListener("click", goToDo);
-  $a.setAttribute("href", "project0901/html/write.html");
+  $a.setAttribute("href", "/html/write.html");
   $li.appendChild($a);
   $li.appendChild($button);
   $li.appendChild($button);
