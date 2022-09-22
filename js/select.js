@@ -1167,8 +1167,7 @@ function paintToDo(newTodo) {
 }
 
 // 새로운 값을 입력하면 화면에 그리고 저장하는 부분
-function handleToDoSubmit(event) {
-  event.preventDefault();
+function handleToDoSubmit() {
   if (localStorage.getItem("info_username") === null) {
     alert("로그인 후 이용 가능합니다.");
   } else {

@@ -32,20 +32,25 @@ function saveToDo(event) {
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(saveValues));
     saveIds.push(savedId);
-    const vallidaionId = JSON.parse(localStorage.getItem("saveIds"));
 
-    if (vallidaionId === null) {
+    const vallidaionIds = localStorage.getItem("saveIds");
+    console.log(vallidaionIds);
+
+    const vallidaionId = localStorage.getItem("saveId");
+    console.log(vallidaionId);
+
+    // saveIds값이 null 즉 처음 작성이면 바로 local에 저장
+    if (vallidaionIds === null) {
       localStorage.setItem("saveIds", JSON.stringify(saveIds));
+    } else if (vallidaionIds.includes(vallidaionId)) {
+      // saveId값이 saveIds값 안에 있으면 저장X
+      file.value = "";
+      text.value = "";
+      console.log("제대로 들어옴");
+      return;
     } else {
-      for (let i = 0; i <= vallidaionId.length; i++) {
-        if (JSON.parse(localStorage.getItem("saveIds"))[i] === saveId) {
-          console.log("제대로 들어옴");
-          return;
-        } else {
-          localStorage.setItem("saveIds", JSON.stringify(saveIds));
-          console.log("잘 못 들어옴");
-        }
-      }
+      localStorage.setItem("saveIds", JSON.stringify(saveIds));
+      console.log("잘 못 들어옴");
     }
   } else {
     const fileValue = `../uploadimg/${file.files[0].name}`;
@@ -56,7 +61,26 @@ function saveToDo(event) {
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(saveValues));
     saveIds.push(savedId);
-    localStorage.setItem("saveIds", JSON.stringify(saveIds));
+
+    const vallidaionIds = localStorage.getItem("saveIds");
+    console.log(vallidaionIds);
+
+    const vallidaionId = localStorage.getItem("saveId");
+    console.log(vallidaionId);
+
+    // saveIds값이 null 즉 처음 작성이면 바로 local에 저장
+    if (vallidaionIds === null) {
+      localStorage.setItem("saveIds", JSON.stringify(saveIds));
+    } else if (vallidaionIds.includes(vallidaionId)) {
+      // saveId값이 saveIds값 안에 있으면 저장X
+      file.value = "";
+      text.value = "";
+      console.log("제대로 들어옴");
+      return;
+    } else {
+      localStorage.setItem("saveIds", JSON.stringify(saveIds));
+      console.log("잘 못 들어옴");
+    }
   }
   file.value = "";
   text.value = "";

@@ -14,6 +14,18 @@ if (
   $myInfo.setAttribute("src", "../img/user.png");
 }
 
+// console.log("hi");
+// const 보러 = document.querySelector(".보러");
+
+// 보러.addEventListener("click", () => {
+//   console.log("hi");
+//   if (localStorage.getItem("info_username") === null) {
+//     alert("로그인 후 이용 가능합니다.");
+//   } else {
+//     window.location.href = "../html/saved.html";
+//   }
+// });
+
 // localStorage에서 값 가져오기
 const KAKAO_USERNAME = localStorage.getItem("kakao_username");
 const KAKAO_EMAIL = localStorage.getItem("kakao_email");
@@ -33,6 +45,9 @@ if (
 ) {
   $nav_btn.removeChild($login_btn); // nav_btn에서 login_btn Element 제거
   $nav_btn.prepend($myInfo); // 완성된 myInfo nav_btn 자식 요소 중 가장 위쪽에 추가
+  const 보러 = document.querySelector("#보러");
+  보러.classList.remove("hidden-보러");
+  보러.classList.add("show보러");
 }
 // 로그인 후 내 정보 생성
 
