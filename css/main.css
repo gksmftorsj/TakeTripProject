@@ -252,6 +252,10 @@ li {
   font-size: 1.5rem;
 }
 
+.cursor:hover {
+  cursor: pointer;
+}
+
 .deleteBtn:hover {
   cursor: pointer;
 }
@@ -265,33 +269,33 @@ footer {
   text-align: center;
 }
 
-@media screen and (max-width: 1280px){
+@media screen and (max-width: 1280px) {
   #todo-form {
     width: 100%;
-}
+  }
 
   input[type="date"] {
     width: 150px;
     height: 35px;
-}
+  }
 
   #tilde {
     font-size: 3rem;
-}
+  }
 
   #stateBox {
     height: 65px;
-}
+  }
 
   #cityBox {
     height: 65px;
-}
+  }
 
-  #state{
+  #state {
     font-size: 1.3rem;
   }
 
-  #city{
+  #city {
     font-size: 1.3rem;
   }
 }

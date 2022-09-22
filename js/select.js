@@ -1137,12 +1137,14 @@ function deleteToDo(event) {
 }
 
 function goToDo(event) {
-  const goLi = event.target.parentElement.parentElement;
+  event.preventDefault();
+  const goLi = event.target.parentElement;
   console.log(goLi.id);
-  const span = event.target.parentElement;
-  console.log(span.innerText);
-  localStorage.setItem("title", span.innerText);
+  const span = goLi.children[0].innerText;
+  console.log(span);
+  localStorage.setItem("title", span);
   localStorage.setItem("saveId", goLi.id);
+  window.location.href = "html/write.html";
 }
 
 // ul > li > span & button Element 생성
@@ -1152,15 +1154,13 @@ function paintToDo(newTodo) {
   $li.id = newTodo.id; // newTodo의 id 저장
   const $span = document.createElement("span");
   $span.innerText = newTodo.text; // newTodo의 text 저장
+  $span.classList.add("cursor");
   const $button = document.createElement("button");
   $button.innerText = "❌";
   $button.classList.add("deleteBtn");
   $button.addEventListener("click", deleteToDo);
-  const $a = document.createElement("a");
-  $a.appendChild($span);
+  $li.appendChild($span);
   $span.addEventListener("click", goToDo);
-  $a.setAttribute("href", "/html/write.html");
-  $li.appendChild($a);
   $li.appendChild($button);
   $li.appendChild($button);
   $toDoList.appendChild($li);

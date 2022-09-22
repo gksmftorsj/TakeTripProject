@@ -178,20 +178,26 @@ function handleLoginBtn(event) {
   const email_validation = JSON.parse(localStorage.getItem("email"));
   const pw_validation = JSON.parse(localStorage.getItem("pw"));
   const username_validation = JSON.parse(localStorage.getItem("username"));
-  for (let i = 0; i < email_validation.length; i++) {
-    if (
-      email_validation[i].general_email === $loginEmail.value &&
-      pw_validation[i].general_pw === $loginPw.value
-    ) {
-      localStorage.setItem("index", i);
-      window.location.href = "../index.html";
-      $loginEmail.value = "";
-      $loginPw.value = "";
-      localStorage.setItem(
-        "info_username",
-        username_validation[i].general_username
-      );
-      localStorage.setItem("info_email", email_validation[i].general_email);
+
+  if (email_validation === null) {
+    alert("회원가입 먼저 해주세요.");
+    return;
+  } else {
+    for (let i = 0; i < email_validation.length; i++) {
+      if (
+        email_validation[i].general_email === $loginEmail.value &&
+        pw_validation[i].general_pw === $loginPw.value
+      ) {
+        localStorage.setItem("index", i);
+        window.location.href = "../index.html";
+        $loginEmail.value = "";
+        $loginPw.value = "";
+        localStorage.setItem(
+          "info_username",
+          username_validation[i].general_username
+        );
+        localStorage.setItem("info_email", email_validation[i].general_email);
+      }
     }
   }
   if (localStorage.getItem("index") === null) {
