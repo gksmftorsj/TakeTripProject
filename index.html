@@ -1,130 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인페이지</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script type="text/javascript"
-      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인페이지</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
 
-  <body>
-    <!-- 네비게이션 바 -->
-    <nav>
-      <div class="info-navbar">
-        <div class="navbar">
-          <!-- 네이게이션 로고 -->
-          <div class="nav-left">
-            <div class="nav-logo">
-              <i class="fa-brands fa-atlassian" onclick="location.href=`index.html`"></i>
-              <span class="logo-name-box" onclick="location.href=`index.html`">
-                <span class="logo-name">여</span>행을 <span class="logo-name">담</span>다
-              </span> <!-- index.html = 본인 url -->
-            </div>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav>
+    <div class="info-navbar">
+      <div class="navbar">
+        <!-- 네이게이션 로고 -->
+        <div class="nav-left">
+          <div class="nav-logo">
+            <i class="fa-brands fa-atlassian" onclick="location.href=`index.html`"></i>
+            <span class="logo-name-box" onclick="location.href=`index.html`">
+              <span class="logo-name">여</span>행을 <span class="logo-name">담</span>다
+            </span> <!-- index.html = 본인 url -->
           </div>
-          <div class="nav-right">
+        </div>
+        <div class="nav-right">
+          <div class="view">
             <a href="html/saved.html" id="보러" class="hidden-보러">View All</a>
             <a href="html/detail.html" id="보러1" class="hidden-보러">View Detail</a>
-            <!-- 네비게이션 버튼 -->
-            <div class="nav-btn">
-              <button class="login-btn" onclick="location.href=`html/login.html`">로그인</button>
-              <button class="theme-btn">
-                <img class="theme-img" src="img/sun.png">
-                <span class="theme-name">Light Mode</span>
-              </button>
-            </div>
+          </div>
+          <!-- 네비게이션 버튼 -->
+          <div class="nav-btn">
+            <button class="login-btn" onclick="location.href=`html/login.html`">로그인</button>
+            <button class="theme-btn">
+              <img class="theme-img" src="img/sun.png">
+              <span class="theme-name">Light Mode</span>
+            </button>
           </div>
         </div>
-        <!-- 내 정보 -->
-        <div class="showMyInfo">
-          <div class="username"></div>
-          <div class="email"></div>
-          <form class="logout-btn">
-            <button type="submit">로그아웃 버튼</button>
-          </form>
-          <div class="historySave">기록저장</div>
-        </div>
       </div>
-    </nav>
+      <!-- 내 정보 -->
+      <div class="showMyInfo">
+        <div class="username"></div>
+        <div class="email"></div>
+        <form class="logout-btn">
+          <button type="submit">로그아웃 버튼</button>
+        </form>
+        <div class="historySave">기록저장</div>
+      </div>
+    </div>
+  </nav>
 
-    <!-- 공유마당에서 가져온 영상 -->
-    <video src="video/mainVideo.mp4" autoplay muted loop width="100%"></video>
-    <header>
-      <div class=" header">
-        <form id="todo-form">
-          <!-- 날짜 선택 -->
+  <!-- 공유마당에서 가져온 영상 -->
+  <video src="video/mainVideo.mp4" autoplay muted loop width="100%"></video>
+  <header>
+    <div class=" header">
+      <form id="todo-form">
+        <span class="add-trip">여행 담기 ➕</span>
+        <!-- 도시 선택 -->
+        <span id="where" class="hiddenWhere">어디로 떠나세요?</span>
+        <div id="select_city" class="visibilityCity">
+          <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
+          <div id="stateBox">
+            <select id="state" onchange="categoryChange(this)" required>
+              <option>시/도 선택</option>
+              <option value="서울특별시">서울특별시</option>
+              <option value="인천광역시">인천광역시</option>
+              <option value="대전광역시">대전광역시</option>
+              <option value="광주광역시">광주광역시</option>
+              <option value="대구광역시">대구광역시</option>
+              <option value="울산광역시">울산광역시</option>
+              <option value="부산광역시">부산광역시</option>
+              <option value="경기도">경기도</option>
+              <option value="강원도">강원도</option>
+              <option value="충청북도">충청북도</option>
+              <option value="충청남도">충청남도</option>
+              <option value="전라북도">전라북도</option>
+              <option value="전라남도">전라남도</option>
+              <option value="경상북도">경상북도</option>
+              <option value="경상남도">경상남도</option>
+              <option value="제주도">제주도</option>
+            </select>
+            <span class="iconArrow">
+              <i class="fa-solid fa-angle-down fromIcon"></i>
+            </span>
+          </div>
+          <span id="tilde">~</span>
+          <div id="cityBox">
+            <select id="city" required>
+              <option>군/구 선택</option>
+            </select>
+            <span class="iconArrow">
+              <i class="fa-solid fa-angle-down toIcon"></i>
+            </span>
+          </div>
+        </div>
+        <!-- 날짜 선택 -->
+        <div class="secondHidden">
+          <span class="trip-period">여행기간</span>
           <div id="select_date">
             <input type="date" id="dateFrom" required>
             <span id="tilde">~</span>
             <input type="date" id="dateTo" required>
           </div>
-          <!-- 도시 선택 -->
-          <div id="select_city">
-            <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
-            <div id="stateBox">
-              <select id="state" onchange="categoryChange(this)" required>
-                <option>시/도 선택</option>
-                <option value="서울특별시">서울특별시</option>
-                <option value="인천광역시">인천광역시</option>
-                <option value="대전광역시">대전광역시</option>
-                <option value="광주광역시">광주광역시</option>
-                <option value="대구광역시">대구광역시</option>
-                <option value="울산광역시">울산광역시</option>
-                <option value="부산광역시">부산광역시</option>
-                <option value="경기도">경기도</option>
-                <option value="강원도">강원도</option>
-                <option value="충청북도">충청북도</option>
-                <option value="충청남도">충청남도</option>
-                <option value="전라북도">전라북도</option>
-                <option value="전라남도">전라남도</option>
-                <option value="경상북도">경상북도</option>
-                <option value="경상남도">경상남도</option>
-                <option value="제주도">제주도</option>
-              </select>
-              <span class="iconArrow">
-                <i class="fa-solid fa-angle-down fromIcon"></i>
-              </span>
-            </div>
-            <span id="tilde">~</span>
-            <div id="cityBox">
-              <select id="city" required>
-                <option>군/구 선택</option>
-              </select>
-              <span class="iconArrow">
-                <i class="fa-solid fa-angle-down toIcon"></i>
-              </span>
-            </div>
-          </div>
           <input type="submit" id="save" value="저장"></input>
-        </form>
-      </div>
-    </header>
+        </div>
+      </form>
+    </div>
+  </header>
 
-    <main>
-      <div class="main">
-        <div id="map"></div>
-        <ul id="todo-list">
-        </ul>
-        </a>
-      </div>
-    </main>
+  <main>
+    <div class="main">
+      <div id="map"></div>
+      <ul id="todo-list">
+      </ul>
+      </a>
+    </div>
+  </main>
 
-    <footer>
-      <span>hello</span>
-    </footer>
+  <footer>
+    <span>hello</span>
+  </footer>
 
-    <script src="js/select.js"></script>
-    <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/main-img.js"></script>
+  <script src="js/main.js"></script>
+  <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="js/navbar.js"></script>
 
-  </body>
+</body>
 
 </html>

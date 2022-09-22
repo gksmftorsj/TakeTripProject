@@ -1,0 +1,56 @@
+main {
+  background-color: #bbdefb;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailBox {
+  background-color: bisque;
+  width: 80%;
+  height: 80%;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+}
+
+.top-left {
+  width: 30%;
+  height: 400px;
+}
+
+.top-right {
+  width: 70%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  width: 100%;
+  height: 400px;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+}
+
+.expenditureBox {
+  background-color: azure;
+  width: 100%;
+  height: 100%;
+}
+
+.bottom {
+  width: 100%;
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}

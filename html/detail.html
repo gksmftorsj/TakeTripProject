@@ -1,57 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/reset.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/detail.css">
+</head>
 
-  <body>
-    <!-- 네비게이션 바 -->
-    <nav>
-      <div class="info-navbar">
-        <div class="navbar">
-          <!-- 네이게이션 로고 -->
-          <div class="nav-left">
-            <div class="nav-logo">
-              <i class="fa-brands fa-atlassian" onclick="location.href=`../index.html`"></i>
-              <span class="logo-name-box" onclick="location.href=`../index.html`">
-                <span class="logo-name">여</span>행을 <span class="logo-name">담</span>다
-              </span> <!-- index.html = 본인 url -->
-            </div>
-          </div>
-          <div class="nav-right">
-            <a href="../html/saved.html" id="보러" class="hidden-보러">View All</a>
-            <a href="../html/detail.html" id="보러1" class="hidden-보러">View Detail</a>
-            <!-- 네비게이션 버튼 -->
-            <div class="nav-btn">
-              <button class="login-btn" onclick="location.href=`../html/login.html`">로그인</button>
-              <button class="theme-btn">
-                <img class="theme-img" src="../img/sun.png">
-                <span class="theme-name">Light Mode</span>
-              </button>
-            </div>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav>
+    <div class="info-navbar">
+      <div class="navbar">
+        <!-- 네이게이션 로고 -->
+        <div class="nav-left">
+          <div class="nav-logo">
+            <i class="fa-brands fa-atlassian" onclick="location.href=`../index.html`"></i>
+            <span class="logo-name-box" onclick="location.href=`../index.html`">
+              <span class="logo-name">여</span>행을 <span class="logo-name">담</span>다
+            </span> <!-- index.html = 본인 url -->
           </div>
         </div>
-        <!-- 내 정보 -->
-        <div class="showMyInfo">
-          <div class="username"></div>
-          <div class="email"></div>
-          <form class="logout-btn">
-            <button type="submit">로그아웃 버튼</button>
-          </form>
-          <div class="historySave">기록저장</div>
+        <div class="nav-right">
+          <a href="../html/saved.html" id="보러" class="hidden-보러">View All</a>
+          <a href="../html/detail.html" id="보러1" class="hidden-보러">View Detail</a>
+          <!-- 네비게이션 버튼 -->
+          <div class="nav-btn">
+            <button class="login-btn" onclick="location.href=`../html/login.html`">로그인</button>
+            <button class="theme-btn">
+              <img class="theme-img" src="../img/sun.png">
+              <span class="theme-name">Light Mode</span>
+            </button>
+          </div>
         </div>
       </div>
-    </nav>
+      <!-- 내 정보 -->
+      <div class="showMyInfo">
+        <div class="username"></div>
+        <div class="email"></div>
+        <form class="logout-btn">
+          <button type="submit">로그아웃 버튼</button>
+        </form>
+        <div class="historySave">기록저장</div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="detailBox">
+      <div class="top">
+        <div class="top-left">
+          <img src="../uploadimg/암스테르담.jpg" alt="">
+        </div>
+        <div class="top-right">
+          <h1 class="title"></h1>
+          <div class="expenditureBox">
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <h2 class="story"></h2>
+      </div>
+    </div>
+  </main>
 
-    <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script src="../js/navbar.js"></script>
-  </body>
+  <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/detail.js"></script>
+</body>
 
 </html>
