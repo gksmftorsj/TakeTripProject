@@ -46,8 +46,12 @@ if (
   $nav_btn.removeChild($login_btn); // nav_btn에서 login_btn Element 제거
   $nav_btn.prepend($myInfo); // 완성된 myInfo nav_btn 자식 요소 중 가장 위쪽에 추가
   const 보러 = document.querySelector("#보러");
+  const 보러1 = document.querySelector("#보러1");
+  보러1.classList.remove("hidden-보러");
+  보러1.classList.add("show보러");
   보러.classList.remove("hidden-보러");
   보러.classList.add("show보러");
+
 }
 // 로그인 후 내 정보 생성
 
@@ -59,14 +63,14 @@ const $email = document.querySelector(".email");
 function showMyInfo() {
   $showMyInfo.classList.toggle("hidden");
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
-    $username.innerText = `이름: ${KAKAO_USERNAME}`;
-    $email.innerText = `이메일: ${KAKAO_EMAIL}`;
+    $username.innerText = `이름: ${ KAKAO_USERNAME }`;
+    $email.innerText = `이메일: ${ KAKAO_EMAIL }`;
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
-    $username.innerText = `이름: ${NAVER_USERNAME}`;
-    $email.innerText = `이메일: ${NAVER_EMAIL}`;
+    $username.innerText = `이름: ${ NAVER_USERNAME }`;
+    $email.innerText = `이메일: ${ NAVER_EMAIL }`;
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
-    $username.innerText = `이름: ${GENERAL_USERNAME}`;
-    $email.innerText = `이메일: ${GENERAL_EMAIL}`;
+    $username.innerText = `이름: ${ GENERAL_USERNAME }`;
+    $email.innerText = `이메일: ${ GENERAL_EMAIL }`;
   }
 }
 
