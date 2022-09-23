@@ -59,6 +59,16 @@ img {
   padding-left: 20px;
 }
 
+.btnBox{
+  display: flex;
+  width: 100%;
+}
+
+.modifyBtn, .removeBtn{
+  width: 50%;
+}
+
+
 .totalExpense{
   font-size: 2.5rem;
 }

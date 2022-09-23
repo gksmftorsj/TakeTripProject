@@ -32,6 +32,11 @@ li {
   border: 1px solid black;
   width: calc(100%/2);
   font-size: 2rem;
+  padding-top: 20px;
+}
+
+.allImg{
+  margin-bottom: 20px;
 }
 
 p:hover{

@@ -14,6 +14,9 @@ function paintShowToDo(showToDo) {
   const getData = JSON.parse(
     localStorage.getItem(`${ info_username }'s ${ showToDo }'s value`)
   );
+  console.log(`${ info_username }'s ${ showToDo }'s value`);
+  console.log(showToDo);
+  console.log(getData);
   const $li = document.createElement("li");
   const $img = document.createElement("img");
   const $p = document.createElement("p");
@@ -24,6 +27,7 @@ function paintShowToDo(showToDo) {
   $showToDoList.appendChild($li);
   const imgFile = getData.img;
   $img.setAttribute("src", imgFile);
+  $img.classList.add("allImg");
 }
 
 if (parsedId !== null) {
@@ -45,14 +49,15 @@ for (let i = 0; i < parsedId.length; i++) {
         console.log("제대로 들어옴");
         const imgTitle = getTitle[i].text;
         p[i].innerText = imgTitle;
+
+        p[i].addEventListener("click", (event) => {
+          localStorage.setItem("detailTitle", event.target.innerText);
+          localStorage.setItem("detailId", event.target.parentElement.id);
+          localStorage.setItem("modifyId", event.target.parentElement.id);
+          localStorage.setItem("title", imgTitle);
+        });
       }
     }
   }
-
-  const p = document.querySelectorAll("p");
-
-  p[i].addEventListener("click", (event) => {
-    localStorage.setItem("detailTitle", event.target.innerText);
-    localStorage.setItem("detailId", event.target.parentElement.id);
-  });
 }
+

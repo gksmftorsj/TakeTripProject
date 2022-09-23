@@ -33,7 +33,7 @@ main {
 .text {
   height: 100%;
   resize: none;
-  font-size: 3rem;
+  font-size: 1.7rem;
 }
 
 .bottom {

@@ -40,6 +40,7 @@ function addInput(event) {
   inputCost.setAttribute("placeholder", "지출금액 ex)100000");
   inputTextBox.appendChild(inputText);
   inputCostBox.appendChild(inputCost);
+  cnt = localStorage.getItem("cnt");
   cnt++;
   localStorage.setItem("cnt", cnt);
   inputText.focus();
@@ -103,6 +104,7 @@ function saveToDo(event) {
         JSON.stringify(saveIds)
       );
       console.log("잘 못 들어옴");
+      window.location.href = "../html/saved.html";
     }
   } else {
     const fileValue = `../uploadimg/${ file.files[0].name }`;
@@ -125,19 +127,22 @@ function saveToDo(event) {
       localStorage.setItem(
         `${ info_username }'s saveIds`,
         JSON.stringify(saveIds)
+
       );
+      window.location.href = "../html/saved.html";
     } else if (vallidaionIds.includes(vallidaionId)) {
       // saveId값이 saveIds값 안에 있으면 저장X
       file.value = "";
       text.value = "";
       console.log("제대로 들어옴");
-      return;
+      window.location.href = "../html/saved.html";
     } else {
       localStorage.setItem(
         `${ info_username }'s saveIds`,
         JSON.stringify(saveIds)
       );
       console.log("잘 못 들어옴");
+      window.location.href = "../html/saved.html";
     }
   }
 
@@ -185,4 +190,47 @@ const localId = localStorage.getItem(`${ info_username }'s saveIds`);
 if (localId !== null) {
   const parsedId = JSON.parse(localId);
   saveIds = parsedId;
+}
+
+const modifyId = localStorage.getItem("modifyId");
+
+const getValue = localStorage.getItem(`${ info_username }'s ${ modifyId }'s value`);
+
+const parsedGetValue = JSON.parse(getValue);
+
+const textArea = document.querySelector("textarea");
+textArea.innerText = parsedGetValue.text;
+
+
+const getExpenditure = localStorage.getItem(`${ info_username }'s ${ modifyId }'s expenditure`);
+
+
+const parsedGetExpenditure = JSON.parse(getExpenditure);
+
+for (let i = 0; i < parsedGetExpenditure.length; i++) {
+  if (parsedGetExpenditure.length > 1) {
+    if (i === 0) {
+      const detail = document.querySelector(".detail");
+      const expense = document.querySelector(".expense");
+      detail.value = parsedGetExpenditure[0].detail;
+      expense.value = parsedGetExpenditure[0].expense;
+    } else {
+      const inputText = document.createElement("input");
+      const inputCost = document.createElement("input");
+      inputText.classList.add("detail");
+      inputText.setAttribute("placeholder", "지출내역 ex)숙박비");
+      inputCost.classList.add("expense");
+      inputCost.setAttribute("placeholder", "지출금액 ex)100000");
+      inputTextBox.appendChild(inputText);
+      inputCostBox.appendChild(inputCost);
+      localStorage.setItem("cnt", parsedGetExpenditure.length);
+      inputText.value = parsedGetExpenditure[i].detail;
+      inputCost.value = parsedGetExpenditure[i].expense;
+    }
+  } else {
+    const detail = document.querySelectorAll(".detail");
+    const expense = document.querySelectorAll(".expense");
+    detail[i].value = parsedGetExpenditure[i].detail;
+    expense[i].value = parsedGetExpenditure[i].expense;
+  }
 }

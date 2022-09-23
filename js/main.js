@@ -1142,6 +1142,7 @@ function goToDo(event) {
   console.log(span);
   localStorage.setItem("title", span);
   localStorage.setItem("saveId", goLi.id);
+  localStorage.setItem("modifyId", goLi.id);
   window.location.href = "html/write.html";
 }
 
