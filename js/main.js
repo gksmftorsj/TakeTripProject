@@ -1284,5 +1284,5 @@ const chosenImage = images[Math.floor(Math.random() * images.length)];
 
 $toDoForm.setAttribute(
   "style",
-  `background: url(selectimg/${ chosenImage }.jpg) no-repeat; background-size: cover; background-position-y: -155px`
+  `background: url(selectimg/${ chosenImage }.jpg) no-repeat; background-size: cover; background-position-y: -250px`
 );

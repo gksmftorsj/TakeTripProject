@@ -2,7 +2,7 @@ const $showToDoList = document.getElementById("showtodo-list");
 
 const info_username = localStorage.getItem("info_username");
 
-const parsedId = JSON.parse(localStorage.getItem(`${info_username}'s saveIds`));
+const parsedId = JSON.parse(localStorage.getItem(`${ info_username }'s saveIds`));
 
 const title = localStorage.getItem("title");
 
@@ -12,7 +12,7 @@ function goDetail() {
 
 function paintShowToDo(showToDo) {
   const getData = JSON.parse(
-    localStorage.getItem(`${info_username}'s ${showToDo}'s value`)
+    localStorage.getItem(`${ info_username }'s ${ showToDo }'s value`)
   );
   const $li = document.createElement("li");
   const $img = document.createElement("img");
@@ -20,7 +20,6 @@ function paintShowToDo(showToDo) {
   $li.id = getData.id;
   $li.appendChild($img);
   $li.appendChild($p);
-  $img.addEventListener("click", goDetail);
   $p.addEventListener("click", goDetail);
   $showToDoList.appendChild($li);
   const imgFile = getData.img;
@@ -35,7 +34,7 @@ for (let i = 0; i < parsedId.length; i++) {
   for (let j = 0; j <= i; j++) {
     for (let k = 0; k <= i; k++) {
       const getTitle = JSON.parse(
-        localStorage.getItem(`${info_username}'s todos`)
+        localStorage.getItem(`${ info_username }'s todos`)
       );
       const li = document.querySelectorAll("li");
       const p = document.querySelectorAll("p");

@@ -1,5 +1,8 @@
-main {
+body{
   background-color: #bbdefb;
+}
+
+main {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -19,12 +22,12 @@ main {
 }
 
 .top-left {
-  width: 30%;
+  width: 50%;
   height: 400px;
 }
 
 .top-right {
-  width: 70%;
+  width: 50%;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -37,13 +40,27 @@ img {
 
 .title {
   width: 100%;
+  height: 20%;
   text-align: center;
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .expenditureBox {
   background-color: azure;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.7rem;
+  padding-left: 20px;
+}
+
+.totalExpense{
+  font-size: 2.5rem;
 }
 
 .bottom {
@@ -53,4 +70,11 @@ img {
 
 .flex {
   display: flex;
+  margin-bottom: 20px;
+}
+
+.story{
+  background-color: bisque;
+  font-size: 1.3rem;
+  padding: 20px;
 }

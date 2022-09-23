@@ -14,7 +14,7 @@ const savedId = localStorage.getItem("saveId");
 
 const info_username = localStorage.getItem("info_username");
 
-const SAVE_KEY = `${info_username}'s ${savedId}'s value`;
+const SAVE_KEY = `${ info_username }'s ${ savedId }'s value`;
 
 let saveIds = [];
 
@@ -35,13 +35,14 @@ function addInput(event) {
   const inputText = document.createElement("input");
   const inputCost = document.createElement("input");
   inputText.classList.add("detail");
-  inputText.setAttribute("placeholder", "지출내역");
+  inputText.setAttribute("placeholder", "지출내역 ex)숙박비");
   inputCost.classList.add("expense");
-  inputCost.setAttribute("placeholder", "지출금액");
+  inputCost.setAttribute("placeholder", "지출금액 ex)100000");
   inputTextBox.appendChild(inputText);
   inputCostBox.appendChild(inputCost);
   cnt++;
   localStorage.setItem("cnt", cnt);
+  inputText.focus();
 }
 
 plusBtn.addEventListener("click", addInput);
@@ -57,6 +58,7 @@ function removeInput(event) {
     inputCostBox.removeChild(inputCostBox.lastElementChild);
     cnt--;
     localStorage.setItem("cnt", cnt);
+    inputTextBox.lastElementChild.focus();
   }
 }
 
@@ -79,7 +81,7 @@ function saveToDo(event) {
     localStorage.setItem(SAVE_KEY, JSON.stringify(saveValues));
     saveIds.push(savedId);
 
-    const vallidaionIds = localStorage.getItem(`${info_username}'s saveIds`);
+    const vallidaionIds = localStorage.getItem(`${ info_username }'s saveIds`);
     console.log(vallidaionIds);
 
     const vallidaionId = localStorage.getItem("saveId");
@@ -87,25 +89,23 @@ function saveToDo(event) {
 
     // saveIds값이 null 즉 처음 작성이면 바로 local에 저장
     if (vallidaionIds === null) {
-      localStorage.setItem(
-        `${info_username}'s saveIds`,
-        JSON.stringify(saveIds)
-      );
+      localStorage.setItem(`${ info_username }'s saveIds`, JSON.stringify(saveIds));
+      window.location.href = "../html/saved.html";
     } else if (vallidaionIds.includes(vallidaionId)) {
       // saveId값이 saveIds값 안에 있으면 저장X
       file.value = "";
       text.value = "";
       console.log("제대로 들어옴");
-      // return;
+      window.location.href = "../html/saved.html";
     } else {
       localStorage.setItem(
-        `${info_username}'s saveIds`,
+        `${ info_username }'s saveIds`,
         JSON.stringify(saveIds)
       );
       console.log("잘 못 들어옴");
     }
   } else {
-    const fileValue = `../uploadimg/${file.files[0].name}`;
+    const fileValue = `../uploadimg/${ file.files[0].name }`;
     const saveValues = {
       id: savedId,
       text: textValue,
@@ -114,7 +114,7 @@ function saveToDo(event) {
     localStorage.setItem(SAVE_KEY, JSON.stringify(saveValues));
     saveIds.push(savedId);
 
-    const vallidaionIds = localStorage.getItem(`${info_username}'s saveIds`);
+    const vallidaionIds = localStorage.getItem(`${ info_username }'s saveIds`);
     console.log(vallidaionIds);
 
     const vallidaionId = localStorage.getItem("saveId");
@@ -123,7 +123,7 @@ function saveToDo(event) {
     // saveIds값이 null 즉 처음 작성이면 바로 local에 저장
     if (vallidaionIds === null) {
       localStorage.setItem(
-        `${info_username}'s saveIds`,
+        `${ info_username }'s saveIds`,
         JSON.stringify(saveIds)
       );
     } else if (vallidaionIds.includes(vallidaionId)) {
@@ -134,7 +134,7 @@ function saveToDo(event) {
       return;
     } else {
       localStorage.setItem(
-        `${info_username}'s saveIds`,
+        `${ info_username }'s saveIds`,
         JSON.stringify(saveIds)
       );
       console.log("잘 못 들어옴");
@@ -145,7 +145,7 @@ function saveToDo(event) {
 
   const cntIndex = localStorage.getItem("cnt");
 
-  let EXPENDITURE_KEY = `${info_username}'s ${savedId}'s expenditure`;
+  let EXPENDITURE_KEY = `${ info_username }'s ${ savedId }'s expenditure`;
 
   let expenditures = [];
 
@@ -153,7 +153,6 @@ function saveToDo(event) {
   const expense = document.querySelectorAll(".expense");
 
   for (let i = 0; i < cntIndex; i++) {
-    console.log("들어옴");
     const expenditureDetail = detail[i].value;
     const expenditureExpense = expense[i].value;
 
@@ -181,7 +180,7 @@ function saveToDo(event) {
 
 saveBtn.addEventListener("click", saveToDo);
 
-const localId = localStorage.getItem(`${info_username}'s saveIds`);
+const localId = localStorage.getItem(`${ info_username }'s saveIds`);
 
 if (localId !== null) {
   const parsedId = JSON.parse(localId);
