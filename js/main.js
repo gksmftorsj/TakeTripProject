@@ -1111,7 +1111,7 @@ const $city = document.getElementById("city");
 
 const id = localStorage.getItem("info_username");
 
-const TODOS_KEY = `${id}'s todos`;
+const TODOS_KEY = `${ id }'s todos`;
 
 let toDos = []; // newTodo가 그려질 때마다 새로고침하면 값이 삭제되기 때문에 todo-list 값을 localStorage에 저장하기 위한 배열 toDos를 생성
 
@@ -1166,7 +1166,7 @@ function paintToDo(newTodo) {
 
 // 새로운 값을 입력하면 화면에 그리고 저장하는 부분
 function handleToDoSubmit() {
-  const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
+  const newTodo = `${ $dateFrom.value }~${ $dateTo.value }/${ $state.value } ${ $city.value }`;
   $state.value = "시/도 선택";
   $city.value = "군/구 선택";
   $dateFrom.value = "";
@@ -1284,5 +1284,5 @@ const chosenImage = images[Math.floor(Math.random() * images.length)];
 
 $toDoForm.setAttribute(
   "style",
-  `background: url(../selectimg/${chosenImage}.jpg) no-repeat; background-size: cover; background-position-y: -155px`
+  `background: url(selectimg/${ chosenImage }.jpg) no-repeat; background-size: cover; background-position-y: -155px`
 );
