@@ -1,4 +1,4 @@
-body{
+body {
   background-color: #bbdefb;
 }
 
@@ -59,17 +59,18 @@ img {
   padding-left: 20px;
 }
 
-.btnBox{
+.btnBox {
   display: flex;
   width: 100%;
 }
 
-.modifyBtn, .removeBtn{
-  width: 50%;
+.modifyBtn,
+.removeBtn,
+.shareBtn {
+  width: calc(100% / 3);
 }
 
-
-.totalExpense{
+.totalExpense {
   font-size: 2.5rem;
 }
 
@@ -83,7 +84,7 @@ img {
   margin-bottom: 20px;
 }
 
-.story{
+.story {
   background-color: bisque;
   font-size: 1.3rem;
   padding: 20px;

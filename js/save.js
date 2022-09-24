@@ -2,7 +2,7 @@ const $showToDoList = document.getElementById("showtodo-list");
 
 const info_username = localStorage.getItem("info_username");
 
-const parsedId = JSON.parse(localStorage.getItem(`${ info_username }'s saveIds`));
+const parsedId = JSON.parse(localStorage.getItem(`${info_username}'s saveIds`));
 
 const title = localStorage.getItem("title");
 
@@ -12,9 +12,9 @@ function goDetail() {
 
 function paintShowToDo(showToDo) {
   const getData = JSON.parse(
-    localStorage.getItem(`${ info_username }'s ${ showToDo }'s value`)
+    localStorage.getItem(`${info_username}'s ${showToDo}'s value`)
   );
-  console.log(`${ info_username }'s ${ showToDo }'s value`);
+  console.log(`${info_username}'s ${showToDo}'s value`);
   console.log(showToDo);
   console.log(getData);
   const $li = document.createElement("li");
@@ -34,30 +34,22 @@ if (parsedId !== null) {
   parsedId.forEach(paintShowToDo);
 }
 
-for (let i = 0; i < parsedId.length; i++) {
-  for (let j = 0; j <= i; j++) {
-    for (let k = 0; k <= i; k++) {
-      const getTitle = JSON.parse(
-        localStorage.getItem(`${ info_username }'s todos`)
-      );
-      const li = document.querySelectorAll("li");
-      const p = document.querySelectorAll("p");
-      if (
-        String(getTitle[i].id) === li[j].id &&
-        li[j].id === p[k].parentElement.id
-      ) {
-        console.log("제대로 들어옴");
-        const imgTitle = getTitle[i].text;
-        p[i].innerText = imgTitle;
+const todos = JSON.parse(localStorage.getItem(`${info_username}'s todos`));
 
-        p[i].addEventListener("click", (event) => {
-          localStorage.setItem("detailTitle", event.target.innerText);
-          localStorage.setItem("detailId", event.target.parentElement.id);
-          localStorage.setItem("modifyId", event.target.parentElement.id);
-          localStorage.setItem("title", imgTitle);
-        });
-      }
+for (let i = 0; i < todos.length; i++) {
+  for (let j = 0; j < parsedId.length; j++) {
+    const li = document.querySelectorAll("li");
+    const p = document.querySelectorAll("p");
+    if (String(todos[i].id) === li[j].id) {
+      console.log("제대로 들어옴");
+      const imgTitle = todos[i].text;
+      p[j].innerText = imgTitle;
+      p[j].addEventListener("click", (event) => {
+        localStorage.setItem("detailTitle", event.target.innerText);
+        localStorage.setItem("detailId", event.target.parentElement.id);
+        localStorage.setItem("modifyId", event.target.parentElement.id);
+        localStorage.setItem("title", imgTitle);
+      });
     }
   }
 }
-

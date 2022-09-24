@@ -1111,7 +1111,7 @@ const $city = document.getElementById("city");
 
 const id = localStorage.getItem("info_username");
 
-const TODOS_KEY = `${ id }'s todos`;
+const TODOS_KEY = `${id}'s todos`;
 
 let toDos = []; // newTodo가 그려질 때마다 새로고침하면 값이 삭제되기 때문에 todo-list 값을 localStorage에 저장하기 위한 배열 toDos를 생성
 
@@ -1167,7 +1167,7 @@ function paintToDo(newTodo) {
 
 // 새로운 값을 입력하면 화면에 그리고 저장하는 부분
 function handleToDoSubmit() {
-  const newTodo = `${ $dateFrom.value }~${ $dateTo.value }/${ $state.value } ${ $city.value }`;
+  const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
   $state.value = "시/도 선택";
   $city.value = "군/구 선택";
   $dateFrom.value = "";
@@ -1246,7 +1246,7 @@ function handleAddTrip() {
   setTimeout(() => {
     select_city.classList.remove("visibilityCity");
     select_city.classList.add("show");
-  }, 1300);
+  }, 500);
 }
 
 addTrip.addEventListener("click", handleAddTrip);
@@ -1273,17 +1273,17 @@ function cityToDate() {
     saveBtn.setAttribute("style", "");
     select_date.classList.add("show");
     saveBtn.classList.add("show");
-  }, 1300);
+  }, 800);
 }
 
 $city.addEventListener("change", cityToDate);
 
 // freepik에서 이미지 가져옴
-const images = ["1", "2"];
+const images = ["1"];
 
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 
 $toDoForm.setAttribute(
   "style",
-  `background: url(selectimg/${ chosenImage }.jpg) no-repeat; background-size: cover; background-position-y: -250px`
+  `background: url(selectimg/${chosenImage}.jpg) no-repeat; background-size: cover; background-position-y: -250px`
 );

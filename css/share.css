@@ -29,17 +29,13 @@ li {
   padding-top: 20px;
 }
 
-.allImg {
+.shareImg {
   width: 250px;
   height: 250px;
   margin-bottom: 20px;
 }
 
-p:hover {
-  cursor: pointer;
-}
-
-.allimg:hover {
+.shareImg:hover {
   animation-name: img;
   animation-duration: 2s;
   animation-iteration-count: infinite;
