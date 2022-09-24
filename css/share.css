@@ -29,10 +29,18 @@ li {
   padding-top: 20px;
 }
 
+.username {
+  margin-bottom: 12px;
+}
+
 .shareImg {
   width: 250px;
   height: 250px;
   margin-bottom: 20px;
+}
+
+p:hover {
+  cursor: pointer;
 }
 
 .shareImg:hover {

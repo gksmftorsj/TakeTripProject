@@ -105,6 +105,7 @@ function shareToDo() {
       text: shareValue.text,
       img: shareValue.img,
       expenditure: shareExpenditure,
+      id: detailId,
     };
     console.log(validationShare);
     shareDatas.push(shareData);

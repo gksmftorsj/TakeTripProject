@@ -2,18 +2,20 @@ const $shareToDoList = document.getElementById("sharetodo-list");
 
 const paredShareData = JSON.parse(localStorage.getItem("shareData"));
 
-// console.log(paredShareData);
-
 function paintShareToDo(paredShareData) {
-  console.log(paredShareData.title);
   const $li = document.createElement("li");
   const $img = document.createElement("img");
   const $p = document.createElement("p");
-  const $span = document.createElement("spna");
-  $span.innerText = paredShareData.username;
+  const $span = document.createElement("span");
+  $li.id = paredShareData.id;
+  $span.innerText = `${paredShareData.username}'s story`;
+  $span.classList.add("username");
   $img.setAttribute("src", paredShareData.img);
   $img.classList.add("shareImg");
   $p.innerText = paredShareData.title;
+  $p.addEventListener("click", () => {
+    window.location.href = "../html/detailShare.html";
+  });
   $li.appendChild($span);
   $li.appendChild($img);
   $li.appendChild($p);
@@ -22,4 +24,24 @@ function paintShareToDo(paredShareData) {
 
 if (paredShareData !== null) {
   paredShareData.forEach(paintShareToDo);
+}
+
+for (let i = 0; i < paredShareData.length; i++) {
+  for (let j = 0; j < paredShareData.length; j++) {
+    const li = document.querySelectorAll("li");
+    const p = document.querySelectorAll("p");
+    p[i].addEventListener("click", () => {
+      if (li[i].id === String(paredShareData[j].id)) {
+        localStorage.setItem("shareTitle", paredShareData[j].title);
+        localStorage.setItem("shareId", paredShareData[j].id);
+        localStorage.setItem("shareText", paredShareData[j].text);
+        localStorage.setItem(
+          "shareExpenditure",
+          JSON.stringify(paredShareData[j].expenditure)
+        );
+        localStorage.setItem("shareUsername", paredShareData[j].username);
+        localStorage.setItem("shareImg", paredShareData[j].img);
+      }
+    });
+  }
 }

@@ -19,37 +19,44 @@ main {
 .top {
   width: 100%;
   height: 400px;
-  display: flex;
+  background-color: khaki;
 }
 
-.top-left {
-  width: 50%;
-}
-
-.top-right {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-}
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
-.title {
+.top-top {
   width: 100%;
   height: 20%;
-  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.shareUsername,
+.title {
+  width: 100%;
   font-size: 1.6rem;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.shareUsername {
+  background-color: antiquewhite;
+}
+
+.top-bottom {
+  width: 100%;
+  height: 80%;
+  display: flex;
+}
+
+.detailImg {
+  width: 50%;
+  height: 100%;
+}
+
 .expenditureBox {
   background-color: azure;
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -58,15 +65,9 @@ img {
   padding-left: 20px;
 }
 
-.btnBox {
+.flex {
   display: flex;
-  width: 100%;
-}
-
-.modifyBtn,
-.removeBtn,
-.shareBtn {
-  width: calc(100% / 3);
+  margin-bottom: 20px;
 }
 
 .totalExpense {
@@ -76,11 +77,6 @@ img {
 .bottom {
   width: 100%;
   height: 100%;
-}
-
-.flex {
-  display: flex;
-  margin-bottom: 20px;
 }
 
 .story {

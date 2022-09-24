@@ -6,10 +6,6 @@ const parsedId = JSON.parse(localStorage.getItem(`${info_username}'s saveIds`));
 
 const title = localStorage.getItem("title");
 
-function goDetail() {
-  window.location.href = "../html/detail.html";
-}
-
 function paintShowToDo(showToDo) {
   const getData = JSON.parse(
     localStorage.getItem(`${info_username}'s ${showToDo}'s value`)
@@ -23,7 +19,9 @@ function paintShowToDo(showToDo) {
   $li.id = getData.id;
   $li.appendChild($img);
   $li.appendChild($p);
-  $p.addEventListener("click", goDetail);
+  $p.addEventListener("click", () => {
+    window.location.href = "../html/detail.html";
+  });
   $showToDoList.appendChild($li);
   const imgFile = getData.img;
   $img.setAttribute("src", imgFile);
