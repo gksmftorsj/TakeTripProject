@@ -125,6 +125,7 @@ function handleLogoutBtn(event) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
     localStorage.removeItem("kakao_email");
+    localStorage.removeItem("index");
     kakaoLogout();
     // Kakao.Auth.logout 함수는 로그인 시 발급받은 토큰을 만료시키는 함수다. 그래서 카카오계정의 로그아웃이나 서비스의 로그아웃에 영향을 주지 않기 때문에 서비스의 로그아웃은 직접 구현해야 하는데 난 못해...
     // _kawlt 쿠키 값 삭제하면 로그아웃 됨 다른 도메인이라 안지워지나?
@@ -135,6 +136,7 @@ function handleLogoutBtn(event) {
     localStorage.removeItem("naver_email");
     localStorage.removeItem("com.naver.nid.access_token");
     localStorage.removeItem("com.naver.nid.oauth.state_token");
+    localStorage.removeItem("index");
     openPopUp(); // 로그아웃 창 open
     closePopUp(); // 로그아웃 창 close
     window.location.href = "../index.html";
@@ -142,6 +144,7 @@ function handleLogoutBtn(event) {
     // 일반 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("info_username");
     localStorage.removeItem("info_email");
+    localStorage.removeItem("index");
     console.log("왜 안가지냐고");
     window.location.href = "../index.html";
   }

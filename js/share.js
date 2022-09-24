@@ -26,6 +26,8 @@ if (paredShareData !== null) {
   paredShareData.forEach(paintShareToDo);
 }
 
+let modifyShare = [];
+
 for (let i = 0; i < paredShareData.length; i++) {
   for (let j = 0; j < paredShareData.length; j++) {
     const li = document.querySelectorAll("li");
@@ -41,6 +43,14 @@ for (let i = 0; i < paredShareData.length; i++) {
         );
         localStorage.setItem("shareUsername", paredShareData[j].username);
         localStorage.setItem("shareImg", paredShareData[j].img);
+
+        const modifyShareValue = {
+          title: paredShareData[j].title,
+          text: paredShareData[j].text,
+          expenditure: paredShareData[j].expenditure,
+        };
+        modifyShare.push(modifyShareValue);
+        localStorage.setItem("modifyShare", JSON.stringify(modifyShareValue));
       }
     });
   }

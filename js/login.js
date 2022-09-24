@@ -189,7 +189,6 @@ function handleLoginBtn(event) {
         pw_validation[i].general_pw === $loginPw.value
       ) {
         localStorage.setItem("index", i);
-        window.location.href = "../index.html";
         $loginEmail.value = "";
         $loginPw.value = "";
         localStorage.setItem(
@@ -197,10 +196,12 @@ function handleLoginBtn(event) {
           username_validation[i].general_username
         );
         localStorage.setItem("info_email", email_validation[i].general_email);
+        window.location.href = "../index.html";
       }
     }
   }
   if (localStorage.getItem("index") === null) {
+    console.log("여기 들어옴");
     alert("이메일과 비밀번호를 다시 확인해주세요.");
   }
 }
