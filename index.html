@@ -44,13 +44,21 @@
         </div>
       </div>
       <!-- 내 정보 -->
-      <div class="showMyInfo">
-        <div class="username"></div>
-        <div class="email"></div>
-        <form class="logout-btn">
-          <button type="submit">로그아웃 버튼</button>
-        </form>
-        <button class="infoModifyBtn">내 정보 수정</button>
+
+      <!-- <div class="username"></div> -->
+      <!-- <div class="email"></div> -->
+
+      <div class="showMyInfo hidden">
+        <a class="infoSelect_profile" href="html/profile.html" onmouseover=" overColor()" onmouseleave="leaveColor()">
+          <div class="profile" onmouse>프로필 보기
+          </div>
+        </a>
+        <a class="infoSelect_likeList" href="#">
+          <div class="likeList">좋아요 리스트</div>
+        </a>
+        <a class="logout-btn" href="index.html">
+          <div class="logout">로그아웃</div>
+        </a>
       </div>
     </div>
   </nav>

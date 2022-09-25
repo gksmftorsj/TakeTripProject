@@ -30,7 +30,7 @@
   margin-left: 30px;
 }
 
-.fa-atlassian{
+.fa-atlassian {
   font-size: 1.5rem;
 }
 
@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 
-.logo-name-box{
+.logo-name-box {
   margin-left: 5px;
   font-size: 1.15rem;
 }
@@ -59,12 +59,12 @@
   cursor: pointer;
 }
 
-#보러{
+#보러 {
   margin-right: 15px;
   color: lightyellow;
 }
 
-#보러1{
+#보러1 {
   color: lightgrey;
 }
 
@@ -113,20 +113,100 @@
 }
 
 .showMyInfo {
-  width: 220px;
-  height: 110px;
-  background-color: #6ec6ff;
+  transform-origin: center top;
+  width: 15rem;
+  height: 12rem;
+  background-color: rgb(245, 246, 250);
   position: fixed;
   z-index: 200;
-  right: 90px;
-  top: 55px;
+  right: 180px;
+  top: 70px;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  box-shadow: rgb(0 0 0 / 50%) 0px 2px 25px;
   /* visibility는 문서의 레이아웃을 변경하지 않고 요소를 보이거나 숨깁니다. */
+}
+
+.showMyInfo::before {
+  content: "";
+  border-left: 0.7rem solid transparent;
+  border-right: 0.7rem solid transparent;
+  border-bottom: 0.9rem solid rgb(245, 246, 250);
+  position: absolute;
+  top: -0.9rem;
+  right: 1.2rem;
+}
+
+.hover::before {
+  border-bottom: 0.9rem solid #8aacc8;
+}
+
+.infoSelect_profile {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.infoSelect_likeList {
+  width: 100%;
+  height: 100%;
+}
+
+.profile {
+  color: rgb(38, 38, 38);
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.likeList {
+  color: rgb(38, 38, 38);
+  border-radius: 0px;
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.logout {
+  color: rgb(38, 38, 38);
+  border-radius: 0px 0px 10px 10px;
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+.infoSelect_profile:hover,
+.infoSelect_likeList:hover,
+.logout-btn:hover {
+  cursor: pointer;
+  background-color: #8aacc8;
+}
+
+.logout-btn {
+  width: 100%;
+  height: 100%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .showMyInfo:first {
@@ -134,8 +214,38 @@
   justify-content: flex-start;
 }
 
-.hidden {
+.showinfo {
   visibility: visible;
+  animation-name: showMyInfo;
+  animation-duration: 0.5s;
+}
+
+@keyframes showMyInfo {
+  0% {
+    transform: scaleY(0) translateZ(0px);
+  }
+  100% {
+    transform: scaleY(1) translateZ(0px);
+  }
+}
+
+/* .hiddeninfo {
+  visibility: visible;
+} */
+
+.hidden {
+  animation-name: hiddenMyInfo;
+  animation-duration: 0.5s;
+}
+
+@keyframes hiddenMyInfo {
+  0% {
+    transform: scaleY(1) translateZ(0px);
+  }
+  100% {
+    transform: scaleY(0) translateZ(0px);
+    visibility: visible;
+  }
 }
 
 @media screen and (max-width: 1280px) {

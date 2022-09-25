@@ -10,24 +10,21 @@ var naverLogin = new naver.LoginWithNaverId({
 // (3) 네이버아이디 로그인 정보를 초기화하기 위하여 init을 호출
 naverLogin.init();
 
-const NAVER_USERNAME_KEY = "naver_username";
-const NAVER_EMAIL_KEY = "naver_email";
-
 // (4) Callback의 처리, 정상적으로 Callback 처리가 완료될 경우 main page로 redirect(또는 Popup close) / 페이지가 정상적으로 로드 되었을 때 함수 실행
 window.addEventListener("load", function () {
   naverLogin.getLoginStatus(function (status) {
     if (status) {
       // 정상적으로 로그인 되면 status = true
       // (5) 필수적으로 받아야 하는 프로필 정보가 있다면 callback처리 시점에 체크
-      var username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
-      // localStorage.setItem(NAVER_USERNAME_KEY, username); // localStorage에 이름 값 저장
-      var email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
-      // localStorage.setItem(NAVER_EMAIL_KEY, email); // localStorage에 이메일 값 저장
-      localStorage.setItem("info_username", username);
-      localStorage.setItem("info_email", email);
+      const username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
+      const email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
+
+      localStorage.setItem("useranmeInUse", username);
+      localStorage.setItem("emailInUse", email);
       window.location.href =
         "https://gksmftorsj.github.io/project0901/index.html";
       //만약 로그인 페이지로 들어오면 바로 메인페이지로 이동
+
       if (username == undefined || username == null) {
         alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
         naverLogin.reprompt(); // 필수정보인 이름 값이 없다면 다시 한 번 동의창 띄우기

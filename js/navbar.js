@@ -59,7 +59,11 @@ const $showMyInfo = document.querySelector(".showMyInfo");
 const $username = document.querySelector(".username");
 const $email = document.querySelector(".email");
 
+$showMyInfo.setAttribute("style", "display:none");
+
 function showMyInfo() {
+  $showMyInfo.setAttribute("style", "");
+  $showMyInfo.classList.toggle("showinfo");
   $showMyInfo.classList.toggle("hidden");
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     $username.innerText = `이름: ${KAKAO_USERNAME}`;
@@ -74,7 +78,18 @@ function showMyInfo() {
 }
 
 $myInfo.addEventListener("click", showMyInfo);
+
 // localStorage에서 가져온 내 정보 값 보여주기
+
+function overColor() {
+  const showMyInfo = document.querySelector(".showMyInfo");
+  showMyInfo.classList.add("hover");
+}
+
+function leaveColor() {
+  const showMyInfo = document.querySelector(".showMyInfo");
+  showMyInfo.classList.remove("hover");
+}
 
 // 로그아웃
 const $logout_btn = document.querySelector(".logout-btn");
@@ -119,8 +134,8 @@ function kakaoLogout() {
 
 // 로그아웃 버튼 구현
 // submit 이벤트일 때? 새로고침 안막고 window.location.href 사용하여 페이지 이동하면 안먹힘 새로고침 막고 window.location.href 사용해야 먹힘
-function handleLogoutBtn(event) {
-  event.preventDefault();
+function handleLogoutBtn() {
+  // event.preventDefault();
   if (KAKAO_USERNAME !== null && KAKAO_EMAIL !== null) {
     // 카카오 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("kakao_username");
@@ -129,7 +144,7 @@ function handleLogoutBtn(event) {
     kakaoLogout();
     // Kakao.Auth.logout 함수는 로그인 시 발급받은 토큰을 만료시키는 함수다. 그래서 카카오계정의 로그아웃이나 서비스의 로그아웃에 영향을 주지 않기 때문에 서비스의 로그아웃은 직접 구현해야 하는데 난 못해...
     // _kawlt 쿠키 값 삭제하면 로그아웃 됨 다른 도메인이라 안지워지나?
-    window.location.href = "../index.html";
+    // window.location.href = "../index.html";
   } else if (NAVER_USERNAME !== null && NAVER_EMAIL !== null) {
     // 네이버 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("naver_username");
@@ -139,18 +154,18 @@ function handleLogoutBtn(event) {
     localStorage.removeItem("index");
     openPopUp(); // 로그아웃 창 open
     closePopUp(); // 로그아웃 창 close
-    window.location.href = "../index.html";
+    // window.location.href = "../index.html";
   } else if (GENERAL_USERNAME !== null && GENERAL_EMAIL !== null) {
     // 일반 값 있으면 모두 지우고 로그아웃
     localStorage.removeItem("info_username");
     localStorage.removeItem("info_email");
     localStorage.removeItem("index");
     console.log("왜 안가지냐고");
-    window.location.href = "../index.html";
+    // window.location.href = "../index.html";
   }
 }
 
-$logout_btn.addEventListener("submit", handleLogoutBtn);
+$logout_btn.addEventListener("click", handleLogoutBtn);
 // 로그아웃
 
 // 테마 변경

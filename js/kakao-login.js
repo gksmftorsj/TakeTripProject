@@ -19,18 +19,9 @@ function kakaoLogin() {
         url: "/v2/user/me",
         success: (res) => {
           const kakao_account = res.kakao_account;
-          // localStorage KEY 이름
-          const KAKAO_USERNAME_KEY = "kakao_username"; //
-          const KAKAO_EMAIL_KEY = "kakao_email";
-          // 가져온 사용자 정보 저장
-          const kakaoUsername = kakao_account.profile.nickname;
-          const kakaoEmail = kakao_account.email;
-          // 저장한 사용자 정보 localStroage에 저장
-          // 나중에 로그아웃 시 localStroage에서 clear나 remove Item 사용하여 제거
-          // localStorage.setItem(KAKAO_USERNAME_KEY, kakaoUsername);
-          // localStorage.setItem(KAKAO_EMAIL_KEY, kakaoEmail);
-          localStorage.setItem("info_username", kakaoUsername);
-          localStorage.setItem("info_email", kakaoEmail);
+          // 가져온 사용자 정보 localStroage에 저장
+          localStorage.setItem("useranmeInUse", kakao_account.profile.nickname);
+          localStorage.setItem("emailInUse", kakao_account.email);
           console.log("로그인 성공");
           window.location.href = "https://gksmftorsj.github.io/project0901/";
         },
