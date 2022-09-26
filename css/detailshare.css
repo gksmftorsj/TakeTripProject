@@ -4,10 +4,12 @@ body {
 
 main {
   width: 100%;
-  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 100px;
 }
 
 .detail_container {
@@ -117,11 +119,90 @@ main {
 
 .bottom {
   width: 100%;
-  height: 100%;
+  height: 43%;
 }
 
 .detail_story {
   background-color: bisque;
   font-size: 1.3rem;
   padding: 20px;
+}
+
+.review_container{
+  width: 80%;
+  height: 20%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.review_write{
+  height: 25%;
+  font-size: 2rem;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+}
+
+.review_form{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40%;
+  margin-bottom: 20px;
+}
+
+.review_value{
+  width: 80%;
+  height: 80px;
+  font-size: 2rem;
+}
+
+.save_btn{
+  width: 15%;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.3rem;
+}
+
+li{
+  height: 50px;
+  background-color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.review{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+  margin-left: 2rem;
+}
+
+.writer, .time, .delete_btn{
+  width: 7%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time{
+  width: 12%;
+}
+
+.delete_btn{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: none;
+}
+
+.delete_btn:hover,
+.save_btn:hover{
+  cursor: pointer;
+  background-color: aquamarine;
 }

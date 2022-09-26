@@ -1129,15 +1129,15 @@
   let trips = [];
 
   function saveTrips() {
-    localStorage.setItem(`${username}'s trips`, JSON.stringify(trips));
+    localStorage.setItem(`${ username }'s trips`, JSON.stringify(trips));
   }
 
   function goWritePage(event) {
     event.preventDefault();
     const li = event.target.parentElement;
     const span = li.children[0].innerText;
-    localStorage.setItem(`${li.id}'s title`, span);
-    localStorage.setItem(`${span}'s id`, li.id);
+    localStorage.setItem(`${ li.id }'s title`, span);
+    localStorage.setItem(`${ span }'s id`, li.id);
     localStorage.setItem("modify_id", li.id);
     localStorage.setItem("click_id", li.id);
     window.location.href = "html/write.html";
@@ -1155,8 +1155,8 @@
   }
 
   // 새로운 값을 입력하면 화면에 그리고 저장하는 부분
-  function handleToDoSubmit() {
-    const newTrip = `${date_from.value}~${date_to.value} / ${state.value} ${city.value}`;
+  function handleTripSubmit() {
+    const newTrip = `${ date_from.value }~${ date_to.value } / ${ state.value } ${ city.value }`;
     const newTripObj = {
       title: newTrip,
       id: Date.now(),
@@ -1166,9 +1166,9 @@
     saveTrips();
   }
 
-  trip_form.addEventListener("submit", handleToDoSubmit);
+  trip_form.addEventListener("submit", handleTripSubmit);
 
-  const savedTrips = localStorage.getItem(`${username}'s trips`);
+  const savedTrips = localStorage.getItem(`${ username }'s trips`);
 
   if (savedTrips !== null) {
     const parsedToDos = JSON.parse(savedTrips);
@@ -1182,7 +1182,7 @@
 
   trip_form.setAttribute(
     "style",
-    `background: url(selectimg/${random_image}.jpg) no-repeat; background-size: cover; background-position-y: -250px`
+    `background: url(selectimg/${ random_image }.jpg) no-repeat; background-size: cover; background-position-y: -250px`
   );
 }
 

@@ -14,7 +14,7 @@ function showShareTrip(parsedShareTrips) {
   p.addEventListener("click", () => {
     window.location.href = "../html/detailShare.html";
   });
-  span.innerText = `${parsedShareTrips.username}'s trip`;
+  span.innerText = `${ parsedShareTrips.username }'s trip`;
   span.classList.add("username");
   li.appendChild(span);
   li.appendChild(img);

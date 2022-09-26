@@ -89,107 +89,112 @@ function valId() {
 
 function saveTrip(event) {
   event.preventDefault();
-  {
-    // username's id's expenditure
-    const cntIndex = localStorage.getItem("cnt");
-    let expenditures = [];
-    const detail = document.querySelectorAll(".detail");
-    const expense = document.querySelectorAll(".expense");
-    let modify_share_trips = [];
-    let modify_expenditure = [];
-    let share_trips = [];
-    const parsed_share_trips = JSON.parse(localStorage.getItem("share_trips"));
-    const modify_id = localStorage.getItem("modify_id");
-    console.log(parsed_share_trips);
-    for (let i = 0; i < cntIndex; i++) {
-      const expenditureDetail = detail[i].value;
-      const expenditureExpense = expense[i].value;
-      if (detail[i].value === "" || expense[i].value === "") {
-        alert("값을 입력해주세요.");
-        return;
-      } else {
-        const saveExpenditure = {
-          detail: expenditureDetail,
-          expense: expenditureExpense,
-        };
-        expenditures.push(saveExpenditure);
-        localStorage.setItem(EXPENDITURE_KEY, JSON.stringify(expenditures));
-        if (parsed_share_trips !== null) {
-          for (let i = 0; i < parsed_share_trips.length; i++) {
-            if (parsed_share_trips[i].id === modify_id) {
-              modify_share_trips = parsed_share_trips.filter(
-                (trip) => trip.id !== modify_id
-              );
-              localStorage.setItem(
-                "share_trips",
-                JSON.stringify(modify_share_trips)
-              );
-              modify_expenditure.push(saveExpenditure);
-              localStorage.setItem(
-                "modify_expenditure",
-                JSON.stringify(modify_expenditure)
-              );
-            }
+
+  // username's id's expenditure
+  const cntIndex = localStorage.getItem("cnt");
+  let expenditures = [];
+  const detail = document.querySelectorAll(".detail");
+  const expense = document.querySelectorAll(".expense");
+  let modify_share_trips = [];
+  let modify_expenditure = [];
+  const parsed_share_trips = JSON.parse(localStorage.getItem("share_trips"));
+  const modify_id = localStorage.getItem("modify_id");
+  const share_id = localStorage.getItem("share_id");
+  console.log(parsed_share_trips);
+  for (let i = 0; i < cntIndex; i++) {
+    const expenditureDetail = detail[i].value;
+    const expenditureExpense = expense[i].value;
+    if (detail[i].value === "" || expense[i].value === "") {
+      alert("값을 입력해주세요.");
+      return;
+    } else {
+      const saveExpenditure = {
+        detail: expenditureDetail,
+        expense: expenditureExpense,
+      };
+      expenditures.push(saveExpenditure);
+      localStorage.setItem(EXPENDITURE_KEY, JSON.stringify(expenditures));
+      if (parsed_share_trips !== null && modify_id === share_id) {
+        console.log("1번 들어옴")
+        for (let i = 0; i < parsed_share_trips.length; i++) {
+          if (parsed_share_trips[i].id === modify_id) {
+            modify_share_trips = parsed_share_trips.filter(
+              (trip) => trip.id !== modify_id
+            );
+            localStorage.setItem(
+              "share_trips",
+              JSON.stringify(modify_share_trips)
+            );
+            console.log(JSON.stringify(modify_share_trips));
+            modify_expenditure.push(saveExpenditure);
+            localStorage.setItem(
+              "modify_expenditure",
+              JSON.stringify(modify_expenditure)
+            );
+            console.log(JSON.stringify(modify_expenditure));
           }
         }
       }
     }
   }
-  {
-    // username's id's trip
-    const story_value = story.value;
-    const parsedModifyExpenditure = JSON.parse(
-      localStorage.getItem("modify_expenditure")
-    );
-    if (story_value === "" && file.value === "") {
-      // 입력값 아무것도 없을 경우
-      alert("값을 입력해주세요.");
-      return;
-    } else if (story_value !== "" && file.value === "") {
-      const save_values = {
+
+  // username's id's trip
+  const story_value = story.value;
+  const parsedModifyExpenditure = JSON.parse(
+    localStorage.getItem("modify_expenditure")
+  );
+  if (story_value === "" && file.value === "") {
+    // 입력값 아무것도 없을 경우
+    alert("값을 입력해주세요.");
+    return;
+  } else if (story_value !== "" && file.value === "") {
+    const save_values = {
+      id: id,
+      title: title,
+      story: story_value,
+      img: "",
+    };
+    localStorage.setItem(TRIP_KEY, JSON.stringify(save_values));
+    valId();
+    if (modify_share_trips !== null && modify_id === share_id) {
+      console.log("2번 들어옴")
+      const modify_share_trip = {
+        expenditure: parsedModifyExpenditure,
         id: id,
-        title: title,
-        story: story_value,
         img: "",
-      };
-      localStorage.setItem(TRIP_KEY, JSON.stringify(save_values));
-      valId();
-      if (modify_share_trip !== null) {
-        const modify_share_trip = {
-          expenditure: parsedModifyExpenditure,
-          id: id,
-          img: "",
-          story: story_value,
-          title: title,
-          username: username,
-        };
-        const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
-        parsedShareTrips.push(modify_share_trip);
-        localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
-      }
-    } else {
-      const fileValue = `../uploadimg/${ file.files[0].name }`;
-      const save_values = {
-        id: id,
-        title: title,
         story: story_value,
-        img: fileValue,
+        title: title,
+        username: username,
       };
-      localStorage.setItem(TRIP_KEY, JSON.stringify(save_values));
-      valId();
-      if (modify_share_trip !== null) {
-        const modify_share_trip = {
-          expenditure: parsedModifyExpenditure,
-          id: id,
-          img: fileValue,
-          story: story_value,
-          title: title,
-          username: username,
-        };
-        const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
-        parsedShareTrips.push(modify_share_trip);
-        localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
-      }
+      const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
+      parsedShareTrips.push(modify_share_trip);
+      console.log(modify_share_trip);
+      localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
+    }
+  } else {
+    const fileValue = `../uploadimg/${ file.files[0].name }`;
+    const save_values = {
+      id: id,
+      title: title,
+      story: story_value,
+      img: fileValue,
+    };
+    localStorage.setItem(TRIP_KEY, JSON.stringify(save_values));
+    valId();
+    if (modify_share_trips !== null && modify_id === share_id) {
+      console.log("3번 들어옴")
+      const modify_share_trip = {
+        expenditure: parsedModifyExpenditure,
+        id: id,
+        img: fileValue,
+        story: story_value,
+        title: title,
+        username: username,
+      };
+      const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
+      parsedShareTrips.push(modify_share_trip);
+      console.log(modify_share_trip);
+      localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
     }
   }
 }
