@@ -1,6 +1,6 @@
 const username = localStorage.getItem("username_inUse");
 const id = localStorage.getItem("modify_id");
-const title = localStorage.getItem(`${id}'s title`);
+const title = localStorage.getItem(`${ id }'s title`);
 
 const trip_title = document.querySelector(".trip_title");
 trip_title.innerText = title;
@@ -64,9 +64,9 @@ minus_btn.addEventListener("click", removeExpenditure);
 const story = document.querySelector("textarea");
 const file = document.querySelector("input[type=file]");
 
-const TRIP_KEY = `${username}'s ${id}'s trip`;
-const EXPENDITURE_KEY = `${username}'s ${id}'s expenditure`;
-const ID_LIST_KEY = `${username}'s id_list`;
+const TRIP_KEY = `${ username }'s ${ id }'s trip`;
+const EXPENDITURE_KEY = `${ username }'s ${ id }'s expenditure`;
+const ID_LIST_KEY = `${ username }'s id_list`;
 
 function valId() {
   // 같은 TRIP이 저장되지 않도록 id_list 안에 click_id값이 있으면 click_id값 id_list에 저장되지 않도록 하기
@@ -114,20 +114,22 @@ function saveTrip(event) {
         };
         expenditures.push(saveExpenditure);
         localStorage.setItem(EXPENDITURE_KEY, JSON.stringify(expenditures));
-        for (let i = 0; i < parsed_share_trips.length; i++) {
-          if (parsed_share_trips[i].id === modify_id) {
-            modify_share_trips = parsed_share_trips.filter(
-              (trip) => trip.id !== modify_id
-            );
-            localStorage.setItem(
-              "share_trips",
-              JSON.stringify(modify_share_trips)
-            );
-            modify_expenditure.push(saveExpenditure);
-            localStorage.setItem(
-              "modify_expenditure",
-              JSON.stringify(modify_expenditure)
-            );
+        if (parsed_share_trips !== null) {
+          for (let i = 0; i < parsed_share_trips.length; i++) {
+            if (parsed_share_trips[i].id === modify_id) {
+              modify_share_trips = parsed_share_trips.filter(
+                (trip) => trip.id !== modify_id
+              );
+              localStorage.setItem(
+                "share_trips",
+                JSON.stringify(modify_share_trips)
+              );
+              modify_expenditure.push(saveExpenditure);
+              localStorage.setItem(
+                "modify_expenditure",
+                JSON.stringify(modify_expenditure)
+              );
+            }
           }
         }
       }
@@ -144,47 +146,50 @@ function saveTrip(event) {
       alert("값을 입력해주세요.");
       return;
     } else if (story_value !== "" && file.value === "") {
-      const saveValues = {
+      const save_values = {
         id: id,
         title: title,
         story: story_value,
         img: "",
       };
-      localStorage.setItem(TRIP_KEY, JSON.stringify(saveValues));
+      localStorage.setItem(TRIP_KEY, JSON.stringify(save_values));
       valId();
-      const modify_share_trip = {
-        expenditure: parsedModifyExpenditure,
-        id: id,
-        img: "",
-        story: story_value,
-        title: title,
-        username: username,
-      };
-      const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
-      parsedShareTrips.push(modify_share_trip);
-      localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
+      if (modify_share_trip !== null) {
+        const modify_share_trip = {
+          expenditure: parsedModifyExpenditure,
+          id: id,
+          img: "",
+          story: story_value,
+          title: title,
+          username: username,
+        };
+        const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
+        parsedShareTrips.push(modify_share_trip);
+        localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
+      }
     } else {
-      const fileValue = `../uploadimg/${file.files[0].name}`;
-      const saveValues = {
+      const fileValue = `../uploadimg/${ file.files[0].name }`;
+      const save_values = {
         id: id,
         title: title,
         story: story_value,
         img: fileValue,
       };
-      console.log("1번");
-      localStorage.setItem(TRIP_KEY, JSON.stringify(saveValues));
+      localStorage.setItem(TRIP_KEY, JSON.stringify(save_values));
       valId();
-      const modify_share_trip = {
-        expenditure: parsedModifyExpenditure,
-        id: id,
-        img: fileValue,
-        story: story_value,
-        title: title,
-        username: username,
-      };
-      const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
-      parsedShareTrips.push(modify_share_trip);
-      localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
+      if (modify_share_trip !== null) {
+        const modify_share_trip = {
+          expenditure: parsedModifyExpenditure,
+          id: id,
+          img: fileValue,
+          story: story_value,
+          title: title,
+          username: username,
+        };
+        const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
+        parsedShareTrips.push(modify_share_trip);
+        localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
+      }
     }
   }
 }
@@ -205,9 +210,9 @@ if (savedIdList !== null) {
   const modify_story = document.querySelector(".story");
 
   const modify_id = localStorage.getItem("modify_id");
-  const modify_trip = localStorage.getItem(`${username}'s ${modify_id}'s trip`);
+  const modify_trip = localStorage.getItem(`${ username }'s ${ modify_id }'s trip`);
   const modify_expenditure = localStorage.getItem(
-    `${username}'s ${modify_id}'s expenditure`
+    `${ username }'s ${ modify_id }'s expenditure`
   );
 
   const parsedTrip = JSON.parse(modify_trip);
