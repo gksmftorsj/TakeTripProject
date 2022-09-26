@@ -33,18 +33,13 @@
 
   const delete_btn = document.querySelector(".delete_btn");
 
-  // li의 아이디와 선택된 값을 아이디가 같으면 li제거
-
   function deleteToDo() {
-    prompt("삭제하시겠습니까?");
     for (let i = 0; i < parsedTrips.length; i++) {
-      console.log("2번 들어옴");
       const delete_id = localStorage.getItem("detail_id");
       const parsedId = parsedTrips[i].id;
       console.log(delete_id);
       console.log(typeof parsedId);
       if (delete_id === String(parsedId)) {
-        console.log("3번 들어옴");
         delete_trips = parsedTrips.filter(
           (trip) => trip.id !== parseInt(delete_id)
         );
@@ -66,7 +61,39 @@
     }
   }
 
-  delete_btn.addEventListener("click", deleteToDo);
+  delete_btn.addEventListener("click", () => {
+    const val_pw = prompt("비밀번호를 입력하세요");
+    if (
+      localStorage.getItem("kakaoLogin") === null &&
+      localStorage.getItem("naverLogin") === null
+    ) {
+      if (val_pw === localStorage.getItem("pw_inUse")) {
+        deleteToDo();
+      } else {
+        alert("비밀번호가 틀렸습니다.");
+      }
+    } else if (
+      localStorage.getItem("kakaoLogin") === null &&
+      localStorage.getItem("naverLogin") !== null
+    ) {
+      const val_email = prompt("이메일을 입력하세요");
+      if (val_email === localStorage.getItem("email_inUse")) {
+        deleteToDo();
+      } else {
+        alert("이메일이 틀렸습니다.");
+      }
+    } else if (
+      localStorage.getItem("kakaoLogin") !== null &&
+      localStorage.getItem("naverLogin") === null
+    ) {
+      const val_email = prompt("이메일을 입력하세요");
+      if (val_email === localStorage.getItem("email_inUse")) {
+        deleteToDo();
+      } else {
+        alert("이메일이 틀렸습니다.");
+      }
+    }
+  });
 }
 
 //-------------------------------------------------------------------------

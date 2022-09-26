@@ -36,9 +36,6 @@
 
   const delete_btn = document.querySelector(".delete_btn");
 
-  console.log(parsedTrips);
-  // li의 아이디와 선택된 값을 아이디가 같으면 li제거
-
   function deleteToDo() {
     for (let i = 0; i < parsedTrips.length; i++) {
       const delete_id = localStorage.getItem("detail_id");
@@ -66,7 +63,40 @@
       }
     }
   }
-  delete_btn.addEventListener("click", deleteToDo);
+
+  delete_btn.addEventListener("click", () => {
+    const val_pw = prompt("비밀번호를 입력하세요");
+    if (
+      localStorage.getItem("kakaoLogin") === null &&
+      localStorage.getItem("naverLogin") === null
+    ) {
+      if (val_pw === localStorage.getItem("pw_inUse")) {
+        deleteToDo();
+      } else {
+        alert("비밀번호가 틀렸습니다.");
+      }
+    } else if (
+      localStorage.getItem("kakaoLogin") === null &&
+      localStorage.getItem("naverLogin") !== null
+    ) {
+      const val_email = prompt("이메일을 입력하세요");
+      if (val_email === localStorage.getItem("email_inUse")) {
+        deleteToDo();
+      } else {
+        alert("이메일이 틀렸습니다.");
+      }
+    } else if (
+      localStorage.getItem("kakaoLogin") !== null &&
+      localStorage.getItem("naverLogin") === null
+    ) {
+      const val_email = prompt("이메일을 입력하세요");
+      if (val_email === localStorage.getItem("email_inUse")) {
+        deleteToDo();
+      } else {
+        alert("이메일이 틀렸습니다.");
+      }
+    }
+  });
 
   share_cancel_btn.addEventListener("click", () => {
     cancelShareTrip();

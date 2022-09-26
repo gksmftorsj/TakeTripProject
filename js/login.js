@@ -123,6 +123,19 @@ function handleSignupBtn(event) {
   } else if (pwValue !== pwChkValue) {
     alert("비밀번호를 확인해주세요."); // 비밀번호와 비밀번호 확인이 다르면 경고창
   } else {
+    const parsedUsername = JSON.parse(localStorage.getItem(USERNAME_KEY));
+    const parsedEmail = JSON.parse(localStorage.getItem(EMAIL_KEY));
+    if (parsedUsername !== null) {
+      for (i = 0; i < parsedUsername.length; i++) {
+        if (parsedUsername[i] === signupUsername.value) {
+          alert("이미 존재하는 사용자이름입니다. 다른 이름을 사용해주세요.");
+          return;
+        } else if (parsedEmail[i] === signupEmail.value) {
+          alert("이미 존재하는 이메일입니다. 다른 이메일을 사용해주세요.");
+          return;
+        }
+      }
+    }
     // 배열에 회원가입 입력값 push
     username.push(usernameValue);
     email.push(emailValue);
