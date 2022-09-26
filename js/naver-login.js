@@ -19,8 +19,9 @@ window.addEventListener("load", function () {
       const username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
       const email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
 
-      localStorage.setItem("useranmeInUse", username);
-      localStorage.setItem("emailInUse", email);
+      localStorage.setItem("username_inUse", username);
+      localStorage.setItem("email_inUse", email);
+      localStorage.setItem("naverLogin", naver);
       window.location.href =
         "https://gksmftorsj.github.io/project0901/index.html";
       //만약 로그인 페이지로 들어오면 바로 메인페이지로 이동

@@ -3,7 +3,7 @@ video {
   top: 3px;
 }
 
-.header {
+.header_container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@ video {
   align-items: center;
 }
 
-#dateTo {
+#date_to {
   margin-left: 10px;
 }
 
@@ -53,10 +53,10 @@ input[type="date"] {
   border-radius: 3px;
 }
 
-#stateBox {
+#state_container {
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 100%;
   border-radius: 20px;
   border: 2px solid #0080ff;
 }
@@ -101,7 +101,7 @@ input[type="date"] {
   align-items: center;
 }
 
-.fromInRorate {
+.from_inRorate {
   animation-name: inRorate;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -116,7 +116,7 @@ input[type="date"] {
   }
 }
 
-.fromOutRorate {
+.from_outRorate {
   animation-name: outRorate;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -131,10 +131,10 @@ input[type="date"] {
   }
 }
 
-#cityBox {
+#city_container {
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 100%;
   border-radius: 20px;
   border: 2px solid #0080ff;
 }
@@ -180,7 +180,7 @@ input[type="date"] {
   font-size: 2rem;
 }
 
-.toInRorate {
+.to_inRorate {
   animation-name: inRorate;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -195,7 +195,7 @@ input[type="date"] {
   }
 }
 
-.toOutRorate {
+.to_outRorate {
   animation-name: outRorate;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
@@ -210,7 +210,7 @@ input[type="date"] {
   }
 }
 
-#save {
+#save_btn {
   border: none;
   border-radius: 5px;
   background-color: #0080ff;
@@ -219,11 +219,11 @@ input[type="date"] {
   font-size: 2rem;
 }
 
-#save:hover {
+#save_btn:hover {
   cursor: pointer;
 }
 
-/* #todo-form {
+/* #trip_form {
   width: 100%;
   height: 14%;
   display: flex;
@@ -231,7 +231,7 @@ input[type="date"] {
   align-items: center;
 } */
 /* -------------------------------------------------- */
-#todo-form {
+#trip_form {
   width: 100%;
   height: 35vh;
   display: flex;
@@ -241,21 +241,21 @@ input[type="date"] {
   opacity: 1;
 }
 
-.add-trip {
+.add_trip {
   position: absolute;
 }
 
-.add-trip:hover {
+.add_trip:hover {
   cursor: pointer;
 }
 
-.hidden-add-trip {
+.hidden_add_trip {
   display: none;
 }
 
-.hiddenWhere {
+/* .hidden_where {
   display: none;
-}
+} */
 
 /* .hiddenLeave {
   display: none;
@@ -263,17 +263,17 @@ input[type="date"] {
 
 /* visibility: hidden;은 모습만 사라지기 */
 /* display: none;은 자체가 사라지기 */
-.visibilityCity {
+.visibility_city {
   visibility: hidden;
 }
 
-.show {
-  animation-name: show;
+.show_trip_place {
+  animation-name: show_trip_place;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
 }
 
-@keyframes show {
+@keyframes show_trip_place {
   0% {
     transform: translateY(30px);
     opacity: 0%;
@@ -284,16 +284,23 @@ input[type="date"] {
   }
 }
 
-.secondHidden {
-  width: 85%;
+.trip_place {
+  width: 44%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hidden_date {
+  display: flex;
+  width: 75%;
   justify-content: space-between;
   align-items: center;
 }
 
 /* ------------------------------------------------------- */
 
-.main {
+.main_container {
   width: 100%;
   height: 70vh;
   display: flex;
@@ -303,7 +310,7 @@ input[type="date"] {
   width: 50%;
   height: 100%;
 }
-#cityBox {
+#city_container {
   margin-left: 10px;
 }
 
@@ -322,7 +329,8 @@ li {
   border: 3px solid skyblue;
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  justify-content: center;
+  font-size: 1.8rem;
 }
 
 .cursor:hover {
@@ -343,7 +351,7 @@ footer {
 }
 
 @media screen and (max-width: 1280px) {
-  #todo-form {
+  #trip_form {
     width: 100%;
   }
 
@@ -356,11 +364,11 @@ footer {
     font-size: 3rem;
   }
 
-  #stateBox {
+  #state_container {
     height: 65px;
   }
 
-  #cityBox {
+  #city_container {
     height: 65px;
   }
 

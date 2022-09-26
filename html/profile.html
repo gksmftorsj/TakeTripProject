@@ -13,47 +13,47 @@
 <body>
   <!-- 네비게이션 바 -->
   <nav>
-    <div class="info-navbar">
-      <div class="navbar">
-        <!-- 네이게이션 로고 -->
-        <div class="nav-left">
-          <div class="nav-logo">
-            <i class="fa-brands fa-atlassian" onclick="location.href=`../index.html`"></i>
-            <span class="logo-name-box" onclick="location.href=`../index.html`">
-              <span class="logo-name">여</span>행을 <span class="logo-name">담</span>다
-            </span> <!-- index.html = 본인 url -->
-          </div>
+    <div class="nav_container">
+      <!-- 네이게이션 로고 -->
+      <div class="nav_left">
+        <div class="nav_logo">
+          <i class="fa-brands fa-atlassian" onclick="location.href=`../index.html`"></i>
+          <div class="logo_name" onclick="location.href=`../index.html`">
+            <span class="logo_name_emphasis">여</span>행을
+            <span class="logo_name_emphasis">담</span>다
+          </div> <!-- index.html = 본인 url -->
         </div>
-        <div class="nav-right">
-          <a href="../html/saved.html" id="보러" class="hidden-보러">My Story</a>
-          <a href="../html/share.html" id="보러1" class="hidden-보러">Share Story</a>
-          <!-- <a href="../html/detail.html" id="보러1" class="hidden-보러">View Detail</a> -->
-          <!-- 네비게이션 버튼 -->
-          <div class="nav-btn">
-            <button class="login-btn" onclick="location.href=`../html/login.html`">로그인</button>
-            <button class="theme-btn">
-              <img class="theme-img" src="../img/sun.png">
-              <span class="theme-name">Light Mode</span>
-            </button>
-          </div>
+      </div>
+      <div class="nav_right">
+        <div class="nav_menu">
+          <a href="../html/my-story.html" id="myStory" class="hidden_story">My Story</a>
+          <a href="../html/share-story.html" id="shareStory" class="hidden-story">Share Story</a>
+        </div>
+        <!-- 네비게이션 버튼 -->
+        <div class="nav_btn">
+          <button class="login_btn" onclick="location.href=`../html/login.html`">로그인</button>
+          <button class="theme_btn">
+            <img class="theme_img" src="../img/sun.png">
+            <span class="theme_name">Light Mode</span>
+          </button>
         </div>
       </div>
       <!-- 내 정보 -->
-      <div class="showMyInfo hidden">
-        <a class="infoSelect_profile" href="../html/profile.html" onmouseover=" overColor()"
-          onmouseleave="leaveColor()">
+      <div class="myInfo_menu hidden_myInfo_menu">
+        <a class="menu_profile" href="../html/profile.html" onmouseover="hoverColor()" onmouseleave="leaveColor()">
           <div class="profile" onmouse>프로필 보기
           </div>
         </a>
-        <a class="infoSelect_likeList" href=" #">
+        <a class="menu_likeList" href="#">
           <div class="likeList">좋아요 리스트</div>
         </a>
-        <a class="logout-btn" href="index.html">
+        <a class="menu_logout_btn" href="../index.html">
           <div class="logout">로그아웃</div>
         </a>
       </div>
     </div>
   </nav>
+  <!-- 네비게이션 바 -->
 
   <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>

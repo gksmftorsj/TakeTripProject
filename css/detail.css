@@ -10,7 +10,7 @@ main {
   align-items: center;
 }
 
-.detailBox {
+.detail_container {
   background-color: bisque;
   width: 80%;
   height: 80%;
@@ -22,35 +22,35 @@ main {
   display: flex;
 }
 
-.top-left {
+.top_left {
   width: 50%;
 }
 
-.top-right {
+.top_right {
   width: 50%;
   display: flex;
   flex-direction: column;
 }
 
-img {
+.detail_img {
   width: 100%;
   height: 100%;
 }
 
-.title {
+.detail_title {
   width: 100%;
   height: 20%;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.expenditureBox {
+.detail_expenditure {
   background-color: azure;
   width: 100%;
-  height: 100%;
+  height: 86%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,14 +58,15 @@ img {
   padding-left: 20px;
 }
 
-.btnBox {
+.btn_container {
   display: flex;
   width: 100%;
+  height: 14%;
 }
 
-.modifyBtn,
-.removeBtn,
-.shareBtn {
+.modify_btn,
+.delete_btn,
+.share_btn {
   width: calc(100% / 3);
 }
 
@@ -78,13 +79,17 @@ img {
   height: 100%;
 }
 
-.flex {
+.expenditure_flex {
   display: flex;
   margin-bottom: 20px;
 }
 
-.story {
+.detail_story {
   background-color: bisque;
   font-size: 1.3rem;
   padding: 20px;
+}
+
+button:hover {
+  cursor: pointer;
 }

@@ -1,4 +1,4 @@
-.navbar {
+.nav_container {
   width: 100%;
   height: 70px;
   position: fixed;
@@ -10,116 +10,124 @@
   box-shadow: 0px 0px 10px 0px black;
 }
 
-.nav-left {
+.nav_left {
   display: flex;
   align-items: center;
-  flex: 1;
+  width: 35%;
   height: 100%;
 }
 
-.nav-right {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex: 1;
+.nav_logo {
   height: 100%;
-}
-
-.nav-logo {
   display: flex;
+  align-items: center;
   margin-left: 30px;
 }
 
 .fa-atlassian {
-  font-size: 1.5rem;
+  font-size: 2.3rem;
 }
 
-.nav-logo:hover {
+.nav_logo:hover {
   cursor: pointer;
 }
 
-.logo-name-box {
+.logo_name {
+  display: flex;
+  align-items: baseline;
+  font-size: 1.5rem;
+  position: relative;
+  top: 2px;
+}
+
+.logo_name_emphasis {
   margin-left: 5px;
-  font-size: 1.15rem;
+  font-size: 2rem;
 }
 
-.logo-name {
-  font-size: 1.5rem;
-}
-
-.hidden-보러 {
-  visibility: hidden;
-}
-
-.show보러 {
-  font-size: 1.25rem;
-}
-
-.show보러:hover {
-  cursor: pointer;
-}
-
-#보러 {
-  margin-right: 15px;
-  color: lightyellow;
-}
-
-#보러1 {
-  color: lightgrey;
-}
-
-.nav-btn {
-  width: 20%;
+.nav_right {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 70%;
+  height: 100%;
+}
+
+.nav_menu {
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 55%;
+  margin-left: 7rem;
+}
+
+#myStory,
+#shareStory {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  color: lightyellow;
+}
+
+#myStory {
+  margin-left: 4rem;
+}
+
+.nav_btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 45%;
+  height: 100%;
+  margin-right: 2rem;
 }
 
 /* input type button은 cursor 값이 default 이기 때문에 hover할 때가 아닌 그냥 cursor pointer를 줘야 한다. */
-.login-btn {
+.login_btn {
   margin-right: 15px;
   cursor: pointer;
   width: 95px;
-  height: 36px;
+  height: 65%;
   font-size: 1rem;
 }
 
 .myInfo {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   margin-right: 20px;
 }
 
-.myInfo:hover {
+.myInfo:hover,
+.theme_btn:hover {
   cursor: pointer;
 }
 
-.theme-btn {
-  width: 150px;
-  margin-right: 20px;
+.theme_btn {
+  width: 11rem;
+  height: 65%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.theme-img {
+.theme_img {
   width: 30px;
   height: 30px;
 }
 
-.theme-name {
+.theme_name {
   width: 100%;
   font-size: 1rem;
 }
 
-.showMyInfo {
+.myInfo_menu {
   transform-origin: center top;
   width: 15rem;
   height: 12rem;
   background-color: rgb(245, 246, 250);
   position: fixed;
   z-index: 200;
-  right: 180px;
+  right: 216px;
   top: 70px;
   border-radius: 20px;
   display: flex;
@@ -131,62 +139,39 @@
   /* visibility는 문서의 레이아웃을 변경하지 않고 요소를 보이거나 숨깁니다. */
 }
 
-.showMyInfo::before {
+.myInfo_menu::before {
   content: "";
   border-left: 0.7rem solid transparent;
-  border-right: 0.7rem solid transparent;
+  border-right: 0.8rem solid transparent;
   border-bottom: 0.9rem solid rgb(245, 246, 250);
   position: absolute;
   top: -0.9rem;
-  right: 1.2rem;
+  right: 1.4rem;
 }
 
-.hover::before {
+.before_color::before {
   border-bottom: 0.9rem solid #8aacc8;
 }
 
-.infoSelect_profile {
+.menu_profile {
   width: 100%;
   height: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 
-.infoSelect_likeList {
+.menu_likeList {
   width: 100%;
   height: 100%;
 }
 
-.profile {
-  color: rgb(38, 38, 38);
-  height: 100%;
-  width: 100%;
-  font-size: 1rem;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-}
-
-.likeList {
-  color: rgb(38, 38, 38);
-  border-radius: 0px;
-  height: 100%;
-  width: 100%;
-  font-size: 1rem;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-}
-
+.profile,
+.likeList,
 .logout {
   color: rgb(38, 38, 38);
-  border-radius: 0px 0px 10px 10px;
   height: 100%;
   width: 100%;
+  border-radius: 0px 0px 10px 10px;
   font-size: 1rem;
   display: flex;
   -webkit-box-pack: center;
@@ -195,32 +180,32 @@
   align-items: center;
 }
 
-.infoSelect_profile:hover,
-.infoSelect_likeList:hover,
-.logout-btn:hover {
+.menu_profile:hover,
+.menu_likeList:hover,
+.menu_logout_btn:hover {
   cursor: pointer;
   background-color: #8aacc8;
 }
 
-.logout-btn {
+.menu_logout_btn {
   width: 100%;
   height: 100%;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 
-.showMyInfo:first {
+.myInfo_menu:first {
   display: flex;
   justify-content: flex-start;
 }
 
-.showinfo {
+.show_myInfo_menu {
   visibility: visible;
-  animation-name: showMyInfo;
+  animation-name: show_myInfo_menu;
   animation-duration: 0.5s;
 }
 
-@keyframes showMyInfo {
+@keyframes show_myInfo_menu {
   0% {
     transform: scaleY(0) translateZ(0px);
   }
@@ -229,27 +214,17 @@
   }
 }
 
-/* .hiddeninfo {
-  visibility: visible;
-} */
-
-.hidden {
-  animation-name: hiddenMyInfo;
+.hidden_myInfo_menu {
+  animation-name: hidden_myInfo_menu;
   animation-duration: 0.5s;
 }
 
-@keyframes hiddenMyInfo {
+@keyframes hidden_myInfo_menu {
   0% {
     transform: scaleY(1) translateZ(0px);
   }
   100% {
     transform: scaleY(0) translateZ(0px);
     visibility: visible;
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .nav-btn {
-    width: 40%;
   }
 }

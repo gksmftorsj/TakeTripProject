@@ -14,96 +14,96 @@
 <body>
   <!-- 로그인 -->
   <!-- 로그인 전체 화면-->
-  <div class="login login-absolute">
+  <div class="login login_absolute">
     <!-- 로그인 입력 화면 -->
-    <div class="login-screen">
+    <div class="login_screen">
       <!-- 로그인 기능 구현 -->
-      <form id="login-form">
-        <label class="login-header">로그인</label>
+      <form id="login_form">
+        <label class="login_header">로그인</label>
         <!-- 이메일 -->
-        <div class="login-field email">
-          <label for="login-email">
-            <img class="email-img" src="../img/email.png">
+        <div class="login_field email">
+          <label for="login_email">
+            <img class="email_img" src="../img/email.png">
           </label>
-          <input type="email" id="login-email" placeholder="이메일"
+          <input type="email" id="login_email" placeholder="이메일"
             pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" title="이메일 양식 ex)example.com" required>
         </div>
         <!-- 비밀번호 -->
-        <div class="login-field pw">
-          <label for="login-pw">
-            <img class="pw-img" src="../img/password.png">
+        <div class="login_field pw">
+          <label for="login_pw">
+            <img class="pw_img" src="../img/password.png">
           </label>
-          <input type="password" id="login-pw" placeholder="비밀번호"
+          <input type="password" id="login_pw" placeholder="비밀번호"
             pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
             title="올바른 비밀번호를 입력하시오.">
         </div>
         <!-- 로그인 버튼 -->
-        <input type="submit" class="login-btn general" value="로그인">
+        <input type="submit" class="login_btn general" value="로그인">
         <!-- 회원가입 화면 이동 버튼 -->
-        <div class="accountChk">계정이 없으십니까?<span class="signup-screen-btn">회원가입</span>하기</div>
+        <div class="accountChk">계정이 없으십니까?<span class="signup_screen_btn">회원가입</span>하기</div>
         <!-- 다른 버튼 -->
-        <div class="another-btn">
-          <div class="kakao-naver-btn">
+        <div class="another_btn">
+          <div class="kakao_naver_btn">
             <!-- 카카오 로그인 버튼 -->
-            <img class="login-btn kakao" src="../img/kakao_login.png">
+            <img class="login_btn kakao" src="../img/kakao_login.png">
             <!-- 네이버 로그인 버튼 -->
-            <img class="login-btn naver" src="../img/naver_login.png" id="naverIdLogin_loginButton">
+            <img class="login_btn naver" src="../img/naver_login.png" id="naverIdLogin_loginButton">
           </div>
         </div>
       </form>
     </div>
     <!-- 로그인 배경화면 -->
-    <img src="../img/loginbg.jpg" class="login-bg">
+    <img src="../img/loginbg.jpg" class="login_bg">
   </div>
   <!-- 로그인 -->
 
   <!-- 회원가입 -->
   <!-- 회원가입 전체 화면 -->
-  <div class="signup hidden-signup">
+  <div class="signup hidden_signup">
     <!-- 회원가입 배경화면 -->
-    <img src="../img/signupbg.jpg" class="signup-bg">
+    <img src="../img/signupbg.jpg" class="signup_bg">
     <!-- 회원가입 입력 화면 -->
-    <div class="signup-screen">
+    <div class="signup_screen">
       <!-- 회원가입 가능 구현 -->
-      <form id="signup-form">
-        <div class="signup-header">회원가입</div>
+      <form id="signup_form">
+        <div class="signup_header">회원가입</div>
         <!-- 사용자 이름 -->
-        <div class="signup-field username">
-          <label for="signup-username">
-            <img class="user-img" src="../img/user.png">
+        <div class="signup_field username">
+          <label for="signup_username">
+            <img class="user_img" src="../img/user.png">
           </label>
-          <input type="text" id="signup-username" placeholder="사용자 이름" maxlength="12" required>
+          <input type="text" id="signup_username" placeholder="사용자 이름" maxlength="12" required>
         </div>
         <!-- 이메일 -->
-        <div class="signup-field email">
-          <label for="signup-email">
-            <img class="email-img" src="../img/email.png">
+        <div class="signup_field email">
+          <label for="signup_email">
+            <img class="email_img" src="../img/email.png">
           </label>
-          <input type="email" id="signup-email" placeholder="이메일"
+          <input type="email" id="signup_email" placeholder="이메일"
             pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" title="이메일 양식 ex)example@a.com" required>
         </div>
         <!-- 비밀번호 -->
-        <div class="signup-field pw">
-          <label for="signup-pw">
-            <img class="pw-img" src="../img/password.png">
+        <div class="signup_field pw">
+          <label for="signup_pw">
+            <img class="pw_img" src="../img/password.png">
           </label>
-          <input type="password" id="signup-pw" placeholder="비밀번호"
+          <input type="password" id="signup_pw" placeholder="비밀번호"
             pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
             title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
         </div>
         <!-- 비밀번호 확인-->
-        <div class="signup-field pw">
-          <label for="signup-pwChk">
-            <img class="pw-img" src="../img/password.png">
+        <div class="signup_field pw">
+          <label for="signup_pwChk">
+            <img class="pw_img" src="../img/password.png">
           </label>
-          <input type="password" id="signup-pwChk" placeholder="비밀번호 확인"
+          <input type="password" id="signup_pwChk" placeholder="비밀번호 확인"
             pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
             title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
         </div>
         <!-- 회원가입 버튼 -->
-        <input type="submit" class="signup-btn" value="회원가입">
+        <input type="submit" class="signup_btn" value="회원가입">
         <!-- 로그인 화면 이동 버튼 -->
-        <div class="accountChk">이미 계정이 있습니까?<span class="login-screen-btn">로그인</span>하기</div>
+        <div class="accountChk">이미 계정이 있습니까?<span class="login_screen_btn">로그인</span>하기</div>
       </form>
     </div>
   </div>

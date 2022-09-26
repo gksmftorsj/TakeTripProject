@@ -1,15 +1,12 @@
-body{
-  background-color: #bbdefb;
-}
-
 main {
+  background-color: #bbdefb;
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
 }
 
-.wirte-container {
+.main_container {
   width: 100%;
   height: 90%;
   display: flex;
@@ -18,19 +15,19 @@ main {
   align-items: center;
 }
 
-.writeValue {
+.trip_title {
   font-size: 3rem;
   text-align: center;
 }
 
-.write-form {
+.story_form {
   width: 80%;
   height: 80%;
   display: flex;
   flex-direction: column;
 }
 
-.text {
+.story {
   height: 100%;
   resize: none;
   font-size: 1.7rem;
@@ -44,53 +41,53 @@ main {
   margin-top: 10px;
 }
 
-.costBox {
+.expenditure {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.inputTextBox {
+.detail_container {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
 }
 
-.inputCostBox {
+.expense_container {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
 }
 
-
-.detail, .expense{
+.detail,
+.expense {
   padding: 5px;
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
 
-.plus-btn {
+.plus_btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 5px;
 }
 
-.minus-btn {
+.minus_btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-input[type=file]{
+input[type="file"] {
   width: 18%;
 }
 
-.save-btn {
+.save_btn {
   width: 100px;
   height: 50px;
 }
 
-Button:hover{
+Button:hover {
   cursor: pointer;
 }

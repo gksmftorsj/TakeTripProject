@@ -1,316 +1,320 @@
-function categoryChange(area) {
-  const $state = document.getElementById("state");
-  const $city = document.getElementById("city");
+{
+  // 장소 선택
+  function categoryChange(area) {
+    const state = document.querySelector("#state");
+    const city = document.querySelector("#city");
 
-  const seoul = [
-    "강남구",
-    "강동구",
-    "강북구",
-    "강서구",
-    "관악구",
-    "광진구",
-    "구로구",
-    "금천구",
-    "노원구",
-    "도봉구",
-    "동대문구",
-    "동작구",
-    "마포구",
-    "서대문구",
-    "서초구",
-    "성동구",
-    "성북구",
-    "송파구",
-    "양천구",
-    "영등포구",
-    "용산구",
-    "은평구",
-    "종로구",
-    "중구",
-    "중랑구",
-  ];
-  const incheon = [
-    "계양구",
-    "남구",
-    "남동구",
-    "동구",
-    "부평구",
-    "서구",
-    "연수구",
-    "중구",
-    "강화군",
-    "옹진군",
-  ];
-  const daejeon = ["대덕구", "동구", "서구", "유성구", "중구"];
-  const gwangju = ["광산구", "남구", "동구", "북구", "서구"];
-  const daegu = [
-    "남구",
-    "달서구",
-    "동구",
-    "북구",
-    "서구",
-    "수성구",
-    "중구",
-    "달성군",
-  ];
-  const ulsan = ["남구", "동구", "북구", "중구", "울주군"];
-  const busan = [
-    "강서구",
-    "금정구",
-    "남구",
-    "동구",
-    "동래구",
-    "부산진구",
-    "북구",
-    "사상구",
-    "사하구",
-    "서구",
-    "수영구",
-    "연제구",
-    "영도구",
-    "중구",
-    "해운대구",
-    "기장군",
-  ];
-  const gyeonggi = [
-    "고양시",
-    "과천시",
-    "광명시",
-    "광주시",
-    "구리시",
-    "군포시",
-    "김포시",
-    "남양주시",
-    "동두천시",
-    "부천시",
-    "성남시",
-    "수원시",
-    "시흥시",
-    "안산시",
-    "안성시",
-    "안양시",
-    "양주시",
-    "오산시",
-    "용인시",
-    "의왕시",
-    "의정부시",
-    "이천시",
-    "파주시",
-    "평택시",
-    "포천시",
-    "하남시",
-    "화성시",
-    "가평군",
-    "양평군",
-    "여주군",
-    "연천군",
-  ];
-  const gangwon = [
-    "강릉시",
-    "동해시",
-    "삼척시",
-    "속초시",
-    "원주시",
-    "춘천시",
-    "태백시",
-    "고성군",
-    "양구군",
-    "양양군",
-    "영월군",
-    "인제군",
-    "정선군",
-    "철원군",
-    "평창군",
-    "홍천군",
-    "화천군",
-    "횡성군",
-  ];
-  const chungbuk = [
-    "제천시",
-    "청주시",
-    "충주시",
-    "괴산군",
-    "단양군",
-    "보은군",
-    "영동군",
-    "옥천군",
-    "음성군",
-    "증평군",
-    "진천군",
-    "청원군",
-  ];
-  const chungnam = [
-    "세종자치시",
-    "계룡시",
-    "공주시",
-    "논산시",
-    "보령시",
-    "서산시",
-    "아산시",
-    "천안시",
-    "금산군",
-    "당진시",
-    "부여군",
-    "서천군",
-    "예산군",
-    "청양군",
-    "태안군",
-    "홍성군",
-  ];
-  const jeonbuk = [
-    "군산시",
-    "김제시",
-    "남원시",
-    "익산시",
-    "전주시",
-    "정읍시",
-    "고창군",
-    "무주군",
-    "부안군",
-    "순창군",
-    "완주군",
-    "임실군",
-    "장수군",
-    "진안군",
-  ];
-  const jeonnam = [
-    "광양시",
-    "나주시",
-    "목포시",
-    "순천시",
-    "여수시",
-    "강진군",
-    "고흥군",
-    "곡성군",
-    "구례군",
-    "담양군",
-    "무안군",
-    "보성군",
-    "신안군",
-    "영광군",
-    "영암군",
-    "완도군",
-    "장성군",
-    "장흥군",
-    "진도군",
-    "함평군",
-    "해남군",
-    "화순군",
-  ];
-  const gyeongbuk = [
-    "경산시",
-    "경주시",
-    "구미시",
-    "김천시",
-    "문경시",
-    "상주시",
-    "안동시",
-    "영주시",
-    "영천시",
-    "포항시",
-    "고령군",
-    "군위군",
-    "봉화군",
-    "성주군",
-    "영덕군",
-    "영양군",
-    "예천군",
-    "울릉군",
-    "울진군",
-    "의성군",
-    "청도군",
-    "청송군",
-    "칠곡군",
-  ];
-  const gyeongnam = [
-    "거제시",
-    "김해시",
-    "밀양시",
-    "사천시",
-    "양산시",
-    "진주시",
-    "창원시 진해구",
-    "창원시 마산합포구",
-    "창원시 마산회원구",
-    "창원시 성산구",
-    "창원시 의창구",
-    "통영시",
-    "거창군",
-    "고성군",
-    "남해군",
-    "산청군",
-    "의령군",
-    "창녕군",
-    "하동군",
-    "함안군",
-    "함양군",
-    "합천군",
-  ];
-  const jeju = ["서귀포시", "제주시", "남제주군", "북제주군"];
+    const seoul = [
+      "강남구",
+      "강동구",
+      "강북구",
+      "강서구",
+      "관악구",
+      "광진구",
+      "구로구",
+      "금천구",
+      "노원구",
+      "도봉구",
+      "동대문구",
+      "동작구",
+      "마포구",
+      "서대문구",
+      "서초구",
+      "성동구",
+      "성북구",
+      "송파구",
+      "양천구",
+      "영등포구",
+      "용산구",
+      "은평구",
+      "종로구",
+      "중구",
+      "중랑구",
+    ];
+    const incheon = [
+      "계양구",
+      "남구",
+      "남동구",
+      "동구",
+      "부평구",
+      "서구",
+      "연수구",
+      "중구",
+      "강화군",
+      "옹진군",
+    ];
+    const daejeon = ["대덕구", "동구", "서구", "유성구", "중구"];
+    const gwangju = ["광산구", "남구", "동구", "북구", "서구"];
+    const daegu = [
+      "남구",
+      "달서구",
+      "동구",
+      "북구",
+      "서구",
+      "수성구",
+      "중구",
+      "달성군",
+    ];
+    const ulsan = ["남구", "동구", "북구", "중구", "울주군"];
+    const busan = [
+      "강서구",
+      "금정구",
+      "남구",
+      "동구",
+      "동래구",
+      "부산진구",
+      "북구",
+      "사상구",
+      "사하구",
+      "서구",
+      "수영구",
+      "연제구",
+      "영도구",
+      "중구",
+      "해운대구",
+      "기장군",
+    ];
+    const gyeonggi = [
+      "고양시",
+      "과천시",
+      "광명시",
+      "광주시",
+      "구리시",
+      "군포시",
+      "김포시",
+      "남양주시",
+      "동두천시",
+      "부천시",
+      "성남시",
+      "수원시",
+      "시흥시",
+      "안산시",
+      "안성시",
+      "안양시",
+      "양주시",
+      "오산시",
+      "용인시",
+      "의왕시",
+      "의정부시",
+      "이천시",
+      "파주시",
+      "평택시",
+      "포천시",
+      "하남시",
+      "화성시",
+      "가평군",
+      "양평군",
+      "여주군",
+      "연천군",
+    ];
+    const gangwon = [
+      "강릉시",
+      "동해시",
+      "삼척시",
+      "속초시",
+      "원주시",
+      "춘천시",
+      "태백시",
+      "고성군",
+      "양구군",
+      "양양군",
+      "영월군",
+      "인제군",
+      "정선군",
+      "철원군",
+      "평창군",
+      "홍천군",
+      "화천군",
+      "횡성군",
+    ];
+    const chungbuk = [
+      "제천시",
+      "청주시",
+      "충주시",
+      "괴산군",
+      "단양군",
+      "보은군",
+      "영동군",
+      "옥천군",
+      "음성군",
+      "증평군",
+      "진천군",
+      "청원군",
+    ];
+    const chungnam = [
+      "세종자치시",
+      "계룡시",
+      "공주시",
+      "논산시",
+      "보령시",
+      "서산시",
+      "아산시",
+      "천안시",
+      "금산군",
+      "당진시",
+      "부여군",
+      "서천군",
+      "예산군",
+      "청양군",
+      "태안군",
+      "홍성군",
+    ];
+    const jeonbuk = [
+      "군산시",
+      "김제시",
+      "남원시",
+      "익산시",
+      "전주시",
+      "정읍시",
+      "고창군",
+      "무주군",
+      "부안군",
+      "순창군",
+      "완주군",
+      "임실군",
+      "장수군",
+      "진안군",
+    ];
+    const jeonnam = [
+      "광양시",
+      "나주시",
+      "목포시",
+      "순천시",
+      "여수시",
+      "강진군",
+      "고흥군",
+      "곡성군",
+      "구례군",
+      "담양군",
+      "무안군",
+      "보성군",
+      "신안군",
+      "영광군",
+      "영암군",
+      "완도군",
+      "장성군",
+      "장흥군",
+      "진도군",
+      "함평군",
+      "해남군",
+      "화순군",
+    ];
+    const gyeongbuk = [
+      "경산시",
+      "경주시",
+      "구미시",
+      "김천시",
+      "문경시",
+      "상주시",
+      "안동시",
+      "영주시",
+      "영천시",
+      "포항시",
+      "고령군",
+      "군위군",
+      "봉화군",
+      "성주군",
+      "영덕군",
+      "영양군",
+      "예천군",
+      "울릉군",
+      "울진군",
+      "의성군",
+      "청도군",
+      "청송군",
+      "칠곡군",
+    ];
+    const gyeongnam = [
+      "거제시",
+      "김해시",
+      "밀양시",
+      "사천시",
+      "양산시",
+      "진주시",
+      "창원시 진해구",
+      "창원시 마산합포구",
+      "창원시 마산회원구",
+      "창원시 성산구",
+      "창원시 의창구",
+      "통영시",
+      "거창군",
+      "고성군",
+      "남해군",
+      "산청군",
+      "의령군",
+      "창녕군",
+      "하동군",
+      "함안군",
+      "함양군",
+      "합천군",
+    ];
+    const jeju = ["서귀포시", "제주시", "남제주군", "북제주군"];
 
-  let add;
-  // 만약 categoryChange의 값이 area??라면 add에 지역[] 저장
-  if (area.value == "서울특별시") {
-    add = seoul;
-  } else if (area.value == "인천광역시") {
-    add = incheon;
-  } else if (area.value == "대전광역시") {
-    add = daejeon;
-  } else if (area.value == "광주광역시") {
-    add = gwangju;
-  } else if (area.value == "대구광역시") {
-    add = daegu;
-  } else if (area.value == "울산광역시") {
-    add = ulsan;
-  } else if (area.value == "부산광역시") {
-    add = busan;
-  } else if (area.value == "경기도") {
-    add = gyeonggi;
-  } else if (area.value == "강원도") {
-    add = gangwon;
-  } else if (area.value == "충청북도") {
-    add = chungbuk;
-  } else if (area.value == "충청남도") {
-    add = chungnam;
-  } else if (area.value == "전라북도") {
-    add = jeonbuk;
-  } else if (area.value == "전라남도") {
-    add = jeonnam;
-  } else if (area.value == "경상북도") {
-    add = gyeongbuk;
-  } else if (area.value == "경상남도") {
-    add = gyeongnam;
-  } else if (area.value == "제주도") {
-    add = jeju;
+    let add;
+    // 만약 categoryChange의 값이 area??라면 add에 지역[] 저장
+    if (area.value == "서울특별시") {
+      add = seoul;
+    } else if (area.value == "인천광역시") {
+      add = incheon;
+    } else if (area.value == "대전광역시") {
+      add = daejeon;
+    } else if (area.value == "광주광역시") {
+      add = gwangju;
+    } else if (area.value == "대구광역시") {
+      add = daegu;
+    } else if (area.value == "울산광역시") {
+      add = ulsan;
+    } else if (area.value == "부산광역시") {
+      add = busan;
+    } else if (area.value == "경기도") {
+      add = gyeonggi;
+    } else if (area.value == "강원도") {
+      add = gangwon;
+    } else if (area.value == "충청북도") {
+      add = chungbuk;
+    } else if (area.value == "충청남도") {
+      add = chungnam;
+    } else if (area.value == "전라북도") {
+      add = jeonbuk;
+    } else if (area.value == "전라남도") {
+      add = jeonnam;
+    } else if (area.value == "경상북도") {
+      add = gyeongbuk;
+    } else if (area.value == "경상남도") {
+      add = gyeongnam;
+    } else if (area.value == "제주도") {
+      add = jeju;
+    }
+
+    city.options.length = 1;
+    // 군/구 갯수 어차피 city의 option 1개라서 없어도 상관없음
+
+    for (const areas in add) {
+      // 반복문이 돌기 전에는 값이 할당되지 않은 undefined 상태이기 때문에 const 사용해도 오류가 발생하지 않는다.
+      // add에 저장한 지역[]을 areas에 반복해서 저장
+      const city_option = document.createElement("option"); // HTML에 option Element 생성하는 값 저장
+      city_option.value = add[areas]; // add[areas]를 사용하면 value 값을 반환한다. 반환 값 새로 생성한 option Element value에 저장
+      // ex)add = ["강동구", "강서구", "강남구", "강북구"] => add중에서 areas에 저장한 값들을 차례대로 반환
+      // => 강동구[areas], 강서구[areas], 강남구[areas], 강북구[areas] 반환 ex) <option value="강동구"></option>
+      city_option.innerHTML = add[areas]; // 반환 값 새로 생성한 option Element innerHTML에 저장 / ex) <option value="강릉시">강릉시</option>
+      city.appendChild(city_option); // HTML에서 #city(부모 노드)의 자식 노드 리스트 중 마지막 자식으로 저장한 값(cityOption)들을 붙임
+    }
+
+    city.addEventListener("change", (event) => {
+      localStorage.setItem("state", state.value); // state 값 변경 시 값을 localStorage에 저장
+      localStorage.setItem("city", event.target.value); // city 값 변경 시 값을 localStorage에 저장
+    });
   }
-
-  $city.options.length = 1;
-  // 군/구 갯수 어차피 city의 option 1개라서 없어도 상관없음
-
-  for (const areas in add) {
-    // 반복문이 돌기 전에는 값이 할당되지 않은 undefined 상태이기 때문에 const 사용해도 오류가 발생하지 않는다.
-    // add에 저장한 지역[]을 areas에 반복해서 저장
-    const $cityOption = document.createElement("option"); // HTML에 option Element 생성하는 값 저장
-    $cityOption.value = add[areas]; // add[areas]를 사용하면 value 값을 반환한다. 반환 값 새로 생성한 option Element value에 저장
-    // ex)add = ["강동구", "강서구", "강남구", "강북구"] => add중에서 areas에 저장한 값들을 차례대로 반환
-    // => 강동구[areas], 강서구[areas], 강남구[areas], 강북구[areas] 반환 ex) <option value="강동구"></option>
-    $cityOption.innerHTML = add[areas]; // 반환 값 새로 생성한 option Element innerHTML에 저장 / ex) <option value="강릉시">강릉시</option>
-    $city.appendChild($cityOption); // HTML에서 #city(부모 노드)의 자식 노드 리스트 중 마지막 자식으로 저장한 값($cityOption)들을 붙임
-  }
-
-  $city.addEventListener("change", (event) => {
-    localStorage.setItem("state", $state.value); // state 값 변경 시 값을 localStorage에 저장
-    localStorage.setItem("city", event.target.value); // city 값 변경 시 값을 localStorage에 저장
-  });
 }
 
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
-const savedState = localStorage.getItem("state");
-const savedCity = localStorage.getItem("city");
-
-// if localStorage에 city와 state 값이 있으면 localStorage에 위도와 경도 저장
 {
+  // 좌표 저장
+  const savedState = localStorage.getItem("state");
+  const savedCity = localStorage.getItem("city");
+
+  // if localStorage에 city와 state 값이 있으면 localStorage에 위도와 경도 저장
   // 서울
   if (savedCity === "강남구") {
     localStorage.setItem("lat", 37.517305);
@@ -1046,244 +1050,222 @@ const savedCity = localStorage.getItem("city");
     localStorage.setItem("lng", 126.531138);
   }
 }
-// if localStorage에 위도와 경도 값이 없으면 위도 37도 경도 127.5도로 기본 값 설정
-if (
-  localStorage.getItem("lat") === null ||
-  localStorage.getItem("lng") === null
-) {
-  const savedLat = "37";
-  const savedLng = "127.5";
-  var map = new naver.maps.Map("map", {
-    center: new naver.maps.LatLng(savedLat, savedLng), // 설정한 기본 값 넣기
-    zoomControl: true,
-    zoomControlOptions: {
-      style: naver.maps.ZoomControlStyle.SMALL,
-      position: naver.maps.Position.TOP_RIGHT,
-    },
-    zoom: 8,
-  });
-} else {
-  // if localStorage에 위도와 경도 값이 있으면 저장된 위도와 경도 값 가져오기
-  const savedLat = localStorage.getItem("lat");
-  const savedLng = localStorage.getItem("lng");
-  var map = new naver.maps.Map("map", {
-    center: new naver.maps.LatLng(savedLat, savedLng), // localStorage에 가져온 값 넣기
-    zoomControl: true,
-    zoomControlOptions: {
-      style: naver.maps.ZoomControlStyle.SMALL,
-      position: naver.maps.Position.TOP_RIGHT,
-    },
-    zoom: 15,
-  });
 
-  var marker = new naver.maps.Marker({
-    // 가져온 위도 경도에 마크 표시
-    position: new naver.maps.LatLng(savedLat, savedLng),
-    map: map,
-  });
-}
+// --------------------------------------------------------------------------------
 
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-const $dateFrom = document.getElementById("dateFrom");
-const $dateTo = document.getElementById("dateTo");
-
-function dateSelect() {
-  // From 값과 To 값 저장한 뒤에 비교해서 To 값이 더 적으면 날짜를 다시 선택
-  const savedDateFrom = $dateFrom.value;
-  const savedDateTo = $dateTo.value;
-  if (savedDateFrom <= savedDateTo) {
-    localStorage.setItem("dateForm", savedDateFrom);
-    localStorage.setItem("dateTo", savedDateTo);
+{
+  // 네이버 맵 api
+  // if localStorage에 위도와 경도 값이 없으면 위도 37도 경도 127.5도로 기본 값 설정
+  if (
+    localStorage.getItem("lat") === null ||
+    localStorage.getItem("lng") === null
+  ) {
+    const savedLat = "37";
+    const savedLng = "127.5";
+    var map = new naver.maps.Map("map", {
+      center: new naver.maps.LatLng(savedLat, savedLng), // 설정한 기본 값 넣기
+      zoomControl: true,
+      zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.SMALL,
+        position: naver.maps.Position.TOP_RIGHT,
+      },
+      zoom: 8,
+    });
   } else {
-    alert("날짜를 다시 선택해주세요.");
-    $dateFrom.value = "";
-    $dateTo.value = "";
+    // if localStorage에 위도와 경도 값이 있으면 저장된 위도와 경도 값 가져오기
+    const savedLat = localStorage.getItem("lat");
+    const savedLng = localStorage.getItem("lng");
+    var map = new naver.maps.Map("map", {
+      center: new naver.maps.LatLng(savedLat, savedLng), // localStorage에 가져온 값 넣기
+      zoomControl: true,
+      zoomControlOptions: {
+        style: naver.maps.ZoomControlStyle.SMALL,
+        position: naver.maps.Position.TOP_RIGHT,
+      },
+      zoom: 15,
+    });
+
+    var marker = new naver.maps.Marker({
+      // 가져온 위도 경도에 마크 표시
+      position: new naver.maps.LatLng(savedLat, savedLng),
+      map: map,
+    });
   }
 }
 
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
 
-const $toDoForm = document.getElementById("todo-form");
-const $toDoList = document.getElementById("todo-list");
-const $state = document.getElementById("state");
-const $city = document.getElementById("city");
+{
+  // 날짜 선택
+  const date_from = document.querySelector("#date_from");
+  const date_to = document.querySelector("#date_to");
 
-const id = localStorage.getItem("info_username");
-
-const TODOS_KEY = `${id}'s todos`;
-
-let toDos = []; // newTodo가 그려질 때마다 새로고침하면 값이 삭제되기 때문에 todo-list 값을 localStorage에 저장하기 위한 배열 toDos를 생성
-
-function saveToDos() {
-  // localStorage에 toDos 배열 값을 저장
-  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
-  // JSON.stringify를 사용하여 단순 text가 아닌 String으로 저장
-}
-
-function deleteToDo(event) {
-  // 우리가 어떤 버튼을 클릭했는지 모르기 때문에 클릭한 버튼이 어떤 버튼인지 찾기 위한 event를 실행시킨다.
-  const $li = event.target.parentElement; // 선택한 target의 parentElement인 li를 찾아서 li 변수에 저장
-  $li.remove(); // 클릭한 button의 li를 document에서 제거
-  toDos = toDos.filter((toDo) => toDo.id !== parseInt($li.id));
-  // toDos에 새롭게 배열 값 저장
-  // filter는 배열들이 차례대로 실행됨 true값만 저장하고 false값은 버린다.
-  // 원래 localStorage에 저장된 toDos의 id와 클릭한 button의 id가 같지 않은 애들은 true이기 때문에 다시 저장되고 같은 애들은 false이기 때문에 버려진다.
-  // li.id는 Document에서의 값이기 때문에 string 타입이고 toDo.id는 Date.now의 값이기 때문에 number 타입이라 무조건 true로 나와서 클릭한 li.id를 제외시키지 못한다.그래서 같은 타입으로 만들어줘야 한다.
-  saveToDos();
-  // 다시 toDos 배열에 저장된 값을 localStorage의 todos에 덮어쓰기
-}
-
-function goToDo(event) {
-  event.preventDefault();
-  const goLi = event.target.parentElement;
-  console.log(goLi.id);
-  const span = goLi.children[0].innerText;
-  console.log(span);
-  localStorage.setItem("title", span);
-  localStorage.setItem("saveId", goLi.id);
-  localStorage.setItem("modifyId", goLi.id);
-  window.location.href = "html/write.html";
-}
-
-// ul > li > span & button Element 생성
-// newTodo에 parsedToDos or newTodoObj의 값이 들어온다.
-function paintToDo(newTodo) {
-  const $li = document.createElement("li");
-  $li.id = newTodo.id; // newTodo의 id 저장
-  const $span = document.createElement("span");
-  $span.innerText = newTodo.text; // newTodo의 text 저장
-  $span.classList.add("cursor");
-  const $button = document.createElement("button");
-  $button.innerText = "❌";
-  $button.classList.add("deleteBtn");
-  $button.addEventListener("click", deleteToDo);
-  $li.appendChild($span);
-  $span.addEventListener("click", goToDo);
-  $li.appendChild($button);
-  $li.appendChild($button);
-  $toDoList.appendChild($li);
-}
-
-// 새로운 값을 입력하면 화면에 그리고 저장하는 부분
-function handleToDoSubmit() {
-  const newTodo = `${$dateFrom.value}~${$dateTo.value}/${$state.value} ${$city.value}`;
-  $state.value = "시/도 선택";
-  $city.value = "군/구 선택";
-  $dateFrom.value = "";
-  $dateTo.value = "";
-  const newTodoObj = {
-    // submit 할 때 value 값들을 newTodo에 저장하고 저장한 값들을 객체 값으로 다시 저장
-    text: newTodo, // text에 newTodo 값 저장
-    id: Date.now(), // id에 Date.now 현재시간 값 저장
-  };
-  paintToDo(newTodoObj); // paintTodo에 새롭게 선택된 값들을 넣기
-  toDos.push(newTodoObj); // submit 할 때 새롭게 선택된 값들을 toDos 배열에 push
-  saveToDos(); // toDos 배열에 push한 값들을 local에 저장
-}
-
-$toDoForm.addEventListener("submit", handleToDoSubmit);
-
-// savedToDos에 local에 저장된 toDos 값 가져오기
-const savedToDos = localStorage.getItem(TODOS_KEY);
-
-// 기본적으로 값이 있으면 보여지는 부분
-if (savedToDos !== null) {
-  // if loca에 toDos 값이 있으면 string 값으로 저장한 toDos를 parse를 사용하여 array로 변경한 뒤 저장
-  const parsedToDos = JSON.parse(savedToDos);
-  // 다시 toDos에 저장한 값 저장
-  toDos = parsedToDos;
-  // parsedToDos의 각 요소들을 paintToDo해준다.
-  parsedToDos.forEach(paintToDo);
-}
-
-function fromInRorate() {
-  document.querySelector(".fromIcon").classList.add("fromInRorate");
-  document.querySelector(".fromIcon").classList.remove("fromOutRorate");
-}
-
-function fromOutRorate() {
-  document.querySelector(".fromIcon").classList.add("fromOutRorate");
-  document.querySelector(".fromIcon").classList.remove("fromInRorate");
-}
-
-$state.addEventListener("focusin", fromInRorate);
-
-$state.addEventListener("change", fromOutRorate);
-
-function toInRorate() {
-  document.querySelector(".toIcon").classList.add("toInRorate");
-  document.querySelector(".toIcon").classList.remove("toOutRorate");
-}
-
-function toOutRorate() {
-  document.querySelector(".toIcon").classList.add("toOutRorate");
-  document.querySelector(".toIcon").classList.remove("toInRorate");
-}
-
-$city.addEventListener("focusin", toInRorate);
-
-$city.addEventListener("change", toOutRorate);
-
-// --------------------------------------------------------------------------------------------------------------------------------------------------------------
-$dateTo.addEventListener("change", dateSelect);
-
-const addTrip = document.querySelector(".add-trip");
-const select_city = document.querySelector("#select_city");
-const where = document.querySelector("#where");
-const secondHidden = document.querySelector(".secondHidden");
-
-secondHidden.setAttribute("style", "display:none");
-
-function handleAddTrip() {
-  if (localStorage.getItem("info_username") === null) {
-    alert("로그인 후 이용 가능합니다.");
-    return;
+  function selectDate() {
+    // From 값과 To 값 저장한 뒤에 비교해서 To 값이 더 적으면 날짜를 다시 선택
+    const date_from_value = date_from.value;
+    const date_to_value = date_to.value;
+    if (date_from_value <= date_to_value) {
+      localStorage.setItem("date_from", date_from_value);
+      localStorage.setItem("date_to", date_to_value);
+    } else {
+      alert("날짜를 다시 선택해주세요.");
+      date_from.value = "";
+      date_to.value = "";
+    }
   }
-  addTrip.classList.add("hidden-add-trip");
-  where.classList.remove("hiddenWhere");
-  where.classList.add("show");
-  setTimeout(() => {
-    select_city.classList.remove("visibilityCity");
-    select_city.classList.add("show");
-  }, 500);
 }
 
-addTrip.addEventListener("click", handleAddTrip);
+// --------------------------------------------------------------------------------
 
-// $city.setAttribute("style", "display:none");
+{
+  // 여행담기
+  const trip_form = document.querySelector("#trip_form");
+  const trip_list = document.querySelector("#trip_list");
+  const state = document.querySelector("#state");
+  const city = document.querySelector("#city");
 
-const select_date = document.querySelector("#select_date");
-const tripPeriod = document.querySelector(".trip-period");
-const saveBtn = document.querySelector("#save");
+  const username = localStorage.getItem("username_inUse");
 
-function cityToDate() {
-  where.classList.remove("show");
-  where.classList.add("hiddenWhere");
-  select_city.classList.remove("show");
-  select_city.setAttribute("style", "display:none");
+  let trips = [];
 
-  secondHidden.setAttribute("style", "");
-  select_date.setAttribute("style", "visibility: hidden");
-  saveBtn.setAttribute("style", "visibility: hidden");
+  function saveTrips() {
+    localStorage.setItem(`${username}'s trips`, JSON.stringify(trips));
+  }
 
-  tripPeriod.classList.add("show");
-  setTimeout(() => {
-    select_date.setAttribute("style", "");
-    saveBtn.setAttribute("style", "");
-    select_date.classList.add("show");
-    saveBtn.classList.add("show");
-  }, 800);
+  function goWritePage(event) {
+    event.preventDefault();
+    const li = event.target.parentElement;
+    const span = li.children[0].innerText;
+    localStorage.setItem(`${li.id}'s title`, span);
+    localStorage.setItem(`${span}'s id`, li.id);
+    localStorage.setItem("modify_id", li.id);
+    localStorage.setItem("click_id", li.id);
+    window.location.href = "html/write.html";
+  }
+
+  function showMyTrip(newTrip) {
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    li.id = newTrip.id;
+    span.innerText = newTrip.title;
+    span.classList.add("cursor");
+    span.addEventListener("click", goWritePage);
+    li.appendChild(span);
+    trip_list.appendChild(li);
+  }
+
+  // 새로운 값을 입력하면 화면에 그리고 저장하는 부분
+  function handleToDoSubmit() {
+    const newTrip = `${date_from.value}~${date_to.value} / ${state.value} ${city.value}`;
+    const newTripObj = {
+      title: newTrip,
+      id: Date.now(),
+    };
+    showMyTrip(newTripObj);
+    trips.push(newTripObj);
+    saveTrips();
+  }
+
+  trip_form.addEventListener("submit", handleToDoSubmit);
+
+  const savedTrips = localStorage.getItem(`${username}'s trips`);
+
+  if (savedTrips !== null) {
+    const parsedToDos = JSON.parse(savedTrips);
+    trips = parsedToDos;
+    parsedToDos.forEach(showMyTrip);
+  }
+
+  // freepik에서 이미지 가져옴
+  const images = ["1"];
+  const random_image = images[Math.floor(Math.random() * images.length)];
+
+  trip_form.setAttribute(
+    "style",
+    `background: url(selectimg/${random_image}.jpg) no-repeat; background-size: cover; background-position-y: -250px`
+  );
 }
 
-$city.addEventListener("change", cityToDate);
+//----------------------------------------------------------------------------------
 
-// freepik에서 이미지 가져옴
-const images = ["1"];
+{
+  // 여행담기 애니메이션
+  date_to.addEventListener("change", selectDate);
 
-const chosenImage = images[Math.floor(Math.random() * images.length)];
+  const add_trip = document.querySelector(".add_trip");
+  const select_city = document.querySelector("#select_city");
+  const trip_place = document.querySelector(".trip_place");
+  const hidden_date = document.querySelector(".hidden_date");
 
-$toDoForm.setAttribute(
-  "style",
-  `background: url(selectimg/${chosenImage}.jpg) no-repeat; background-size: cover; background-position-y: -250px`
-);
+  hidden_date.setAttribute("style", "display:none");
+  trip_place.setAttribute("style", "display:none");
+
+  function handleAddTrip() {
+    if (localStorage.getItem("username_inUse") === null) {
+      alert("로그인 후 이용 가능합니다.");
+      return;
+    }
+    add_trip.classList.add("hidden_add_trip");
+    trip_place.setAttribute("style", "");
+    trip_place.classList.add("show_trip_place");
+    setTimeout(() => {
+      select_city.classList.remove("visibility_city");
+      select_city.classList.add("show_trip_place");
+    }, 500);
+  }
+
+  add_trip.addEventListener("click", handleAddTrip);
+
+  const select_date = document.querySelector("#select_date");
+  const tripPeriod = document.querySelector(".trip_period");
+  const saveBtn = document.querySelector("#save_btn");
+
+  function cityToDate() {
+    trip_place.classList.remove("show_trip_place");
+    trip_place.setAttribute("style", "display:none");
+    select_city.classList.remove("show_trip_place");
+    select_city.setAttribute("style", "display:none");
+
+    hidden_date.setAttribute("style", "");
+    select_date.setAttribute("style", "visibility: hidden");
+    saveBtn.setAttribute("style", "visibility: hidden");
+
+    tripPeriod.classList.add("show_trip_place");
+    setTimeout(() => {
+      select_date.setAttribute("style", "");
+      saveBtn.setAttribute("style", "");
+      select_date.classList.add("show_trip_place");
+      saveBtn.classList.add("show_trip_place");
+    }, 800);
+  }
+
+  city.addEventListener("change", cityToDate);
+}
+
+//-------------------------------------------------------------------------------
+
+{
+  // 시/도 선택 애니메이션
+  const iconFrom = document.querySelector(".iconFrom");
+  const iconTo = document.querySelector(".iconTo");
+
+  state.addEventListener("focusin", () => {
+    iconFrom.classList.add("from_inRorate");
+    iconFrom.classList.remove("from_outRorate");
+  });
+
+  state.addEventListener("change", () => {
+    iconFrom.classList.add("from_outRorate");
+    iconFrom.classList.remove("from_inRorate");
+  });
+
+  city.addEventListener("focusin", () => {
+    iconTo.classList.add("to_inRorate");
+    iconTo.classList.remove("to_outRorate");
+  });
+
+  city.addEventListener("change", () => {
+    iconTo.classList.add("to_outRorate");
+    iconTo.classList.remove("to_inRorate");
+  });
+}

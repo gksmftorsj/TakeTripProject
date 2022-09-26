@@ -1,29 +1,29 @@
 // 로그인 회원가입 css 설정
 const login = document.querySelector(".login"); // 로그인 전체화면
-const loginScreen = document.querySelector(".login-screen"); // 로그인 스크린
-const loginBg = document.querySelector(".login-bg"); // 로그인 배경화면
-const login_signupBtn = document.querySelector(".signup-screen-btn"); // 로그인 창에서 회원가입 버튼
+const loginScreen = document.querySelector(".login_screen"); // 로그인 스크린
+const loginBg = document.querySelector(".login_bg"); // 로그인 배경화면
+const login_signupBtn = document.querySelector(".signup_screen_btn"); // 로그인 창에서 회원가입 버튼
 
 const signup = document.querySelector(".signup"); // 회원가입 전체화면
-const signupScreen = document.querySelector(".signup-screen"); // 회원가입 스크린
-const signupBg = document.querySelector(".signup-bg"); // 회원가입 배경화면
-const signup_signupBtn = document.querySelector(".signup-btn"); // 회원가입에서 회원가입 버튼
-const signup_loginBtn = document.querySelector(".login-screen-btn"); // 회원가입에서 로그인 버튼
+const signupScreen = document.querySelector(".signup_screen"); // 회원가입 스크린
+const signupBg = document.querySelector(".signup_bg"); // 회원가입 배경화면
+const signup_signupBtn = document.querySelector(".signup_btn"); // 회원가입에서 회원가입 버튼
+const signup_loginBtn = document.querySelector(".login_screen_btn"); // 회원가입에서 로그인 버튼
 
-const HIDDEN_LOGINFORM = "hidden-login-form"; // 로그인 스크린 숨기기
-const HIDDEN_LOGINBG = "hidden-login-bg"; // 로그인 배경화면 숨기기
-const SHOW_LOGINFORM = "show-login-form"; // 로그인 스크린 나타나기
-const SHOW_LOGINBG = "show-login-bg"; // 로그인 배경화면 나타나기
-const SHOW_LOGIN = "show-login"; // 로그인 전체화면 투명도 주기
-const LOGIN_ABSOLUTTE = "login-absolute"; // 로그인 전체화면 absolute class
+const HIDDEN_LOGINFORM = "hidden_login_form"; // 로그인 스크린 숨기기
+const HIDDEN_LOGINBG = "hidden_login_bg"; // 로그인 배경화면 숨기기
+const SHOW_LOGINFORM = "show_login_form"; // 로그인 스크린 나타나기
+const SHOW_LOGINBG = "show_login_bg"; // 로그인 배경화면 나타나기
+const SHOW_LOGIN = "show_login"; // 로그인 전체화면 투명도 주기
+const LOGIN_ABSOLUTTE = "login_absolute"; // 로그인 전체화면 absolute class
 
-const HIDDEN_SIGNUPFORM = "hidden-signup-form"; // 회원가입 스크린 숨기기
-const HIDDEN_SIGNUPBG = "hidden-signup-bg"; // 회원가입 배경화면 숨기기
-const SHOW_SIGNUPFORM = "show-signup-form"; // 회원가입 스크린 나타나기
-const SHOW_SIGNUPBG = "show-signup-bg"; // 회원가입 배경화면 나타나기
-const HIDDEN_SIGNUP = "hidden-signup"; // 회원가입 전체화면 display none 주기
-const SHOW_SIGNUP = "show-signup"; // 회원가입 전체화면 투명도 주기
-const SIGNUP_ABSOLUTE = "signup-absolute"; // 회원가입 전체화면 absolute 주기
+const HIDDEN_SIGNUPFORM = "hidden_signup_form"; // 회원가입 스크린 숨기기
+const HIDDEN_SIGNUPBG = "hidden_signup_bg"; // 회원가입 배경화면 숨기기
+const SHOW_SIGNUPFORM = "show_signup_form"; // 회원가입 스크린 나타나기
+const SHOW_SIGNUPBG = "show_signup_bg"; // 회원가입 배경화면 나타나기
+const HIDDEN_SIGNUP = "hidden_signup"; // 회원가입 전체화면 display none 주기
+const SHOW_SIGNUP = "show_signup"; // 회원가입 전체화면 투명도 주기
+const SIGNUP_ABSOLUTE = "signup_absolute"; // 회원가입 전체화면 absolute 주기
 
 function loginToSignup() {
   // 로그인 창에서 회원가입으로 넘어가는 css
@@ -73,15 +73,15 @@ signup_loginBtn.addEventListener("click", signupToLogin); // 회원가입 창에
 //--------------------------------------------------------------------------------------
 
 // 회원가입 기능 설정
-const signupForm = document.querySelector("#signup-form"); // 회원가입 폼
-const signupUsername = document.querySelector("#signup-username"); // 회원가입 사용자 이름
-const signupEmail = document.querySelector("#signup-email"); // 회원가입 이메일
-const signupPw = document.querySelector("#signup-pw"); // 회원가입 비밀번호
-const signupPwChk = document.querySelector("#signup-pwChk"); // 회원가입 비밀번호 확인
+const signupForm = document.querySelector("#signup_form"); // 회원가입 폼
+const signupUsername = document.querySelector("#signup_username"); // 회원가입 사용자 이름
+const signupEmail = document.querySelector("#signup_email"); // 회원가입 이메일
+const signupPw = document.querySelector("#signup_pw"); // 회원가입 비밀번호
+const signupPwChk = document.querySelector("#signup_pwChk"); // 회원가입 비밀번호 확인
 
-const loginForm = document.querySelector("#login-form"); // 로그인 폼
-const loginEmail = document.querySelector("#login-email"); // 로그인 이메일
-const loginPw = document.querySelector("#login-pw"); // 로그인 비밀번호
+const loginForm = document.querySelector("#login_form"); // 로그인 폼
+const loginEmail = document.querySelector("#login_email"); // 로그인 이메일
+const loginPw = document.querySelector("#login_pw"); // 로그인 비밀번호
 
 // 회원가입 완료 시 팝업창
 function openPopup() {
@@ -96,10 +96,10 @@ function openPopup() {
   ); // 팝업창 가운데 정렬
 }
 
-const USERNAME_KEY = "signup-username";
-const EMAIL_KEY = "signup-email";
-const PW_KEY = "signup-pw";
-const PWCHK_KEY = "signup-pwChk";
+const USERNAME_KEY = "signup_username";
+const EMAIL_KEY = "signup_email";
+const PW_KEY = "signup_pw";
+const PWCHK_KEY = "signup_pwChk";
 
 let username = [];
 let email = [];
@@ -140,6 +140,9 @@ function handleSignupBtn(event) {
     signupEmail.value = "";
     signupPw.value = "";
     signupPwChk.value = "";
+
+    loginEmail.value = emailValue;
+    loginPw.value = pwValue;
 
     signupToLogin(); // 빈칸도 없고 비밀번호도 맞으면 로그인 창으로 넘어가기
     openPopup(); // 회원가입 완료 팝업창 띄우기
@@ -186,9 +189,9 @@ function handleLoginBtn(event) {
       if (val_email[i] === loginEmail.value && val_pw[i] === loginPw.value) {
         // 로그인 실패할 경우 경고창 위해 성공하면 index값 local에 저장하기
         localStorage.setItem("index", i);
-        localStorage.setItem("useranmeInUse", val_username[i]);
-        localStorage.setItem("emailInUse", val_email[i]);
-        localStorage.setItem("pwInUse", val_pw[i]);
+        localStorage.setItem("username_inUse", val_username[i]);
+        localStorage.setItem("email_inUse", val_email[i]);
+        localStorage.setItem("pw_inUse", val_pw[i]);
         window.location.href = "../index.html";
         loginEmail.value = "";
         loginPw.value = "";

@@ -20,8 +20,12 @@ function kakaoLogin() {
         success: (res) => {
           const kakao_account = res.kakao_account;
           // 가져온 사용자 정보 localStroage에 저장
-          localStorage.setItem("useranmeInUse", kakao_account.profile.nickname);
-          localStorage.setItem("emailInUse", kakao_account.email);
+          localStorage.setItem(
+            "username_inUse",
+            kakao_account.profile.nickname
+          );
+          localStorage.setItem("email_inUse", kakao_account.email);
+          localStorage.setItem("kakaoLogin", kakao);
           console.log("로그인 성공");
           window.location.href = "https://gksmftorsj.github.io/project0901/";
         },
@@ -33,8 +37,8 @@ function kakaoLogin() {
   });
 }
 
-const $kakaoLoginBtn = document.querySelector(".login-btn.kakao");
-$kakaoLoginBtn.addEventListener("click", kakaoLogin);
+const kakaoLoginBtn = document.querySelector(".login_btn.kakao");
+kakaoLoginBtn.addEventListener("click", kakaoLogin);
 
 // 기능 정리
 // 카카오계정 로그인 시 localStorage에 username과 email 저장 sessionStorage에 token 저장
