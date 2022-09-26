@@ -151,12 +151,20 @@ body {
   background-color: #45505d;
 }
 
-.accountChk {
+.login_accountChk {
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 20px;
   text-align: center;
-  font-size: 1.6rem;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.guest {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: black;
 }
 
 .login_btn {
@@ -316,7 +324,7 @@ body {
     font-size: 1rem;
   }
 
-  .accountChk {
+  .login_accountChk {
     font-size: 1.1rem;
   }
 }

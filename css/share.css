@@ -25,8 +25,15 @@ li {
   align-items: center;
   border: 1px solid black;
   width: calc(100% / 2);
-  font-size: 2rem;
+  font-size: 1.7rem;
   padding-top: 20px;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .username {

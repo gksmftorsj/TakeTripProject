@@ -168,7 +168,7 @@
   background-color: antiquewhite;
 }
 
-.accountChk {
+.signup_accountChk {
   width: 100%;
   margin-top: 16px;
   margin-bottom: 20px;
@@ -291,7 +291,7 @@
     font-size: 1rem;
   }
 
-  .accountChk {
+  .signup_accountChk {
     font-size: 1.1rem;
   }
 }
