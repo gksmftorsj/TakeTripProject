@@ -33,24 +33,13 @@ li {
   width: 250px;
   height: 250px;
   margin-bottom: 20px;
+  transition: all 1s ease-in-out;
+}
+
+.myStory-img:hover {
+  transform: scale(1.1);
 }
 
 p:hover {
   cursor: pointer;
-}
-
-.allimg:hover {
-  animation-name: img;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes img {
-  50% {
-    transform: scale(1.1) rotateY(180deg);
-  }
-  100% {
-    transform: scale(1) rotateY(360deg);
-  }
 }

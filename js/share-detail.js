@@ -42,14 +42,14 @@ if (username === share_username) {
   const btn_container = document.createElement("div");
   btn_container.classList.add("btn_container");
   const modify_btn = document.createElement("button");
+  modify_btn.classList.add("modify_btn");
   modify_btn.innerHTML = `수정하기<i class="fa-regular fa-pen-to-square"></i>`;
-  modify_btn.addEventListener("click", () => {
-    window.location.href = "../html/write.html";
-  });
   const delete_btn = document.createElement("button");
+  delete_btn.classList.add("delete_btn");
   delete_btn.innerHTML = `삭제하기<i class="fa-solid fa-xmark"></i>`;
   const share_cancel_btn = document.createElement("button");
   share_cancel_btn.innerText = "공유취소하기";
+  share_cancel_btn.classList.add("share_cancel_btn");
   const cancel_img = document.createElement("img");
   cancel_img.setAttribute("src", "../img/share_cancel.png");
   share_cancel_btn.appendChild(cancel_img);
