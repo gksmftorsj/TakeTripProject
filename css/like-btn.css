@@ -33,8 +33,7 @@
   transition: transform var(--duration) var(--easing),
     -webkit-transform var(--duration) var(--easing);
   cursor: pointer;
-  top: 15px;
-  right: -10px;
+  right: -3px;
 }
 
 .like_btn:before {

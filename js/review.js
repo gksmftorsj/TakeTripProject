@@ -1,8 +1,26 @@
+const review_cnt = document.querySelector(".review_cnt");
+const like_cnt = document.querySelector(".like_cnt");
 const review_form = document.querySelector(".review_form");
 const review_value = document.querySelector(".review_value");
 const reiview_list = document.querySelector(".review_list");
 
-const REVIEWS_KEY = `${share_id}'s reviews`;
+const parsedReviewCnt = JSON.parse(localStorage.getItem(`${ share_id }'s reviews`));
+
+if (parsedReviewCnt !== null) {
+  review_cnt.innerText = `댓글(${ parsedReviewCnt.length })`;
+} else {
+  review_cnt.innerText = `댓글(0)`;
+}
+
+const parsedLikeCnt = JSON.parse(localStorage.getItem(`${ share_id }'s like_cnt`));
+
+if (parsedLikeCnt !== null) {
+  like_cnt.innerText = `좋아요(${ parsedLikeCnt.length })`;
+} else {
+  like_cnt.innerText = `좋아요(0)`;
+}
+
+const REVIEWS_KEY = `${ share_id }'s reviews`;
 
 let writtenReviews = [];
 
@@ -11,11 +29,14 @@ function saveReviews() {
 }
 
 function deleteReview(event) {
+  // 시간을 id 값으로 받기 때문에 같은 초에 여러개 작성 후 삭제하면 그 시간대 댓글이 모두 삭제된다.
   const li = event.target.previousElementSibling;
   const review_field = event.target.parentElement;
   writtenReviews = writtenReviews.filter((review) => review.time !== li.id);
   review_field.remove();
   saveReviews();
+  const renderReviewCnt = JSON.parse(localStorage.getItem(`${ share_id }'s reviews`));
+  review_cnt.innerText = `댓글(${ renderReviewCnt.length })`;
 }
 
 function paintReview(newReview) {
@@ -81,15 +102,53 @@ function handleReviewSubmit(event) {
     paintReview(newReviewObj);
     saveReviews();
   }
+
+  const renderReviewCnt = JSON.parse(localStorage.getItem(`${ share_id }'s reviews`));
+  review_cnt.innerText = `댓글(${ renderReviewCnt.length })`;
   review_value.value = "";
+  review_value.focus();
 }
 
 review_form.addEventListener("submit", handleReviewSubmit);
 
-const savedReviews = localStorage.getItem(REVIEWS_KEY);
+{
+  const savedReviews = localStorage.getItem(REVIEWS_KEY);
 
-if (savedReviews !== null) {
-  const parsedReviews = JSON.parse(savedReviews);
-  writtenReviews = parsedReviews;
-  parsedReviews.forEach(paintReview);
+  if (savedReviews !== null) {
+    const parsedReviews = JSON.parse(savedReviews);
+    writtenReviews = parsedReviews;
+    parsedReviews.forEach(paintReview);
+  }
+
+  const like_btn = document.querySelector(".like_btn");
+  const LIKE_CNT_KEY = `${ share_id }'s like_cnt`;
+  let like_cnt = [];
+
+  function handleLikeBtn() {
+
+    const savedLikeCnt = localStorage.getItem(LIKE_CNT_KEY);
+
+    if (savedLikeCnt === null) {
+      like_cnt.push(username);
+      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt))
+    } else if (savedLikeCnt !== null && !savedLikeCnt.includes(username)) {
+      like_cnt.push(username);
+      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt))
+    } else {
+      alert("이미 좋아요를 누르셨습니다.");
+      return
+    }
+    const renderLikeCnt = JSON.parse(localStorage.getItem(`${ share_id }'s like_cnt`));
+    console.log(renderLikeCnt);
+    document.querySelector(".like_cnt").innerText = `좋아요(${ renderLikeCnt.length })`;
+  }
+
+  like_btn.addEventListener("click", handleLikeBtn);
+
+  const savedLikeCnt = localStorage.getItem(LIKE_CNT_KEY);
+
+  if (savedLikeCnt !== null) {
+    const parsedLikeCnt = JSON.parse(savedLikeCnt);
+    like_cnt = parsedLikeCnt;
+  }
 }

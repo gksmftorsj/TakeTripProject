@@ -102,6 +102,8 @@ function handleLogoutBtn() {
   localStorage.removeItem("email_inUse");
   localStorage.removeItem("pw_inUse");
   localStorage.removeItem("index");
+  localStorage.removeItem("lat");
+  localStorage.removeItem("lng");
   if (localStorage.getItem("kakaoLogin") !== null) {
     kakaoLogout();
     localStorage.removeItem("kakaoLogin");
