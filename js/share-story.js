@@ -14,12 +14,19 @@ function showShareTrip(parsedShareTrips) {
   review_cnt.classList.add("review_cnt");
   like_cnt.classList.add("like_cnt");
   const parsedReviewCnt = JSON.parse(localStorage.getItem(`${ parsedShareTrips.id }'s reviews`));
-  if (parsedReviewCnt !== null) {
-    review_cnt.innerText = "댓글" + parsedReviewCnt.length;
-  }
   const parsedLikeCnt = JSON.parse(localStorage.getItem(`${ parsedShareTrips.id }'s like_cnt`));
+  review_cnt.innerText = "댓글(0)";
+  like_cnt.innerText = "좋아요(0)";
+
+  if (parsedReviewCnt !== null) {
+    if (parsedReviewCnt.length !== 0) {
+      review_cnt.innerText = "댓글(" + parsedReviewCnt.length + ")";
+    }
+  }
   if (parsedLikeCnt !== null) {
-    like_cnt.innerText = "좋아요" + parsedLikeCnt.length;
+    if (parsedLikeCnt.length !== 0) {
+      like_cnt.innerText = "좋아요(" + parsedLikeCnt.length + ")";
+    }
   }
   review_like_cnt.classList.add("review_like_cnt");
   title.classList.add("title");

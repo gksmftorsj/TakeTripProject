@@ -142,9 +142,8 @@
   -webkit-transition: fill var(--duration) var(--easing);
   transition: fill var(--duration) var(--easing);
 }
-.like_btn:focus .heart > path {
-  fill: var(--color-heart);
-}
+
+
 .like_btn:focus .heart {
   -webkit-animation: heart-bounce var(--duration) var(--easing);
   animation: heart-bounce var(--duration) var(--easing);
@@ -173,6 +172,7 @@
     transform: scale(1);
   }
 }
+
 /* Added wrapper to prevent layout jank with resizing particles */
 .particles {
   width: 1px;

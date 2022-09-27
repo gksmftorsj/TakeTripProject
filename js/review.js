@@ -124,6 +124,16 @@ review_form.addEventListener("submit", handleReviewSubmit);
   const LIKE_CNT_KEY = `${ share_id }'s like_cnt`;
   let like_cnt = [];
 
+  const valColor = localStorage.getItem(LIKE_CNT_KEY);
+  const path = document.querySelector("path");
+
+  if (valColor.includes(username)) {
+    path.setAttribute("style", "fill: red");
+    localStorage.setItem("like_color", 1);
+  } else {
+    localStorage.setItem("like_color", 0);
+  }
+
   function handleLikeBtn() {
 
     const savedLikeCnt = localStorage.getItem(LIKE_CNT_KEY);
@@ -135,12 +145,21 @@ review_form.addEventListener("submit", handleReviewSubmit);
       like_cnt.push(username);
       localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt))
     } else {
-      alert("이미 좋아요를 누르셨습니다.");
-      return
+      like_cnt = like_cnt.filter((like_cnt) => like_cnt !== username);
+      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt))
     }
     const renderLikeCnt = JSON.parse(localStorage.getItem(`${ share_id }'s like_cnt`));
     console.log(renderLikeCnt);
     document.querySelector(".like_cnt").innerText = `좋아요(${ renderLikeCnt.length })`;
+
+    const like_color = localStorage.getItem("like_color");
+    if (like_color === "0") {
+      path.setAttribute("style", "fill: red");
+      localStorage.setItem("like_color", 1);
+    } else {
+      path.setAttribute("style", "");
+      localStorage.setItem("like_color", 0);
+    }
   }
 
   like_btn.addEventListener("click", handleLikeBtn);
