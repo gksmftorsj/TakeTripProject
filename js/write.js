@@ -148,36 +148,6 @@ function saveTrip(event) {
     // 입력값 아무것도 없을 경우
     alert("값을 입력해주세요.");
     return;
-  } else if (story_value !== "" && file.value === "") {
-    const save_values = {
-      id: id,
-      title: title,
-      story: story_value,
-      img: "",
-    };
-    localStorage.setItem(TRIP_KEY, JSON.stringify(save_values));
-    valId();
-    if (modify_share_trips !== null) {
-      for (let i = 0; i < parsed_share_trips.length; i++) {
-        if (parsed_share_trips[i].id === modify_id) {
-          console.log("2번 들어옴");
-          const modify_share_trip = {
-            expenditure: parsedModifyExpenditure,
-            id: id,
-            img: "",
-            story: story_value,
-            title: title,
-            username: username,
-          };
-          const parsedShareTrips = JSON.parse(
-            localStorage.getItem("share_trips")
-          );
-          parsedShareTrips.push(modify_share_trip);
-          console.log(modify_share_trip);
-          localStorage.setItem("share_trips", JSON.stringify(parsedShareTrips));
-        }
-      }
-    }
   } else {
     const fileValue = `../uploadimg/${ file.files[0].name }`;
     const save_values = {

@@ -65,7 +65,7 @@
           <div class="bottom">
             <div class="expenditure">
               <div class="detail_container">
-                <input class="detail" placeholder="지출내역 ex)숙박비" required>
+                <input class="detail" placeholder="지출내역 ex)숙박비" required title="파일을 선택해주세요.">
               </div>
               <div class="expense_container">
                 <input class="expense" placeholder="지출금액 ex)100000" required pattern="[0-9]+" title="숫자만 입력가능합니다.">
@@ -73,7 +73,7 @@
               <button class="plus_btn">➕</button>
               <button class="minus_btn">➖</button>
             </div>
-            <input type="file" multiple>
+            <input type="file" multiple required>
             <button class="save_btn">저장하기</button>
           </div>
         </form>
