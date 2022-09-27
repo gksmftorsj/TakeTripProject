@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHARE STORY DETAIL·여행을 담다</title>
+    <title>LIKE STORY:여행을 담다</title>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/detailshare.css">
-    <link rel="stylesheet" href="../css/like-btn.css">
+    <link rel="stylesheet" href="../css/like-story.css">
   </head>
 
   <body>
@@ -58,63 +57,13 @@
     <!-- 네비게이션 바 -->
 
     <main>
-      <div class="detail_container">
-        <div class="top">
-          <div class="top_top">
-            <div class="share_username"></div>
-            <h1 class="share_title"></h1>
-          </div>
-          <div class="top_bottom">
-            <div class="top_bottom_left">
-              <img class="detail_img" alt="">
-            </div>
-            <div class="top_bottom_right">
-              <div class="detail_expenditure"></div>
-            </div>
-          </div>
-        </div>
-        <div class="bottom">
-          <h2 class="detail_story"></h2>
-        </div>
-      </div>
-      <div class="review_container">
-        <div class="review_header">
-          <h2 class="review_cnt"></h2>
-          <div class="review_like_cnt">
-            <h2 class="like_cnt"></h2>
-            <button class="like_btn">
-              <div class="like-wrapper">
-                <div class="ripple"></div>
-                <svg class="heart" width="24" height="24" viewBox="0 0 24 24">
-                  <path
-                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z">
-                  </path>
-                </svg>
-                <div class="particles" style="--total-particles: 6">
-                  <div class="particle" style="--i: 1; --color: #7642F0"></div>
-                  <div class="particle" style="--i: 2; --color: #AFD27F"></div>
-                  <div class="particle" style="--i: 3; --color: #DE8F4F"></div>
-                  <div class="particle" style="--i: 4; --color: #D0516B"></div>
-                  <div class="particle" style="--i: 5; --color: #5686F2"></div>
-                  <div class="particle" style="--i: 6; --color: #D53EF3"></div>
-                </div>
-            </button>
-          </div>
-        </div>
-        <form class="review_form">
-          <input class="review_value" type="text">
-          <button class="save_btn">작성하기</button>
-        </form>
-        <ul class="review_list"></ul>
-      </div>
+      <ul id="like_trip_list"></ul>
     </main>
 
     <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="../js/navbar.js"></script>
-    <script src="../js/share-detail.js"></script>
-    <script src="../js/review.js"></script>
-    <script src="../js/share-detail-btn.js"></script>
+    <script src="../js/like-story.js"></script>
   </body>
 
 </html>

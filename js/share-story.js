@@ -2,7 +2,7 @@ const share_trip_list = document.getElementById("share_trip_list");
 
 const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
 
-function showShareTrip(parsedShareTrips) {
+function showShareTrip(shareTrip) {
   const li = document.createElement("li");
   const img = document.createElement("img");
   const p = document.createElement("p");
@@ -13,8 +13,8 @@ function showShareTrip(parsedShareTrips) {
   const like_cnt = document.createElement("span");
   review_cnt.classList.add("review_cnt");
   like_cnt.classList.add("like_cnt");
-  const parsedReviewCnt = JSON.parse(localStorage.getItem(`${ parsedShareTrips.id }'s reviews`));
-  const parsedLikeCnt = JSON.parse(localStorage.getItem(`${ parsedShareTrips.id }'s like_cnt`));
+  const parsedReviewCnt = JSON.parse(localStorage.getItem(`${ shareTrip.id }'s reviews`));
+  const parsedLikeCnt = JSON.parse(localStorage.getItem(`${ shareTrip.id }'s like_cnt`));
   review_cnt.innerText = "댓글(0)";
   like_cnt.innerText = "좋아요(0)";
 
@@ -30,14 +30,14 @@ function showShareTrip(parsedShareTrips) {
   }
   review_like_cnt.classList.add("review_like_cnt");
   title.classList.add("title");
-  li.id = parsedShareTrips.id;
-  img.setAttribute("src", parsedShareTrips.img);
+  li.id = shareTrip.id;
+  img.setAttribute("src", shareTrip.img);
   img.classList.add("share_img");
-  p.innerText = parsedShareTrips.title;
+  p.innerText = shareTrip.title;
   p.addEventListener("click", () => {
     window.location.href = "../html/detailShare.html";
   });
-  span.innerText = `${ parsedShareTrips.username }'s trip`;
+  span.innerText = `${ shareTrip.username }'s trip`;
   span.classList.add("username");
 
   review_like_cnt.appendChild(review_cnt);

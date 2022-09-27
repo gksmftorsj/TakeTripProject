@@ -16,18 +16,18 @@ if (parsedExpenditure !== null) {
     expenditure_flex.setAttribute("class", "expenditure_flex");
     const detail = document.createElement("p");
     const expense = document.createElement("p");
-    detail.innerText = `${parsedExpenditure[i].detail} :`;
+    detail.innerText = `${ parsedExpenditure[i].detail } :`;
     expenditure_flex.appendChild(detail);
-    expense.innerText = `${parseInt(
+    expense.innerText = `${ parseInt(
       parsedExpenditure[i].expense
-    ).toLocaleString()}원`;
+    ).toLocaleString() }원`;
     expenditure_flex.appendChild(expense);
     detail_expenditure.appendChild(expenditure_flex);
     totalExpense = totalExpense + parseInt(parsedExpenditure[i].expense);
   }
   const total = document.createElement("p");
   total.classList.add("total_expenditure");
-  total.innerText = `총 지출액: ${totalExpense.toLocaleString()}원`;
+  total.innerText = `총 지출액: ${ totalExpense.toLocaleString() }원`;
   detail_expenditure.appendChild(total);
 }
 

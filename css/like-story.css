@@ -49,14 +49,14 @@ li {
   flex-direction: column;
 }
 
-.share_img {
+.like_img {
   width: 250px;
   height: 250px;
   margin-bottom: 20px;
   transition: all 1s ease-in-out;
 }
 
-.share_img:hover {
+.like_img:hover {
   transform: scale(1.1);
 }
 

@@ -1137,7 +1137,6 @@
     const li = event.target.parentElement;
     const span = li.children[0].innerText;
     localStorage.setItem(`${ li.id }'s title`, span);
-    localStorage.setItem(`${ span }'s id`, li.id);
     localStorage.setItem("modify_id", li.id);
     localStorage.setItem("click_id", li.id);
     window.location.href = "html/write.html";

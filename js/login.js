@@ -92,7 +92,7 @@ function openPopup() {
   window.open(
     "../html/signup-complete.html",
     "회원가입완료 팝업",
-    `width=${width}, height=${height}, left=${left}, top=${top}`
+    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
   ); // 팝업창 가운데 정렬
 }
 
@@ -147,6 +147,14 @@ function handleSignupBtn(event) {
     localStorage.setItem(EMAIL_KEY, JSON.stringify(email));
     localStorage.setItem(PW_KEY, JSON.stringify(pw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(pwChk));
+
+    const val_id = {
+      username: usernameValue,
+      email: emailValue,
+      pw: pwValue,
+      pwChk: pwChkValue,
+    }
+    localStorage.setItem(`${ usernameValue }'s val_id`, JSON.stringify(val_id));
 
     // 회원가입 완료 후 입력창 빈 값으로 초기화
     signupUsername.value = "";

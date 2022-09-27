@@ -26,9 +26,9 @@
   let delete_trips = [];
   let delete_saved_id = [];
 
-  const parsedTrips = JSON.parse(localStorage.getItem(`${username}'s trips`));
+  const parsedTrips = JSON.parse(localStorage.getItem(`${ username }'s trips`));
   const parsedIdList = JSON.parse(
-    localStorage.getItem(`${username}'s id_list`)
+    localStorage.getItem(`${ username }'s id_list`)
   );
 
   const delete_btn = document.querySelector(".delete_btn");
@@ -43,15 +43,15 @@
         delete_trips = parsedTrips.filter(
           (trip) => trip.id !== parseInt(delete_id)
         );
-        localStorage.removeItem(`${username}'s ${delete_id}'s trip`);
-        localStorage.removeItem(`${username}'s ${delete_id}'s expenditure`);
+        localStorage.removeItem(`${ username }'s ${ delete_id }'s trip`);
+        localStorage.removeItem(`${ username }'s ${ delete_id }'s expenditure`);
         localStorage.setItem(
-          `${username}'s trips`,
+          `${ username }'s trips`,
           JSON.stringify(delete_trips)
         );
         delete_saved_id = parsedIdList.filter((trip) => trip !== delete_id);
         localStorage.setItem(
-          `${username}'s id_list`,
+          `${ username }'s id_list`,
           JSON.stringify(delete_saved_id)
         );
         cancelShareTrip();
@@ -117,15 +117,17 @@
 
   let val_share = [];
 
-  function shareToDo() {
+  function shareTrip() {
     const detail_title = localStorage.getItem("detail_title");
     const detail_id = localStorage.getItem("detail_id");
     const saved_trip = JSON.parse(
-      localStorage.getItem(`${username}'s ${detail_id}'s trip`)
+      localStorage.getItem(`${ username }'s ${ detail_id }'s trip`)
     );
     const saved_expenditure = JSON.parse(
-      localStorage.getItem(`${username}'s ${detail_id}'s expenditure`)
+      localStorage.getItem(`${ username }'s ${ detail_id }'s expenditure`)
     );
+
+    console.log(saved_expenditure);
     // 밑에 savedShareData는 렌더링 될 때 불러오는 것이기 때문에 새로고침이 없으면 항상 null이다
     // 그래서 함수 안에서 새로 불러서 비교해야 한다.
     const render_share_trips = localStorage.getItem("share_trips");
@@ -181,5 +183,5 @@
     val_share = parsedValShare;
   }
 
-  share_btn.addEventListener("click", shareToDo);
+  share_btn.addEventListener("click", shareTrip);
 }

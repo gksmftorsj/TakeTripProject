@@ -122,31 +122,54 @@ review_form.addEventListener("submit", handleReviewSubmit);
 
   const like_btn = document.querySelector(".like_btn");
   const LIKE_CNT_KEY = `${ share_id }'s like_cnt`;
+  const LIKE_TRIP_KEY = `${ username }'s like_trips`
   let like_cnt = [];
+  let like_trips = [];
 
   const valColor = localStorage.getItem(LIKE_CNT_KEY);
   const path = document.querySelector("path");
 
-  if (valColor.includes(username)) {
-    path.setAttribute("style", "fill: red");
-    localStorage.setItem("like_color", 1);
-  } else {
-    localStorage.setItem("like_color", 0);
+  if (valColor !== null) {
+    if (valColor.includes(username)) {
+      path.setAttribute("style", "fill: red");
+      localStorage.setItem("like_color", 1);
+    } else {
+      localStorage.setItem("like_color", 0);
+    }
   }
+
 
   function handleLikeBtn() {
 
     const savedLikeCnt = localStorage.getItem(LIKE_CNT_KEY);
 
+    const parsedShareExpenditrue = JSON.parse(share_expenditure);
+
+    const like_trip = {
+      title: share_title,
+      username: share_username,
+      img: share_img,
+      story: share_story,
+      expenditure: parsedShareExpenditrue,
+      id: share_id,
+    }
+
     if (savedLikeCnt === null) {
+      console.log("hi");
       like_cnt.push(username);
-      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt))
+      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt));
     } else if (savedLikeCnt !== null && !savedLikeCnt.includes(username)) {
       like_cnt.push(username);
-      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt))
+      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt));
+
+      like_trips.push(like_trip);
+      localStorage.setItem(LIKE_TRIP_KEY, JSON.stringify(like_trips));
     } else {
       like_cnt = like_cnt.filter((like_cnt) => like_cnt !== username);
-      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt))
+      localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt));
+
+      like_trips = like_trips.filter((like_trip) => like_trip.id !== share_id);
+      localStorage.setItem(LIKE_TRIP_KEY, JSON.stringify(like_trips));
     }
     const renderLikeCnt = JSON.parse(localStorage.getItem(`${ share_id }'s like_cnt`));
     console.log(renderLikeCnt);
@@ -170,4 +193,12 @@ review_form.addEventListener("submit", handleReviewSubmit);
     const parsedLikeCnt = JSON.parse(savedLikeCnt);
     like_cnt = parsedLikeCnt;
   }
+
+  const savedLikeTrip = localStorage.getItem(LIKE_TRIP_KEY);
+
+  if (savedLikeTrip !== null) {
+    const parsedLikeTrip = JSON.parse(savedLikeTrip);
+    like_trips = parsedLikeTrip;
+  }
+
 }

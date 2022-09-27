@@ -1,6 +1,6 @@
 const username = localStorage.getItem("username_inUse");
 const id = localStorage.getItem("modify_id");
-const title = localStorage.getItem(`${id}'s title`);
+const title = localStorage.getItem(`${ id }'s title`);
 
 const trip_title = document.querySelector(".trip_title");
 trip_title.innerText = title;
@@ -64,9 +64,9 @@ minus_btn.addEventListener("click", removeExpenditure);
 const story = document.querySelector("textarea");
 const file = document.querySelector("input[type=file]");
 
-const TRIP_KEY = `${username}'s ${id}'s trip`;
-const EXPENDITURE_KEY = `${username}'s ${id}'s expenditure`;
-const ID_LIST_KEY = `${username}'s id_list`;
+const TRIP_KEY = `${ username }'s ${ id }'s trip`;
+const EXPENDITURE_KEY = `${ username }'s ${ id }'s expenditure`;
+const ID_LIST_KEY = `${ username }'s id_list`;
 
 function valId() {
   // 같은 TRIP이 저장되지 않도록 id_list 안에 click_id값이 있으면 click_id값 id_list에 저장되지 않도록 하기
@@ -111,6 +111,7 @@ function saveTrip(event) {
       const saveExpenditure = {
         detail: expenditureDetail,
         expense: expenditureExpense,
+        username: username,
       };
       expenditures.push(saveExpenditure);
       localStorage.setItem(EXPENDITURE_KEY, JSON.stringify(expenditures));
@@ -178,7 +179,7 @@ function saveTrip(event) {
       }
     }
   } else {
-    const fileValue = `../uploadimg/${file.files[0].name}`;
+    const fileValue = `../uploadimg/${ file.files[0].name }`;
     const save_values = {
       id: id,
       title: title,
@@ -227,9 +228,9 @@ if (savedIdList !== null) {
   const modify_story = document.querySelector(".story");
 
   const modify_id = localStorage.getItem("modify_id");
-  const modify_trip = localStorage.getItem(`${username}'s ${modify_id}'s trip`);
+  const modify_trip = localStorage.getItem(`${ username }'s ${ modify_id }'s trip`);
   const modify_expenditure = localStorage.getItem(
-    `${username}'s ${modify_id}'s expenditure`
+    `${ username }'s ${ modify_id }'s expenditure`
   );
 
   const parsedTrip = JSON.parse(modify_trip);

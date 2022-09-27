@@ -1,63 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile·여행을 담다</title>
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="stylesheet" href="../css/reset.css">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile·여행을 담다</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/profile.css">
+  </head>
 
-<body>
-  <!-- 네비게이션 바 -->
-  <nav>
-    <div class="nav_container">
-      <!-- 네이게이션 로고 -->
-      <div class="nav_left">
-        <div class="nav_logo">
-          <i class="fa-brands fa-atlassian" onclick="location.href=`../index.html`"></i>
-          <div class="logo_name" onclick="location.href=`../index.html`">
-            <span class="logo_name_emphasis">여</span>행을
-            <span class="logo_name_emphasis">담</span>다
-          </div> <!-- index.html = 본인 url -->
-        </div>
-      </div>
-      <div class="nav_right">
-        <div class="nav_menu">
-          <a href="../html/my-story.html" id="myStory" class="hidden_story">My Story</a>
-          <a href="../html/share-story.html" id="shareStory" class="hidden-story">Share Story</a>
-        </div>
-        <!-- 네비게이션 버튼 -->
-        <div class="nav_btn">
-          <button class="login_btn" onclick="location.href=`../html/login.html`">로그인</button>
-          <button class="theme_btn">
-            <img class="theme_img" src="../img/sun.png">
-            <span class="theme_name">Light Mode</span>
-          </button>
-        </div>
-      </div>
-      <!-- 내 정보 -->
-      <div class="myInfo_menu hidden_myInfo_menu">
-        <a class="menu_profile" href="../html/profile.html" onmouseover="hoverColor()" onmouseleave="leaveColor()">
-          <div class="profile" onmouse>프로필 보기
+  <body>
+    <!-- 네비게이션 바 -->
+    <nav>
+      <div class="nav_container">
+        <!-- 네이게이션 로고 -->
+        <div class="nav_left">
+          <div class="nav_logo">
+            <i class="fa-brands fa-atlassian" onclick="location.href=`../index.html`"></i>
+            <div class="logo_name" onclick="location.href=`../index.html`">
+              <span class="logo_name_emphasis">여</span>행을
+              <span class="logo_name_emphasis">담</span>다
+            </div> <!-- index.html = 본인 url -->
           </div>
-        </a>
-        <a class="menu_likeList" href="#">
-          <div class="likeList">좋아요 리스트</div>
-        </a>
-        <a class="menu_logout_btn" href="../index.html">
-          <div class="logout">로그아웃</div>
-        </a>
+        </div>
+        <div class="nav_right">
+          <div class="nav_menu">
+            <a href="../html/my-story.html" id="myStory" class="hidden_story">My Story</a>
+            <a href="../html/share-story.html" id="shareStory" class="hidden-story">Share Story</a>
+          </div>
+          <!-- 네비게이션 버튼 -->
+          <div class="nav_btn">
+            <button class="login_btn" onclick="location.href=`../html/login.html`">로그인</button>
+            <button class="theme_btn">
+              <img class="theme_img" src="../img/sun.png">
+              <span class="theme_name">Light Mode</span>
+            </button>
+          </div>
+        </div>
+        <!-- 내 정보 -->
+        <div class="myInfo_menu hidden_myInfo_menu">
+          <a class="menu_profile" href="../html/profile.html" onmouseover="hoverColor()" onmouseleave="leaveColor()">
+            <div class="profile" onmouse>프로필 보기
+            </div>
+          </a>
+          <a class="menu_likeList" href="../html/like-story.html">
+            <div class="likeList">좋아요 리스트</div>
+          </a>
+          <a class="menu_logout_btn" href="../index.html">
+            <div class="logout">로그아웃</div>
+          </a>
+        </div>
       </div>
-    </div>
-  </nav>
-  <!-- 네비게이션 바 -->
+    </nav>
+    <!-- 네비게이션 바 -->
 
-  <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script src="../js/navbar.js"></script>
-</body>
+    <main>
+      <div class="profile_container">
+        <div class="left">
+          <img class="profile_img" src="../img/user.png" alt="">
+        </div>
+        <div class="right">
+          <div class="profile_detail">
+            <div class="username"></div>
+            <div class="email"></div>
+            <div class="follow"></div>
+            <div class="modify_profile">
+              <button class="modify_profile_btn">정보수정</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/profile.js"></script>
+  </body>
 
 </html>
