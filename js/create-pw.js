@@ -34,6 +34,7 @@ function createPw() {
     localStorage.setItem(EMAIL_KEY, JSON.stringify(arr_email));
     localStorage.setItem(PW_KEY, JSON.stringify(arr_pw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(arr_pwChk));
+    localStorage.setItem("pw_inUse", pw)
   } else {
     parsedUsername.push(username);
     parsedEmail.push(email);
@@ -43,6 +44,7 @@ function createPw() {
     localStorage.setItem(EMAIL_KEY, JSON.stringify(parsedEmail));
     localStorage.setItem(PW_KEY, JSON.stringify(parsedPw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(parsedPwChk));
+    localStorage.setItem("pw_inUse", pw)
   }
   localStorage.removeItem("anotherLogin");
   window.close();
@@ -55,6 +57,10 @@ create_pw_form.addEventListener("submit", (event) => {
   const parsedPw = JSON.parse(localStorage.getItem(PW_KEY));
   if (pw === "" && pwChk === "") {
     alert("값을 입력해주세요.")
+  } else if (pw !== pwChk) {
+    alert("비밀번호가 일치하지 않습니다.")
+  } else if (parsedPw.includes(pw)) {
+    alert("이미 존재하는 비밀번호입니다. 다른 비밀번호를 사용해주세요.")
   } else if (pw === pwChk && parsedPw === null) {
     createPw();
   } else if (pw === pwChk && !parsedPw.includes(pw)) {
