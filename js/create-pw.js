@@ -13,7 +13,6 @@ let arr_email = [];
 let arr_pw = [];
 let arr_pwChk = [];
 
-
 function createPw() {
   // 만약 현재 비밀번호 없고 다 없으면 생성
   const username = localStorage.getItem("username_inUse");
@@ -45,8 +44,7 @@ function createPw() {
     localStorage.setItem(PW_KEY, JSON.stringify(parsedPw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(parsedPwChk));
   }
-  localStorage.removeItem("kakaoLogin");
-  localStorage.removeItem("naverLogin");
+  localStorage.removeItem("anotherLogin");
   window.close();
 }
 
@@ -58,10 +56,8 @@ create_pw_form.addEventListener("submit", (event) => {
   if (pw === "" && pwChk === "") {
     alert("값을 입력해주세요.")
   } else if (pw === pwChk && parsedPw === null) {
-    console.log("hi");
     createPw();
   } else if (pw === pwChk && !parsedPw.includes(pw)) {
-    console.log("ㅈㅇㅂㅈㅇ");
     createPw();
   }
 })

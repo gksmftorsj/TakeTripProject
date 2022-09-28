@@ -28,10 +28,7 @@ function createPwPopup() {
   ); // 팝업창 가운데 정렬
 }
 
-
-
 modify_profile_btn.addEventListener("click", () => {
-
 
   if (localStorage.getItem("anotherLogin") !== null) {
     if (confirm("프로필 수정을 위해서는 비밀번호가 필요합니다. 비밀번호를 등록하시겠습니까?")) {
