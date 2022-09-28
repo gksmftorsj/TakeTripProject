@@ -28,6 +28,7 @@ function kakaoLogin() {
 
           const parsedUsername = JSON.parse(localStorage.getItem("signup_username"));
 
+          console.log(parsedValId);
           if (parsedUsername !== null) {
             if (!parsedUsername.includes(`${ kakao_username }(카카오)`)) {
               localStorage.setItem("username_inUse", `${ kakao_username }(카카오)`);
@@ -39,6 +40,8 @@ function kakaoLogin() {
               if (parsedValId !== null) {
                 console.log("여기 들어와야해")
                 localStorage.setItem("pw_inUse", parsedValId.pw);
+                console.log(parsedValId);
+                console.log(parsedValId.pw)
               } else {
                 console.log("여기 들어오면 안돼")
                 localStorage.setItem("anotherLogin", "anotherLogin");
