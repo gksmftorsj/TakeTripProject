@@ -74,7 +74,7 @@ create_pw_form.addEventListener("submit", (event) => {
     alert("값을 입력해주세요.")
   } else if (pw !== pwChk) {
     alert("비밀번호가 일치하지 않습니다.")
-  } else if (parsedPw !== null) {
+  } else if (pw === pwChk && parsedPw !== null) {
     if (parsedPw.includes(pw)) {
       alert("이미 존재하는 비밀번호입니다. 다른 비밀번호를 사용해주세요.");
     } else if (pw === pwChk && parsedPw === null) {
@@ -82,5 +82,7 @@ create_pw_form.addEventListener("submit", (event) => {
     } else if (pw === pwChk && !parsedPw.includes(pw)) {
       createPw();
     }
+  } else if (pw === pwChk && parsedPw === null) {
+    createPw();
   }
 })

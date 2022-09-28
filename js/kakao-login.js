@@ -7,18 +7,6 @@ function saveToDos(token) {
 // 어플리케이션 연동 JavaScript key
 window.Kakao.init("91873d8a1b7b2681cd331773b09e19db");
 
-function openPopup() {
-  let width = "500";
-  let height = "500";
-  let left = Math.ceil((window.screen.width - width) / 2); // ceil=올림
-  let top = Math.ceil((window.screen.height - height) / 2);
-  window.open(
-    "../html/signup-complete.html",
-    "회원가입완료 팝업",
-    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
-  ); // 팝업창 가운데 정렬
-}
-
 // 로그인
 function kakaoLogin() {
   window.Kakao.Auth.login({
@@ -30,7 +18,6 @@ function kakaoLogin() {
         // 사용자 정보 가져오기
         url: "/v2/user/me",
         success: (res) => {
-          openPopup();
           const kakao_account = res.kakao_account;
           // 가져온 사용자 정보 localStroage에 저장
 
