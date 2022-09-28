@@ -34,64 +34,35 @@ function kakaoLogin() {
           const kakao_account = res.kakao_account;
           // 가져온 사용자 정보 localStroage에 저장
 
-          let username = [];
-          let email = [];
-
           const kakao_username = kakao_account.profile.nickname;
           const kakao_email = kakao_account.email;
 
-          const parsedKakaoUsername = JSON.parse(localStorage.getItem("kakao_usernames"));
-          const parsedKakaoEamil = JSON.parse(localStorage.getItem("kakao_emails"));
-          const parsedValId = JSON.parse(localStorage.getItem(`${ kakao_username }'s val id`));
+          const parsedValId = localStorage.getItem(`${ kakao_username }'s val_id`);
 
-          if (parsedKakaoUsername !== null) {
-            if (!parsedKakaoUsername.includes(kakao_username)) {
-              username = parsedKakaoUsername.filter((username) => username !== kakao_username);
-              username.push(kakao_username);
-
-              email = parsedKakaoEamil.filter((email) => email !== kakao_email);
-              email.push(kakao_email);
-
-              localStorage.setItem("kakao_usernames", JSON.stringify(username));
-              localStorage.setItem("kakao_emails", JSON.stringify(email));
-
+          const parsedUsername = JSON.parse(localStorage.getItem(signup_username));
+          if (parsedUsername !== null) {
+            if (!parsedUsername.includes(kakao_username)) {
               localStorage.setItem("username_inUse", kakao_username);
               localStorage.setItem("email_inUse", kakao_email);
               localStorage.setItem("anotherLogin", "anotherLogin");
               console.log("로그인 성공");
               window.location.href = "https://gksmftorsj.github.io/project0901/";
-            } else {
+            } else if (parsedValId !== null && parsedUsername.includes(kakao_username)) {
               localStorage.setItem("username_inUse", kakao_username);
               localStorage.setItem("email_inUse", kakao_email);
               if (parsedValId !== null) {
-                const pw = parsedValId.pw;
-                localStorage.setItem("pw_inUse", pw);
+                localStorage.setItem("pw_inUse", parsedValId.pw);
               }
+              console.log("로그인 성공");
               window.location.href = "https://gksmftorsj.github.io/project0901/";
             }
           } else {
-            username.push(kakao_username);
-            email.push(kakao_email);
-            localStorage.setItem("kakao_usernames", JSON.stringify(username));
-            localStorage.setItem("kakao_emails", JSON.stringify(email));
-
             localStorage.setItem("username_inUse", kakao_username);
             localStorage.setItem("email_inUse", kakao_email);
             localStorage.setItem("anotherLogin", "anotherLogin");
             console.log("로그인 성공");
             window.location.href = "https://gksmftorsj.github.io/project0901/";
           }
-
-
-
-
-
-
-
-
-
-
-
         },
       });
     },

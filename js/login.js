@@ -140,6 +140,7 @@ function handleSignupBtn(event) {
         }
       }
     }
+
     // 배열에 회원가입 입력값 push
     username.push(usernameValue);
     email.push(emailValue);
