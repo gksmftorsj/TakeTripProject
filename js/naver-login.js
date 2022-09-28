@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
 
       const parsedValId = localStorage.getItem(`${ naver_username }'s val_id`);
 
-      const parsedUsername = JSON.parse(localStorage.getItem(signup_username));
+      const parsedUsername = JSON.parse(localStorage.getItem("signup_username"));
       if (parsedUsername !== null) {
         if (!parsedUsername.includes(`${ naver_username }(네이버)`)) {
           localStorage.setItem("username_inUse", `${ naver_username }(네이버)`);

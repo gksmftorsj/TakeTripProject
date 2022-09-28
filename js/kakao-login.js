@@ -26,7 +26,7 @@ function kakaoLogin() {
 
           const parsedValId = localStorage.getItem(`${ kakao_username }'s val_id`);
 
-          const parsedUsername = JSON.parse(localStorage.getItem(signup_username));
+          const parsedUsername = JSON.parse(localStorage.getItem("signup_username"));
 
           if (parsedUsername !== null) {
             if (!parsedUsername.includes(`${ kakao_username }(카카오)`)) {
