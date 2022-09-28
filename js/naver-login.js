@@ -16,15 +16,37 @@ window.addEventListener("load", function () {
     if (status) {
       // 정상적으로 로그인 되면 status = true
       // (5) 필수적으로 받아야 하는 프로필 정보가 있다면 callback처리 시점에 체크
-      const username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
-      const email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
+      const naver_username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
+      const naver_email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
 
-      localStorage.setItem("username_inUse", username);
-      localStorage.setItem("email_inUse", email);
-      localStorage.setItem("anotherLogin", "anotherLogin");
-      window.location.href =
-        "https://gksmftorsj.github.io/project0901/index.html";
-      //만약 로그인 페이지로 들어오면 바로 메인페이지로 이동
+      const parsedValId = localStorage.getItem(`${ naver_username }'s val_id`);
+
+      const parsedUsername = JSON.parse(localStorage.getItem(signup_username));
+      if (parsedUsername !== null) {
+        if (!parsedUsername.includes(naver_username)) {
+          localStorage.setItem("username_inUse", naver_username);
+          localStorage.setItem("email_inUse", naver_email);
+          localStorage.setItem("anotherLogin", "anotherLogin");
+          console.log("로그인 성공");
+          window.location.href = "https://gksmftorsj.github.io/project0901/";
+        } else if (parsedValId !== null && parsedUsername.includes(naver_username)) {
+          if (parsedValId !== null) {
+            localStorage.setItem("pw_inUse", parsedValId.pw);
+          } else {
+            localStorage.setItem("anotherLogin", "anotherLogin");
+          }
+          localStorage.setItem("username_inUse", naver_username);
+          localStorage.setItem("email_inUse", naver_email);
+          console.log("로그인 성공");
+          window.location.href = "https://gksmftorsj.github.io/project0901/";
+        }
+      } else {
+        localStorage.setItem("username_inUse", naver_username);
+        localStorage.setItem("email_inUse", naver_email);
+        localStorage.setItem("anotherLogin", "anotherLogin");
+        console.log("로그인 성공");
+        window.location.href = "https://gksmftorsj.github.io/project0901/";
+      }
 
       if (username == undefined || username == null) {
         alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
