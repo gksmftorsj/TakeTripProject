@@ -104,14 +104,12 @@ function handleLogoutBtn() {
   localStorage.removeItem("index");
   localStorage.removeItem("lat");
   localStorage.removeItem("lng");
-  if (localStorage.getItem("anotherLogin") !== null) {
-    kakaoLogout();
-    localStorage.removeItem("com.naver.nid.access_token");
-    localStorage.removeItem("com.naver.nid.oauth.state_token");
-    naverOpenPopUp(); // 로그아웃 창 open
-    naverClosePopUp(); // 로그아웃 창 close
-    localStorage.removeItem("anotherLogin");
-  }
+  localStorage.removeItem("com.naver.nid.access_token");
+  localStorage.removeItem("com.naver.nid.oauth.state_token");
+  localStorage.removeItem("anotherLogin");
+  kakaoLogout();
+  naverOpenPopUp(); // 로그아웃 창 open
+  naverClosePopUp(); // 로그아웃 창 close
 }
 
 menu_logout_btn.addEventListener("click", handleLogoutBtn);
