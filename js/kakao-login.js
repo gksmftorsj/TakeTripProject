@@ -40,30 +40,33 @@ function kakaoLogin() {
           const parsedValId = localStorage.getItem(`${ kakao_username }'s val_id`);
 
           const parsedUsername = JSON.parse(localStorage.getItem(signup_username));
+
           if (parsedUsername !== null) {
             if (!parsedUsername.includes(kakao_username)) {
               localStorage.setItem("username_inUse", kakao_username);
               localStorage.setItem("email_inUse", kakao_email);
               localStorage.setItem("anotherLogin", "anotherLogin");
               console.log("로그인 성공");
-              window.location.href = "https://gksmftorsj.github.io/project0901/";
-            } else if (parsedValId !== null && parsedUsername.includes(kakao_username)) {
+              // window.location.href = "https://gksmftorsj.github.io/project0901/";
+            } else {
               if (parsedValId !== null) {
+                console.log("여기 들어와야해")
                 localStorage.setItem("pw_inUse", parsedValId.pw);
               } else {
+                console.log("여기 들어오면 안돼")
                 localStorage.setItem("anotherLogin", "anotherLogin");
               }
               localStorage.setItem("username_inUse", kakao_username);
               localStorage.setItem("email_inUse", kakao_email);
               console.log("로그인 성공");
-              window.location.href = "https://gksmftorsj.github.io/project0901/";
+              // window.location.href = "https://gksmftorsj.github.io/project0901/";
             }
           } else {
             localStorage.setItem("username_inUse", kakao_username);
             localStorage.setItem("email_inUse", kakao_email);
             localStorage.setItem("anotherLogin", "anotherLogin");
             console.log("로그인 성공");
-            window.location.href = "https://gksmftorsj.github.io/project0901/";
+            // window.location.href = "https://gksmftorsj.github.io/project0901/";
           }
         },
       });
