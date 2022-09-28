@@ -37,8 +37,8 @@ function kakaoLogin() {
             "username_inUse",
             kakao_account.profile.nickname
           );
-          localStorage.setItem("email_inUse", kakao_account.email);
-          localStorage.setItem("kakaoLogin", kakao);
+          localStorage.setItem("email_inUse", "kakao_account.email");
+          localStorage.setItem("kakaoLogin", "kakao");
           console.log("로그인 성공");
           window.location.href = "https://gksmftorsj.github.io/project0901/";
         },
