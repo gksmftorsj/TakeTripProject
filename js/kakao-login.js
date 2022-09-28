@@ -29,7 +29,7 @@ function kakaoLogin() {
           const parsedUsername = JSON.parse(localStorage.getItem(signup_username));
 
           if (parsedUsername !== null) {
-            if (!parsedUsername.includes(kakao_username)) {
+            if (!parsedUsername.includes(`${ kakao_username }(카카오)`)) {
               localStorage.setItem("username_inUse", `${ kakao_username }(카카오)`);
               localStorage.setItem("email_inUse", `${ kakao_email }(카카오)`);
               localStorage.setItem("anotherLogin", "anotherLogin");
