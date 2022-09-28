@@ -19,7 +19,7 @@ window.addEventListener("load", function () {
       const naver_username = naverLogin.user.getName(); // 필수정보인 이름 값 받아온 것 저장
       const naver_email = naverLogin.user.getEmail(); // 필수정보인 이메일 값 받아온 것 저장
 
-      const parsedValId = localStorage.getItem(`${ naver_username }(네이버)'s val_id`);
+      const parsedValId = JSON.parse(localStorage.getItem(`${ naver_username }(네이버)'s val_id`));
 
       const parsedUsername = JSON.parse(localStorage.getItem("signup_username"));
       if (parsedUsername !== null) {

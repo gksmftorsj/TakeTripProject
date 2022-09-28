@@ -24,10 +24,9 @@ function kakaoLogin() {
           const kakao_username = kakao_account.profile.nickname;
           const kakao_email = kakao_account.email;
 
-          const parsedValId = localStorage.getItem(`${ kakao_username }(카카오)'s val_id`);
+          const parsedValId = JSON.parse(localStorage.getItem(`${ kakao_username }(카카오)'s val_id`));
 
           const parsedUsername = JSON.parse(localStorage.getItem("signup_username"));
-
           console.log(parsedValId);
           if (parsedUsername !== null) {
             if (!parsedUsername.includes(`${ kakao_username }(카카오)`)) {
@@ -38,10 +37,7 @@ function kakaoLogin() {
               // window.location.href = "https://gksmftorsj.github.io/project0901/";
             } else {
               if (parsedValId !== null) {
-                console.log("여기 들어와야해")
                 localStorage.setItem("pw_inUse", parsedValId.pw);
-                console.log(parsedValId);
-                console.log(parsedValId.pw)
               } else {
                 console.log("여기 들어오면 안돼")
                 localStorage.setItem("anotherLogin", "anotherLogin");
