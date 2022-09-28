@@ -158,6 +158,9 @@ review_form.addEventListener("submit", handleReviewSubmit);
       console.log("hi");
       like_cnt.push(username);
       localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt));
+
+      like_trips.push(like_trip);
+      localStorage.setItem(LIKE_TRIP_KEY, JSON.stringify(like_trips));
     } else if (savedLikeCnt !== null && !savedLikeCnt.includes(username)) {
       like_cnt.push(username);
       localStorage.setItem(LIKE_CNT_KEY, JSON.stringify(like_cnt));

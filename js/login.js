@@ -121,7 +121,7 @@ function handleSignupBtn(event) {
   ) {
     alert("값을 입력해주세요."); // 빈칸이 있으면 경고창
   } else if (pwValue !== pwChkValue) {
-    alert("비밀번호를 확인해주세요."); // 비밀번호와 비밀번호 확인이 다르면 경고창
+    alert("비밀번호가 일치하지 않습니다.."); // 비밀번호와 비밀번호 확인이 다르면 경고창
   } else {
     const parsedUsername = JSON.parse(localStorage.getItem(USERNAME_KEY));
     const parsedEmail = JSON.parse(localStorage.getItem(EMAIL_KEY));

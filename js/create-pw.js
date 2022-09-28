@@ -62,8 +62,14 @@ function createPw() {
     localStorage.setItem(`${ username }'s val_id`, JSON.stringify(val_id));
   }
   localStorage.removeItem("anotherLogin");
-  alert("비밀번호 설정이 완료되었습니다.");
   window.close();
+  alert("비밀번호 설정이 완료되었습니다.");
+  const val_pw = prompt("비밀번호를 입력하세요");
+  if (val_pw === localStorage.getItem("pw_inUse")) {
+    window.location.href = "../html/modify-profile.html";
+  } else {
+    alert("비밀번호가 틀렸습니다.");
+  }
 }
 
 create_pw_form.addEventListener("submit", (event) => {

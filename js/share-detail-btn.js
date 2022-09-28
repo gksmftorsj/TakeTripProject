@@ -9,24 +9,39 @@
   const share_cancel_btn = document.querySelector(".share_cancel_btn");
 
   function cancelShareTrip() {
-    for (let i = 0; i < parsedShareTrips.length; i++) {
-      const share_id = localStorage.getItem("share_id");
-      const parsedId = parsedShareTrips[i].id;
-      if (share_id === parsedId) {
-        cancel_share_trips = parsedShareTrips.filter(
-          (trip) => trip.id !== share_id
-        );
-        cancel_val_share = parsedValShare.filter(
-          (val_share) => val_share !== share_id
-        );
-        localStorage.setItem("share_trips", JSON.stringify(cancel_share_trips));
-        localStorage.setItem("val_share", JSON.stringify(cancel_val_share));
-        localStorage.removeItem(`${ share_id }'s like_cnt`);
-        localStorage.removeItem(`${ share_id }'s reviews`);
+
+    const parsedLikedUsername = JSON.parse(localStorage.getItem(`${ share_id }'s like_cnt`));
+
+    let like_list = [];
+
+    if (parsedLikedUsername !== null) {
+      for (let i = 0; i < parsedLikedUsername.length; i++) {
+        const like_trips = JSON.parse(localStorage.getItem(`${ parsedLikedUsername[i] }'s like_trips`));
+        like_list = like_trips.filter((like_trip) => like_trip.id !== share_id);
+        console.log(like_list);
+        localStorage.setItem(`${ parsedLikedUsername[i] }'s like_trips`, JSON.stringify(like_list));
       }
     }
-  }
 
+    if (parsedShareTrips !== null) {
+      for (let i = 0; i < parsedShareTrips.length; i++) {
+        const parsedId = parsedShareTrips[i].id;
+        if (share_id === parsedId) {
+          cancel_share_trips = parsedShareTrips.filter(
+            (trip) => trip.id !== share_id
+          );
+          cancel_val_share = parsedValShare.filter(
+            (val_share) => val_share !== share_id
+          );
+          localStorage.setItem("share_trips", JSON.stringify(cancel_share_trips));
+          localStorage.setItem("val_share", JSON.stringify(cancel_val_share));
+          localStorage.removeItem(`${ share_id }'s like_cnt`);
+          localStorage.removeItem(`${ share_id }'s reviews`);
+        }
+      }
+    }
+
+  }
   // 삭제버튼
   let delete_trips = [];
   let delete_saved_id = [];

@@ -3,23 +3,38 @@
   let cancel_share_trips = [];
   let cancel_val_share = [];
 
-  const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
-  const parsedValShare = JSON.parse(localStorage.getItem("val_share"));
 
   function cancelShareTrip() {
+
+    const detail_id = localStorage.getItem("detail_id");
+    const parsedLikedUsername = JSON.parse(localStorage.getItem(`${ detail_id }'s like_cnt`));
+
+    let like_list = [];
+
+    if (parsedLikedUsername !== null) {
+      for (let i = 0; i < parsedLikedUsername.length; i++) {
+        const like_trips = JSON.parse(localStorage.getItem(`${ parsedLikedUsername[i] }'s like_trips`));
+        like_list = like_trips.filter((like_trip) => like_trip.id !== detail_id);
+        console.log(like_list);
+        localStorage.setItem(`${ parsedLikedUsername[i] }'s like_trips`, JSON.stringify(like_list));
+      }
+    }
+
+    const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
+    const parsedValShare = JSON.parse(localStorage.getItem("val_share"));
+
     if (parsedShareTrips !== null) {
       for (let i = 0; i < parsedShareTrips.length; i++) {
-        const share_id = localStorage.getItem("share_id");
         const parsedId = parsedShareTrips[i].id;
-        if (share_id === parsedId) {
-          cancel_share_trips = parsedShareTrips.filter(
-            (trip) => trip.id !== share_id
-          );
-          cancel_val_share = parsedValShare.filter(
-            (val_share) => val_share !== share_id
-          );
+        console.log(parsedId);
+        if (detail_id === parsedId) {
+          cancel_share_trips = parsedShareTrips.filter((trip) => trip.id !== detail_id);
+          console.log(cancel_share_trips);
+          cancel_val_share = parsedValShare.filter((val_share) => val_share !== detail_id);
           localStorage.setItem("share_trips", JSON.stringify(cancel_share_trips));
           localStorage.setItem("val_share", JSON.stringify(cancel_val_share));
+          localStorage.removeItem(`${ detail_id }'s like_cnt`);
+          localStorage.removeItem(`${ detail_id }'s reviews`);
         }
       }
     }
