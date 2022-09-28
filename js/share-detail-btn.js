@@ -54,22 +54,21 @@
 
   function deleteToDo() {
     for (let i = 0; i < parsedTrips.length; i++) {
-      const delete_id = localStorage.getItem("detail_id");
       const parsedId = parsedTrips[i].id;
-      console.log(delete_id);
+      console.log(share_id);
       console.log(typeof parsedId);
-      if (delete_id === String(parsedId)) {
+      if (share_id === String(parsedId)) {
         delete_trips = parsedTrips.filter(
-          (trip) => trip.id !== parseInt(delete_id)
+          (trip) => trip.id !== parseInt(share_id)
         );
-        localStorage.removeItem(`${ username }'s ${ delete_id }'s trip`);
-        localStorage.removeItem(`${ username }'s ${ delete_id }'s expenditure`);
-        localStorage.removeItem(`${ delete_id }'s like_cnt`);
+        localStorage.removeItem(`${ username }'s ${ share_id }'s trip`);
+        localStorage.removeItem(`${ username }'s ${ share_id }'s expenditure`);
+        localStorage.removeItem(`${ share_id }'s like_cnt`);
         localStorage.setItem(
           `${ username }'s trips`,
           JSON.stringify(delete_trips)
         );
-        delete_saved_id = parsedIdList.filter((trip) => trip !== delete_id);
+        delete_saved_id = parsedIdList.filter((trip) => trip !== share_id);
         localStorage.setItem(
           `${ username }'s id_list`,
           JSON.stringify(delete_saved_id)
