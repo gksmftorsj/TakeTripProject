@@ -105,7 +105,28 @@ function modifyProfile(event) {
     window.location.href = "../html/profile.html";
   }
 
-  alert("비밀번호와 프로필 이미지가 변경되었습니다.");
+  if (
+    current_pw_value !== "" &&
+    new_pw_value !== "" &&
+    new_pwChk_value !== "" &&
+    file.value !== ""
+  ) {
+    alert("비밀번호와 프로필 이미지가 변경되었습니다.");
+  } else if (
+    file.value !== "" &&
+    current_pw_value === "" &&
+    new_pw_value === "" &&
+    new_pwChk_value === ""
+  ) {
+    alert("프로필 이미지가 변경되었습니다.");
+  } else if (
+    file.value === "" &&
+    current_pw_value !== "" &&
+    new_pw_value !== "" &&
+    new_pwChk_value !== ""
+  ) {
+    alert("비밀번호가 변경되었습니다.");
+  }
 }
 
 modify_profile_btn.addEventListener("click", modifyProfile);
