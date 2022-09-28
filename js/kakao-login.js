@@ -48,11 +48,13 @@ function kakaoLogin() {
               console.log("로그인 성공");
               window.location.href = "https://gksmftorsj.github.io/project0901/";
             } else if (parsedValId !== null && parsedUsername.includes(kakao_username)) {
-              localStorage.setItem("username_inUse", kakao_username);
-              localStorage.setItem("email_inUse", kakao_email);
               if (parsedValId !== null) {
                 localStorage.setItem("pw_inUse", parsedValId.pw);
+              } else {
+                localStorage.setItem("anotherLogin", "anotherLogin");
               }
+              localStorage.setItem("username_inUse", kakao_username);
+              localStorage.setItem("email_inUse", kakao_email);
               console.log("로그인 성공");
               window.location.href = "https://gksmftorsj.github.io/project0901/";
             }
