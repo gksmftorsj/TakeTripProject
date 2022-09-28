@@ -1,21 +1,21 @@
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.create_pw_form{
+.create_pw_form {
   border-radius: 20px;
   width: 450px;
   height: 480px;
-  background: #C4D6D0;
+  background: #c4d6d0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.create_field{
+.create_field {
   width: 64%;
   height: 16%;
   display: flex;
@@ -23,7 +23,7 @@ body{
   align-items: center;
 }
 
-.create_field label{
+.create_field label {
   width: 15%;
   height: 65%;
   display: flex;
@@ -49,11 +49,19 @@ body{
   font-size: 1.4rem;
 }
 
-
-.pw_img{
+.pw_img {
   width: 60%;
   height: 60%;
 }
 
+.create_pw_btn {
+  width: 59%;
+  height: 10%;
+  border-radius: 20px;
+  border: none;
+}
 
-
+.create_pw_btn:hover {
+  cursor: pointer;
+  background-color: antiquewhite;
+}
