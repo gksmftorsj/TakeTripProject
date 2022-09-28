@@ -35,38 +35,39 @@ modify_profile_btn.addEventListener("click", () => {
 
   if (localStorage.getItem("kakaoLogin") !== null) {
     if (confirm("프로필 수정을 위해서는 비밀번호가 필요합니다. 비밀번호를 등록하시겠습니까?")) {
-      createPwPopup()
+      createPwPopup();
+    }
+  } else {
+    const val_pw = prompt("비밀번호를 입력하세요");
+    if (
+      localStorage.getItem("kakaoLogin") === null &&
+      localStorage.getItem("naverLogin") === null
+    ) {
+      if (val_pw === localStorage.getItem("pw_inUse")) {
+        window.location.href = "../html/modify-profile.html";
+      } else {
+        alert("비밀번호가 틀렸습니다.");
+      }
+    } else if (
+      localStorage.getItem("kakaoLogin") === null &&
+      localStorage.getItem("naverLogin") !== null
+    ) {
+      const val_email = prompt("이메일을 입력하세요");
+      if (val_email === localStorage.getItem("email_inUse")) {
+        window.location.href = "../html/modify-profile.html";
+      } else {
+        alert("이메일이 틀렸습니다.");
+      }
+    } else if (
+      localStorage.getItem("kakaoLogin") !== null &&
+      localStorage.getItem("naverLogin") === null
+    ) {
+      const val_email = prompt("이메일을 입력하세요");
+      if (val_email === localStorage.getItem("email_inUse")) {
+        window.location.href = "../html/modify-profile.html";
+      } else {
+        alert("이메일이 틀렸습니다.");
+      }
     }
   }
-  // const val_pw = prompt("비밀번호를 입력하세요");
-  // if (
-  //   localStorage.getItem("kakaoLogin") === null &&
-  //   localStorage.getItem("naverLogin") === null
-  // ) {
-  //   if (val_pw === localStorage.getItem("pw_inUse")) {
-  //     window.location.href = "../html/modify-profile.html";
-  //   } else {
-  //     alert("비밀번호가 틀렸습니다.");
-  //   }
-  // } else if (
-  //   localStorage.getItem("kakaoLogin") === null &&
-  //   localStorage.getItem("naverLogin") !== null
-  // ) {
-  //   const val_email = prompt("이메일을 입력하세요");
-  //   if (val_email === localStorage.getItem("email_inUse")) {
-  //     window.location.href = "../html/modify-profile.html";
-  //   } else {
-  //     alert("이메일이 틀렸습니다.");
-  //   }
-  // } else if (
-  //   localStorage.getItem("kakaoLogin") !== null &&
-  //   localStorage.getItem("naverLogin") === null
-  // ) {
-  //   const val_email = prompt("이메일을 입력하세요");
-  //   if (val_email === localStorage.getItem("email_inUse")) {
-  //     window.location.href = "../html/modify-profile.html";
-  //   } else {
-  //     alert("이메일이 틀렸습니다.");
-  //   }
-  // }
 });
