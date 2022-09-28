@@ -208,6 +208,7 @@ function handleLoginBtn(event) {
   // 회원가입한 아이디가 하나도 없으면 회원가입 해주세요 경고창
   if (val_username === null && val_email === null && val_pw === null) {
     alert("회원가입 먼저 해주세요.");
+    return;
   } else {
     for (let i = 0; i < val_email.length; i++) {
       // 회원가입 된 아이디 개수 만큼 반복문 돌려서 같은 값 있으면 로그인 성공

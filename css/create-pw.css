@@ -1,0 +1,59 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create_pw_form{
+  border-radius: 20px;
+  width: 450px;
+  height: 480px;
+  background: #C4D6D0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create_field{
+  width: 64%;
+  height: 16%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create_field label{
+  width: 15%;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-right: none;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  background-color: #363a40;
+}
+
+.create_field input {
+  width: 75%;
+  height: 64%;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+  background-color: #3a4048;
+  font-size: 1.4rem;
+}
+
+
+.pw_img{
+  width: 60%;
+  height: 60%;
+}
+
+
+
