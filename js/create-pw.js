@@ -35,6 +35,14 @@ function createPw() {
     localStorage.setItem(PW_KEY, JSON.stringify(arr_pw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(arr_pwChk));
     localStorage.setItem("pw_inUse", pw)
+
+    const val_id = {
+      username: username,
+      email: email,
+      pw: pw,
+      pwChk: pwChk,
+    }
+    localStorage.setItem(`${ username }'s val_id`, JSON.stringify(val_id));
   } else {
     parsedUsername.push(username);
     parsedEmail.push(email);
@@ -45,6 +53,13 @@ function createPw() {
     localStorage.setItem(PW_KEY, JSON.stringify(parsedPw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(parsedPwChk));
     localStorage.setItem("pw_inUse", pw)
+    const val_id = {
+      username: username,
+      email: email,
+      pw: pw,
+      pwChk: pwChk,
+    }
+    localStorage.setItem(`${ username }'s val_id`, JSON.stringify(val_id));
   }
   localStorage.removeItem("anotherLogin");
   window.close();

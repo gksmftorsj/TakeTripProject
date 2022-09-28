@@ -37,7 +37,7 @@ modify_profile_btn.addEventListener("click", () => {
   } else {
     const val_pw = prompt("비밀번호를 입력하세요");
     if (val_pw === localStorage.getItem("pw_inUse")) {
-      deleteToDo();
+      window.location.href = "../html/modify-profile.html";
     } else {
       alert("비밀번호가 틀렸습니다.");
     }

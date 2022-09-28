@@ -285,7 +285,7 @@ input[type="date"] {
 }
 
 .trip_place {
-  width: 44%;
+  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -7,18 +7,20 @@
   const parsedValShare = JSON.parse(localStorage.getItem("val_share"));
 
   function cancelShareTrip() {
-    for (let i = 0; i < parsedShareTrips.length; i++) {
-      const share_id = localStorage.getItem("share_id");
-      const parsedId = parsedShareTrips[i].id;
-      if (share_id === parsedId) {
-        cancel_share_trips = parsedShareTrips.filter(
-          (trip) => trip.id !== share_id
-        );
-        cancel_val_share = parsedValShare.filter(
-          (val_share) => val_share !== share_id
-        );
-        localStorage.setItem("share_trips", JSON.stringify(cancel_share_trips));
-        localStorage.setItem("val_share", JSON.stringify(cancel_val_share));
+    if (parsedShareTrips !== null) {
+      for (let i = 0; i < parsedShareTrips.length; i++) {
+        const share_id = localStorage.getItem("share_id");
+        const parsedId = parsedShareTrips[i].id;
+        if (share_id === parsedId) {
+          cancel_share_trips = parsedShareTrips.filter(
+            (trip) => trip.id !== share_id
+          );
+          cancel_val_share = parsedValShare.filter(
+            (val_share) => val_share !== share_id
+          );
+          localStorage.setItem("share_trips", JSON.stringify(cancel_share_trips));
+          localStorage.setItem("val_share", JSON.stringify(cancel_val_share));
+        }
       }
     }
   }
@@ -61,36 +63,30 @@
     }
   }
 
+  function createPwPopup() {
+    let width = "500";
+    let height = "500";
+    let left = Math.ceil((window.screen.width - width) / 2); // ceil=올림
+    let top = Math.ceil((window.screen.height - height) / 2);
+    window.open(
+      "../html/create-pw.html",
+      "비밀번호설정 팝업",
+      `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
+    ); // 팝업창 가운데 정렬
+  }
+
   delete_btn.addEventListener("click", () => {
-    const val_pw = prompt("비밀번호를 입력하세요");
-    if (
-      localStorage.getItem("kakaoLogin") === null &&
-      localStorage.getItem("naverLogin") === null
-    ) {
+
+    if (localStorage.getItem("anotherLogin") !== null) {
+      if (confirm("프로필 수정을 위해서는 비밀번호가 필요합니다. 비밀번호를 등록하시겠습니까?")) {
+        createPwPopup();
+      }
+    } else {
+      const val_pw = prompt("비밀번호를 입력하세요");
       if (val_pw === localStorage.getItem("pw_inUse")) {
         deleteToDo();
       } else {
         alert("비밀번호가 틀렸습니다.");
-      }
-    } else if (
-      localStorage.getItem("kakaoLogin") === null &&
-      localStorage.getItem("naverLogin") !== null
-    ) {
-      const val_email = prompt("이메일을 입력하세요");
-      if (val_email === localStorage.getItem("email_inUse")) {
-        deleteToDo();
-      } else {
-        alert("이메일이 틀렸습니다.");
-      }
-    } else if (
-      localStorage.getItem("kakaoLogin") !== null &&
-      localStorage.getItem("naverLogin") === null
-    ) {
-      const val_email = prompt("이메일을 입력하세요");
-      if (val_email === localStorage.getItem("email_inUse")) {
-        deleteToDo();
-      } else {
-        alert("이메일이 틀렸습니다.");
       }
     }
   });
