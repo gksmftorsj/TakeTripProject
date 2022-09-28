@@ -34,7 +34,7 @@ function kakaoLogin() {
               localStorage.setItem("email_inUse", `${ kakao_email }(카카오)`);
               localStorage.setItem("anotherLogin", "anotherLogin");
               console.log("로그인 성공");
-              // window.location.href = "https://gksmftorsj.github.io/project0901/";
+              window.location.href = "https://gksmftorsj.github.io/project0901/";
             } else {
               if (parsedValId !== null) {
                 localStorage.setItem("pw_inUse", parsedValId.pw);
@@ -44,14 +44,14 @@ function kakaoLogin() {
               localStorage.setItem("username_inUse", `${ kakao_username }(카카오)`);
               localStorage.setItem("email_inUse", `${ kakao_email }(카카오)`);
               console.log("로그인 성공");
-              // window.location.href = "https://gksmftorsj.github.io/project0901/";
+              window.location.href = "https://gksmftorsj.github.io/project0901/";
             }
           } else {
             localStorage.setItem("username_inUse", `${ kakao_username }(카카오)`);
             localStorage.setItem("email_inUse", `${ kakao_email }(카카오)`);
             localStorage.setItem("anotherLogin", "anotherLogin");
             console.log("로그인 성공");
-            // window.location.href = "https://gksmftorsj.github.io/project0901/";
+            window.location.href = "https://gksmftorsj.github.io/project0901/";
           }
         },
       });
