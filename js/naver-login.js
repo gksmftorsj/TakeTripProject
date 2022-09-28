@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
 
       localStorage.setItem("username_inUse", username);
       localStorage.setItem("email_inUse", email);
-      localStorage.setItem("naverLogin", naver);
+      localStorage.setItem("naverLogin", "naver");
       window.location.href =
         "https://gksmftorsj.github.io/project0901/index.html";
       //만약 로그인 페이지로 들어오면 바로 메인페이지로 이동
