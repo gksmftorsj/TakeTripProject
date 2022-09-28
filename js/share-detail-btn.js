@@ -21,8 +21,8 @@
         );
         localStorage.setItem("share_trips", JSON.stringify(cancel_share_trips));
         localStorage.setItem("val_share", JSON.stringify(cancel_val_share));
-        localStorage.removeItem(`${share_id}'s like_cnt`);
-        localStorage.removeItem(`${share_id}'s reviews`);
+        localStorage.removeItem(`${ share_id }'s like_cnt`);
+        localStorage.removeItem(`${ share_id }'s reviews`);
       }
     }
   }
@@ -30,9 +30,9 @@
   // 삭제버튼
   let delete_trips = [];
   let delete_saved_id = [];
-  const parsedTrips = JSON.parse(localStorage.getItem(`${username}'s trips`));
+  const parsedTrips = JSON.parse(localStorage.getItem(`${ username }'s trips`));
   const parsedIdList = JSON.parse(
-    localStorage.getItem(`${username}'s id_list`)
+    localStorage.getItem(`${ username }'s id_list`)
   );
 
   const delete_btn = document.querySelector(".delete_btn");
@@ -47,16 +47,16 @@
         delete_trips = parsedTrips.filter(
           (trip) => trip.id !== parseInt(delete_id)
         );
-        localStorage.removeItem(`${username}'s ${delete_id}'s trip`);
-        localStorage.removeItem(`${username}'s ${delete_id}'s expenditure`);
-        localStorage.removeItem(`${delete_id}'s like_cnt`);
+        localStorage.removeItem(`${ username }'s ${ delete_id }'s trip`);
+        localStorage.removeItem(`${ username }'s ${ delete_id }'s expenditure`);
+        localStorage.removeItem(`${ delete_id }'s like_cnt`);
         localStorage.setItem(
-          `${username}'s trips`,
+          `${ username }'s trips`,
           JSON.stringify(delete_trips)
         );
         delete_saved_id = parsedIdList.filter((trip) => trip !== delete_id);
         localStorage.setItem(
-          `${username}'s id_list`,
+          `${ username }'s id_list`,
           JSON.stringify(delete_saved_id)
         );
         cancelShareTrip();
@@ -67,35 +67,17 @@
   }
 
   delete_btn.addEventListener("click", () => {
-    const val_pw = prompt("비밀번호를 입력하세요");
-    if (
-      localStorage.getItem("kakaoLogin") === null &&
-      localStorage.getItem("naverLogin") === null
-    ) {
+
+    if (localStorage.getItem("anotherLogin") !== null) {
+      if (confirm("프로필 수정을 위해서는 비밀번호가 필요합니다. 비밀번호를 등록하시겠습니까?")) {
+        createPwPopup();
+      }
+    } else {
+      const val_pw = prompt("비밀번호를 입력하세요");
       if (val_pw === localStorage.getItem("pw_inUse")) {
         deleteToDo();
       } else {
         alert("비밀번호가 틀렸습니다.");
-      }
-    } else if (
-      localStorage.getItem("kakaoLogin") === null &&
-      localStorage.getItem("naverLogin") !== null
-    ) {
-      const val_email = prompt("이메일을 입력하세요");
-      if (val_email === localStorage.getItem("email_inUse")) {
-        deleteToDo();
-      } else {
-        alert("이메일이 틀렸습니다.");
-      }
-    } else if (
-      localStorage.getItem("kakaoLogin") !== null &&
-      localStorage.getItem("naverLogin") === null
-    ) {
-      const val_email = prompt("이메일을 입력하세요");
-      if (val_email === localStorage.getItem("email_inUse")) {
-        deleteToDo();
-      } else {
-        alert("이메일이 틀렸습니다.");
       }
     }
   });
