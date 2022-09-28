@@ -85,6 +85,15 @@ function modifyProfile(event) {
       localStorage.setItem("signup_pw", JSON.stringify(pw));
       localStorage.setItem("signup_pwChk", JSON.stringify(pwChk));
       localStorage.setItem("pw_inUse", new_pw_value);
+
+      const val_id = {
+        username: savedUsername,
+        email: savedEmail,
+        pw: new_pw_value,
+        pwChk: new_pwChk_value,
+      }
+      localStorage.setItem(`${ savedUsername }'s val_id`, JSON.stringify(val_id));
+
       alert("비밀번호가 변경되었습니다.");
       window.location.href = "../html/profile.html";
     }

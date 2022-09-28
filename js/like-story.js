@@ -60,35 +60,37 @@ if (parsedLikeTrips !== null) {
 
 let modify_share_trips = [];
 
-for (let i = 0; i < parsedLikeTrips.length; i++) {
-  for (let j = 0; j < parsedLikeTrips.length; j++) {
-    const li = document.querySelectorAll("li");
-    const p = document.querySelectorAll("p");
-    p[i].addEventListener("click", () => {
-      if (li[i].id === String(parsedLikeTrips[j].id)) {
-        localStorage.setItem("share_title", parsedLikeTrips[j].title);
-        localStorage.setItem("share_id", parsedLikeTrips[j].id);
-        localStorage.setItem("share_story", parsedLikeTrips[j].story);
-        localStorage.setItem(
-          "share_expenditure",
-          JSON.stringify(parsedLikeTrips[j].expenditure)
-        );
-        console.log(parsedLikeTrips[j].expenditure);
-        localStorage.setItem("share_username", parsedLikeTrips[j].username);
-        localStorage.setItem("share_img", parsedLikeTrips[j].img);
+if (parsedLikeTrips !== null) {
+  for (let i = 0; i < parsedLikeTrips.length; i++) {
+    for (let j = 0; j < parsedLikeTrips.length; j++) {
+      const li = document.querySelectorAll("li");
+      const p = document.querySelectorAll("p");
+      p[i].addEventListener("click", () => {
+        if (li[i].id === String(parsedLikeTrips[j].id)) {
+          localStorage.setItem("share_title", parsedLikeTrips[j].title);
+          localStorage.setItem("share_id", parsedLikeTrips[j].id);
+          localStorage.setItem("share_story", parsedLikeTrips[j].story);
+          localStorage.setItem(
+            "share_expenditure",
+            JSON.stringify(parsedLikeTrips[j].expenditure)
+          );
+          console.log(parsedLikeTrips[j].expenditure);
+          localStorage.setItem("share_username", parsedLikeTrips[j].username);
+          localStorage.setItem("share_img", parsedLikeTrips[j].img);
 
-        const modify_share_trip = {
-          title: parsedLikeTrips[j].title,
-          story: parsedLikeTrips[j].story,
-          expenditure: parsedLikeTrips[j].expenditure,
-        };
-        modify_share_trips.push(modify_share_trip);
-        localStorage.setItem(
-          "modify_share_trips",
-          JSON.stringify(modify_share_trip)
-        );
-        localStorage.setItem("modify_id", parsedLikeTrips[j].id);
-      }
-    });
+          const modify_share_trip = {
+            title: parsedLikeTrips[j].title,
+            story: parsedLikeTrips[j].story,
+            expenditure: parsedLikeTrips[j].expenditure,
+          };
+          modify_share_trips.push(modify_share_trip);
+          localStorage.setItem(
+            "modify_share_trips",
+            JSON.stringify(modify_share_trip)
+          );
+          localStorage.setItem("modify_id", parsedLikeTrips[j].id);
+        }
+      });
+    }
   }
 }

@@ -28,7 +28,7 @@ window.addEventListener("load", function () {
           localStorage.setItem("email_inUse", `${ naver_email }(네이버)`);
           localStorage.setItem("anotherLogin", "anotherLogin");
           console.log("로그인 성공");
-          window.location.href = "https://gksmftorsj.github.io/project0901/";
+          // window.location.href = "https://gksmftorsj.github.io/project0901/";
         } else if (parsedValId !== null && parsedUsername.includes(naver_username)) {
           if (parsedValId !== null) {
             localStorage.setItem("pw_inUse", parsedValId.pw);
@@ -38,14 +38,14 @@ window.addEventListener("load", function () {
           localStorage.setItem("username_inUse", `${ naver_username }(네이버)`);
           localStorage.setItem("email_inUse", `${ naver_email }(네이버)`);
           console.log("로그인 성공");
-          window.location.href = "https://gksmftorsj.github.io/project0901/";
+          // window.location.href = "https://gksmftorsj.github.io/project0901/";
         }
       } else {
         localStorage.setItem("username_inUse", `${ naver_username }(네이버)`);
         localStorage.setItem("email_inUse", `${ naver_email }(네이버)`);
         localStorage.setItem("anotherLogin", "anotherLogin");
         console.log("로그인 성공");
-        window.location.href = "https://gksmftorsj.github.io/project0901/";
+        // window.location.href = "https://gksmftorsj.github.io/project0901/";
       }
 
       if (username == undefined || username == null) {

@@ -53,7 +53,7 @@ function kakaoLogin() {
             localStorage.setItem("email_inUse", `${ kakao_email }(카카오)`);
             localStorage.setItem("anotherLogin", "anotherLogin");
             console.log("로그인 성공");
-            window.location.href = "https://gksmftorsj.github.io/project0901/";
+            // window.location.href = "https://gksmftorsj.github.io/project0901/";
           }
         },
       });
