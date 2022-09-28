@@ -34,15 +34,15 @@ function createPw() {
     localStorage.setItem(EMAIL_KEY, JSON.stringify(arr_email));
     localStorage.setItem(PW_KEY, JSON.stringify(arr_pw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(arr_pwChk));
-    localStorage.setItem("pw_inUse", pw)
+    localStorage.setItem("pw_inUse", pw);
 
     const val_id = {
       username: username,
       email: email,
       pw: pw,
       pwChk: pwChk,
-    }
-    localStorage.setItem(`${ username }'s val_id`, JSON.stringify(val_id));
+    };
+    localStorage.setItem(`${username}'s val_id`, JSON.stringify(val_id));
   } else {
     parsedUsername.push(username);
     parsedEmail.push(email);
@@ -52,18 +52,18 @@ function createPw() {
     localStorage.setItem(EMAIL_KEY, JSON.stringify(parsedEmail));
     localStorage.setItem(PW_KEY, JSON.stringify(parsedPw));
     localStorage.setItem(PWCHK_KEY, JSON.stringify(parsedPwChk));
-    localStorage.setItem("pw_inUse", pw)
+    localStorage.setItem("pw_inUse", pw);
     const val_id = {
       username: username,
       email: email,
       pw: pw,
       pwChk: pwChk,
-    }
-    localStorage.setItem(`${ username }'s val_id`, JSON.stringify(val_id));
+    };
+    localStorage.setItem(`${username}'s val_id`, JSON.stringify(val_id));
   }
   localStorage.removeItem("anotherLogin");
   window.close();
-  alert("비밀번호 설정이 완료되었습니다.");
+  alert("비밀번호 등록이 완료되었습니다.");
 }
 
 create_pw_form.addEventListener("submit", (event) => {
@@ -72,9 +72,9 @@ create_pw_form.addEventListener("submit", (event) => {
   const pwChk = create_pwChk.value;
   const parsedPw = JSON.parse(localStorage.getItem(PW_KEY));
   if (pw === "" && pwChk === "") {
-    alert("값을 입력해주세요.")
+    alert("값을 입력해주세요.");
   } else if (pw !== pwChk) {
-    alert("비밀번호가 일치하지 않습니다.")
+    alert("비밀번호가 일치하지 않습니다.");
   } else if (pw === pwChk && parsedPw !== null) {
     if (parsedPw.includes(pw)) {
       alert("이미 존재하는 비밀번호입니다. 다른 비밀번호를 사용해주세요.");
@@ -86,4 +86,4 @@ create_pw_form.addEventListener("submit", (event) => {
   } else if (pw === pwChk && parsedPw === null) {
     createPw();
   }
-})
+});

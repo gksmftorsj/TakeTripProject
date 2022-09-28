@@ -17,7 +17,7 @@ body {
 
 .create_field {
   width: 64%;
-  height: 16%;
+  height: 19%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,6 +57,7 @@ body {
 .create_pw_btn {
   width: 59%;
   height: 10%;
+  margin-top: 20px;
   border-radius: 20px;
   border: none;
 }
