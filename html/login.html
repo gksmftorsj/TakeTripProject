@@ -73,7 +73,8 @@
             <label for="signup_username">
               <img class="user_img" src="../img/user.png">
             </label>
-            <input type="text" id="signup_username" placeholder="사용자 이름" maxlength="12" required>
+            <input type="text" id="signup_username" placeholder="사용자 이름" pattern="[가-힣a-zA-Z0-9]{1,12}"
+              title="한글, 영문, 숫자만 가능 최소 1자리에서 12자리까지" required>
           </div>
           <!-- 이메일 -->
           <div class="signup_field email">
