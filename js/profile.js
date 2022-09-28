@@ -1,9 +1,17 @@
+const img = document.querySelector(".profile_img");
 const username = document.querySelector(".username");
 const email = document.querySelector(".email");
 const follow = document.querySelector(".follow");
 
-username.setAttribute("value", savedUsername);
+const profile_img = localStorage.getItem(`${ savedUsername }'s profile_img`);
+
+if (profile_img === null) {
+  img.setAttribute("src", `../img/profile-img/user.png`)
+} else {
+  img.setAttribute("src", profile_img);
+}
 email.setAttribute("value", savedEmail);
+username.setAttribute("value", savedUsername);
 follow.innerText = `팔로우: 0`;
 
 const modify_profile_btn = document.querySelector(".modify_profile_btn");

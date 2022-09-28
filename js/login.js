@@ -125,6 +125,7 @@ function handleSignupBtn(event) {
   } else {
     const parsedUsername = JSON.parse(localStorage.getItem(USERNAME_KEY));
     const parsedEmail = JSON.parse(localStorage.getItem(EMAIL_KEY));
+    const parsedPw = JSON.parse(localStorage.getItem(PW_KEY));
     if (parsedUsername !== null) {
       for (i = 0; i < parsedUsername.length; i++) {
         if (parsedUsername[i] === signupUsername.value) {
@@ -132,6 +133,9 @@ function handleSignupBtn(event) {
           return;
         } else if (parsedEmail[i] === signupEmail.value) {
           alert("이미 존재하는 이메일입니다. 다른 이메일을 사용해주세요.");
+          return;
+        } else if (signupPw.value === signupPwChk.value && parsedPw[i] === signupPw.value) {
+          alert("이미 존재하는 비밀번호입니다. 다른 비밀번호를 사용해주세요.")
           return;
         }
       }
