@@ -15,7 +15,7 @@ function openPopup() {
   window.open(
     "../html/signup-complete.html",
     "회원가입완료 팝업",
-    `width=${width}, height=${height}, left=${left}, top=${top}`
+    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
   ); // 팝업창 가운데 정렬
 }
 
@@ -37,7 +37,7 @@ function kakaoLogin() {
             "username_inUse",
             kakao_account.profile.nickname
           );
-          localStorage.setItem("email_inUse", "kakao_account.email");
+          localStorage.setItem("email_inUse", kakao_account.email);
           localStorage.setItem("kakaoLogin", "kakao");
           console.log("로그인 성공");
           window.location.href = "https://gksmftorsj.github.io/project0901/";
