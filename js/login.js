@@ -92,7 +92,7 @@ function openPopup() {
   window.open(
     "../html/signup-complete.html",
     "회원가입완료 팝업",
-    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
+    `width=${width}, height=${height}, left=${left}, top=${top}`
   ); // 팝업창 가운데 정렬
 }
 
@@ -134,8 +134,11 @@ function handleSignupBtn(event) {
         } else if (parsedEmail[i] === signupEmail.value) {
           alert("이미 존재하는 이메일입니다. 다른 이메일을 사용해주세요.");
           return;
-        } else if (signupPw.value === signupPwChk.value && parsedPw[i] === signupPw.value) {
-          alert("이미 존재하는 비밀번호입니다. 다른 비밀번호를 사용해주세요.")
+        } else if (
+          signupPw.value === signupPwChk.value &&
+          parsedPw[i] === signupPw.value
+        ) {
+          alert("이미 존재하는 비밀번호입니다. 다른 비밀번호를 사용해주세요.");
           return;
         }
       }
@@ -158,8 +161,8 @@ function handleSignupBtn(event) {
       email: emailValue,
       pw: pwValue,
       pwChk: pwChkValue,
-    }
-    localStorage.setItem(`${ usernameValue }'s val_id`, JSON.stringify(val_id));
+    };
+    localStorage.setItem(`${usernameValue}'s val_id`, JSON.stringify(val_id));
 
     // 회원가입 완료 후 입력창 빈 값으로 초기화
     signupUsername.value = "";
@@ -206,11 +209,7 @@ function handleLoginBtn(event) {
   const val_email = JSON.parse(localStorage.getItem(EMAIL_KEY));
   const val_pw = JSON.parse(localStorage.getItem(PW_KEY));
 
-  // 회원가입한 아이디가 하나도 없으면 회원가입 해주세요 경고창
-  if (val_username === null && val_email === null && val_pw === null) {
-    alert("회원가입 먼저 해주세요.");
-    return;
-  } else {
+  if (val_email !== null) {
     for (let i = 0; i < val_email.length; i++) {
       // 회원가입 된 아이디 개수 만큼 반복문 돌려서 같은 값 있으면 로그인 성공
       if (val_email[i] === loginEmail.value && val_pw[i] === loginPw.value) {
@@ -225,8 +224,14 @@ function handleLoginBtn(event) {
       }
     }
   }
-  // 이메일값과 비밀번호값이 일치하지 않을 경우 index값이 없기 때문에 경고창
-  if (localStorage.getItem("index") === null) {
+  if (
+    !localStorage.getItem(EMAIL_KEY).includes(loginEmail.value) &&
+    !localStorage.getItem(PW_KEY).includes(loginPw.value)
+  ) {
+    alert("회원가입 먼저 해주세요");
+    return;
+  } else if (localStorage.getItem("index") === null) {
+    // 이메일값과 비밀번호값이 일치하지 않을 경우 index값이 없기 때문에 경고창
     alert("이메일과 비밀번호를 다시 확인해주세요.");
   }
 }
