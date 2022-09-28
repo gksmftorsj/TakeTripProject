@@ -62,6 +62,7 @@ function createPw() {
     localStorage.setItem(`${ username }'s val_id`, JSON.stringify(val_id));
   }
   localStorage.removeItem("anotherLogin");
+  alert("비밀번호 설정이 완료되었습니다.");
   window.close();
 }
 

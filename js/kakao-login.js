@@ -24,7 +24,7 @@ function kakaoLogin() {
           const kakao_username = kakao_account.profile.nickname;
           const kakao_email = kakao_account.email;
 
-          const parsedValId = localStorage.getItem(`${ kakao_username }'s val_id`);
+          const parsedValId = localStorage.getItem(`${ kakao_username }(카카오)'s val_id`);
 
           const parsedUsername = JSON.parse(localStorage.getItem("signup_username"));
 
