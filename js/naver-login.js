@@ -29,7 +29,7 @@ window.addEventListener("load", function () {
           localStorage.setItem("anotherLogin", "anotherLogin");
           console.log("로그인 성공");
           // window.location.href = "https://gksmftorsj.github.io/project0901/";
-        } else if (parsedValId !== null && parsedUsername.includes(naver_username)) {
+        } else {
           if (parsedValId !== null) {
             localStorage.setItem("pw_inUse", parsedValId.pw);
           } else {

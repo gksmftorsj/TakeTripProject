@@ -39,7 +39,6 @@ function kakaoLogin() {
               if (parsedValId !== null) {
                 localStorage.setItem("pw_inUse", parsedValId.pw);
               } else {
-                console.log("여기 들어오면 안돼")
                 localStorage.setItem("anotherLogin", "anotherLogin");
               }
               localStorage.setItem("username_inUse", `${ kakao_username }(카카오)`);
