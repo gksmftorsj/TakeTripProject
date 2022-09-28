@@ -34,7 +34,7 @@ function createPw() {
     localStorage.setItem(USERNAME_KEY, JSON.stringify(arr_username));
     localStorage.setItem(EMAIL_KEY, JSON.stringify(arr_email));
     localStorage.setItem(PW_KEY, JSON.stringify(arr_pw));
-    localStorage.setItem(PWCHK_KEY, JSON.stringify(parsedPwarr_pwChkChk));
+    localStorage.setItem(PWCHK_KEY, JSON.stringify(arr_pwChk));
   } else {
     parsedUsername.push(username);
     parsedEmail.push(email);
