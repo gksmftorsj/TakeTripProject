@@ -24,8 +24,8 @@ window.addEventListener("load", function () {
       const parsedUsername = JSON.parse(localStorage.getItem(signup_username));
       if (parsedUsername !== null) {
         if (!parsedUsername.includes(naver_username)) {
-          localStorage.setItem("username_inUse", naver_username);
-          localStorage.setItem("email_inUse", naver_email);
+          localStorage.setItem("username_inUse", `${ naver_username }(네이버)`);
+          localStorage.setItem("email_inUse", `${ naver_email }(네이버)`);
           localStorage.setItem("anotherLogin", "anotherLogin");
           console.log("로그인 성공");
           window.location.href = "https://gksmftorsj.github.io/project0901/";
