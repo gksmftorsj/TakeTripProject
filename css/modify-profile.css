@@ -1,0 +1,136 @@
+body {
+  background-color: #bbdefb;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modify_profile_container {
+  margin-top: 130px;
+  background: beige;
+  width: 90%;
+  height: 550px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.left,
+.right {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left {
+  flex-direction: column;
+}
+
+.modify_profile_img {
+  width: 80%;
+  height: 80%;
+  margin-top: 15px;
+}
+
+.modify_img_file {
+  width: 180px;
+}
+
+.modify_profile_form {
+  width: 90%;
+  height: 90%;
+  background: lightsteelblue;
+  border-radius: 40px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username_container,
+.email_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 15%;
+}
+
+.modify_profile_form span {
+  width: 30%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.modify_profile_form input {
+  width: 60%;
+  height: 50%;
+  border-radius: 10px;
+  border: none;
+  margin-left: 5px;
+  font-size: 1.2rem;
+}
+
+.username,
+.email {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.modify_pw_container {
+  width: 100%;
+  height: 47%;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.current_pw_container,
+.new_pw_container,
+.new_pwChk_container {
+  width: 100%;
+  height: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modify_profile_info {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modify_profile {
+  width: 90%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modify_profile button {
+  width: 45%;
+  height: 65%;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  border: none;
+}
+
+.modify_profile_btn:hover,
+.membership_withdrawal_btn:hover {
+  cursor: pointer;
+  background-color: lightcyan;
+}

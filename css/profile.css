@@ -10,7 +10,7 @@ main {
   align-items: center;
 }
 
-.profile_container{
+.profile_container {
   margin-top: 130px;
   background: beige;
   width: 80%;
@@ -20,7 +20,8 @@ main {
   align-items: center;
 }
 
-.left, .right{
+.left,
+.right {
   height: 100%;
   width: 50%;
   display: flex;
@@ -28,30 +29,65 @@ main {
   align-items: center;
 }
 
-.profile_detail{
-  width: 85%;
-  height: 370px;
+.profile_img {
+  width: 80%;
+  height: 80%;
+}
+
+.profile_detail {
+  width: 90%;
+  height: 85%;
   background: lightsteelblue;
   border-radius: 40px;
-  font-size: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.username, .email, .follow{
-  width: 80%;
-  height: 20%;
-  margin-left: 20px;
-  display: flex;
   align-items: center;
 }
 
-.username{
-  margin-top: 20px;
+.profile_info {
+  text-align: center;
+  font-size: 2rem;
 }
 
-.modify_profile{
+.username_container,
+.email_container,
+.follow_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+  font-size: 1.5rem;
+}
+
+.follow_container {
+  justify-content: flex-start;
+}
+
+.username_container > span,
+.email_container > span {
+  width: 25%;
+  text-align: center;
+}
+
+.follow {
+  width: 34%;
+  text-align: center;
+}
+
+.username,
+.email {
+  width: 68%;
+  height: 40%;
+  border-radius: 10px;
+  border: none;
+  margin-left: 5px;
+  font-size: 1.2rem;
+  padding-left: 0.7rem;
+}
+
+.modify_profile {
   width: 100%;
   height: 20%;
   display: flex;
@@ -59,7 +95,7 @@ main {
   align-items: center;
 }
 
-.modify_profile_btn{
+.modify_profile_btn {
   width: 90%;
   height: 65%;
   font-size: 1.5rem;
@@ -67,7 +103,7 @@ main {
   border: none;
 }
 
-.modify_profile_btn:hover{
+.modify_profile_btn:hover {
   cursor: pointer;
   background-color: lightcyan;
 }
