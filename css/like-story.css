@@ -23,7 +23,6 @@ li {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid black;
   width: calc(100% / 2);
   font-size: 1.7rem;
   padding-top: 20px;
@@ -38,11 +37,11 @@ li {
   margin-bottom: 15px;
 }
 
-.username{
+.username {
   height: 100%;
 }
 
-.review_like_cnt{
+.review_like_cnt {
   font-size: 1.2rem;
   margin-left: 20px;
   display: flex;

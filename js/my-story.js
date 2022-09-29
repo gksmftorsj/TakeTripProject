@@ -14,6 +14,7 @@ function showMyTrip(showTrip) {
   const p = document.createElement("p");
   img.setAttribute("src", savedTrip.img);
   img.classList.add("myStory-img");
+  p.classList.add("my_story_title");
   p.addEventListener("click", () => {
     window.location.href = "../html/detail.html";
   });

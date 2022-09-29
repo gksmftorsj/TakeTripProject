@@ -350,6 +350,10 @@ footer {
   text-align: center;
 }
 
+footer span {
+  color: black;
+}
+
 @media screen and (max-width: 1280px) {
   #trip_form {
     width: 100%;

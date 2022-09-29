@@ -23,7 +23,6 @@ li {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid black;
   width: calc(100% / 2);
   font-size: 1.7rem;
   padding-top: 20px;

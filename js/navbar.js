@@ -88,10 +88,6 @@ window.Kakao.Auth.setAccessToken(
 
 // 로그아웃
 function kakaoLogout() {
-  if (!Kakao.Auth.getAccessToken()) {
-    alert("로그인이 되어있지 않습니다.");
-    return; // 로그아웃 완료창 안뜨게 return 사용하여 강제종료
-  }
   Kakao.Auth.logout(function () {
     window.location.href; // 현재 페이지의 href(URL) 반환
   });
@@ -107,6 +103,7 @@ function handleLogoutBtn() {
   localStorage.removeItem("com.naver.nid.access_token");
   localStorage.removeItem("com.naver.nid.oauth.state_token");
   localStorage.removeItem("anotherLogin");
+  localStorage.removeItem("theme");
   kakaoLogout();
   naverOpenPopUp(); // 로그아웃 창 open
   naverClosePopUp(); // 로그아웃 창 close
@@ -120,29 +117,139 @@ menu_logout_btn.addEventListener("click", handleLogoutBtn);
 const theme_btn = document.querySelector(".theme_btn");
 const theme_img = document.querySelector(".theme_img");
 const theme_name = document.querySelector(".theme_name");
+const nav_container = document.querySelector(".nav_container");
+const footer = document.querySelector("footer");
+const footer_span = document.querySelector("footer span");
+const trip_list = document.querySelector("#trip_list");
+const body = document.querySelector("body");
+const write_main_container = document.querySelector(".main_container");
+const write_trip_title = document.querySelector(".trip_title");
+const profile_container = document.querySelector(".profile_container");
+const modify_profile_container = document.querySelector(
+  ".modify_profile_container"
+);
+const theme_detail_container = document.querySelector(".detail_container");
+const share_review_list = document.querySelector(".review_list");
+
+const black = "background-color:black";
+const white = "color:white";
+
+function mainPageTheme() {
+  const theme = localStorage.getItem("theme");
+
+  if (theme !== null) {
+    if (theme === "black") {
+      theme_img.setAttribute("src", "img/moon.png");
+      theme_name.textContent = "Dark Mode";
+      body.setAttribute("style", white);
+      nav_container.setAttribute("style", black);
+      myInfo.setAttribute("src", "img/white_user.png");
+      myInfo.setAttribute("style", "width:40px; height:40px");
+      if (
+        window.location.href.includes("index") ||
+        window.location.href === "https://gksmftorsj.github.io/project0901/"
+      ) {
+        footer.setAttribute("style", black);
+        trip_list.setAttribute(
+          "style",
+          `${black}; border-bottom: 2px solid white`
+        );
+        footer_span.setAttribute("style", white);
+      }
+    } else {
+      theme_img.setAttribute("src", "img/sun.png");
+      theme_name.textContent = "Light Mode";
+      body.setAttribute("style", "");
+      nav_container.setAttribute("style", "");
+      myInfo.setAttribute("src", "img/user.png");
+      myInfo.setAttribute("style", "");
+      if (
+        window.location.href.includes("index") ||
+        window.location.href === "https://gksmftorsj.github.io/project0901/"
+      ) {
+        footer.setAttribute("style", "");
+        trip_list.setAttribute("style", "");
+        footer_span.setAttribute("style", "");
+      }
+    }
+  }
+}
+
+function subPageTheme() {
+  const theme = localStorage.getItem("theme");
+
+  if (theme !== null) {
+    if (theme === "black") {
+      theme_img.setAttribute("src", "../img/moon.png");
+      theme_name.textContent = "Dark Mode";
+      body.setAttribute("style", `${black}; ${white}`);
+      nav_container.setAttribute(
+        "style",
+        `${black}; border-bottom: 2px solid white`
+      );
+      myInfo.setAttribute("src", "../img/white_user.png");
+      myInfo.setAttribute("style", "width:42px; height:40px");
+      if (
+        window.location.href.includes("profile") &&
+        !window.location.href.includes("modify-profile")
+      ) {
+        profile_container.setAttribute("style", "color:black");
+      }
+      if (window.location.href.includes("modify-profile")) {
+        modify_profile_container.setAttribute("style", "color:black");
+      }
+      if (window.location.href.includes("write")) {
+        write_main_container.setAttribute("style", black);
+      }
+      if (window.location.href.includes("detail")) {
+        theme_detail_container.setAttribute("style", "color:black");
+      }
+      if (window.location.href.includes("detailShare")) {
+        share_review_list.setAttribute("style", "color:black");
+      }
+    } else {
+      theme_img.setAttribute("src", "../img/sun.png");
+      theme_name.textContent = "Light Mode";
+      body.setAttribute("style", "");
+      nav_container.setAttribute("style", "");
+      myInfo.setAttribute("src", "../img/user.png");
+      myInfo.setAttribute("style", "");
+      if (window.location.href.includes("write")) {
+        write_main_container.setAttribute("style", "");
+      }
+    }
+  }
+}
+
+if (
+  window.location.href.includes("index") ||
+  window.location.href === "https://gksmftorsj.github.io/project0901/"
+) {
+  mainPageTheme();
+} else {
+  subPageTheme();
+}
 
 function handleThemeBtn() {
+  const theme = localStorage.getItem("theme");
+  if (theme === null) {
+    localStorage.setItem("theme", "black");
+  } else if (theme === "white") {
+    localStorage.setItem("theme", "black");
+  } else {
+    localStorage.setItem("theme", "white");
+  }
   if (
     window.location.href.includes("index") ||
     window.location.href === "https://gksmftorsj.github.io/project0901/"
   ) {
-    if (theme_name.textContent === "Light Mode") {
-      theme_img.setAttribute("src", "img/moon.png");
-      theme_name.textContent = "Dark Mode";
-    } else {
-      theme_img.setAttribute("src", "img/sun.png");
-      theme_name.textContent = "Light Mode";
-    }
+    mainPageTheme();
   } else {
-    if (theme_name.textContent === "Light Mode") {
-      theme_img.setAttribute("src", "../img/moon.png");
-      theme_name.textContent = "Dark Mode";
-    } else {
-      theme_img.setAttribute("src", "../img/sun.png");
-      theme_name.textContent = "Light Mode";
-    }
+    subPageTheme();
   }
 }
 
 theme_btn.addEventListener("click", handleThemeBtn);
 // 테마 변경
+
+console.log(document.querySelector(".detail_expenditure"));
