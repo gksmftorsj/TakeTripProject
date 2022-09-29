@@ -1176,12 +1176,12 @@
   }
 
   // freepik에서 이미지 가져옴
-  const images = ["1"];
+  const images = ["0", "1", "2", "3", "4"];
   const random_image = images[Math.floor(Math.random() * images.length)];
 
   trip_form.setAttribute(
     "style",
-    `background: url(selectimg/${ random_image }.jpg) no-repeat; background-size: cover; background-position-y: -250px`
+    `background: url(img/randomimg/${ random_image }.jpg) no-repeat; background-size: cover; background-position-y: -250px`
   );
 }
 
