@@ -23,7 +23,11 @@ function creatExpenditure(input_detail, input_expense) {
   input_detail.classList.add("detail");
   input_expense.classList.add("expense");
   input_detail.setAttribute("placeholder", "지출내역 ex)숙박비");
+  input_detail.setAttribute("required", "")
   input_expense.setAttribute("placeholder", "지출금액 ex)100000");
+  input_expense.setAttribute("required", "");
+  input_expense.setAttribute("pattern", "[0-9]+");
+  input_expense.setAttribute("title", "숫자만 입력가능합니다.");
   detail_container.appendChild(input_detail);
   expense_container.appendChild(input_expense);
 }

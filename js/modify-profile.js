@@ -95,14 +95,14 @@ function modifyProfile(event) {
       };
       localStorage.setItem(`${ savedUsername }'s val_id`, JSON.stringify(val_id));
 
-      window.location.href = "../html/profile.html";
+      window.location.href = "../html/my-profile.html";
     }
   }
 
   if (file.value !== "") {
     const profile_img = `../img/profile-img/${ file.files[0].name }`;
     localStorage.setItem(`${ savedUsername }'s profile_img`, profile_img);
-    window.location.href = "../html/profile.html";
+    window.location.href = "../html/my-profile.html";
   }
 
   if (

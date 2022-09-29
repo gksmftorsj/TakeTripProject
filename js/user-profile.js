@@ -5,15 +5,9 @@ const registerd_cnt = document.querySelector(".registerd_cnt");
 const shared_cnt = document.querySelector(".shared_cnt");
 
 const share_Username = localStorage.getItem("share_username");
-const savedProfileImg = localStorage.getItem(`${ share_Username }'s profile_img`);
 const parsedRegisterdCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s id_list`));
 const parsedSharedCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s share_cnt`));
 
-if (savedProfileImg === null) {
-  profile_img.setAttribute("src", "../img/profile-img/user.png");
-} else {
-  profile_img.setAttribute("src", savedProfileImg);
-}
 username.innerText = share_Username;
 registerd_cnt.innerText = `등록한 글: ${ parsedRegisterdCnt.length }`;
 shared_cnt.innerText = `공유한 글: ${ parsedSharedCnt.length }`;
@@ -78,29 +72,97 @@ for (let i = 0; i < parsedUserShareTrips.length; i++) {
 }
 
 const follow_btn = document.querySelector(".follow_btn");
+const follower = document.querySelector(".follower")
+const follow = document.querySelector(".follow")
 
-const share_id = localStorage.getItem("share_id");
 const username_inUse = localStorage.getItem("username_inUse");
 
-const FOLLOW_CNT_KEY = `${ share_id }'s follow_cnt`;
+const FOLLOWER_CNT_KEY = `${ share_Username }'s follower_cnt`;
+const FOLLOW_CNT_KEY = `${ username_inUse }'s follow_cnt`;
 
-const follow_cnt = [];
+let follower_cnt = [];
+let follow_cnt = [];
+
+const renderFollowerCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follower_cnt`));
+
+if (renderFollowerCnt === null || renderFollowerCnt.length === 0) {
+  follower.innerText = `팔로워: 0`;
+} else {
+  follower.innerText = `팔로워: ${ renderFollowerCnt.length }`;
+}
+
+const renderFollowCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follow_cnt`));
+
+if (renderFollowCnt === null || renderFollowCnt.length === 0) {
+  follow.innerText = `팔로우: 0`;
+} else {
+  follow.innerText = `팔로우: ${ renderFollowCnt.length }`;
+}
 
 function handelFollowBtn() {
 
-  const savedFollowCnt = localStorage.getItem(FOLLOW_CNT_KEY);
+  const localFollowerCnt = localStorage.getItem(FOLLOWER_CNT_KEY);
 
-  if (savedFollowCnt === null) {
-    follow_cnt.push(username_inUse);
-    localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
-  } else if (savedFollowCnt !== null && !savedFollowCnt.includes(username_inUse)) {
-    follow_cnt.push(username_inUse);
-    localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
-  } else {
-    follow_cnt = follow_cnt.filter((follow_cnt) => follow_cnt !== username_inUse);
-    localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
+  if (share_Username !== username_inUse) {
+    if (localFollowerCnt === null) {
+      follower_cnt.push(username_inUse);
+      localStorage.setItem(FOLLOWER_CNT_KEY, JSON.stringify(follower_cnt));
+      console.log("1번")
+    } else if (localFollowerCnt !== null && !localFollowerCnt.includes(username_inUse)) {
+      follower_cnt.push(username_inUse);
+      localStorage.setItem(FOLLOWER_CNT_KEY, JSON.stringify(follower_cnt));
+      console.log("2번")
+    } else {
+      follower_cnt = follower_cnt.filter((follower_cnt) => follower_cnt !== username_inUse);
+      localStorage.setItem(FOLLOWER_CNT_KEY, JSON.stringify(follower_cnt));
+      console.log("3번")
+    }
+    const renderFollowerCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follower_cnt`));
+
+    if (renderFollowerCnt !== null) {
+      follower.innerText = `팔로워: ${ renderFollowerCnt.length }`;
+    } else {
+      follower.innerText = `팔로워: 0`;
+    }
+
+    const localFollowCnt = localStorage.getItem(FOLLOW_CNT_KEY);
+
+    if (share_Username !== username_inUse) {
+      if (localFollowCnt === null) {
+        follow_cnt.push(username_inUse);
+        localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
+        console.log("1번")
+      } else if (localFollowCnt !== null && !localFollowCnt.includes(username_inUse)) {
+        follow_cnt.push(username_inUse);
+        localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
+        console.log("2번")
+      } else {
+        follow_cnt = follow_cnt.filter((follow_cnt) => follow_cnt !== username_inUse);
+        localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
+        console.log("3번")
+      }
+      const renderFollowCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follow_cnt`));
+
+      if (renderFollowCnt !== null) {
+        follow.innerText = `팔로우: ${ renderFollowCnt.length }`;
+      } else {
+        follow.innerText = `팔로우: 0`;
+      }
+    }
   }
-  const renderFollowCnt = JSON.parse(localStorage.getItem(`${ share_id }'s follow_cnt`));
+}
+follow_btn.addEventListener("click", handelFollowBtn);
+
+const savedFollowerCnt = localStorage.getItem(FOLLOWER_CNT_KEY);
+
+if (savedFollowerCnt !== null) {
+  const parsedFollowerCnt = JSON.parse(savedFollowerCnt);
+  follower_cnt = parsedFollowerCnt;
 }
 
-follow_btn.addEventListener("click", handelFollowBtn);
+const savedFollowCnt = localStorage.getItem(FOLLOW_CNT_KEY);
+
+if (savedFollowCnt !== null) {
+  const parsedFollowCnt = JSON.parse(savedFollowCnt);
+  follow_cnt = parsedFollowCnt;
+}

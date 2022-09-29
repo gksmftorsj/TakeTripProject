@@ -209,8 +209,14 @@ function subPageTheme() {
         share_review_list.setAttribute("style", "color:black");
       }
       if (window.location.href.includes("user-profile")) {
+        const share_Username = localStorage.getItem("share_username");
+        const savedProfileImg = localStorage.getItem(`${ share_Username }'s profile_img`);
+        if (savedProfileImg === null) {
+          user_profile_img.setAttribute("src", "../img/white_user.png");
+        } else {
+          user_profile_img.setAttribute("src", savedProfileImg);
+        }
         profile_container.setAttribute("style", white);
-        user_profile_img.setAttribute("src", "../img/white_user.png");
         user_share_trip_list.setAttribute("style", "border-top: 5px solid white");
       }
     } else {
@@ -224,10 +230,24 @@ function subPageTheme() {
         write_main_container.setAttribute("style", "");
       }
       if (window.location.href.includes("user-profile")) {
+        const share_Username = localStorage.getItem("share_username");
+        const savedProfileImg = localStorage.getItem(`${ share_Username }'s profile_img`);
+        if (savedProfileImg === null) {
+          user_profile_img.setAttribute("src", "../img/user.png");
+        } else {
+          user_profile_img.setAttribute("src", savedProfileImg);
+        }
         profile_container.setAttribute("style", "");
-        user_profile_img.setAttribute("src", "../img/user.png");
         user_share_trip_list.setAttribute("style", "");
       }
+    }
+  } else if (theme === null && window.location.href.includes("user-profile")) {
+    const share_Username = localStorage.getItem("share_username");
+    const savedProfileImg = localStorage.getItem(`${ share_Username }'s profile_img`);
+    if (savedProfileImg === null) {
+      user_profile_img.setAttribute("src", "../img/user.png");
+    } else {
+      user_profile_img.setAttribute("src", savedProfileImg);
     }
   }
 }

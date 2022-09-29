@@ -23,11 +23,13 @@ function showShareTrip(shareTrip) {
       review_cnt.innerText = "댓글(" + parsedReviewCnt.length + ")";
     }
   }
+
   if (parsedLikeCnt !== null) {
     if (parsedLikeCnt.length !== 0) {
       like_cnt.innerText = "좋아요(" + parsedLikeCnt.length + ")";
     }
   }
+
   review_like_cnt.classList.add("review_like_cnt");
   title.classList.add("title");
   li.id = shareTrip.id;

@@ -2,8 +2,9 @@ const img = document.querySelector(".profile_img");
 const username = document.querySelector(".username");
 const email = document.querySelector(".email");
 const follow = document.querySelector(".follow");
+const follower = document.querySelector(".follower");
 
-const profile_img = localStorage.getItem(`${savedUsername}'s profile_img`);
+const profile_img = localStorage.getItem(`${ savedUsername }'s profile_img`);
 
 if (profile_img === null) {
   img.setAttribute("src", `../img/profile-img/user.png`);
@@ -12,7 +13,26 @@ if (profile_img === null) {
 }
 email.setAttribute("value", savedEmail);
 username.setAttribute("value", savedUsername);
-follow.innerText = `팔로우: 0`;
+
+const follower_cnt = JSON.parse(localStorage.getItem(`${ savedUsername }'s follower_cnt`))
+
+if (follower_cnt === null || follower_cnt.length === 0) {
+  follower.innerText = `팔로워: 0`;
+} else {
+  follower.innerText = `팔로워: ${ follower_cnt.length }`;
+}
+
+const follow_cnt = JSON.parse(localStorage.getItem(`${ savedUsername }'s follow_cnt`))
+
+if (follow_cnt === null || follow_cnt.length === 0) {
+  follow.innerText = `팔로우: 0`;
+} else {
+  follow.innerText = `팔로우: ${ follow_cnt.length }`;
+}
+
+
+
+
 
 const modify_profile_btn = document.querySelector(".modify_profile_btn");
 
@@ -24,7 +44,7 @@ function createPwPopup() {
   window.open(
     "../html/create-pw.html",
     "비밀번호설정 팝업",
-    `width=${width}, height=${height}, left=${left}, top=${top}`
+    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
   ); // 팝업창 가운데 정렬
 }
 

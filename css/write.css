@@ -47,7 +47,7 @@ main {
 .expenditure {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .detail_container {
@@ -68,6 +68,12 @@ main {
   font-size: 1.3rem;
   margin-bottom: 10px;
 }
+
+.btn_container{
+  position: relative;
+  top: -10px;
+}
+
 
 .plus_btn {
   width: 40px;
