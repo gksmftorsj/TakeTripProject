@@ -153,7 +153,7 @@ function saveTrip(event) {
     alert("값을 입력해주세요.");
     return;
   } else {
-    const fileValue = `../uploadimg/${ file.files[0].name }`;
+    const fileValue = `../img/uploadimg/${ file.files[0].name }`;
     const save_values = {
       id: id,
       title: title,

@@ -37,9 +37,10 @@ main {
 }
 
 .bottom {
+  width: 100%;
   height: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: baseline;
   margin-top: 10px;
 }
@@ -64,6 +65,7 @@ main {
 
 .detail,
 .expense {
+  width: 90%;
   padding: 5px;
   font-size: 1.3rem;
   margin-bottom: 10px;
