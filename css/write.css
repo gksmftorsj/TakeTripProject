@@ -1,5 +1,8 @@
-main {
+body{
   background-color: #bbdefb;
+}
+
+main {
   width: 100%;
   height: 100vh;
   display: flex;
