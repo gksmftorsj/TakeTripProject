@@ -1,109 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/modify-profile.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MODIFY PROFILE·여행을 담다</title>
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/modify-profile.css">
+</head>
 
-  <body>
-    <!-- 네비게이션 바 -->
-    <nav>
-      <div class="nav_container">
-        <!-- 네이게이션 로고 -->
-        <div class="nav_left">
-          <div class="nav_logo">
-            <i class="fa-solid fa-cart-flatbed-suitcase" onclick="location.href=`../index.html`"></i>
-            <div class="logo_name" onclick="location.href=`../index.html`">
-              <span class="logo_name_emphasis">여</span>행을
-              <span class="logo_name_emphasis">담</span>다
-            </div> <!-- index.html = 본인 url -->
-          </div>
-        </div>
-        <div class="nav_right">
-          <div class="nav_menu">
-            <a href="../html/my-story.html" id="myStory" class="hidden_story">My Story</a>
-            <a href="../html/share-story.html" id="shareStory" class="hidden-story">Share Story</a>
-          </div>
-          <!-- 네비게이션 버튼 -->
-          <div class="nav_btn">
-            <button class="login_btn" onclick="location.href=`../html/login.html`">로그인</button>
-            <button class="theme_btn">
-              <img class="theme_img" src="../img/sun.png">
-              <span class="theme_name">Light Mode</span>
-            </button>
-          </div>
-        </div>
-        <!-- 내 정보 -->
-        <div class="myInfo_menu hidden_myInfo_menu">
-          <a class="menu_profile" href="../html/my-profile.html" onmouseover="hoverColor()" onmouseleave="leaveColor()">
-            <div class="profile" onmouse>프로필 보기
-            </div>
-          </a>
-          <a class="menu_likeList" href="../html/like-story.html">
-            <div class="likeList">좋아요 리스트</div>
-          </a>
-          <a class="menu_logout_btn" href="../index.html">
-            <div class="logout">로그아웃</div>
-          </a>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav>
+    <div class="nav_container">
+      <!-- 네이게이션 로고 -->
+      <div class="nav_left">
+        <div class="nav_logo">
+          <i class="fa-solid fa-cart-flatbed-suitcase" onclick="location.href=`../index.html`"></i>
+          <div class="logo_name" onclick="location.href=`../index.html`">
+            <span class="logo_name_emphasis">여</span>행을
+            <span class="logo_name_emphasis">담</span>다
+          </div> <!-- index.html = 본인 url -->
         </div>
       </div>
-    </nav>
-    <!-- 네비게이션 바 -->
-
-    <main>
-      <div class="modify_profile_container">
-        <div class="left">
-          <img class="modify_profile_img" alt="">
-          <input class="modify_img_file" type="file" multiple>
+      <div class="nav_right">
+        <div class="nav_menu">
+          <a href="../html/my-story.html" id="myStory" class="hidden_story">My Story</a>
+          <a href="../html/share-story.html" id="shareStory" class="hidden-story">Share Story</a>
         </div>
-        <div class="right">
-          <form class="modify_profile_form">
-            <h1 class="modify_profile_info">프로필 수정 정보</h1>
-            <div class="username_container">
-              <span>사용자이름:</span>
-              <input class="username" type="text" readonly>
-            </div>
-            <div class="email_container">
-              <span>이메일:</span>
-              <input class="email" type="text" readonly />
-            </div>
-            <div class="modify_pw_container">
-              <div class="current_pw_container">
-                <span>현재 비밀번호:</span>
-                <input class="current_pw" type="password" placeholder="현재 비밀번호"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
-              </div>
-              <div class="new_pw_container">
-                <span>새 비밀번호:</span>
-                <input class="new_pw" type="password" placeholder="새 비밀번호"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
-              </div>
-              <div class="new_pwChk_container">
-                <span>새 비밀번호 확인:</span>
-                <input class="new_pwChk" type="password" placeholder="새 비밀번호 확인"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
-              </div>
-            </div>
-            <div class="modify_profile">
-              <button class="modify_profile_btn">프로필 수정하기</button>
-              <button class="membership_withdrawal_btn">회원탈퇴</button>
-            </div>
-          </form>
+        <!-- 네비게이션 버튼 -->
+        <div class="nav_btn">
+          <button class="login_btn" onclick="location.href=`../html/login.html`">로그인</button>
+          <button class="theme_btn">
+            <img class="theme_img" src="../img/sun.png">
+            <span class="theme_name">Light Mode</span>
+          </button>
         </div>
       </div>
-    </main>
+      <!-- 내 정보 -->
+      <div class="myInfo_menu hidden_myInfo_menu">
+        <a class="menu_profile" href="../html/my-profile.html" onmouseover="hoverColor()" onmouseleave="leaveColor()">
+          <div class="profile" onmouse>프로필 보기
+          </div>
+        </a>
+        <a class="menu_likeList" href="../html/like-story.html">
+          <div class="likeList">좋아요 리스트</div>
+        </a>
+        <a class="menu_logout_btn" href="../index.html">
+          <div class="logout">로그아웃</div>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- 네비게이션 바 -->
+
+  <main>
+    <div class="modify_profile_container">
+      <div class="left">
+        <img class="modify_profile_img" alt="">
+        <input class="modify_img_file" type="file" multiple>
+      </div>
+      <div class="right">
+        <form class="modify_profile_form">
+          <h1 class="modify_profile_info">프로필 수정 정보</h1>
+          <div class="username_container">
+            <span>사용자이름:</span>
+            <input class="username" type="text" readonly>
+          </div>
+          <div class="email_container">
+            <span>이메일:</span>
+            <input class="email" type="text" readonly />
+          </div>
+          <div class="modify_pw_container">
+            <div class="current_pw_container">
+              <span>현재 비밀번호:</span>
+              <input class="current_pw" type="password" placeholder="현재 비밀번호"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
+            </div>
+            <div class="new_pw_container">
+              <span>새 비밀번호:</span>
+              <input class="new_pw" type="password" placeholder="새 비밀번호"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
+            </div>
+            <div class="new_pwChk_container">
+              <span>새 비밀번호 확인:</span>
+              <input class="new_pwChk" type="password" placeholder="새 비밀번호 확인"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
+            </div>
+          </div>
+          <div class="modify_profile">
+            <button class="modify_profile_btn">프로필 수정하기</button>
+            <button class="membership_withdrawal_btn">회원탈퇴</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
 
 
-    <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script src="../js/navbar.js"></script>
-    <script src="../js/modify-profile.js"></script>
-  </body>
+  <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <script src="../js/navbar.js"></script>
+  <script src="../js/modify-profile.js"></script>
+</body>
 
 </html>

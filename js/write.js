@@ -1,6 +1,6 @@
 const username = localStorage.getItem("username_inUse");
 const id = localStorage.getItem("modify_id");
-const title = localStorage.getItem(`${ id }'s title`);
+const title = localStorage.getItem(`${id}'s title`);
 
 const trip_title = document.querySelector(".trip_title");
 trip_title.innerText = title;
@@ -23,7 +23,7 @@ function creatExpenditure(input_detail, input_expense) {
   input_detail.classList.add("detail");
   input_expense.classList.add("expense");
   input_detail.setAttribute("placeholder", "지출내역 ex)숙박비");
-  input_detail.setAttribute("required", "")
+  input_detail.setAttribute("required", "");
   input_expense.setAttribute("placeholder", "지출금액 ex)100000");
   input_expense.setAttribute("required", "");
   input_expense.setAttribute("pattern", "[0-9]+");
@@ -34,13 +34,16 @@ function creatExpenditure(input_detail, input_expense) {
 
 function addExpenditure(event) {
   event.preventDefault();
-  const input_detail = document.createElement("input");
-  const input_expense = document.createElement("input");
-  creatExpenditure(input_detail, input_expense);
   cnt = localStorage.getItem("cnt");
-  cnt++;
-  localStorage.setItem("cnt", cnt);
-  input_detail.focus();
+  // 4일 때 추가할 수 있으니까 최대 5개까지
+  if (cnt < 5) {
+    const input_detail = document.createElement("input");
+    const input_expense = document.createElement("input");
+    creatExpenditure(input_detail, input_expense);
+    cnt++;
+    localStorage.setItem("cnt", cnt);
+    input_detail.focus();
+  }
 }
 
 plus_btn.addEventListener("click", addExpenditure);
@@ -68,9 +71,9 @@ minus_btn.addEventListener("click", removeExpenditure);
 const story = document.querySelector("textarea");
 const file = document.querySelector("input[type=file]");
 
-const TRIP_KEY = `${ username }'s ${ id }'s trip`;
-const EXPENDITURE_KEY = `${ username }'s ${ id }'s expenditure`;
-const ID_LIST_KEY = `${ username }'s id_list`;
+const TRIP_KEY = `${username}'s ${id}'s trip`;
+const EXPENDITURE_KEY = `${username}'s ${id}'s expenditure`;
+const ID_LIST_KEY = `${username}'s id_list`;
 
 function valId() {
   // 같은 TRIP이 저장되지 않도록 id_list 안에 click_id값이 있으면 click_id값 id_list에 저장되지 않도록 하기
@@ -153,7 +156,7 @@ function saveTrip(event) {
     alert("값을 입력해주세요.");
     return;
   } else {
-    const fileValue = `../img/uploadimg/${ file.files[0].name }`;
+    const fileValue = `../img/uploadimg/${file.files[0].name}`;
     const save_values = {
       id: id,
       title: title,
@@ -202,9 +205,9 @@ if (savedIdList !== null) {
   const modify_story = document.querySelector(".story");
 
   const modify_id = localStorage.getItem("modify_id");
-  const modify_trip = localStorage.getItem(`${ username }'s ${ modify_id }'s trip`);
+  const modify_trip = localStorage.getItem(`${username}'s ${modify_id}'s trip`);
   const modify_expenditure = localStorage.getItem(
-    `${ username }'s ${ modify_id }'s expenditure`
+    `${username}'s ${modify_id}'s expenditure`
   );
 
   const parsedTrip = JSON.parse(modify_trip);

@@ -33,6 +33,10 @@ main {
   border-radius: 50%;
 }
 
+.profile_img:hover {
+  cursor: pointer;
+}
+
 .profile_detail {
   width: 90%;
   height: 85%;
@@ -42,22 +46,22 @@ main {
   align-items: center;
 }
 
-.username_container, 
-.trip_cnt_container, 
-.follow_container{
-  height: calc(100%/3);
+.username_container,
+.trip_cnt_container,
+.follow_container {
+  height: calc(100% / 3);
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.username{
+.username {
   font-size: 2.2rem;
   margin-right: 15px;
 }
 
-.follow_btn{
+.follow_btn {
   width: 50%;
   height: 60%;
   border-radius: 20px;
@@ -65,7 +69,7 @@ main {
   font-size: 1.2rem;
 }
 
-.follow_btn:hover{
+.follow_btn:hover {
   cursor: pointer;
   background-color: lightskyblue;
 }
@@ -73,13 +77,13 @@ main {
 .registerd_cnt,
 .shared_cnt,
 .follow,
-.follower{
+.follower {
   font-size: 1.4rem;
   width: 39%;
 }
 
 .trip_cnt_container,
-.follow_container{
+.follow_container {
   font-size: 1.4rem;
 }
 
@@ -90,6 +94,7 @@ ul {
   width: 100%;
   height: 100%;
   border-top: 5px solid black;
+  margin-bottom: 30px;
 }
 
 li {
@@ -116,5 +121,3 @@ li {
 p:hover {
   cursor: pointer;
 }
-
-

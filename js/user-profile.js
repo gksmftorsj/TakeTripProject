@@ -5,14 +5,34 @@ const registerd_cnt = document.querySelector(".registerd_cnt");
 const shared_cnt = document.querySelector(".shared_cnt");
 
 const share_Username = localStorage.getItem("share_username");
-const parsedRegisterdCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s id_list`));
-const parsedSharedCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s share_cnt`));
+const parsedRegisterdCnt = JSON.parse(
+  localStorage.getItem(`${share_Username}'s id_list`)
+);
+const parsedSharedCnt = JSON.parse(
+  localStorage.getItem(`${share_Username}'s share_cnt`)
+);
 
 username.innerText = share_Username;
-registerd_cnt.innerText = `등록한 글: ${ parsedRegisterdCnt.length }`;
-shared_cnt.innerText = `공유한 글: ${ parsedSharedCnt.length }`;
+registerd_cnt.innerText = `등록한 글: ${parsedRegisterdCnt.length}`;
+shared_cnt.innerText = `공유한 글: ${parsedSharedCnt.length}`;
 
-const parsedUserShareTrips = JSON.parse(localStorage.getItem(`${ share_Username }'s share_trips`));
+function profileImgPopup() {
+  let width = "700";
+  let height = "700";
+  let left = Math.ceil((window.screen.width - width) / 2); // ceil=올림
+  let top = Math.ceil((window.screen.height - height) / 2);
+  window.open(
+    "../html/profile-img.html",
+    "비밀번호설정 팝업",
+    `width=${width}, height=${height}, left=${left}, top=${top}`
+  ); // 팝업창 가운데 정렬
+}
+
+profile_img.addEventListener("click", profileImgPopup);
+
+const parsedUserShareTrips = JSON.parse(
+  localStorage.getItem(`${share_Username}'s share_trips`)
+);
 
 function showShareTrip(shareTrip) {
   const li = document.createElement("li");
@@ -35,7 +55,6 @@ if (parsedUserShareTrips !== null) {
   parsedUserShareTrips.forEach(showShareTrip);
 }
 
-
 let modify_share_trips = [];
 
 for (let i = 0; i < parsedUserShareTrips.length; i++) {
@@ -52,7 +71,10 @@ for (let i = 0; i < parsedUserShareTrips.length; i++) {
           JSON.stringify(parsedUserShareTrips[j].expenditure)
         );
         console.log(parsedUserShareTrips[j].expenditure);
-        localStorage.setItem("share_username", parsedUserShareTrips[j].username);
+        localStorage.setItem(
+          "share_username",
+          parsedUserShareTrips[j].username
+        );
         localStorage.setItem("share_img", parsedUserShareTrips[j].img);
 
         const modify_share_trip = {
@@ -72,55 +94,65 @@ for (let i = 0; i < parsedUserShareTrips.length; i++) {
 }
 
 const follow_btn = document.querySelector(".follow_btn");
-const follower = document.querySelector(".follower")
-const follow = document.querySelector(".follow")
+const follower = document.querySelector(".follower");
+const follow = document.querySelector(".follow");
 
 const username_inUse = localStorage.getItem("username_inUse");
 
-const FOLLOWER_CNT_KEY = `${ share_Username }'s follower_cnt`;
-const FOLLOW_CNT_KEY = `${ username_inUse }'s follow_cnt`;
+const FOLLOWER_CNT_KEY = `${share_Username}'s follower_cnt`;
+const FOLLOW_CNT_KEY = `${username_inUse}'s follow_cnt`;
 
 let follower_cnt = [];
 let follow_cnt = [];
 
-const renderFollowerCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follower_cnt`));
+const renderFollowerCnt = JSON.parse(
+  localStorage.getItem(`${share_Username}'s follower_cnt`)
+);
 
 if (renderFollowerCnt === null || renderFollowerCnt.length === 0) {
   follower.innerText = `팔로워: 0`;
 } else {
-  follower.innerText = `팔로워: ${ renderFollowerCnt.length }`;
+  follower.innerText = `팔로워: ${renderFollowerCnt.length}`;
 }
 
-const renderFollowCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follow_cnt`));
+const renderFollowCnt = JSON.parse(
+  localStorage.getItem(`${share_Username}'s follow_cnt`)
+);
 
 if (renderFollowCnt === null || renderFollowCnt.length === 0) {
   follow.innerText = `팔로우: 0`;
 } else {
-  follow.innerText = `팔로우: ${ renderFollowCnt.length }`;
+  follow.innerText = `팔로우: ${renderFollowCnt.length}`;
 }
 
 function handelFollowBtn() {
-
   const localFollowerCnt = localStorage.getItem(FOLLOWER_CNT_KEY);
 
   if (share_Username !== username_inUse) {
     if (localFollowerCnt === null) {
       follower_cnt.push(username_inUse);
       localStorage.setItem(FOLLOWER_CNT_KEY, JSON.stringify(follower_cnt));
-      console.log("1번")
-    } else if (localFollowerCnt !== null && !localFollowerCnt.includes(username_inUse)) {
+      console.log("1번");
+    } else if (
+      localFollowerCnt !== null &&
+      !localFollowerCnt.includes(username_inUse)
+    ) {
       follower_cnt.push(username_inUse);
       localStorage.setItem(FOLLOWER_CNT_KEY, JSON.stringify(follower_cnt));
-      console.log("2번")
+      console.log("2번");
     } else {
-      follower_cnt = follower_cnt.filter((follower_cnt) => follower_cnt !== username_inUse);
+      follower_cnt = follower_cnt.filter(
+        (follower_cnt) => follower_cnt !== username_inUse
+      );
       localStorage.setItem(FOLLOWER_CNT_KEY, JSON.stringify(follower_cnt));
-      console.log("3번")
+      console.log("3번");
     }
-    const renderFollowerCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follower_cnt`));
+    const renderFollowerCnt = JSON.parse(
+      localStorage.getItem(`${share_Username}'s follower_cnt`)
+    );
 
     if (renderFollowerCnt !== null) {
-      follower.innerText = `팔로워: ${ renderFollowerCnt.length }`;
+      follower.innerText = `팔로워: ${renderFollowerCnt.length}`;
     } else {
       follower.innerText = `팔로워: 0`;
     }
@@ -131,20 +163,27 @@ function handelFollowBtn() {
       if (localFollowCnt === null) {
         follow_cnt.push(username_inUse);
         localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
-        console.log("1번")
-      } else if (localFollowCnt !== null && !localFollowCnt.includes(username_inUse)) {
+        console.log("1번");
+      } else if (
+        localFollowCnt !== null &&
+        !localFollowCnt.includes(username_inUse)
+      ) {
         follow_cnt.push(username_inUse);
         localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
-        console.log("2번")
+        console.log("2번");
       } else {
-        follow_cnt = follow_cnt.filter((follow_cnt) => follow_cnt !== username_inUse);
+        follow_cnt = follow_cnt.filter(
+          (follow_cnt) => follow_cnt !== username_inUse
+        );
         localStorage.setItem(FOLLOW_CNT_KEY, JSON.stringify(follow_cnt));
-        console.log("3번")
+        console.log("3번");
       }
-      const renderFollowCnt = JSON.parse(localStorage.getItem(`${ share_Username }'s follow_cnt`));
+      const renderFollowCnt = JSON.parse(
+        localStorage.getItem(`${share_Username}'s follow_cnt`)
+      );
 
       if (renderFollowCnt !== null) {
-        follow.innerText = `팔로우: ${ renderFollowCnt.length }`;
+        follow.innerText = `팔로우: ${renderFollowCnt.length}`;
       } else {
         follow.innerText = `팔로우: 0`;
       }

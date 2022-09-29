@@ -104,6 +104,8 @@ function handleLogoutBtn() {
   localStorage.removeItem("com.naver.nid.oauth.state_token");
   localStorage.removeItem("anotherLogin");
   localStorage.removeItem("theme");
+  localStorage.removeItem("state");
+  localStorage.removeItem("city");
   kakaoLogout();
   naverOpenPopUp(); // 로그아웃 창 open
   naverClosePopUp(); // 로그아웃 창 close
@@ -153,7 +155,7 @@ function mainPageTheme() {
         footer.setAttribute("style", black);
         trip_list.setAttribute(
           "style",
-          `${ black }; border-bottom: 2px solid white`
+          `${black}; border-bottom: 2px solid white`
         );
         footer_span.setAttribute("style", white);
       }
@@ -183,10 +185,10 @@ function subPageTheme() {
     if (theme === "black") {
       theme_img.setAttribute("src", "../img/moon.png");
       theme_name.textContent = "Dark Mode";
-      body.setAttribute("style", `${ black }; ${ white }`);
+      body.setAttribute("style", `${black}; ${white}`);
       nav_container.setAttribute(
         "style",
-        `${ black }; border-bottom: 2px solid white`
+        `${black}; border-bottom: 2px solid white`
       );
       myInfo.setAttribute("src", "../img/white_user.png");
       myInfo.setAttribute("style", "width:42px; height:40px");
@@ -210,14 +212,19 @@ function subPageTheme() {
       }
       if (window.location.href.includes("user-profile")) {
         const share_Username = localStorage.getItem("share_username");
-        const savedProfileImg = localStorage.getItem(`${ share_Username }'s profile_img`);
+        const savedProfileImg = localStorage.getItem(
+          `${share_Username}'s profile_img`
+        );
         if (savedProfileImg === null) {
           user_profile_img.setAttribute("src", "../img/white_user.png");
         } else {
           user_profile_img.setAttribute("src", savedProfileImg);
         }
         profile_container.setAttribute("style", white);
-        user_share_trip_list.setAttribute("style", "border-top: 5px solid white");
+        user_share_trip_list.setAttribute(
+          "style",
+          "border-top: 5px solid white"
+        );
       }
     } else {
       theme_img.setAttribute("src", "../img/sun.png");
@@ -231,7 +238,9 @@ function subPageTheme() {
       }
       if (window.location.href.includes("user-profile")) {
         const share_Username = localStorage.getItem("share_username");
-        const savedProfileImg = localStorage.getItem(`${ share_Username }'s profile_img`);
+        const savedProfileImg = localStorage.getItem(
+          `${share_Username}'s profile_img`
+        );
         if (savedProfileImg === null) {
           user_profile_img.setAttribute("src", "../img/user.png");
         } else {
@@ -243,7 +252,9 @@ function subPageTheme() {
     }
   } else if (theme === null && window.location.href.includes("user-profile")) {
     const share_Username = localStorage.getItem("share_username");
-    const savedProfileImg = localStorage.getItem(`${ share_Username }'s profile_img`);
+    const savedProfileImg = localStorage.getItem(
+      `${share_Username}'s profile_img`
+    );
     if (savedProfileImg === null) {
       user_profile_img.setAttribute("src", "../img/user.png");
     } else {

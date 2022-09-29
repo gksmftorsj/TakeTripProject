@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/create-pw.css">
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PASSWORD REGISTRATION·여행을 담다</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/create-pw.css">
+</head>
 
-  <body>
+<body>
 
-    <!-- 비밀번호 -->
-    <form class="create_pw_form">
-      <h1>비밀번호 등록</h1>
-      <div class="create_field pw">
-        <label for="create_pw">
-          <img class="pw_img" src="../img/password.png">
-        </label>
-        <input type="password" class="create_pw" placeholder="비밀번호"
-          pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
-          title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
-      </div>
-      <!-- 비밀번호 확인-->
-      <div class="create_field pw">
-        <label for="create_pwChk">
-          <img class="pw_img" src="../img/password.png">
-        </label>
-        <input type="password" class="create_pwChk" placeholder="비밀번호 확인"
-          pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
-          title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
-      </div>
-      <button class="create_pw_btn" type="submit">비밀번호 등록</button>
-    </form>
+  <!-- 비밀번호 -->
+  <form class="create_pw_form">
+    <h1>비밀번호 등록</h1>
+    <div class="create_field pw">
+      <label for="create_pw">
+        <img class="pw_img" src="../img/password.png">
+      </label>
+      <input type="password" class="create_pw" placeholder="비밀번호"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
+        title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
+    </div>
+    <!-- 비밀번호 확인-->
+    <div class="create_field pw">
+      <label for="create_pwChk">
+        <img class="pw_img" src="../img/password.png">
+      </label>
+      <input type="password" class="create_pwChk" placeholder="비밀번호 확인"
+        pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" required
+        title="숫자, 영문, 특수문자 각 1개 이상 포함 최소 8자리에서 최대 16자리까지">
+    </div>
+    <button class="create_pw_btn" type="submit">비밀번호 등록</button>
+  </form>
 
-    <script src="../js/create-pw.js"></script>
-  </body>
+  <script src="../js/create-pw.js"></script>
+</body>
 
 </html>
