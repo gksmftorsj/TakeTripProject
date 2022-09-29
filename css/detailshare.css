@@ -31,18 +31,34 @@ main {
   align-items: center;
 }
 
-.share_username,
+.share_user_profile,
 .share_title {
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.share_username {
+.share_user_profile {
   background-color: antiquewhite;
+}
+
+.share_user_profile_img{
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.share_user_profile_img:hover,
+.share_username:hover{
+  cursor: pointer;
+}
+
+.share_username{
+  font-size: 2rem;
 }
 
 .top_bottom {

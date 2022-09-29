@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/modify-profile.css">
+    <link rel="stylesheet" href="../css/user-profile.css">
   </head>
 
   <body>
@@ -57,53 +57,38 @@
     <!-- 네비게이션 바 -->
 
     <main>
-      <div class="modify_profile_container">
+      <div class="profile_container">
         <div class="left">
-          <img class="modify_profile_img" alt="">
-          <input class="modify_img_file" type="file" multiple>
+          <img class="profile_img" alt="">
         </div>
         <div class="right">
-          <form class="modify_profile_form">
-            <h1 class="modify_profile_info">프로필 수정 정보</h1>
+          <div class="profile_detail">
             <div class="username_container">
-              <span>사용자이름:</span>
-              <input class="username" type="text" readonly>
+              <span class="username">사용자이름:</span>
+              <button class="follow_btn">팔로우</button>
             </div>
-            <div class="email_container">
-              <span>이메일:</span>
-              <input class="email" type="text" readonly />
+            <div class="trip_cnt_container">
+              <span class="registerd_cnt">등록한 글:</span>
+              <span class="shared_cnt">공유한 글:</span>
             </div>
-            <div class="modify_pw_container">
-              <div class="current_pw_container">
-                <span>현재 비밀번호:</span>
-                <input class="current_pw" type="password" placeholder="현재 비밀번호"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
-              </div>
-              <div class="new_pw_container">
-                <span>새 비밀번호:</span>
-                <input class="new_pw" type="password" placeholder="새 비밀번호"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
-              </div>
-              <div class="new_pwChk_container">
-                <span>새 비밀번호 확인:</span>
-                <input class="new_pwChk" type="password" placeholder="새 비밀번호 확인"
-                  pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$">
-              </div>
+            <div class="follow_container">
+              <span class="follow">팔로우:</span>
+              <span class="follower">팔로워:</span>
             </div>
-            <div class="modify_profile">
-              <button class="modify_profile_btn">프로필 수정하기</button>
-              <button class="membership_withdrawal_btn">회원탈퇴</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
+
+      <ul id="user_share_trip_list">
+
+      </ul>
     </main>
 
 
     <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="../js/user-profile.js"></script>
     <script src="../js/navbar.js"></script>
-    <script src="../js/modify-profile.js"></script>
   </body>
 
 </html>

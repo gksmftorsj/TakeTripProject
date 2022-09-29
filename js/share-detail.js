@@ -61,3 +61,33 @@ if (username === share_username) {
   btn_container.appendChild(share_cancel_btn);
   top_bottom_right.appendChild(btn_container);
 }
+
+const profile_img = document.querySelector(".share_user_profile_img");
+
+const savedProfileImg = localStorage.getItem(`${ share_username }'s profile_img`);
+
+if (savedProfileImg === null) {
+  profile_img.setAttribute("src", "../img/profile-img/user.png");
+} else {
+  profile_img.setAttribute("src", savedProfileImg);
+}
+
+function profileImgPopup() {
+  let width = "700";
+  let height = "700";
+  let left = Math.ceil((window.screen.width - width) / 2); // ceil=올림
+  let top = Math.ceil((window.screen.height - height) / 2);
+  window.open(
+    "../html/profile-img.html",
+    "비밀번호설정 팝업",
+    `width=${ width }, height=${ height }, left=${ left }, top=${ top }`
+  ); // 팝업창 가운데 정렬
+}
+
+profile_img.addEventListener("click", profileImgPopup);
+
+const profile_username = document.querySelector(".share_username");
+
+profile_username.addEventListener("click", () => {
+  window.location.href = "../html/user-profile.html";
+})

@@ -8,8 +8,14 @@
 
     const detail_id = localStorage.getItem("detail_id");
     const parsedLikedUsername = JSON.parse(localStorage.getItem(`${ detail_id }'s like_cnt`));
+    const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
+    const parsedValShare = JSON.parse(localStorage.getItem("val_share"));
+    const parsedUserShareTrips = JSON.parse(localStorage.getItem(`${ username }'s share_trips`));
+    const parsedUserShareCnt = JSON.parse(localStorage.getItem(`${ username }'s share_cnt`));
 
     let like_list = [];
+
+    let user_share_trips = [];
 
     if (parsedLikedUsername !== null) {
       for (let i = 0; i < parsedLikedUsername.length; i++) {
@@ -20,8 +26,6 @@
       }
     }
 
-    const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
-    const parsedValShare = JSON.parse(localStorage.getItem("val_share"));
 
     if (parsedShareTrips !== null) {
       for (let i = 0; i < parsedShareTrips.length; i++) {
@@ -38,8 +42,32 @@
         }
       }
     }
+
+    // 사용자's like_trips에서 삭제
+
+    if (parsedUserShareTrips !== null) {
+      for (let i = 0; i < parsedUserShareTrips.length; i++) {
+        const parsedId = parsedUserShareTrips[i].id;
+        if (detail_id === parsedId) {
+          user_share_trips = parsedUserShareTrips.filter((trip) => trip.id !== detail_id);
+          localStorage.setItem(`${ username }'s share_trips`, JSON.stringify(user_share_trips));
+        }
+      }
+    }
+
+    if (parsedUserShareCnt !== null) {
+      for (let i = 0; i < parsedUserShareCnt.length; i++) {
+        const parsedId = parsedUserShareCnt[i];
+        if (detail_id === parsedId) {
+          user_share_trips = parsedUserShareCnt.filter((trip) => trip !== detail_id);
+          localStorage.setItem(`${ username }'s share_cnt`, JSON.stringify(user_share_trips));
+        }
+      }
+    }
+
   }
 
+  // 삭제 버튼
   let delete_trips = [];
   let delete_saved_id = [];
 
@@ -124,9 +152,15 @@
   // 공유버튼
   const share_btn = document.querySelector(".share_btn");
 
+  // 전체 share_trips
   let share_trips = [];
 
+  // 각 유저별 share_trips
+  let user_share_trips = [];
+
   let val_share = [];
+
+  let share_cnt = [];
 
   function shareTrip() {
     const detail_title = localStorage.getItem("detail_title");
@@ -157,9 +191,12 @@
       localStorage.setItem("share_trips", JSON.stringify(share_trips));
       val_share.push(detail_id);
       localStorage.setItem("val_share", JSON.stringify(val_share));
+      user_share_trips.push(share_trip);
+      localStorage.setItem(`${ username }'s share_trips`, JSON.stringify(user_share_trips));
+      share_cnt.push(detail_id);
+      localStorage.setItem(`${ username }'s share_cnt`, JSON.stringify(share_cnt));
       alert("공유되었습니다.");
-      console.log(val_share.includes(detail_id));
-      console.log(parsedShareTrips);
+
     } else if (val_share.includes(detail_id)) {
       alert("이미 공유되었습니다.");
       return;
@@ -176,6 +213,10 @@
       localStorage.setItem("share_trips", JSON.stringify(share_trips));
       val_share.push(detail_id);
       localStorage.setItem("val_share", JSON.stringify(val_share));
+      user_share_trips.push(share_trip);
+      localStorage.setItem(`${ username }'s share_trips`, JSON.stringify(user_share_trips));
+      share_cnt.push(detail_id);
+      localStorage.setItem(`${ username }'s share_cnt`, JSON.stringify(share_cnt));
       alert("공유되었습니다.");
     }
   }
@@ -193,6 +234,22 @@
     const parsedValShare = JSON.parse(savedValShare);
     val_share = parsedValShare;
   }
+
+  const savedUserShareTrips = localStorage.getItem(`${ username }'s share_trips`);
+
+  if (savedUserShareTrips !== null) {
+    const parsedUserShareTrips = JSON.parse(savedUserShareTrips);
+    user_share_trips = parsedUserShareTrips;
+  }
+
+  const savedUserShareCnt = localStorage.getItem(`${ username }'s share_cnt`);
+
+  if (savedUserShareCnt !== null) {
+    const parsedUserShareCnt = JSON.parse(savedUserShareCnt);
+    share_cnt = parsedUserShareCnt;
+  }
+
+
 
   share_btn.addEventListener("click", shareTrip);
 }

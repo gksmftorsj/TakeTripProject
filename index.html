@@ -1,141 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HOME·여행을 담다</title>
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/main.css">
-  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME·여행을 담다</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ttfruz2xcz"></script>
+  </head>
 
-<body>
-  <!-- 네비게이션 바 -->
-  <nav>
-    <div class="nav_container">
-      <!-- 네이게이션 로고 -->
-      <div class="nav_left">
-        <div class="nav_logo">
-          <i class="fa-solid fa-cart-flatbed-suitcase" onclick="location.href=`index.html`"></i>
-          <div class="logo_name" onclick="location.href=`index.html`">
-            <span class="logo_name_emphasis">여</span>행을
-            <span class="logo_name_emphasis">담</span>다
-          </div> <!-- index.html = 본인 url -->
-        </div>
-      </div>
-      <div class="nav_right">
-        <div class="nav_menu">
-          <a href="html/my-story.html" id="myStory" class="hidden_story">My Story</a>
-          <a href="html/share-story.html" id="shareStory" class="hidden-story">Share Story</a>
-        </div>
-        <!-- 네비게이션 버튼 -->
-        <div class="nav_btn">
-          <button class="login_btn" onclick="location.href=`html/login.html`">로그인</button>
-          <button class="theme_btn">
-            <img class="theme_img" src="img/sun.png">
-            <span class="theme_name">Light Mode</span>
-          </button>
-        </div>
-      </div>
-      <!-- 내 정보 -->
-      <div class="myInfo_menu hidden_myInfo_menu">
-        <a class="menu_profile" href="html/profile.html" onmouseover="hoverColor()" onmouseleave="leaveColor()">
-          <div class="profile" onmouse>프로필 보기
-          </div>
-        </a>
-        <a class="menu_likeList" href="html/like-story.html">
-          <div class="likeList">좋아요 리스트</div>
-        </a>
-        <a class="menu_logout_btn" href="index.html">
-          <div class="logout">로그아웃</div>
-        </a>
-      </div>
-    </div>
-  </nav>
-  <!-- 네비게이션 바 -->
-
-  <!-- 공유마당에서 가져온 영상 -->
-  <video src="video/mainVideo.mp4" autoplay muted loop width="100%"></video>
-
-  <!-- 여행 담기 -->
-  <header>
-    <div class="header_container">
-      <form id="trip_form">
-        <span class="add_trip">여행 담기 ➕</span>
-        <!-- 도시 선택 -->
-        <span class="trip_place">어디 다녀오셨나요?</span>
-        <div id="select_city" class="visibility_city">
-          <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
-          <div id="state_container">
-            <select id="state" onchange="categoryChange(this)" required>
-              <option>시/도 선택</option>
-              <option value="서울특별시">서울특별시</option>
-              <option value="인천광역시">인천광역시</option>
-              <option value="대전광역시">대전광역시</option>
-              <option value="광주광역시">광주광역시</option>
-              <option value="대구광역시">대구광역시</option>
-              <option value="울산광역시">울산광역시</option>
-              <option value="부산광역시">부산광역시</option>
-              <option value="경기도">경기도</option>
-              <option value="강원도">강원도</option>
-              <option value="충청북도">충청북도</option>
-              <option value="충청남도">충청남도</option>
-              <option value="전라북도">전라북도</option>
-              <option value="전라남도">전라남도</option>
-              <option value="경상북도">경상북도</option>
-              <option value="경상남도">경상남도</option>
-              <option value="제주도">제주도</option>
-            </select>
-            <span class="iconArrow">
-              <i class="fa-solid fa-angle-down iconFrom"></i>
-            </span>
-          </div>
-          <span id="tilde">~</span>
-          <div id="city_container">
-            <select id="city" required>
-              <option>군/구 선택</option>
-            </select>
-            <span class="iconArrow">
-              <i class="fa-solid fa-angle-down iconTo"></i>
-            </span>
+  <body>
+    <!-- 네비게이션 바 -->
+    <nav>
+      <div class="nav_container">
+        <!-- 네이게이션 로고 -->
+        <div class="nav_left">
+          <div class="nav_logo">
+            <i class="fa-solid fa-cart-flatbed-suitcase" onclick="location.href=`index.html`"></i>
+            <div class="logo_name" onclick="location.href=`index.html`">
+              <span class="logo_name_emphasis">여</span>행을
+              <span class="logo_name_emphasis">담</span>다
+            </div> <!-- index.html = 본인 url -->
           </div>
         </div>
-        <!-- 날짜 선택 -->
-        <div class="hidden_date">
-          <span class="trip_period">여행기간</span>
-          <div id="select_date">
-            <input type="date" id="date_from" required>
+        <div class="nav_right">
+          <div class="nav_menu">
+            <a href="html/my-story.html" id="myStory" class="hidden_story">My Story</a>
+            <a href="html/share-story.html" id="shareStory" class="hidden-story">Share Story</a>
+          </div>
+          <!-- 네비게이션 버튼 -->
+          <div class="nav_btn">
+            <button class="login_btn" onclick="location.href=`html/login.html`">로그인</button>
+            <button class="theme_btn">
+              <img class="theme_img" src="img/sun.png">
+              <span class="theme_name">Light Mode</span>
+            </button>
+          </div>
+        </div>
+        <!-- 내 정보 -->
+        <div class="myInfo_menu hidden_myInfo_menu">
+          <a class="menu_profile" href="html/my-profile.html" onmouseover="hoverColor()" onmouseleave="leaveColor()">
+            <div class="profile" onmouse>프로필 보기
+            </div>
+          </a>
+          <a class="menu_likeList" href="html/like-story.html">
+            <div class="likeList">좋아요 리스트</div>
+          </a>
+          <a class="menu_logout_btn" href="index.html">
+            <div class="logout">로그아웃</div>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- 네비게이션 바 -->
+
+    <!-- 공유마당에서 가져온 영상 -->
+    <video src="video/mainVideo.mp4" autoplay muted loop width="100%"></video>
+
+    <!-- 여행 담기 -->
+    <header>
+      <div class="header_container">
+        <form id="trip_form">
+          <span class="add_trip">여행 담기 ➕</span>
+          <!-- 도시 선택 -->
+          <span class="trip_place">어디 다녀오셨나요?</span>
+          <div id="select_city" class="visibility_city">
+            <!-- state select(this)에 대해 변화가 일어나면 categoryChange 함수 실행 -->
+            <div id="state_container">
+              <select id="state" onchange="categoryChange(this)" required>
+                <option>시/도 선택</option>
+                <option value="서울특별시">서울특별시</option>
+                <option value="인천광역시">인천광역시</option>
+                <option value="대전광역시">대전광역시</option>
+                <option value="광주광역시">광주광역시</option>
+                <option value="대구광역시">대구광역시</option>
+                <option value="울산광역시">울산광역시</option>
+                <option value="부산광역시">부산광역시</option>
+                <option value="경기도">경기도</option>
+                <option value="강원도">강원도</option>
+                <option value="충청북도">충청북도</option>
+                <option value="충청남도">충청남도</option>
+                <option value="전라북도">전라북도</option>
+                <option value="전라남도">전라남도</option>
+                <option value="경상북도">경상북도</option>
+                <option value="경상남도">경상남도</option>
+                <option value="제주도">제주도</option>
+              </select>
+              <span class="iconArrow">
+                <i class="fa-solid fa-angle-down iconFrom"></i>
+              </span>
+            </div>
             <span id="tilde">~</span>
-            <input type="date" id="date_to" required>
+            <div id="city_container">
+              <select id="city" required>
+                <option>군/구 선택</option>
+              </select>
+              <span class="iconArrow">
+                <i class="fa-solid fa-angle-down iconTo"></i>
+              </span>
+            </div>
           </div>
-          <input type="submit" id="save_btn" value="저장"></input>
-        </div>
-      </form>
-    </div>
-  </header>
-  <!-- 여행 담기 -->
+          <!-- 날짜 선택 -->
+          <div class="hidden_date">
+            <span class="trip_period">여행기간</span>
+            <div id="select_date">
+              <input type="date" id="date_from" required>
+              <span id="tilde">~</span>
+              <input type="date" id="date_to" required>
+            </div>
+            <input type="submit" id="save_btn" value="저장"></input>
+          </div>
+        </form>
+      </div>
+    </header>
+    <!-- 여행 담기 -->
 
-  <!-- 네이버 지도 + 여행 리스트 -->
-  <main>
-    <div class="main_container">
-      <div id="map"></div>
-      <ul id="trip_list"></ul>
-    </div>
-  </main>
+    <!-- 네이버 지도 + 여행 리스트 -->
+    <main>
+      <div class="main_container">
+        <div id="map"></div>
+        <ul id="trip_list"></ul>
+      </div>
+    </main>
 
-  <!-- 하단 -->
-  <footer>
-    <span>CONTACT ME</span>
-  </footer>
+    <!-- 하단 -->
+    <footer>
+      <span>CONTACT ME</span>
+    </footer>
 
-  <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
-  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-  <script src="js/navbar.js"></script>
-  <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/54789f48fa.js" crossorigin="anonymous"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/index.js"></script>
 
-</body>
+  </body>
 
 </html>

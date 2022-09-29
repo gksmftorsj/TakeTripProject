@@ -3,16 +3,23 @@
   let cancel_share_trips = [];
   let cancel_val_share = [];
 
-  const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
-  const parsedValShare = JSON.parse(localStorage.getItem("val_share"));
 
   const share_cancel_btn = document.querySelector(".share_cancel_btn");
 
   function cancelShareTrip() {
 
+    const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
+    const parsedValShare = JSON.parse(localStorage.getItem("val_share"));
+    const parsedUserShareTrips = JSON.parse(localStorage.getItem(`${ username }'s share_trips`))
+    const parsedUserShareCnt = JSON.parse(localStorage.getItem(`${ username }'s share_cnt`));
     const parsedLikedUsername = JSON.parse(localStorage.getItem(`${ share_id }'s like_cnt`));
 
+
     let like_list = [];
+
+    let user_share_trips = [];
+
+    let share_cnt = [];
 
     if (parsedLikedUsername !== null) {
       for (let i = 0; i < parsedLikedUsername.length; i++) {
@@ -41,7 +48,31 @@
       }
     }
 
+    if (parsedUserShareTrips !== null) {
+      for (let i = 0; i < parsedUserShareTrips.length; i++) {
+        const parsedId = parsedUserShareTrips[i].id;
+        if (share_id === parsedId) {
+          user_share_trips = parsedUserShareTrips.filter((trip) => trip.id !== share_id);
+          localStorage.setItem(`${ username }'s share_trips`, JSON.stringify(user_share_trips));
+        }
+      }
+    }
+
+    if (parsedUserShareCnt !== null) {
+      for (let i = 0; i < parsedUserShareCnt.length; i++) {
+        const parsedId = parsedUserShareCnt[i];
+        console.log(parsedId);
+        console.log(share_id);
+        if (share_id === parsedId) {
+          share_cnt = parsedUserShareCnt.filter((trip) => trip !== share_id);
+          localStorage.setItem(`${ username }'s share_cnt`, JSON.stringify(share_cnt));
+        }
+      }
+    }
+
+
   }
+
   // 삭제버튼
   let delete_trips = [];
   let delete_saved_id = [];

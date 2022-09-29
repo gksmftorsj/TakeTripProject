@@ -130,6 +130,7 @@ const modify_profile_container = document.querySelector(
 );
 const theme_detail_container = document.querySelector(".detail_container");
 const share_review_list = document.querySelector(".review_list");
+const user_profile_img = document.querySelector(".profile_img");
 
 const black = "background-color:black";
 const white = "color:white";
@@ -152,7 +153,7 @@ function mainPageTheme() {
         footer.setAttribute("style", black);
         trip_list.setAttribute(
           "style",
-          `${black}; border-bottom: 2px solid white`
+          `${ black }; border-bottom: 2px solid white`
         );
         footer_span.setAttribute("style", white);
       }
@@ -182,10 +183,10 @@ function subPageTheme() {
     if (theme === "black") {
       theme_img.setAttribute("src", "../img/moon.png");
       theme_name.textContent = "Dark Mode";
-      body.setAttribute("style", `${black}; ${white}`);
+      body.setAttribute("style", `${ black }; ${ white }`);
       nav_container.setAttribute(
         "style",
-        `${black}; border-bottom: 2px solid white`
+        `${ black }; border-bottom: 2px solid white`
       );
       myInfo.setAttribute("src", "../img/white_user.png");
       myInfo.setAttribute("style", "width:42px; height:40px");
@@ -207,6 +208,11 @@ function subPageTheme() {
       if (window.location.href.includes("detailShare")) {
         share_review_list.setAttribute("style", "color:black");
       }
+      if (window.location.href.includes("user-profile")) {
+        profile_container.setAttribute("style", white);
+        user_profile_img.setAttribute("src", "../img/white_user.png");
+        user_share_trip_list.setAttribute("style", "border-top: 5px solid white");
+      }
     } else {
       theme_img.setAttribute("src", "../img/sun.png");
       theme_name.textContent = "Light Mode";
@@ -216,6 +222,11 @@ function subPageTheme() {
       myInfo.setAttribute("style", "");
       if (window.location.href.includes("write")) {
         write_main_container.setAttribute("style", "");
+      }
+      if (window.location.href.includes("user-profile")) {
+        profile_container.setAttribute("style", "");
+        user_profile_img.setAttribute("src", "../img/user.png");
+        user_share_trip_list.setAttribute("style", "");
       }
     }
   }

@@ -1,4 +1,4 @@
-const share_trip_list = document.getElementById("share_trip_list");
+const share_trip_list = document.querySelector("#share_trip_list");
 
 const parsedShareTrips = JSON.parse(localStorage.getItem("share_trips"));
 

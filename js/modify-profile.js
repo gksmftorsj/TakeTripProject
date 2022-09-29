@@ -3,7 +3,7 @@ const file = document.querySelector("input[type=file]");
 const username = document.querySelector(".username");
 const email = document.querySelector(".email");
 
-const profile_img = localStorage.getItem(`${savedUsername}'s profile_img`);
+const profile_img = localStorage.getItem(`${ savedUsername }'s profile_img`);
 
 file.onchange = function () {
   var reader = new FileReader();
@@ -50,7 +50,7 @@ function modifyProfile(event) {
     file.value === ""
   ) {
     if (confirm("수정한 값이 없습니다. 프로필 수정을 종료하시겠습니까?")) {
-      window.location.href = "../html/profile.html";
+      window.location.href = "../html/my-profile.html";
     }
   }
 
@@ -93,15 +93,15 @@ function modifyProfile(event) {
         pw: new_pw_value,
         pwChk: new_pwChk_value,
       };
-      localStorage.setItem(`${savedUsername}'s val_id`, JSON.stringify(val_id));
+      localStorage.setItem(`${ savedUsername }'s val_id`, JSON.stringify(val_id));
 
       window.location.href = "../html/profile.html";
     }
   }
 
   if (file.value !== "") {
-    const profile_img = `../img/profile-img/${file.files[0].name}`;
-    localStorage.setItem(`${savedUsername}'s profile_img`, profile_img);
+    const profile_img = `../img/profile-img/${ file.files[0].name }`;
+    localStorage.setItem(`${ savedUsername }'s profile_img`, profile_img);
     window.location.href = "../html/profile.html";
   }
 
